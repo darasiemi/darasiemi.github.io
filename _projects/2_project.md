@@ -5,7 +5,7 @@ title: Financial Fraud Analysis using Synthetic data via Data Engineering.
 img: assets/img/data_engineering_architecture.new.svg
 importance: 2
 category: work
-giscus_comments: true
+# giscus_comments: true
 ---
 
 In this project, I explored the end-to-end data engineering pipeline, showcasing each stage from data ingestion to final analysis. The pipeline encompasses various technologies and tools to achieve seamless data processing and analysis. This is my first data engineering project and I am happy to pick up these tools. I selected the project theme of financial fraud to get comfortable with financial data, which is a key component of my PhD research.
