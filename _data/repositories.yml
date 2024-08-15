@@ -1,12 +1,24 @@
 github_users:
-  - torvalds
-  - alshedivat
+  - peter716
 
 github_repos:
-  - alshedivat/al-folio
-  - twbs/bootstrap
-  - jekyll/jekyll
-  - jquery/jquery
-  - FortAwesome/Font-Awesome
-  - jpswalsh/academicons
-  - mathjax/MathJax
+  - peter716/mental_health_mlops_project
+  - peter716/ data_engineering_credit_fraud_project 
+  - peter716/ house-prediction-airbnb-spark-ml 
+  - peter716/ 11785-Project 
+  # - peter716/Font-Awesome
+  # - jpswalsh/academicons
+  # - mathjax/MathJax
+
+# github_users:
+#   - torvalds
+#   - alshedivat
+
+# github_repos:
+#   - alshedivat/al-folio
+#   - twbs/bootstrap
+#   - jekyll/jekyll
+#   - jquery/jquery
+#   - FortAwesome/Font-Awesome
+#   - jpswalsh/academicons
+#   - mathjax/MathJax
