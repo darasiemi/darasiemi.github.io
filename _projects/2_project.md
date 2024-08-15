@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Financial Fraud Analysis using Synthetic data via Data Engineering.
-description: project with financial data
+# description: project with financial data
 img: assets/img/data_engineering_architecture.new.svg
 importance: 2
 category: work
@@ -16,7 +16,7 @@ In this project, I explored the end-to-end data engineering pipeline, showcasing
     </div>
 </div>
 <div class="caption">
-    Project pipeline
+    data engineering project pipeline
 </div>
 
 [Project link](https://github.com/peter716/data_engineering_credit_fraud_project)
