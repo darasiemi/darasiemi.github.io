@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-I just started my PhD in Computer Science at the University College Dublin. I will be working on machine learning applications in healthcare.
+I just started my Ph.D. in Computer Science at the University College Dublin, Ireland.

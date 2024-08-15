@@ -20,8 +20,8 @@ social: true # includes social icons at the bottom of the page
 
 Hi, welcome to my profile page! You can call me Dara.
 
-I am a PhD student at University College Dublin, in the School of Computer Science under the [ML-Labs](https://www.ml-labs.ie/). My PhD is also jointly sponsored by [Health Rhythms](https://www.healthrhythms.com/), a data science and mental health company. I am being supervised by [Dr. Mark Matthews](https://people.ucd.ie/mark.matthews)
+I am a Ph.D. student at the University College Dublin, in the School of Computer Science under the [ML-Labs](https://www.ml-labs.ie/). My PhD is also jointly sponsored by [Health Rhythms](https://www.healthrhythms.com/), a data science and mental health company. I am being supervised by [Mark Matthews, PhD](https://people.ucd.ie/mark.matthews).
 
-My research focuses on assessing mental health of a mental health population (people with bipolar disorder), through their financial behaviour using objective financial data. My research interest is in machine learning applications.
+My research focuses on assessing the mental health of a mental health population, particularly people with bipolar disorder, based on their financial behavior, using objective financial data, statistical analysis, privacy-preserving machine learning and public engaging participatory studies. My research also cuts across data instrumentation and collection for efficient machine learning modeling.
 
-If you are interested in what I go, and you want to connect, you can reach me via [Linkedin](https://www.linkedin.com/in/oluwadara-adedeji-183770106/) or [Twitter](https://twitter.com/_darasimii).
+If you are interested in what I do, and you want to connect, you can reach me via [Email](oluwadara.adedeji@ucdconnect.ie), [Linkedin](https://www.linkedin.com/in/oluwadara-adedeji-183770106/) or [Twitter](https://twitter.com/darasiemi).
