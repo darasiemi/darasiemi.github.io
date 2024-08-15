@@ -24,4 +24,4 @@ I am a Ph.D. student at the University College Dublin, in the School of Computer
 
 My research focuses on assessing the mental health of a mental health population, particularly people with bipolar disorder, based on their financial behavior, using objective financial data, statistical analysis, privacy-preserving machine learning and public engaging participatory studies. My research also cuts across data instrumentation and collection for efficient machine learning modeling.
 
-If you are interested in what I do, and you want to connect, you can reach me via [Email](oluwadara.adedeji@ucdconnect.ie), [Linkedin](https://www.linkedin.com/in/oluwadara-adedeji-183770106/) or [Twitter](https://twitter.com/darasiemi).
+If you are interested in what I do, and you want to connect, you can reach me via Email:oluwadara.adedeji@ucdconnect.ie, [Linkedin](https://www.linkedin.com/in/oluwadara-adedeji-183770106/) or [Twitter](https://twitter.com/darasiemi).
