@@ -68,17 +68,17 @@
       "institution": "University College Dublin",
       "location": "Dublin, Ireland",
       "url": "https://www.ucd.ie/cs/",
-      "area": "Machine Learning",
+      "area": "Computer Science",
       "studyType": "PhD",
       "startDate": "2023-09-01",
       "endDate": "2027-08-31",
-      "courses": ["Big Data programming"]
+      "courses": ["Applied Machine Learning"]
     },
     {
       "institution": "Carnegie Mellon University",
       "location": "Kigali, Rwanda",
       "url": "https://www.africa.engineering.cmu.edu/",
-      "area": "Artificial Intelligence",
+      "area": "Engineering Artificial Intelligence",
       "studyType": "Masters",
       "startDate": "2021-08-29",
       "endDate": "2023-05-26"
@@ -131,7 +131,7 @@
       "summary": "Academic award to outstanding students in science and technology in tertiary institutions in Nigeria."
     }
   ],
-  "certificates": [
+  "certifications": [
     {
       "name": "Data Engineering Zoomcamp",
       "date": "2018-01-01",
