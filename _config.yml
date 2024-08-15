@@ -110,8 +110,8 @@ x_username: # your X handle
 youtube_id: # your youtube channel id (youtube.com/@<youtube_id>)
 zotero_username: # your zotero username
 
-contact_note: >
-  You can even add a little note about which of these is the best way to reach you.
+# contact_note: >
+#   You can even add a little note about which of these is the best way to reach you.
 
 # -----------------------------------------------------------------------------
 # Analytics and search engine verification
@@ -131,7 +131,7 @@ bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
 # -----------------------------------------------------------------------------
 
 blog_name: Dara's blog # blog_name will be displayed in your blog page
-blog_description: Musings about machine learning, Ph.D. and other random useful stuff (blog under development).
+blog_description: Musings about machine learning, mental health, Ph.D. file and other random interesting stuff (blog under development).
 permalink: /blog/:year/:title/
 lsi: true # produce an index for related posts
 
