@@ -4,7 +4,6 @@
     "label": "Ph.D. student and aspiring Machine Learning Engineer",
     "image": "",
     "email": "oluwadara.adedeji@ucdconnect.ie",
-    "url": "https://peter716.github.io",
     "summary": "Experienced data science (DS) and machine learning (ML) professional, with 3+ years of experience in various areas of DS and ML. Current focus is on harnessing the use of DS and ML methodologies for healthcare and enterprise solutions. My ultimate goal is to see models transcend Jupyter notebooks to actual deployment, and to solve real world problems.",
     "profiles": [
       {
@@ -28,7 +27,7 @@
       "position": "Research Associate",
       "url": "https://www.africa.engineering.cmu.edu/research/cybersecurity/cylab/index.html",
       "startDate": "2023-06-01",
-      "endDate": "2027-08-15",
+      "endDate": "2023-08-15",
       "summary": "Deep Learning system for signature verification and animal biometrics. Machine learning for smishing detection"
     },
     {
@@ -36,7 +35,7 @@
       "position": "Research Assistant",
       "url": "https://www.africa.engineering.cmu.edu/research/cybersecurity/cylab/index.html",
       "startDate": "2023-01-01",
-      "endDate": "2027-05-30",
+      "endDate": "2023-05-30",
       "summary": "Deep Learning system for signature verification and animal biometrics"
     }
   ],
@@ -78,16 +77,6 @@
     {
       "institution": "Carnegie Mellon University",
       "location": "Kigali, Rwanda",
-      "url": "https://www.ucd.ie/cs/",
-      "area": "Machine Learning",
-      "studyType": "PhD",
-      "startDate": "2023-09-01",
-      "endDate": "2027-08-31",
-      "courses": ["Big Data programming"]
-    },
-    {
-      "institution": "University College Dublin",
-      "location": "Dublin, Ireland",
       "url": "https://www.africa.engineering.cmu.edu/",
       "area": "Artificial Intelligence",
       "studyType": "Masters",
