@@ -6,4 +6,5 @@ related_posts: false
 ---
 
 I will be giving a seminar talk on AI applications in Healthcare with the NSK.AI community.
+
 <!-- A simple inline announcement with Markdown emoji! :sparkles: :smile: -->
