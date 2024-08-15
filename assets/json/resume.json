@@ -30,7 +30,6 @@
       "startDate": "2023-06-01",
       "endDate": "2027-08-15",
       "summary": "Deep Learning system for signature verification and animal biometrics. Machine learning for smishing detection"
-
     },
     {
       "name": "CyLab/ Upanzi network",
@@ -39,7 +38,6 @@
       "startDate": "2023-01-01",
       "endDate": "2027-05-30",
       "summary": "Deep Learning system for signature verification and animal biometrics"
-
     }
   ],
   "volunteer": [
@@ -51,7 +49,9 @@
       "startDate": "2022-01-01",
       "endDate": "2022-05-26",
       "summary": "Hackathons, workshops, and academic trips",
-      "highlights": ["Participated in the Umoja-Hack, Africa’s inter-university machine learning competition. and emerged the highest-ranking team in Rwanda in the intermediate category" ]
+      "highlights": [
+        "Participated in the Umoja-Hack, Africa’s inter-university machine learning competition. and emerged the highest-ranking team in Rwanda in the intermediate category"
+      ]
     },
     {
       "organization": "Mentally Aware Nigeria Initiative (MANI)",
@@ -61,7 +61,7 @@
       "startDate": "2018-07-01",
       "endDate": "2021-06-31",
       "summary": "Organized Conversation Cafes, workshops and other events of the organization. Facilitator at a Capacity Building Workshop, to celebrate the 2018 World Mental Health day.",
-      "highlights": ["Awarded volunteer of the month for October, 2018" ]
+      "highlights": ["Awarded volunteer of the month for October, 2018"]
     }
   ],
   "education": [
