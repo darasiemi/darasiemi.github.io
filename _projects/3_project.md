@@ -2,7 +2,7 @@
 layout: page
 title: Image Augmentation for Satellite Images
 # description: a project that redirects to another website
-img: assets/img/a1.eps
+img: assets/img/imagesatelliteproject.png
 redirect: https://unsplash.com
 importance: 3
 category: work
@@ -12,11 +12,11 @@ This study proposes the use of generative models (GANs) for augmenting the EuroS
 
 <div class="row justify-content-sm-center">
     <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/a1.eps" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid path="assets/img/imagesatelliteproject.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
-    satellite augmentation project pipeline
+    data engineering project pipeline
 </div>
 
 [Project link](https://github.com/peter716/11785-Project)
