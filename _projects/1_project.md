@@ -12,7 +12,7 @@ In this project, I have implemented the end-to-end MLOps life cycle, including i
 
 <div class="row justify-content-sm-center">
     <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/mental_health_mlops_project.drawio.svg" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid path="assets/img/mental_health_mlops_project.drawio.svg" title="mlops pipeline" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">

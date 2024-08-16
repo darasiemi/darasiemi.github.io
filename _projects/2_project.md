@@ -12,7 +12,7 @@ In this project, I explored the end-to-end data engineering pipeline, showcasing
 
 <div class="row justify-content-sm-center">
     <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/data_engineering_architecture.new.svg " title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid path="assets/img/data_engineering_architecture.new.svg" title="data engineering pipeline" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
