@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Mental Health Project - Stress Prediction Using Multimodal Inputs
+title: Mental Health MLOps Project - Stress Prediction Using Multimodal Inputs
 # description: with background image
 img: assets/img/mental_health_mlops_project.drawio.svg
 importance: 1
