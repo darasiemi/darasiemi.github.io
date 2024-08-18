@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-I just started my Ph.D. in Computer Science at the University College Dublin, Ireland. :smile:
+I am elated to start my Ph.D. in Computer Science at the University College Dublin, Ireland. :smile:
