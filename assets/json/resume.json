@@ -134,10 +134,17 @@
   "certificates": [
     {
       "name": "Data Engineering Zoomcamp",
-      "date": "2018-01-01",
+      "date": "2024-04-19",
       "issuer": "Data Talks Club",
       "url": "https://certificate.datatalks.club/dezoomcamp/2024/26ac2a44da3ba8791d608de702856cc49bda2b5d.pdf",
       "icon": "fa-solid fa-location-dot"
+    },
+    {
+      "name": "MLOps Zoomcamp",
+      "date": "2024-09-01",
+      "issuer": "Data Talks Club",
+      "url": "https://certificate.datatalks.club/mlops-zoomcamp/2024/26ac2a44da3ba8791d608de702856cc49bda2b5d.pdf",
+      "icon": "fa-solid fa-hashtag"
     },
     {
       "name": "Microsoft Certified: Azure Fundamentals",
@@ -152,13 +159,6 @@
       "issuer": "LinkedIn Learning",
       "url": "https://www.linkedin.com/learning/certificates/6a1dde68d94753de8d7b9dd906d7961dfaeaf0eec97d3384cfc806e8bec6e56c",
       "icon": "fa-solid fa-envelope"
-    },
-    {
-      "name": "MLOps Essentials: Model Development and Integration",
-      "date": "2023-08-18",
-      "issuer": "LinkedIn Learning",
-      "url": "https://www.linkedin.com/learning/certificates/aad4e9dc9340e05c6b8f7b2b953fa92f7bd354af90464506eb1a1bea9487f49e",
-      "icon": "fa-solid fa-hashtag"
     }
   ],
   "interests": [
