@@ -25,6 +25,8 @@ nav_order: 6
 
 ### Autumn 2024 - Data Science in Python
 
+**Institution:** University College Dublin
+
 This module aims to provide students with an intensive introduction to Python programming and familiarize them with key topics in Data Science. Students will learn methods for collecting, storing, filtering, and analyzing datasets, and will be introduced to numerical computing, statistics, and machine learning. Practical applications of these concepts will be demonstrated using popular open-source tools. The module also covers data visualization and working with textual data. With a strong emphasis on practical programming, students will complete two coursework assignments involving Python-based data analytics tasks.
 
 [Course Website](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP47670)
