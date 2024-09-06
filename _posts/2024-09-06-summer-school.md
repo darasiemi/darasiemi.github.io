@@ -18,7 +18,6 @@ It has been some weeks since my first ML Labs Summer School, and I continue to r
     ML Labs Summer School Group picture
 </div>
 
-
 <!-- # Additional Details
 
 For more details on using the plugin visit: [jekyll-twitter-plugin](https://github.com/rob-murray/jekyll-twitter-plugin) -->
