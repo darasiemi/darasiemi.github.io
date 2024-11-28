@@ -159,6 +159,13 @@
       "issuer": "LinkedIn Learning",
       "url": "https://www.linkedin.com/learning/certificates/6a1dde68d94753de8d7b9dd906d7961dfaeaf0eec97d3384cfc806e8bec6e56c",
       "icon": "fa-solid fa-envelope"
+    },
+    {
+      "name": "AWS Certified Machine Learning Specialty",
+      "date": "2024-11-27",
+      "issuer": "AWS",
+      "url": "https://www.credly.com/badges/a51a8783-9cd6-4405-9311-df303840dca8",
+      "icon": "fa-solid fa-tag"
     }
   ],
   "interests": [
