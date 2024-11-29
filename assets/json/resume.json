@@ -166,6 +166,13 @@
       "issuer": "AWS",
       "url": "https://www.credly.com/badges/a51a8783-9cd6-4405-9311-df303840dca8",
       "icon": "fa-solid fa-tag"
+    },
+    {
+      "name": "AWS Certified Machine Learning Sp",
+      "date": "2024-11-27",
+      "issuer": "AWS",
+      "url": "https://www.credly.com/badges/a51a8783-9cd6-4405-9311-df303840dca8",
+      "icon": "fa-solid fa-tag"
     }
   ],
   "interests": [
