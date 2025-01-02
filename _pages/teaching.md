@@ -7,6 +7,30 @@ nav: true
 nav_order: 6
 ---
 
+### Spring 2025 - Software Engineering
+
+**Institution:** University College Dublin
+
+**Course Description:** This module prepares learners for professional software engineering with a focus on teamwork and developing complex systems. Learners will understand essential procedures, design software addressing functional and non-functional requirements, and implement systems considering architecture, component interaction, task allocation, and tools like version control. Core topics include software requirements, IDEs, Git, Agile methodologies (Scrum/Kanban), and database management. Practical skills in API requests, test-driven development (TDD), and Flask web architectures are emphasized. The module also explores software architecture, design patterns, and testing, providing a comprehensive foundation in modern practices for designing, developing, and testing software systems collaboratively.
+
+[Course Website](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP30830)
+
+### Spring 2025 - Information Visualisation (Blended Delivery)
+
+**Institution:** University College Dublin
+
+**Course Description:** This module is suitable for students interested in the fundamental and practical underpinnings of Information Visualisation. Information Visualisation is a research area that focuses on the use of graphical techniques to present data in an explicit form. Such static or dynamic presentations (pictures) help people formulate an understanding of data and an internal model of it for reasoning about. Such pictures of data are an external artefact supporting decision making. While sharing many of the same goals of Scientific Visualisation, Human Computer Interaction, User Interface Design and Computer Graphics, Information Visualisation focuses on the visual presentation of data without a physical or geometric form. As such it relies on research in mathematics, data mining, data structures, algorithms, graph drawing, human-computer interaction, cognitive psychology, semiotics, cartography, interactive graphics, imaging and visual design.
+
+[Course Website](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP47970)
+
+### Spring 2025 - Information Visualisation - DS
+
+**Institution:** University College Dublin
+
+**Course Description:** This module is suitable for students interested in the fundamental and practical underpinnings of Information Visualisation. Information Visualisation is a research area that focuses on the use of graphical techniques to present data in an explicit form. Such static or dynamic presentations (pictures) help people formulate an understanding of data and an internal model of it for reasoning about. Such pictures of data are an external artifact supporting decision making. While sharing many of the same goals of Scientific Visualisation, Human Computer Interaction, User Interface Design and Computer Graphics, Information Visualisation focuses on the visual presentation of data without a physical or geometric form. As such it relies on research in mathematics, data mining, data structures, algorithms, graph drawing, human-computer interaction, cognitive psychology, semiotics, cartography, interactive graphics, imaging and visual design.
+
+[Course Website](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP30750)
+
 ### Autumn 2024 - Introduction to Artificial Intelligence
 
 **Institution:** University College Dublin
