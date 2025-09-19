@@ -7,6 +7,34 @@ nav: true
 nav_order: 6
 ---
 
+### Autumn 2025 - Software Engineering
+
+[Course Website](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP41670)
+**Institution:** University College Dublin
+
+**Course Description:** This module will cover the main principles of the most important software development processes, from ‘traditional’ plan-driven software engineering to agile methods. It will also cover principles and techniques of software requirements engineering, software design using UML, software testing and refactoring.
+
+**Language:** Java
+
+### Autumn 2025 - Multi-paradigm Programming
+
+[Course Website](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP30950)
+**Institution:** University College Dublin
+
+**Course Description:** This is an advanced programming module that assumes a working knowledge of object-oriented programming and data structures & algorithms, and a familiarity with functional programming. This module covers object-oriented programming in detail and explores how functional programming integrates with object-oriented programming in current practice. There is a focus on producing software that is:
+(1) demonstrably correct, by using unit testing and
+(2) maintainable, by observing sound programming principles during development.
+There is a strong emphasis on practical programming skills throughout this module, and being able to develop correct, maintainable code is a key part of the assessment for this module.
+
+**Language:** Scala
+
+### Autumn 2025 - Cloud Computing
+
+[Course Website](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP47780)
+**Institution:** University College Dublin
+
+**Course Description:** This module starts by introducing the key concepts behind Cloud Computing (distributed and parallel computing). Next, it covers the cloud computing deployment and delivery models, large-scale systems architectures, with a specific focus on some existing data stores, distributed computing and Distributed file systems (e.g., Hadoop File System, Google File System, …). Then it focuses on techniques for processing big data (the Map/Reduce model), and all the necessary programming tools that simplify the generation of Map/Reduce implementation of applications, such as Apache Pig, Hive, … Other concepts, such as security and the economics of the Cloud, will also be covered. Finally, some existing clouds such as Hadoop, Google Cloud, Microsoft Azure, Amazon cloud (AWS) will be presented, compared.
+
 ### Spring 2025 - Software Engineering
 
 [Course Website](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP30830)
@@ -14,6 +42,8 @@ nav_order: 6
 **Institution:** University College Dublin
 
 **Course Description:** This module prepares learners for professional software engineering with a focus on teamwork and developing complex systems. Learners will understand essential procedures, design software addressing functional and non-functional requirements, and implement systems considering architecture, component interaction, task allocation, and tools like version control. Core topics include software requirements, IDEs, Git, Agile methodologies (Scrum/Kanban), and database management. Practical skills in API requests, test-driven development (TDD), and Flask web architectures are emphasized. The module also explores software architecture, design patterns, and testing, providing a comprehensive foundation in modern practices for designing, developing, and testing software systems collaboratively.
+
+**Language:** Python
 
 ### Spring 2025 - Information Visualisation (Blended Delivery)
 
