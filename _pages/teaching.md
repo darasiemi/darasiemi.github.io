@@ -85,7 +85,7 @@ There is a strong emphasis on practical programming skills throughout this modul
 
 This module aims to provide students with an intensive introduction to Python programming and familiarize them with key topics in Data Science. Students will learn methods for collecting, storing, filtering, and analyzing datasets, and will be introduced to numerical computing, statistics, and machine learning. Practical applications of these concepts will be demonstrated using popular open-source tools. The module also covers data visualization and working with textual data. With a strong emphasis on practical programming, students will complete two coursework assignments involving Python-based data analytics tasks.
 
-**Language:** Java
+**Language:** Python
 
 ### Spring 2024 - Data Structures and Algorithms
 
@@ -95,7 +95,7 @@ This module aims to provide students with an intensive introduction to Python pr
 
 **Course Description:** This course offers a comprehensive introduction to data structures and algorithms. Topics include data structures such as arrays, stacks, queues, and graphs, sorting and graph traversal algorithms etc.
 
-**Language:** Java
+**Language:** Python
 
 ### Fall 2022 - Programming and Problem Solving for Data Analytics
 
