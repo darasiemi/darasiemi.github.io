@@ -78,6 +78,8 @@ jobs:
           propertyPath: "giscus.repo"
           value: ${{ github.repository }}
       - name: Install and Build 🔧
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           pip3 install --upgrade jupyter
           export JEKYLL_ENV=production
