@@ -10,6 +10,7 @@ nav_order: 6
 ### Spring 2026 - ML System Deployment COMP41860
 
 <!-- [Course Website](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP41860) -->
+
 **Institution:** University College Dublin
 
 **Course Description:** This module equips students with the principles and practices required to design, build, deploy, and continuously improve real-world AI systems. It shifts the focus from isolated model development to end-to-end AI system engineering. It addresses how modern machine learning, particularly foundation-model-based systems, are integrated into production environments where reliability, scalability, cost, latency, security, and user feedback are critical concerns.
@@ -17,6 +18,7 @@ nav_order: 6
 ### Spring 2026 - AI for Time Series COMP41850
 
 <!-- [Course Website](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP41850) -->
+
 **Institution:** University College Dublin
 
 **Course Description:** This module delves into the application of Artificial Intelligence (AI) techniques for analyzing and modeling time series data, specifically focusing on classification and regression tasks. Students will learn about various time series types, transformations, similarity measures, and state-of-the-art AI models used for time series analysis. The course will emphasize practical applications and rigorous evaluation methodologies.
@@ -24,6 +26,7 @@ nav_order: 6
 ### Autumn 2025 - Software Engineering COMP41670
 
 <!-- [Course Website](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP41670) -->
+
 **Institution:** University College Dublin
 
 **Course Description:** This module will cover the main principles of the most important software development processes, from ‘traditional’ plan-driven software engineering to agile methods. It will also cover principles and techniques of software requirements engineering, software design using UML, software testing and refactoring.
@@ -33,6 +36,7 @@ nav_order: 6
 ### Autumn 2025 - Multi-paradigm Programming
 
 <!-- [Course Website](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP30950) -->
+
 **Institution:** University College Dublin
 
 **Course Description:** This is an advanced programming module that assumes a working knowledge of object-oriented programming and data structures & algorithms, and a familiarity with functional programming. This module covers object-oriented programming in detail and explores how functional programming integrates with object-oriented programming in current practice. There is a focus on producing software that is:
@@ -45,6 +49,7 @@ There is a strong emphasis on practical programming skills throughout this modul
 ### Autumn 2025 - Cloud Computing COMP47780
 
 <!-- [Course Website](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP47780) -->
+
 **Institution:** University College Dublin
 
 **Course Description:** This module starts by introducing the key concepts behind Cloud Computing (distributed and parallel computing). Next, it covers the cloud computing deployment and delivery models, large-scale systems architectures, with a specific focus on some existing data stores, distributed computing and Distributed file systems (e.g., Hadoop File System, Google File System, …). Then it focuses on techniques for processing big data (the Map/Reduce model), and all the necessary programming tools that simplify the generation of Map/Reduce implementation of applications, such as Apache Pig, Hive, … Other concepts, such as security and the economics of the Cloud, will also be covered. Finally, some existing clouds such as Hadoop, Google Cloud, Microsoft Azure, Amazon cloud (AWS) will be presented, compared.
