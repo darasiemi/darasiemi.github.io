@@ -4,7 +4,7 @@ permalink: /outreaches/
 title: community impact
 # description: Materials for courses you taught. Replace this text with your description.
 nav: true
-nav_order: 6
+nav_order: 5
 ---
 
 > **“The best way to find yourself is to lose yourself in the service of others.”**  
