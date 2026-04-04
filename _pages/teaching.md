@@ -4,7 +4,7 @@ permalink: /teaching/
 title: teaching
 # description: Materials for courses you taught. Replace this text with your description.
 nav: true
-nav_order: 5
+nav_order: 3
 ---
 
 ### Spring 2026 - ML System Deployment COMP41860
