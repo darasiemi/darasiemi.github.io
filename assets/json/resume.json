@@ -37,6 +37,14 @@
       "startDate": "2023-01-01",
       "endDate": "2023-05-30",
       "summary": "Deep Learning system for signature verification and animal biometrics"
+    },
+    {
+      "name": "Health Rhythms",
+      "position": "Data Science/Machine Learning Researcher",
+      "url": "https://www.africa.engineering.cmu.edu/research/cybersecurity/cylab/index.html",
+      "startDate": "2023-09-01",
+      "endDate": "2024-07-30",
+      "summary": "Digital mental health"
     }
   ],
   "volunteer": [
@@ -95,6 +103,12 @@
   ],
   "awards": [
     {
+      "title": "Winner, 2025 Huawei Ireland Tech Arena",
+      "date": "2025-11-25",
+      "awarder": "Huawei Ireland",
+      "summary": "Hackathon on LLM (AI) inference optimization"
+    },
+    {
       "title": "Mastercard Foundation Scholarship Award",
       "date": "2021-04-01",
       "awarder": "Mastercard Foundation",
@@ -132,6 +146,13 @@
     }
   ],
   "certificates": [
+    {
+      "name": "Machine Learning Engineering Zoomcamp",
+      "date": "2026-02-04",
+      "issuer": "Data Talks Club",
+      "url": "https://certificate.datatalks.club/ml-zoomcamp/2025/26ac2a44da3ba8791d608de702856cc49bda2b5d.pdf",
+      "icon": "fa-solid fa-location-dot"
+    },
     {
       "name": "Data Engineering Zoomcamp",
       "date": "2024-04-19",

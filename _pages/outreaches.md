@@ -21,11 +21,15 @@ Affiliation: _Mentally Aware Nigeria Initiative (MANI)_
 
 - Led mental health programmes impacting 300+ individuals, including conversation cafés, mental health walks, and awareness initiatives in Ibadan, Oyo state, Nigeria.
 
-![MANI conversations](assets/img/MANI_conversations.jpeg)
+{% include figure.liquid path="assets/img/MANI_conversations.jpeg" caption="At one of the conversation cafes" %}
+
+{% include figure.liquid path="assets/img/MANI_walk.jpeg" caption="After a mental health walk" %}
+
+<!-- ![MANI conversations](/assets/img/MANI_conversations.jpeg)
 At one of the conversation cafes
 
-![Mental health walks](assets/img/MANI_walk.jpeg)
-After mental health works
+![Mental health walks](/ssets/img/MANI_walk.jpeg)
+After a mental health walk -->
 
 **Mindfullness and Youth Development**
 Affiliation: _Mastercard Foundation Scholarship_
@@ -33,7 +37,7 @@ Affiliation: _Mastercard Foundation Scholarship_
 - Facilitated a mindfulness and self-awareness training session on mental health for ~120 secondary school students in Kigali, Rwanda.
 - Organised and led an online community development project to teach ~40 African university students the Python programming language.
 
-![Mindfulness training](assets/img/mindfulness_studentgroup.jpg)
+![Mindfulness training](/assets/img/mindfulness_studentgroup.jpg)
 Group photo with students and organizers
 
 **Leadership and Sustainable Development Goals (SDGs)**
@@ -42,10 +46,10 @@ Affiliation: _RISE Initative_
 - Led leadership bootcamps impacting 600+ students in 3 secondary schools in my hometown, Oyo, Nigeria.
 - The students were lectured on career management, leadership lifestyle and introduction to the Sustainable Development Goals (SDGs).
 
-![Leadership training at SPED](assets/img/rise_sped.jpeg)
+![Leadership training at SPED](/assets/img/rise_sped.jpeg)
 Leadership bootcamp at SPED International Secondary School, Oyo.
 
-![Leadership training at BLISS](assets/img/rise_bliss1.jpeg)
+![Leadership training at BLISS](/assets/img/rise_bliss1.jpeg)
 Leadership bootcamp at Best Legacy International Secondary School, Awe, Oyo
 
 **Sustainable Development Goals (SDGs)**
@@ -54,7 +58,7 @@ Affiliation: _National Youth Service SDG Advocacy_
 - Facilitated an SDG-focused educational session for ~50 students at the Bayero University Kano (BUK) Secondary School, Kano, Nigeria, enhancing awareness and understanding of global sustainability goals.
 - Led and coordinated meetings and Sustainable Development Goals (SDG) initiatives in Kano State, Nigeria, driving community engagement and awareness.
 
-![SDGs training in Kano](assets/img/sdgs_kano.jpeg)
+![SDGs training in Kano](/assets/img/sdgs_kano.jpeg)
 SDGs training in Bayero University Kano (BUK) Secondary School, Kano, Nigeria
 
 **Career and Sex Education**
