@@ -42,7 +42,7 @@ Affiliation: _Mastercard Foundation Scholarship_
 <!-- ![Mindfulness training](/assets/img/mindfulness_studentgroup.jpg)
 Group photo with students and organizers -->
 
-{% include figure.liquid path="assets/img/mindfulness_studentgroup.jpg" caption="Group photo with students and organizers" width="60%" class="mx-auto d-block text-center" %}
+{% include figure.liquid path="assets/img/mindfulness_studentgroup.jpg" caption="Group photo with students and organizers" width="60%" class="text-center" %}
 
 **Leadership and Sustainable Development Goals (SDGs)**
 
