@@ -47,3 +47,9 @@ Affiliation: _STEMi Makers Africa_
 
 - Participated in an online webinar to discuss the effects of the COVID-19 pandemic and ways to ameliorate them.
 - Contributed novel ideas in group discussions and brain storming sessions of the organization in the Kano state chapter, Nigeria.
+
+### Career and Sex Education
+
+Affiliation: _National Association of Oyo Students (NAOS), University of Ibadan_
+
+- Organized and facilitated a career and sex education seminar for ~80 public secondary school students in Oyo town.
