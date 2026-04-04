@@ -12,42 +12,58 @@ nav_order: 5
 
 I am committed to translating research into real-world impact, particularly in mental health and youth development. I am passionate about volunteering and have contributed to initiatives in mental health, community development, and STEM education, impacting over 1,500 young people.
 
-My vision is to impact 10,000 young persons in the next 10 years.
+My goal is to impact 10,000 young persons in the next 10 years.
 
 ### Featured Work
 
 **Mental Health Volunteering**
 Affiliation: _Mentally Aware Nigeria Initiative (MANI)_
 
-- Led mental health programmes impacting 300+ individuals, including conversation cafés, mental health walks, and awareness initiatives.
+- Led mental health programmes impacting 300+ individuals, including conversation cafés, mental health walks, and awareness initiatives in Ibadan, Oyo state, Nigeria.
+
+![MANI conversations](assets/img/MANI_conversations.jpeg)
+At one of the conversation cafes
+
+![Mental health walks](assets/img/MANI_walk.jpeg)
+After mental health works
 
 **Mindfullness and Youth Development**
-Affiliation: _Mastercard Foundation Scholar_
+Affiliation: _Mastercard Foundation Scholarship_
 
 - Facilitated a mindfulness and self-awareness training session on mental health for ~120 secondary school students in Kigali, Rwanda.
-- Organised and led a community development project to teach ~40 African university students the Python programming language.
+- Organised and led an online community development project to teach ~40 African university students the Python programming language.
+
+![Mindfulness training](assets/img/mindfulness_studentgroup.jpg)
+Group photo with students and organizers
 
 **Leadership and Sustainable Development Goals (SDGs)**
 Affiliation: _RISE Initative_
 
-- Led leadership bootcamps impacting 600+ students
+- Led leadership bootcamps impacting 600+ students in 3 secondary schools in my hometown, Oyo, Nigeria.
 - The students were lectured on career management, leadership lifestyle and introduction to the Sustainable Development Goals (SDGs).
 
-**Sustainable Development Goals (SDGs)**
-Affiliation: _National Youth Service SDG Advocate_
+![Leadership training at SPED](assets/img/rise_sped.jpeg)
+Leadership bootcamp at SPED International Secondary School, Oyo.
 
-- Facilitated an SDG-focused educational session for ~50 students at the Bayero University Kano (BUK) Secondary School, enhancing awareness and understanding of global sustainability goals.
+![Leadership training at BLISS](assets/img/rise_bliss1.jpeg)
+Leadership bootcamp at Best Legacy International Secondary School, Awe, Oyo
+
+**Sustainable Development Goals (SDGs)**
+Affiliation: _National Youth Service SDG Advocacy_
+
+- Facilitated an SDG-focused educational session for ~50 students at the Bayero University Kano (BUK) Secondary School, Kano, Nigeria, enhancing awareness and understanding of global sustainability goals.
 - Led and coordinated meetings and Sustainable Development Goals (SDG) initiatives in Kano State, Nigeria, driving community engagement and awareness.
 
-**Science, Technology, Engineering, Mathematics (STEM) Education**
+![SDGs training in Kano](assets/img/sdgs_kano.jpeg)
+SDGs training in Bayero University Kano (BUK) Secondary School, Kano, Nigeria
 
+**Career and Sex Education**
+Affiliation: _National Association of Oyo Students (NAOS), University of Ibadan_
+
+- Organized and facilitated a career and sex education seminar for ~80 public secondary school students in Oyo town.
+
+**Science, Technology, Engineering, Mathematics (STEM) Education**
 Affiliation: _STEMi Makers Africa_
 
 - Participated in an online webinar to discuss the effects of the COVID-19 pandemic and ways to ameliorate them.
 - Contributed novel ideas in group discussions and brain storming sessions of the organization in the Kano state chapter, Nigeria.
-
-**Career and Sex Education**
-
-Affiliation: _National Association of Oyo Students (NAOS), University of Ibadan_
-
-- Organized and facilitated a career and sex education seminar for ~80 public secondary school students in Oyo town.
