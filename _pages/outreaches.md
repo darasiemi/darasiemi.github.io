@@ -21,7 +21,9 @@ Affiliation: _Mentally Aware Nigeria Initiative (MANI)_
 
 - Led mental health programmes impacting 300+ individuals, including conversation cafés, mental health walks, and awareness initiatives in Ibadan, Oyo state, Nigeria.
 
-{% include figure.liquid path="assets/img/MANI_conversations.jpeg" caption="At one of the conversation cafes" %}
+{% include figure.liquid path="assets/img/MANI_conversations.jpeg" caption="At one of the conversation cafes" width="50%" %}
+
+<!-- {% include figure.liquid path="assets/img/MANI_conversations.jpeg" caption="At one of the conversation cafes" %} -->
 
 {% include figure.liquid path="assets/img/MANI_walk.jpeg" caption="After a mental health walk" %}
 
