@@ -9,7 +9,7 @@ nav_order: 6
 
 ### Spring 2026 - ML System Deployment COMP41860
 
-<!-- [Course Website](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP41860) -->
+[Course Website](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP41860)
 
 **Institution:** University College Dublin
 
@@ -17,7 +17,7 @@ nav_order: 6
 
 ### Spring 2026 - AI for Time Series COMP41850
 
-<!-- [Course Website](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP41850) -->
+[Course Website](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP41850)
 
 **Institution:** University College Dublin
 
@@ -25,7 +25,7 @@ nav_order: 6
 
 ### Autumn 2025 - Software Engineering COMP41670
 
-<!-- [Course Website](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP41670) -->
+[Course Website](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP41670)
 
 **Institution:** University College Dublin
 
@@ -35,7 +35,7 @@ nav_order: 6
 
 ### Autumn 2025 - Multi-paradigm Programming
 
-<!-- [Course Website](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP30950) -->
+[Course Website](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP30950)
 
 **Institution:** University College Dublin
 
@@ -48,7 +48,7 @@ There is a strong emphasis on practical programming skills throughout this modul
 
 ### Autumn 2025 - Cloud Computing COMP47780
 
-<!-- [Course Website](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP47780) -->
+[Course Website](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP47780)
 
 **Institution:** University College Dublin
 
@@ -56,7 +56,7 @@ There is a strong emphasis on practical programming skills throughout this modul
 
 ### Spring 2025 - Software Engineering COMP30830
 
-<!-- [Course Website](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP30830) -->
+[Course Website](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP30830)
 
 **Institution:** University College Dublin
 
@@ -66,7 +66,7 @@ There is a strong emphasis on practical programming skills throughout this modul
 
 ### Spring 2025 and 2026 - Information Visualisation (Blended Delivery) COMP47970
 
-<!-- [Course Website](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP47970) -->
+[Course Website](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP47970)
 
 **Institution:** University College Dublin
 
@@ -74,7 +74,7 @@ There is a strong emphasis on practical programming skills throughout this modul
 
 ### Spring 2025 and 2026 - Information Visualisation - DS COMP30750
 
-<!-- [Course Website](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP30750) -->
+[Course Website](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP30750)
 
 **Institution:** University College Dublin
 
@@ -82,7 +82,7 @@ There is a strong emphasis on practical programming skills throughout this modul
 
 ### Autumn 2024 - Introduction to Artificial Intelligence COMP30030
 
-<!-- [Course Website](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP30030) -->
+[Course Website](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP30030)
 
 **Institution:** University College Dublin
 
@@ -90,7 +90,7 @@ There is a strong emphasis on practical programming skills throughout this modul
 
 ### Autumn 2024 - Python Object Oriented Programming COMP20270
 
-<!-- [Course Website](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP20270) -->
+[Course Website](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP20270)
 
 **Institution:** University College Dublin
 
@@ -98,7 +98,7 @@ There is a strong emphasis on practical programming skills throughout this modul
 
 ### Autumn 2024 - Data Science in Python COMP47670
 
-<!-- [Course Website](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP47670) -->
+[Course Website](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP47670)
 
 **Institution:** University College Dublin
 
@@ -108,7 +108,7 @@ This module aims to provide students with an intensive introduction to Python pr
 
 ### Spring 2024 - Data Structures and Algorithms COMP20230
 
-<!-- [Course Website](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP20230) -->
+[Course Website](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP20230)
 
 **Institution:** University College Dublin
 
