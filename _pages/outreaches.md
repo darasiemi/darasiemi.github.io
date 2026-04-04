@@ -21,9 +21,9 @@ Affiliation: _Mentally Aware Nigeria Initiative (MANI)_
 
 - Led mental health programmes impacting 300+ individuals, including conversation cafés, mental health walks, and awareness initiatives in Ibadan, Oyo state, Nigeria.
 
-{% include figure.liquid path="assets/img/MANI_conversations.jpeg" caption="At one of the conversation cafes" width="60%" %}
+{% include figure.liquid path="assets/img/MANI_conversations.jpeg" caption="At one of the conversation cafes" width="60%" class="mx-auto d-block text-center" %}
 
-{% include figure.liquid path="assets/img/MANI_walk.jpeg" caption="After a mental health walk" width="60%" %}
+{% include figure.liquid path="assets/img/MANI_walk.jpeg" caption="After a mental health walk" width="60%" class="mx-auto d-block text-center" %}
 
 <!-- ![MANI conversations](/assets/img/MANI_conversations.jpeg)
 At one of the conversation cafes
@@ -40,7 +40,7 @@ Affiliation: _Mastercard Foundation Scholarship_
 <!-- ![Mindfulness training](/assets/img/mindfulness_studentgroup.jpg)
 Group photo with students and organizers -->
 
-{% include figure.liquid path="assets/img/mindfulness_studentgroup.jpg" caption="Group photo with students and organizers" width="60%" %}
+{% include figure.liquid path="assets/img/mindfulness_studentgroup.jpg" caption="Group photo with students and organizers" width="60%" class="mx-auto d-block text-center" %}
 
 **Leadership and Sustainable Development Goals (SDGs)**
 Affiliation: _RISE Initative_
@@ -54,9 +54,9 @@ Leadership bootcamp at SPED International Secondary School, Oyo.
 ![Leadership training at BLISS](/assets/img/rise_bliss1.jpeg)
 Leadership bootcamp at Best Legacy International Secondary School, Awe, Oyo -->
 
-{% include figure.liquid path="assets/img/rise_sped.jpeg" caption="Leadership bootcamp at SPED International Secondary School, Oyo" width="60%" %}
+{% include figure.liquid path="assets/img/rise_sped.jpeg" caption="Leadership bootcamp at SPED International Secondary School, Oyo" width="60%" class="mx-auto d-block text-center" %}
 
-{% include figure.liquid path="assets/img/rise_bliss1.jpeg" caption="Leadership bootcamp at Best Legacy International Secondary School, Awe, Oyo" width="60%" %}
+{% include figure.liquid path="assets/img/rise_bliss1.jpeg" caption="Leadership bootcamp at Best Legacy International Secondary School, Awe, Oyo" width="60%" class="mx-auto d-block text-center"  %}
 
 **Sustainable Development Goals (SDGs)**
 Affiliation: _National Youth Service SDG Advocacy_
@@ -67,7 +67,7 @@ Affiliation: _National Youth Service SDG Advocacy_
 <!-- ![SDGs training in Kano](/assets/img/sdgs_kano.jpeg)
 SDGs training in Bayero University Kano (BUK) Secondary School, Kano, Nigeria -->
 
-{% include figure.liquid path="assets/img/sdgs_kano.jpeg" caption="SDGs training in Bayero University Kano (BUK) Secondary School, Kano, Nigeria" width="60%" %}
+{% include figure.liquid path="assets/img/sdgs_kano.jpeg" caption="SDGs training in Bayero University Kano (BUK) Secondary School, Kano, Nigeria" width="60%" class="mx-auto d-block text-center"  %}
 
 **Career and Sex Education**
 Affiliation: _National Association of Oyo Students (NAOS), University of Ibadan_
