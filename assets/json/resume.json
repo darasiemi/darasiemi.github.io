@@ -15,7 +15,7 @@
   },
   "work": [
     {
-      "name": "SFI Centre for Research Training in Machine Learning",
+      "name": "Research Ireland Centre for Research Training in Machine Learning",
       "position": "PhD researcher",
       "url": "https://www.ml-labs.ie/cohort5/oluwadara-adedeji/",
       "startDate": "2023-09-01",
@@ -80,7 +80,7 @@
       "studyType": "PhD",
       "startDate": "2023-09-01",
       "endDate": "2027-08-31",
-      "courses": ["Applied Machine Learning"]
+      "courses": ["Human-Centered AI and Applied Machine Learning"]
     },
     {
       "institution": "Carnegie Mellon University",
