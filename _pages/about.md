@@ -23,6 +23,15 @@ I am a Ph.D. Candidate at the University College Dublin, in the School of Comput
 
 My research focuses on assessing the mental health of individuals with bipolar disorder using objective financial data, statistical analysis, privacy-preserving machine learning and public engaging participatory studies. My research also cuts across data instrumentation and collection for efficient modelling, and human computer interaction.
 
+I am also an AWS- and Azure-certified data science and machine learning professional with 5+ years of experience across data analytics, data science, and machine learning in healthcare (mental health research),AI and software engineering education, security, telecommunications, power and supply chain industries.
+
+Education
+• Ph.D. in Machine Learning, in view University College Dublin
+
+• Master of Science in Engineering Artificial Intelligence (2023) Carnegie Mellon University
+
+• Bachelor of Science in Electrical & Electronic Engineering (2019) University of Ibadan, Nigeria
+
 If you are interested in what I do, and you want to connect, you can reach me via the contacts below.
 
  <!-- [Linkedin](https://www.linkedin.com/in/oluwadara-adedeji-183770106/) or [Twitter](https://twitter.com/darasiemi). -->
