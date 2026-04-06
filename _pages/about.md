@@ -25,12 +25,13 @@ My research focuses on assessing the mental health of individuals with bipolar d
 
 I am also an AWS- and Azure-certified data science and machine learning professional with 5+ years of experience across data analytics, data science, and machine learning in healthcare (mental health research),AI and software engineering education, security, telecommunications, power and supply chain industries.
 
-Education
-• Ph.D. in Machine Learning, in view University College Dublin
+#### Education
 
-• Master of Science in Engineering Artificial Intelligence (2023) Carnegie Mellon University
+• Ph.D. in Machine Learning (in view), University College Dublin
 
-• Bachelor of Science in Electrical & Electronic Engineering (2019) University of Ibadan, Nigeria
+• Master of Science in Engineering Artificial Intelligence (2023), Carnegie Mellon University
+
+• Bachelor of Science in Electrical & Electronic Engineering (2019), University of Ibadan, Nigeria
 
 If you are interested in what I do, and you want to connect, you can reach me via the contacts below.
 
