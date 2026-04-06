@@ -51,12 +51,6 @@ Affiliation: _RISE Initative_
 - Led leadership bootcamps impacting 600+ students in 3 secondary schools in my hometown, Oyo, Nigeria.
 - The students were lectured on career management, leadership lifestyle and introduction to the Sustainable Development Goals (SDGs).
 
-<!-- ![Leadership training at SPED](/assets/img/rise_sped.jpeg)
-Leadership bootcamp at SPED International Secondary School, Oyo.
-
-![Leadership training at BLISS](/assets/img/rise_bliss1.jpeg)
-Leadership bootcamp at Best Legacy International Secondary School, Awe, Oyo -->
-
 {% include figure.liquid path="assets/img/rise_sped.jpeg" caption="Leadership bootcamp at SPED International Secondary School, Oyo" width="60%" class="mx-auto d-block text-center" %}
 
 {% include figure.liquid path="assets/img/rise_bliss1.jpeg" caption="Leadership bootcamp at Best Legacy International Secondary School, Awe, Oyo" width="60%" class="mx-auto d-block text-center"  %}
