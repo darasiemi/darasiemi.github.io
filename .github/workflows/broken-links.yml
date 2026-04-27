@@ -48,15 +48,32 @@ jobs:
         uses: lycheeverse/lychee-action@v1.9.0
         with:
           fail: true
-          # removed md files that include liquid tags
-          args: --user-agent 'curl/7.54' \
-                --exclude-path README.md \
-                --exclude-path _pages/404.md \
-                --exclude-path _pages/blog.md \
-                --exclude-path _posts/2018-12-22-distill.md \
-                --verbose \
-                --no-progress \
-                --exclude "linkedin.com" \
-                --exclude "https://hub.ucd.ie/.*" \
-                './**/*.md' './**/*.html'
-                # args: --user-agent 'curl/7.54' --exclude-path README.md --exclude-path _pages/404.md --exclude-path _pages/blog.md --exclude-path _posts/2018-12-22-distill.md --verbose --no-progress --exclude "linkedin.com" './**/*.md' './**/*.html'
+          args: >
+            --user-agent "curl/7.54"
+            --exclude-path README.md
+            --exclude-path _pages/404.md
+            --exclude-path _pages/blog.md
+            --exclude-path _posts/2018-12-22-distill.md
+            --verbose
+            --no-progress
+            --exclude "linkedin.com"
+            --exclude "hub.ucd.ie"
+            './**/*.md'
+            './**/*.html'
+
+      # - name: Link Checker 🔗
+      #   uses: lycheeverse/lychee-action@v1.9.0
+      #   with:
+      #     fail: true
+      #     # removed md files that include liquid tags
+      #     args: --user-agent 'curl/7.54' \
+      #           --exclude-path README.md \
+      #           --exclude-path _pages/404.md \
+      #           --exclude-path _pages/blog.md \
+      #           --exclude-path _posts/2018-12-22-distill.md \
+      #           --verbose \
+      #           --no-progress \
+      #           --exclude "linkedin.com" \
+      #           --exclude "https://hub.ucd.ie/.*" \
+      #           './**/*.md' './**/*.html'
+      #           # args: --user-agent 'curl/7.54' --exclude-path README.md --exclude-path _pages/404.md --exclude-path _pages/blog.md --exclude-path _posts/2018-12-22-distill.md --verbose --no-progress --exclude "linkedin.com" './**/*.md' './**/*.html'
