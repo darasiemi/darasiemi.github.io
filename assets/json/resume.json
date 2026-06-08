@@ -16,9 +16,10 @@
   "work": [
     {
       "name": "Research Ireland Centre for Research Training in Machine Learning",
-      "position": "PhD researcher",
+      "position": "PhD Candidate",
       "url": "https://www.ml-labs.ie/cohort5/oluwadara-adedeji/",
       "startDate": "2023-09-01",
+      "endDate": "Present",
       "summary": "Research at the intersection of mental health, finance and machine learning"
     },
     {
@@ -40,7 +41,7 @@
     {
       "name": "Health Rhythms",
       "position": "Data Science Intern",
-      "startDate": "2023-09-01",
+      "startDate": "2024-05-01",
       "endDate": "2024-07-30",
       "summary": "Digital mental health"
     }
