@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Our paper _Money and mental health: A scoping review of financial variables, data sources, and analytical methods_ was accepted for publication in _Frontiers in Public Health_.
+Our paper _Money and Mental Health: A Scoping Review of Financial Variables, Data Sources, and Analytical Methods_ was accepted for publication in _Frontiers in Public Health_.

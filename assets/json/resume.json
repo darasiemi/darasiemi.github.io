@@ -19,7 +19,6 @@
       "position": "PhD researcher",
       "url": "https://www.ml-labs.ie/cohort5/oluwadara-adedeji/",
       "startDate": "2023-09-01",
-      "endDate": "2027-08-31",
       "summary": "Research at the intersection of mental health, finance and machine learning"
     },
     {
@@ -40,14 +39,21 @@
     },
     {
       "name": "Health Rhythms",
-      "position": "Data Science/Machine Learning Researcher",
-      "url": "https://www.africa.engineering.cmu.edu/research/cybersecurity/cylab/index.html",
+      "position": "Data Science Intern",
       "startDate": "2023-09-01",
       "endDate": "2024-07-30",
       "summary": "Digital mental health"
     }
   ],
   "volunteer": [
+    {
+      "organization": "Aware",
+      "location": "Dublin, Ireland",
+      "position": "Support & Self-Care Group Facilitator",
+      "url": "https://www.aware.ie/",
+      "startDate": "2026-06-01",
+      "summary": "Facilitating peer support groups for individuals experiencing depression, bipolar disorder, and related mood disorders."
+    },
     {
       "organization": "Data Science Club, Carnegie Mellon University Africa",
       "location": "Kigali, Rwanda",
