@@ -18,7 +18,7 @@ My goal is to impact 10,000 young persons in the next 10 years.
 
 **Mental Health Volunteering**
 
-Affiliation: _Mentally Aware Nigeria Initiative (MANI)_
+_Mentally Aware Nigeria Initiative (MANI)_: [website](https://mentallyaware.org/)
 
 - Led mental health programmes impacting 300+ individuals, including conversation cafés, mental health walks, and awareness initiatives in Ibadan, Oyo state, Nigeria.
 
@@ -34,7 +34,7 @@ After a mental health walk -->
 
 **Mindfullness and Youth Development**
 
-Affiliation: _Mastercard Foundation Scholarship_
+_Mastercard Foundation Scholarship_: [website](https://www.africa.engineering.cmu.edu/impact/mastercard-foundation-scholars.html)
 
 - Facilitated a mindfulness and self-awareness training session on mental health for ~120 secondary school students in Kigali, Rwanda.
 - Organised and led an online community development project to teach ~40 African university students the Python programming language.
@@ -46,7 +46,7 @@ Group photo with students and organizers -->
 
 **Leadership and Sustainable Development Goals (SDGs)**
 
-Affiliation: _RISE Initative_
+_RISE Initative_: [website](https://www.risedevinitiative.org/)
 
 - Led leadership bootcamps impacting 600+ students in 3 secondary schools in my hometown, Oyo, Nigeria.
 - The students were lectured on career management, leadership lifestyle and introduction to the Sustainable Development Goals (SDGs).
@@ -75,7 +75,7 @@ Affiliation: _National Association of Oyo Students (NAOS), University of Ibadan_
 
 **Science, Technology, Engineering, Mathematics (STEM) Education**
 
-Affiliation: _STEMi Makers Africa_
+_STEMi Makers Africa_: [website](https://stemimakersafrica.org/)
 
 - Participated in an online webinar to discuss the effects of the COVID-19 pandemic and ways to ameliorate them.
 - Contributed novel ideas in group discussions and brain storming sessions of the organization in the Kano state chapter, Nigeria.
