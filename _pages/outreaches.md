@@ -44,7 +44,7 @@ Group photo with students and organizers -->
 
 {% include figure.liquid path="assets/img/mindfulness_studentgroup.jpg" caption="Group photo with students and organizers" width="60%" class="mx-auto d-block text-center" %}
 
-**Leadership and Sustainable Development Goals (SDGs)**
+**Leadership, Carear Development and Sustainable Development Goals (SDGs)**
 
 _RISE Initative_: [website](https://www.risedevinitiative.org/)
 
@@ -55,9 +55,7 @@ _RISE Initative_: [website](https://www.risedevinitiative.org/)
 
 {% include figure.liquid path="assets/img/rise_bliss1.jpeg" caption="Leadership bootcamp at Best Legacy International Secondary School, Awe, Oyo" width="60%" class="mx-auto d-block text-center"  %}
 
-**Sustainable Development Goals (SDGs)**
-
-Affiliation: _National Youth Service SDG Advocacy_
+_National Youth Service SDG Advocacy_
 
 - Facilitated an SDG-focused educational session for ~50 students at the Bayero University Kano (BUK) Secondary School, Kano, Nigeria, enhancing awareness and understanding of global sustainability goals.
 - Led and coordinated meetings and Sustainable Development Goals (SDG) initiatives in Kano State, Nigeria, driving community engagement and awareness.
@@ -69,7 +67,7 @@ SDGs training in Bayero University Kano (BUK) Secondary School, Kano, Nigeria --
 
 **Career and Sex Education**
 
-Affiliation: _National Association of Oyo Students (NAOS), University of Ibadan_
+_National Association of Oyo Students (NAOS), University of Ibadan_
 
 - Organized and facilitated a career and sex education seminar for ~80 public secondary school students in Oyo town.
 
