@@ -17,7 +17,7 @@ nav_order: 4
 
 **Young Surveyors Network (YSN), Lagos State Branch**
 
-- I served as a panelist at the Scholarship Clinic 3.0, "Funded. Prepared. Global.", guiding ~60 prospective scholars on fully funded postgraduate applications and international academic mobility.
+- I served as a panelist at the Scholarship Clinic 3.0, **"Funded. Prepared. Global."**, guiding ~60 prospective scholars on fully funded postgraduate applications and international academic mobility.
 
 {% include figure.liquid path="assets/img/scholarship-clinic.jpeg" caption="Panelists, YSN Lagos Scholarship Clinic 3.0" width="60%" class="mx-auto d-block text-center" %}
 
@@ -25,6 +25,6 @@ nav_order: 4
 
 **NSK AI Community**: [website](https://www.nskai.org/)
 
-- I gave a seminar talk on "AI in Healthcare: Opportunities and Requirements" to ~60 attendees, covering applications, challenges, and ethical requirements for deploying AI in clinical and health settings.
+- I gave a seminar talk on **"AI in Healthcare: Opportunities and Requirements"** to ~60 attendees, covering applications, challenges, and ethical requirements for deploying AI in clinical and health settings.
 
 {% include figure.liquid path="assets/img/nsk-ai-call.jpeg" caption="AI in Healthcare seminar, NSK AI Community" width="60%" class="mx-auto d-block text-center" %}
