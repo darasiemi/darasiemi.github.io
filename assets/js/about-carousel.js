@@ -1,1 +1,1 @@
-function initAboutCarousel(){const e=document.getElementById("aboutCarousel");e&&("undefined"!=typeof bootstrap&&bootstrap.Carousel?bootstrap.Carousel.getOrCreateInstance(e,{interval:5e3,ride:"carousel",pause:!1,wrap:!0}):setTimeout(initAboutCarousel,200))}window.addEventListener("load",initAboutCarousel);
+$(document).ready(function(){$("#aboutCarousel").carousel({interval:5e3,pause:!1,wrap:!0})});
