@@ -36,33 +36,45 @@ I am also an AWS- and Azure-certified data science and machine learning professi
 If you are interested in what I do, and you want to connect, you can reach me via the contacts below.
 
  <!-- [Linkedin](https://www.linkedin.com/in/oluwadara-adedeji-183770106/) or [Twitter](https://twitter.com/darasiemi). -->
-<div id="aboutCarousel" class="carousel slide mb-4 mx-auto" data-bs-ride="carousel" data-bs-interval="5000" data-bs-pause="false">
+<div id="aboutCarousel" class="carousel slide mb-4 mx-auto">
   <div class="carousel-indicators">
     {% for i in (0..12) %}
-      <button type="button" data-bs-target="#aboutCarousel" data-bs-slide-to="{{ i }}" {% if i == 0 %}class="active" aria-current="true"{% endif %} aria-label="Slide {{ i | plus: 1 }}"></button>
+      <button
+        type="button"
+        data-bs-target="#aboutCarousel"
+        data-bs-slide-to="{{ i }}"
+        {% if i == 0 %}class="active" aria-current="true"{% endif %}
+        aria-label="Slide {{ i | plus: 1 }}">
+      </button>
     {% endfor %}
   </div>
 
   <div class="carousel-inner rounded z-depth-1">
     {% for i in (1..13) %}
       <div class="carousel-item {% if i == 1 %}active{% endif %}">
-        <img src="{{ '/assets/img/about_' | append: i | append: '.jpeg' | relative_url }}" class="d-block w-100" alt="About photo {{ i }}" />
+        <img
+          src="{{ '/assets/img/about_' | append: i | append: '.jpeg' | relative_url }}"
+          class="d-block w-100"
+          alt="About photo {{ i }}">
       </div>
     {% endfor %}
   </div>
 
   <button class="carousel-control-prev" type="button" data-bs-target="#aboutCarousel" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
   </button>
 
   <button class="carousel-control-next" type="button" data-bs-target="#aboutCarousel" data-bs-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
   </button>
 </div>
 
 <style>
 #aboutCarousel {
-  max-width: 720px;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 #aboutCarousel .carousel-inner {
@@ -71,15 +83,13 @@ If you are interested in what I do, and you want to connect, you can reach me vi
 }
 
 #aboutCarousel .carousel-item img {
-  height: 420px;
+  height: 500px;
   object-fit: cover;
 }
 
 #aboutCarousel .carousel-control-prev,
 #aboutCarousel .carousel-control-next {
-  width: 48px;
-  top: 0;
-  bottom: 0;
+  width: 60px;
   opacity: 1;
 }
 
@@ -93,9 +103,9 @@ If you are interested in what I do, and you want to connect, you can reach me vi
 
 #aboutCarousel .carousel-control-prev-icon,
 #aboutCarousel .carousel-control-next-icon {
-  width: 2.25rem;
-  height: 2.25rem;
-  filter: invert(1) drop-shadow(0 0 3px rgba(0, 0, 0, 0.6));
+  width: 2.5rem;
+  height: 2.5rem;
+  filter: invert(1) drop-shadow(0 0 4px rgba(0,0,0,0.8));
 }
 
 #aboutCarousel .carousel-indicators {
@@ -107,14 +117,6 @@ If you are interested in what I do, and you want to connect, you can reach me vi
   height: 9px;
   border-radius: 50%;
   margin: 0 4px;
-  background-color: rgba(255, 255, 255, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.8);
-  opacity: 1;
-}
-
-#aboutCarousel .carousel-indicators .active {
-  background-color: #ffffff;
-  border-color: #ffffff;
 }
 
 @media (max-width: 768px) {
@@ -123,21 +125,22 @@ If you are interested in what I do, and you want to connect, you can reach me vi
   }
 
   #aboutCarousel .carousel-item img {
-    height: 300px;
+    height: 320px;
   }
 }
 </style>
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  var el = document.getElementById('aboutCarousel');
-  if (el && typeof bootstrap !== 'undefined') {
-    new bootstrap.Carousel(el, {
-      interval: 5000,
-      ride: 'carousel',
-      pause: false,
-      wrap: true
-    });
-  }
+  const carousel = document.getElementById("aboutCarousel");
+
+  if (!carousel) return;
+
+  setInterval(function () {
+    const nextButton = carousel.querySelector(".carousel-control-next");
+    if (nextButton) {
+      nextButton.click();
+    }
+  }, 5000);
 });
 </script>
