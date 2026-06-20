@@ -171,6 +171,11 @@ If you are interested in what I do, and you want to connect, you can reach me vi
     padding: 1.1rem;
   }
 }
+
+#aboutCarousel .carousel-control-prev,
+#aboutCarousel .carousel-control-next {
+  z-index: 10;
+}
 </style>
 
 <script src="{{ '/assets/js/about-carousel.js' | relative_url }}"></script>
