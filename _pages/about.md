@@ -52,10 +52,11 @@ If you are interested in what I do, and you want to connect, you can reach me vi
   <div class="carousel-inner rounded z-depth-1">
     {% for i in (1..13) %}
       <div class="carousel-item {% if i == 1 %}active{% endif %}">
-        <img
-          src="{{ '/assets/img/about_' | append: i | append: '.jpeg' | relative_url }}"
-          class="d-block w-100"
-          alt="About photo {{ i }}">
+        <div class="carousel-img-wrapper">
+          <img
+            src="{{ '/assets/img/about_' | append: i | append: '.jpeg' | relative_url }}"
+            alt="About photo {{ i }}">
+        </div>
       </div>
     {% endfor %}
   </div>
@@ -89,9 +90,21 @@ If you are interested in what I do, and you want to connect, you can reach me vi
   overflow: hidden;
 }
 
-#aboutCarousel .carousel-item img {
+#aboutCarousel .carousel-img-wrapper {
+  width: 100%;
   height: 500px;
-  object-fit: cover;
+  background-color: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#aboutCarousel .carousel-img-wrapper img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
 }
 
 #aboutCarousel .carousel-control-prev,
@@ -147,7 +160,7 @@ If you are interested in what I do, and you want to connect, you can reach me vi
     max-width: 100%;
   }
 
-  #aboutCarousel .carousel-item img {
+  #aboutCarousel .carousel-img-wrapper {
     height: 320px;
   }
 
