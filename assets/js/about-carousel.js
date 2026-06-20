@@ -1,7 +1,13 @@
-document.addEventListener("DOMContentLoaded", function () {
+function initAboutCarousel() {
   const carouselEl = document.getElementById("aboutCarousel");
 
-  if (!carouselEl || typeof bootstrap === "undefined") return;
+  if (!carouselEl) return;
+
+  if (typeof bootstrap === "undefined" || !bootstrap.Carousel) {
+    // Bootstrap not ready yet, try again shortly
+    setTimeout(initAboutCarousel, 200);
+    return;
+  }
 
   const carousel = new bootstrap.Carousel(carouselEl, {
     interval: 5000,
@@ -10,9 +16,9 @@ document.addEventListener("DOMContentLoaded", function () {
     wrap: true,
   });
 
-  // Belt-and-braces: force advance every 5 seconds in case
-  // the built-in interval doesn't kick in for any reason.
   setInterval(function () {
     carousel.next();
   }, 5000);
-});
+}
+
+window.addEventListener("load", initAboutCarousel);
