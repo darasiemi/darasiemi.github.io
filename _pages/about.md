@@ -60,20 +60,27 @@ If you are interested in what I do, and you want to connect, you can reach me vi
     {% endfor %}
   </div>
 
-  <button class="carousel-control-prev" type="button" data-bs-target="#aboutCarousel" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
+<button
+    class="carousel-control-prev"
+    type="button"
+    data-bs-target="#aboutCarousel"
+    data-bs-slide="prev">
+<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+</button>
 
-  <button class="carousel-control-next" type="button" data-bs-target="#aboutCarousel" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
+<button
+    class="carousel-control-next"
+    type="button"
+    data-bs-target="#aboutCarousel"
+    data-bs-slide="next">
+<span class="carousel-control-next-icon" aria-hidden="true"></span>
+</button>
+
 </div>
 
 <style>
 #aboutCarousel {
-  max-width: 800px;
+  max-width: 850px;
   margin: 0 auto;
 }
 
@@ -89,7 +96,7 @@ If you are interested in what I do, and you want to connect, you can reach me vi
 
 #aboutCarousel .carousel-control-prev,
 #aboutCarousel .carousel-control-next {
-  width: 60px;
+  width: 70px;
   opacity: 1;
 }
 
@@ -105,7 +112,13 @@ If you are interested in what I do, and you want to connect, you can reach me vi
 #aboutCarousel .carousel-control-next-icon {
   width: 2.5rem;
   height: 2.5rem;
-  filter: invert(1) drop-shadow(0 0 4px rgba(0,0,0,0.8));
+
+  background-color: rgba(0, 0, 0, 0.45);
+  border-radius: 50%;
+  padding: 1.4rem;
+
+  filter: invert(1)
+          drop-shadow(0 0 4px rgba(0, 0, 0, 0.9));
 }
 
 #aboutCarousel .carousel-indicators {
@@ -113,10 +126,20 @@ If you are interested in what I do, and you want to connect, you can reach me vi
 }
 
 #aboutCarousel .carousel-indicators [data-bs-target] {
-  width: 9px;
-  height: 9px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   margin: 0 4px;
+
+  background-color: rgba(255,255,255,0.6);
+  border: 1px solid rgba(255,255,255,0.8);
+
+  opacity: 1;
+}
+
+#aboutCarousel .carousel-indicators .active {
+  background-color: #ffffff;
+  border-color: #ffffff;
 }
 
 @media (max-width: 768px) {
@@ -127,20 +150,14 @@ If you are interested in what I do, and you want to connect, you can reach me vi
   #aboutCarousel .carousel-item img {
     height: 320px;
   }
+
+  #aboutCarousel .carousel-control-prev-icon,
+  #aboutCarousel .carousel-control-next-icon {
+    width: 2rem;
+    height: 2rem;
+    padding: 1.1rem;
+  }
 }
 </style>
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const carousel = document.getElementById("aboutCarousel");
-
-  if (!carousel) return;
-
-  setInterval(function () {
-    const nextButton = carousel.querySelector(".carousel-control-next");
-    if (nextButton) {
-      nextButton.click();
-    }
-  }, 5000);
-});
-</script>
+<script src="{{ '/assets/js/about-carousel.js' | relative_url }}"></script>
