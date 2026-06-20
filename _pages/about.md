@@ -36,7 +36,7 @@ I am also an AWS- and Azure-certified data science and machine learning professi
 If you are interested in what I do, and you want to connect, you can reach me via the contacts below.
 
  <!-- [Linkedin](https://www.linkedin.com/in/oluwadara-adedeji-183770106/) or [Twitter](https://twitter.com/darasiemi). -->
-<div id="aboutCarousel" class="carousel slide mb-4 mx-auto" data-bs-ride="carousel">
+<div id="aboutCarousel" class="carousel slide mb-4 mx-auto">
   <div class="carousel-indicators">
     {% for i in (0..12) %}
       <button

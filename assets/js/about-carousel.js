@@ -8,7 +8,7 @@ function initAboutCarousel() {
     return;
   }
 
-  new bootstrap.Carousel(carouselEl, {
+  bootstrap.Carousel.getOrCreateInstance(carouselEl, {
     interval: 5000,
     ride: "carousel",
     pause: false,
