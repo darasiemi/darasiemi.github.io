@@ -52,7 +52,7 @@ If you are interested in what I do, and you want to connect, you can reach me vi
   <div class="carousel-inner rounded z-depth-1">
     {% for i in (1..13) %}
       <div class="carousel-item {% if i == 1 %}active{% endif %}">
-        <div class="carousel-img-wrapper">
+        <div class="carousel-img-wrapper" style="background-image: url('{{ '/assets/img/about_' | append: i | append: '.jpeg' | relative_url }}');">
           <img
             src="{{ '/assets/img/about_' | append: i | append: '.jpeg' | relative_url }}"
             alt="About photo {{ i }}">
@@ -93,24 +93,46 @@ If you are interested in what I do, and you want to connect, you can reach me vi
 #aboutCarousel .carousel-img-wrapper {
   width: 100%;
   height: 500px;
-  background-color: #1a1a1a;
+  position: relative;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-size: cover;
+  background-position: center;
+}
+
+#aboutCarousel .carousel-img-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: inherit;
+  background-size: cover;
+  background-position: center;
+  filter: blur(25px) brightness(0.55);
+  transform: scale(1.15);
+  z-index: 0;
 }
 
 #aboutCarousel .carousel-img-wrapper img {
+  position: relative;
+  z-index: 1;
   max-width: 100%;
   max-height: 100%;
   width: auto;
   height: auto;
   object-fit: contain;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
 #aboutCarousel .carousel-control-prev,
 #aboutCarousel .carousel-control-next {
   width: 70px;
   opacity: 1;
+  z-index: 10;
 }
 
 #aboutCarousel .carousel-control-prev {
@@ -170,11 +192,6 @@ If you are interested in what I do, and you want to connect, you can reach me vi
     height: 2rem;
     padding: 1.1rem;
   }
-}
-
-#aboutCarousel .carousel-control-prev,
-#aboutCarousel .carousel-control-next {
-  z-index: 10;
 }
 </style>
 
