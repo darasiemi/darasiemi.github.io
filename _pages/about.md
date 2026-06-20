@@ -53,12 +53,10 @@ If you are interested in what I do, and you want to connect, you can reach me vi
 
   <button class="carousel-control-prev" type="button" data-bs-target="#aboutCarousel" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
   </button>
 
   <button class="carousel-control-next" type="button" data-bs-target="#aboutCarousel" data-bs-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
   </button>
 </div>
 
@@ -82,6 +80,7 @@ If you are interested in what I do, and you want to connect, you can reach me vi
   width: 48px;
   top: 0;
   bottom: 0;
+  opacity: 1;
 }
 
 #aboutCarousel .carousel-control-prev {
@@ -94,22 +93,28 @@ If you are interested in what I do, and you want to connect, you can reach me vi
 
 #aboutCarousel .carousel-control-prev-icon,
 #aboutCarousel .carousel-control-next-icon {
-  width: 2rem;
-  height: 2rem;
-  filter: invert(1);
+  width: 2.25rem;
+  height: 2.25rem;
+  filter: invert(1) drop-shadow(0 0 3px rgba(0, 0, 0, 0.6));
+}
+
+#aboutCarousel .carousel-indicators {
+  margin-bottom: 0.5rem;
 }
 
 #aboutCarousel .carousel-indicators [data-bs-target] {
-  width: 8px;
-  height: 8px;
+  width: 9px;
+  height: 9px;
   border-radius: 50%;
   margin: 0 4px;
-  background-color: rgba(255, 255, 255, 0.7);
-  border: none;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  opacity: 1;
 }
 
 #aboutCarousel .carousel-indicators .active {
   background-color: #ffffff;
+  border-color: #ffffff;
 }
 
 @media (max-width: 768px) {
@@ -122,3 +127,17 @@ If you are interested in what I do, and you want to connect, you can reach me vi
   }
 }
 </style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var el = document.getElementById('aboutCarousel');
+  if (el && typeof bootstrap !== 'undefined') {
+    new bootstrap.Carousel(el, {
+      interval: 5000,
+      ride: 'carousel',
+      pause: false,
+      wrap: true
+    });
+  }
+});
+</script>
