@@ -58,43 +58,43 @@ Same as last time — here's the version with all 13 slides and matching indicat
   </div>
   <div class="carousel-inner rounded z-depth-1">
     <div class="carousel-item active">
-      <img src="{{ '/assets/img/about_1.jpeg' | relative_url }}" class="d-block w-100" alt="...">
+      <img src="{{ '/assets/img/about_1.jpeg' | relative_url }}" class="d-block w-100" alt="..." />
     </div>
     <div class="carousel-item">
-      <img src="{{ '/assets/img/about_2.jpeg' | relative_url }}" class="d-block w-100" alt="...">
+      <img src="{{ '/assets/img/about_2.jpeg' | relative_url }}" class="d-block w-100" alt="..." />
     </div>
     <div class="carousel-item">
-      <img src="{{ '/assets/img/about_3.jpeg' | relative_url }}" class="d-block w-100" alt="...">
+      <img src="{{ '/assets/img/about_3.jpeg' | relative_url }}" class="d-block w-100" alt="..." />
     </div>
     <div class="carousel-item">
-      <img src="{{ '/assets/img/about_4.jpeg' | relative_url }}" class="d-block w-100" alt="...">
+      <img src="{{ '/assets/img/about_4.jpeg' | relative_url }}" class="d-block w-100" alt="..." />
     </div>
     <div class="carousel-item">
-      <img src="{{ '/assets/img/about_5.jpeg' | relative_url }}" class="d-block w-100" alt="...">
+      <img src="{{ '/assets/img/about_5.jpeg' | relative_url }}" class="d-block w-100" alt="..." />
     </div>
     <div class="carousel-item">
-      <img src="{{ '/assets/img/about_6.jpeg' | relative_url }}" class="d-block w-100" alt="...">
+      <img src="{{ '/assets/img/about_6.jpeg' | relative_url }}" class="d-block w-100" alt="..." />
     </div>
     <div class="carousel-item">
-      <img src="{{ '/assets/img/about_7.jpeg' | relative_url }}" class="d-block w-100" alt="...">
+      <img src="{{ '/assets/img/about_7.jpeg' | relative_url }}" class="d-block w-100" alt="..." />
     </div>
     <div class="carousel-item">
-      <img src="{{ '/assets/img/about_8.jpeg' | relative_url }}" class="d-block w-100" alt="...">
+      <img src="{{ '/assets/img/about_8.jpeg' | relative_url }}" class="d-block w-100" alt="..." />
     </div>
     <div class="carousel-item">
-      <img src="{{ '/assets/img/about_9.jpeg' | relative_url }}" class="d-block w-100" alt="...">
+      <img src="{{ '/assets/img/about_9.jpeg' | relative_url }}" class="d-block w-100" alt="..." />
     </div>
     <div class="carousel-item">
-      <img src="{{ '/assets/img/about_10.jpeg' | relative_url }}" class="d-block w-100" alt="...">
+      <img src="{{ '/assets/img/about_10.jpeg' | relative_url }}" class="d-block w-100" alt="..." />
     </div>
     <div class="carousel-item">
-      <img src="{{ '/assets/img/about_11.jpeg' | relative_url }}" class="d-block w-100" alt="...">
+      <img src="{{ '/assets/img/about_11.jpeg' | relative_url }}" class="d-block w-100" alt="..." />
     </div>
     <div class="carousel-item">
-      <img src="{{ '/assets/img/about_12.jpeg' | relative_url }}" class="d-block w-100" alt="...">
+      <img src="{{ '/assets/img/about_12.jpeg' | relative_url }}" class="d-block w-100" alt="..." />
     </div>
     <div class="carousel-item">
-      <img src="{{ '/assets/img/about_13.jpeg' | relative_url }}" class="d-block w-100" alt="...">
+      <img src="{{ '/assets/img/about_13.jpeg' | relative_url }}" class="d-block w-100" alt="..." />
     </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#aboutCarousel" data-bs-slide="prev">
