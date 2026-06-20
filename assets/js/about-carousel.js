@@ -1,1 +1,1 @@
-document.addEventListener("DOMContentLoaded",function(){const e=document.getElementById("aboutCarousel");e&&setInterval(function(){const t=e.querySelector(".carousel-control-next");t&&t.click()},5e3)});
+document.addEventListener("DOMContentLoaded",function(){const e=document.getElementById("aboutCarousel");if(!e||"undefined"==typeof bootstrap)return;const t=new bootstrap.Carousel(e,{interval:5e3,ride:"carousel",pause:!1,wrap:!0});setInterval(function(){t.next()},5e3)});
