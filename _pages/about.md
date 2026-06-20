@@ -37,17 +37,15 @@ If you are interested in what I do, and you want to connect, you can reach me vi
 
  <!-- [Linkedin](https://www.linkedin.com/in/oluwadara-adedeji-183770106/) or [Twitter](https://twitter.com/darasiemi). -->
 <div id="aboutCarousel" class="carousel slide mb-4 mx-auto">
-  <div class="carousel-indicators">
+  <ol class="carousel-indicators">
     {% for i in (0..12) %}
-      <button
-        type="button"
-        data-bs-target="#aboutCarousel"
-        data-bs-slide-to="{{ i }}"
-        {% if i == 0 %}class="active" aria-current="true"{% endif %}
-        aria-label="Slide {{ i | plus: 1 }}">
-      </button>
+      <li
+        data-target="#aboutCarousel"
+        data-slide-to="{{ i }}"
+        {% if i == 0 %}class="active"{% endif %}>
+      </li>
     {% endfor %}
-  </div>
+  </ol>
 
   <div class="carousel-inner rounded z-depth-1">
     {% for i in (1..13) %}
@@ -61,22 +59,13 @@ If you are interested in what I do, and you want to connect, you can reach me vi
     {% endfor %}
   </div>
 
-<button
-    class="carousel-control-prev"
-    type="button"
-    data-bs-target="#aboutCarousel"
-    data-bs-slide="prev">
-<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-</button>
+  <a class="carousel-control-prev" href="#aboutCarousel" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+  </a>
 
-<button
-    class="carousel-control-next"
-    type="button"
-    data-bs-target="#aboutCarousel"
-    data-bs-slide="next">
-<span class="carousel-control-next-icon" aria-hidden="true"></span>
-</button>
-
+  <a class="carousel-control-next" href="#aboutCarousel" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+  </a>
 </div>
 
 <style>
@@ -160,7 +149,7 @@ If you are interested in what I do, and you want to connect, you can reach me vi
   margin-bottom: 0.5rem;
 }
 
-#aboutCarousel .carousel-indicators [data-bs-target] {
+#aboutCarousel .carousel-indicators li {
   width: 10px;
   height: 10px;
   border-radius: 50%;
@@ -170,9 +159,10 @@ If you are interested in what I do, and you want to connect, you can reach me vi
   border: 1px solid rgba(255,255,255,0.8);
 
   opacity: 1;
+  text-indent: -999px;
 }
 
-#aboutCarousel .carousel-indicators .active {
+#aboutCarousel .carousel-indicators li.active {
   background-color: #ffffff;
   border-color: #ffffff;
 }
