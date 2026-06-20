@@ -1,0 +1,1 @@
+document.addEventListener("DOMContentLoaded",function(){const e=document.getElementById("aboutCarousel");e&&setInterval(function(){const t=e.querySelector(".carousel-control-next");t&&t.click()},5e3)});
