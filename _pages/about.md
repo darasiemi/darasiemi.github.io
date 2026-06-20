@@ -39,7 +39,6 @@ If you are interested in what I do, and you want to connect, you can reach me vi
 
 Same as last time — here's the version with all 13 slides and matching indicators:
 
-```html
 <div id="aboutCarousel" class="carousel slide mb-4" data-bs-ride="carousel">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#aboutCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -106,4 +105,3 @@ Same as last time — here's the version with all 13 slides and matching indicat
     <span class="visually-hidden">Next</span>
   </button>
 </div>
-```
