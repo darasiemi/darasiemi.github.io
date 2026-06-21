@@ -38,7 +38,7 @@ If you are interested in what I do, and you want to connect, you can reach me vi
  <!-- [Linkedin](https://www.linkedin.com/in/oluwadara-adedeji-183770106/) or [Twitter](https://twitter.com/darasiemi). -->
 <div id="aboutCarousel" class="carousel slide mb-4 mx-auto">
   <ol class="carousel-indicators">
-    {% for i in (0..12) %}
+    {% for i in (0..15) %}
       <li
         data-target="#aboutCarousel"
         data-slide-to="{{ i }}"
