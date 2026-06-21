@@ -48,15 +48,22 @@ If you are interested in what I do, and you want to connect, you can reach me vi
   </ol>
 
   <div class="carousel-inner rounded z-depth-1">
-    {% for i in (1..16) %}
-      <div class="carousel-item {% if i == 1 %}active{% endif %}">
-        <div class="carousel-img-wrapper" style="background-image: url('{{ '/assets/img/about_' | append: i | append: '.jpeg' | relative_url }}');">
-          <img
-            src="{{ '/assets/img/about_' | append: i | append: '.jpeg' | relative_url }}"
-            alt="About photo {{ i }}">
-        </div>
+  {% for i in (1..16) %}
+    {% assign ext = '.jpeg' %}
+    {% if i >= 14 %}
+      {% assign ext = '.jpg' %}
+    {% endif %}
+
+    <div class="carousel-item {% if i == 1 %}active{% endif %}">
+      <div class="carousel-img-wrapper" style="background-image: url('{{ '/assets/img/about_' | append: i | append: ext | relative_url }}');">
+        <img
+          src="{{ '/assets/img/about_' | append: i | append: ext | relative_url }}"
+          alt="About photo {{ i }}">
       </div>
-    {% endfor %}
+    </div>
+
+{% endfor %}
+
   </div>
 
   <a class="carousel-control-prev" href="#aboutCarousel" role="button" data-slide="prev">
