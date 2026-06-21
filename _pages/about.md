@@ -48,7 +48,7 @@ If you are interested in what I do, and you want to connect, you can reach me vi
   </ol>
 
   <div class="carousel-inner rounded z-depth-1">
-    {% for i in (1..13) %}
+    {% for i in (1..16) %}
       <div class="carousel-item {% if i == 1 %}active{% endif %}">
         <div class="carousel-img-wrapper" style="background-image: url('{{ '/assets/img/about_' | append: i | append: '.jpeg' | relative_url }}');">
           <img
