@@ -58,6 +58,10 @@ jobs:
             --no-progress
             --exclude "linkedin.com"
             --exclude "hub.ucd.ie"
+            --exclude "x.com"
+            --exclude "twitter.com"
+            --exclude "ccmh.ucd.ie"
+            --exclude "moodmoney.ucd.ie"
             './**/*.md'
             './**/*.html'
 
