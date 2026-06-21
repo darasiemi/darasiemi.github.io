@@ -1,1 +1,1 @@
-$(document).ready(function(){$("#aboutCarousel").carousel({interval:5e3,pause:!1,wrap:!0})});
+$(document).ready(function(){$("#aboutCarousel").carousel({interval:5e3,pause:!1,wrap:!0}),$("#aboutCarousel").carousel("cycle")});
