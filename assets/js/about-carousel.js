@@ -4,4 +4,6 @@ $(document).ready(function () {
     pause: false,
     wrap: true,
   });
+
+  $("#aboutCarousel").carousel("cycle");
 });
