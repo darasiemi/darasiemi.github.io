@@ -35,35 +35,30 @@ I am also an AWS- and Azure-certified data science and machine learning professi
 
 If you are interested in what I do, and you want to connect, you can reach me via the contacts below.
 
- <!-- [Linkedin](https://www.linkedin.com/in/oluwadara-adedeji-183770106/) or [Twitter](https://twitter.com/darasiemi). -->
+{% assign carousel_images = "about_1.jpeg,about_2.jpeg,about_3.jpeg,about_4.jpeg,about_5.jpeg,about_6.jpeg,about_7.jpeg,about_8.jpeg,about_9.jpeg,about_10.jpeg,about_11.jpeg,about_12.jpeg,about_13.jpeg,about_14.jpeg,about_101.jpg,about_102.jpg,about_103.jpg" | split: "," %}
+
 <div id="aboutCarousel" class="carousel slide mb-4 mx-auto" data-ride="carousel">
   <ol class="carousel-indicators">
-    {% for i in (0..15) %}
+    {% for img in carousel_images %}
       <li
         data-target="#aboutCarousel"
-        data-slide-to="{{ i }}"
-        {% if i == 0 %}class="active"{% endif %}>
+        data-slide-to="{{ forloop.index0 }}"
+        {% if forloop.first %}class="active"{% endif %}>
       </li>
     {% endfor %}
   </ol>
 
   <div class="carousel-inner rounded z-depth-1">
-  {% for i in (1..16) %}
-    {% assign ext = '.jpeg' %}
-    {% if i >= 14 %}
-      {% assign ext = '.jpg' %}
-    {% endif %}
-
-    <div class="carousel-item {% if i == 1 %}active{% endif %}">
-      <div class="carousel-img-wrapper" style="background-image: url('{{ '/assets/img/about_' | append: i | append: ext | relative_url }}');">
-        <img
-          src="{{ '/assets/img/about_' | append: i | append: ext | relative_url }}"
-          alt="About photo {{ i }}">
+    {% for img in carousel_images %}
+      <div class="carousel-item {% if forloop.first %}active{% endif %}">
+        <div class="carousel-img-wrapper" style="background-image: url('{{ '/assets/img/' | append: img | relative_url }}');">
+          <img
+            src="{{ '/assets/img/' | append: img | relative_url }}"
+            alt="About photo {{ forloop.index }}"
+            loading="{% if forloop.first %}eager{% else %}lazy{% endif %}">
+        </div>
       </div>
-    </div>
-
-{% endfor %}
-
+    {% endfor %}
   </div>
 
   <a class="carousel-control-prev" href="#aboutCarousel" role="button" data-slide="prev">
@@ -143,13 +138,10 @@ If you are interested in what I do, and you want to connect, you can reach me vi
 #aboutCarousel .carousel-control-next-icon {
   width: 2.5rem;
   height: 2.5rem;
-
   background-color: rgba(0, 0, 0, 0.45);
   border-radius: 50%;
   padding: 1.4rem;
-
-  filter: invert(1)
-          drop-shadow(0 0 4px rgba(0, 0, 0, 0.9));
+  filter: invert(1) drop-shadow(0 0 4px rgba(0, 0, 0, 0.9));
 }
 
 #aboutCarousel .carousel-indicators {
@@ -161,10 +153,8 @@ If you are interested in what I do, and you want to connect, you can reach me vi
   height: 10px;
   border-radius: 50%;
   margin: 0 4px;
-
   background-color: rgba(255,255,255,0.6);
   border: 1px solid rgba(255,255,255,0.8);
-
   opacity: 1;
   text-indent: -999px;
 }
