@@ -8,7 +8,7 @@ middle_name: #P.
 last_name: Adedeji
 email: oluwadara.adedeji@ucdconnect.ie
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
-  A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
+  PhD Candidate at University College Dublin researching AI, mental health, and financial behaviour.
 footer_text: >
   Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
   Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
