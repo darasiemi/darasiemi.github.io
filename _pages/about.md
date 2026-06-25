@@ -27,7 +27,7 @@ I am also an AWS- and Azure-certified data science and machine learning professi
 
 #### Education
 
-• Ph.D. in Machine Learning (in view), University College Dublin
+• Ph.D. in Machine Learning (2027), University College Dublin
 
 • Master of Science in Engineering Artificial Intelligence (2023), Carnegie Mellon University
 
