@@ -35,7 +35,7 @@ I am also an AWS- and Azure-certified data science and machine learning professi
 
 If you are interested in what I do, and you want to connect, you can reach me via the contacts below.
 
-{% assign carousel_images = "about_1.jpeg,about_2.jpeg,about_3.jpeg,about_4.jpeg,about_5.jpeg,about_6.jpeg,about_7.jpeg,about_8.jpeg,about_9.jpeg,about_10.jpeg,about_11.jpeg,about_12.jpeg,about_13.jpeg,about_14.jpeg,about_101.jpg,about_102.jpg,about_103.jpg","aware_volunteering.JPG" | split: "," %}
+{% assign carousel_images = "about_1.jpeg,about_2.jpeg,about_3.jpeg,about_4.jpeg,about_5.jpeg,about_6.jpeg,about_7.jpeg,about_8.jpeg,about_9.jpeg,about_10.jpeg,about_11.jpeg,about_12.jpeg,about_13.jpeg,about_14.jpeg,about_101.jpg,about_102.jpg,about_103.jpg,aware_volunteering.JPG" | split: "," %}
 
 <div id="aboutCarousel" class="carousel slide mb-4 mx-auto" data-ride="carousel">
   <ol class="carousel-indicators">
