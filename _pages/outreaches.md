@@ -24,7 +24,7 @@ _Aware_: [website](https://www.aware.ie/)
 
 - Fostering a safe, supportive, and inclusive environment where participants could share experiences, develop self-care strategies, and provide mutual support in line with Aware Ireland's guidelines.
 
-{% include figure.liquid path="assets/img/aware_volunteering.JPG" caption="Volunteer onboarding training weekend" width="60%" class="mx-auto d-block text-center" %}
+{% include figure.liquid path="assets/img/aware_volunteering.JPG" caption="Volunteer onboarding training weekend" width="75%" class="mx-auto d-block text-center" %}
 
 _Mentally Aware Nigeria Initiative (MANI)_: [website](https://mentallyaware.org/)
 
