@@ -18,6 +18,14 @@ My goal is to impact 10,000 young persons in the next 10 years.
 
 **Mental Health Volunteering**
 
+_Aware_: [website](https://www.aware.ie/)
+
+- Facilitating peer support groups for individuals experiencing depression, bipolar disorder, and related mood disorders.
+
+- Fostering a safe, supportive, and inclusive environment where participants could share experiences, develop self-care strategies, and provide mutual support in line with Aware Ireland's guidelines.
+
+{% include figure.liquid path="assets/img/aware_volunteering.JPG" caption="Volunteer onboarding training weekend" width="60%" class="mx-auto d-block text-center" %}
+
 _Mentally Aware Nigeria Initiative (MANI)_: [website](https://mentallyaware.org/)
 
 - Led mental health programmes impacting 300+ individuals, including conversation cafés, mental health walks, and awareness initiatives in Ibadan, Oyo state, Nigeria.
