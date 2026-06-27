@@ -9,7 +9,7 @@ nav_order: 4
 
 **Encode Africa, AI Safety Action Week**: [website](https://encodessa.org/)
 
-- I will be presenting my research as a keynote speaker at Encode Africa's AI Safety Action Week on June 27th, 2026, on **"Human-Centered AI: Can Putting People First Make AI Safer?"**. [Register here](https://luma.com/uv60x5w5).
+- I presented my research as a keynote speaker at Encode Africa's AI Safety Action, on **"Human-Centered AI: Can Putting People First Make AI Safer?"**.
 
 {% include figure.liquid path="assets/img/encode-africa.jpeg" caption="Keynote speaker announcement, Encode Africa AI Safety Action Week" width="60%" class="mx-auto d-block text-center" %}
 
