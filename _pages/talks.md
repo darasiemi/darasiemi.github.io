@@ -9,7 +9,7 @@ nav_order: 4
 
 **Encode Africa, AI Safety Action Week**: [website](https://encodessa.org/)
 
-- I presented my research as a keynote speaker at Encode Africa's AI Safety Action, on **"Human-Centered AI: Can Putting People First Make AI Safer?"**.
+- I presented my research as a keynote speaker at Encode Africa's AI Safety Action, on **"Human-Centered AI: Can Putting People First Make AI Safer?"**. [Recording](https://docs.google.com/videos/d/1dTasnLpSbrMZxVdxymH6ZbOcyoFIRP3QXeQLpWV2aLc/play)
 
 {% include figure.liquid path="assets/img/encode-africa.jpeg" caption="Keynote speaker announcement, Encode Africa AI Safety Action Week" width="60%" class="mx-auto d-block text-center" %}
 
@@ -17,7 +17,7 @@ nav_order: 4
 
 **Young Surveyors Network (YSN), Lagos State Branch**
 
-- I served as a panelist at the Scholarship Clinic 3.0, **"Funded. Prepared. Global."**, guiding ~60 prospective scholars on fully funded postgraduate applications and international academic mobility.
+- I served as a panelist at the Scholarship Clinic 3.0, **"Funded. Prepared. Global."**, guiding ~60 prospective scholars on fully funded postgraduate applications and international academic mobility. [Recording](https://youtu.be/5dwcPsIS5v0?si=j0Xq2idoO-RXt01B)
 
 {% include figure.liquid path="assets/img/scholarship-clinic.jpeg" caption="Panelists, YSN Lagos Scholarship Clinic 3.0" width="60%" class="mx-auto d-block text-center" %}
 
