@@ -25,6 +25,6 @@ nav_order: 4
 
 **NSK AI Community**: [website](https://www.nskai.org/)
 
-- I gave a seminar talk on **"AI in Healthcare: Opportunities and Requirements"** to ~60 attendees, covering applications, challenges, and ethical requirements for deploying AI in clinical and health settings.
+- I gave a seminar talk on **"AI in Healthcare: Opportunities and Requirements"** to ~60 attendees, covering applications, challenges, and ethical requirements for deploying AI in clinical and health settings. [Recording](https://drive.google.com/file/d/1GV7o5CyNwAXr-q366qMlYtG7ZjpWPyQe/view?usp=sharing)
 
 {% include figure.liquid path="assets/img/nsk-ai-call.jpeg" caption="AI in Healthcare seminar, NSK AI Community" width="60%" class="mx-auto d-block text-center" %}
