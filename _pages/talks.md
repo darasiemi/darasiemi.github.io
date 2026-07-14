@@ -7,6 +7,12 @@ nav: true
 nav_order: 4
 ---
 
+**Health Data and Analytics Seminar talk**:
+
+- I presented my research to an audience of healthcare workers (doctors, nurses, administrators etc.) as part of the Health Data and Analytics module at UCD. [Recording](https://drive.google.com/file/d/1j7MXR_Cvv38ggJFcFLgV2405n0VbFjuz/view?usp=sharing)
+
+{% include figure.liquid path="assets/img/health_data_seminar.jpeg" caption="health data talk" width="60%" class="mx-auto d-block text-center" %}
+
 **Encode Africa, AI Safety Action Week**: [website](https://encodessa.org/)
 
 - I presented my research as a keynote speaker at Encode Africa's AI Safety Action, on **"Human-Centered AI: Can Putting People First Make AI Safer?"**. [Recording](https://docs.google.com/videos/d/1dTasnLpSbrMZxVdxymH6ZbOcyoFIRP3QXeQLpWV2aLc/play)
