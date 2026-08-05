@@ -1,7 +1,7 @@
 ---
 layout: post
-title: My Team Won the 2025 Huawei Tech Arena on LLM Inference Optimization
-date: 2025-11-23 00:00:00-0400
+title: What does your spending say about your mental health?
+date: 2026-08-04 00:00:00-0400
 description: Huawei Tech Arena
 tags: formatting
 # categories: sample-posts external-services
