@@ -3,7 +3,7 @@ layout: post
 title: My Team Won the 2025 Huawei Tech Arena on LLM Inference Optimization
 date: 2025-11-23 00:00:00-0400
 description: Huawei Tech Arena
-tags: formatting
+tags: hackathon
 # categories: sample-posts external-services
 ---
 

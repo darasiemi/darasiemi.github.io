@@ -3,7 +3,7 @@ layout: post
 title: Exposition to Radio Broadcasting - A Visit to Diamond FM.
 date: 2016-09-17 00:00:00-0400
 description: SEEES UI Visit to Diamond FM
-tags: formatting
+tags: SEEES news
 # categories: sample-posts external-services
 ---
 

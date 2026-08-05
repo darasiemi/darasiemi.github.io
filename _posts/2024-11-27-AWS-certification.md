@@ -3,7 +3,7 @@ layout: post
 title: How I Passed the AWS Certified Machine Learning Specialty Exam To Earn My First AWS Certification
 date: 2024-11-27 00:00:00-0400
 description: AWS Certified Machine Learning - Specialty
-tags: formatting
+tags: certification
 # categories: sample-posts external-services
 ---
 

@@ -3,7 +3,7 @@ layout: post
 title: Genius Plays, AI Displays, and Stallion Parades - My Summer School Experience at ML Labs
 date: 2024-09-06 00:00:00-0400
 description: ML Labs Summer school
-tags: formatting
+tags: academic blog
 # categories: sample-posts external-services
 ---
 

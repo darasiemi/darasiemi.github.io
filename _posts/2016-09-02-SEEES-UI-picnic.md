@@ -3,7 +3,7 @@ layout: post
 title: SEEES Picnic 2016 - Eating, Games and More Fun.
 date: 2016-09-02 00:00:00-0400
 description: SEEES UI Picnic 2016
-tags: formatting
+tags: SEEES news
 # categories: sample-posts external-services
 ---
 
