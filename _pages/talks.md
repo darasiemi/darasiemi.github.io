@@ -9,7 +9,7 @@ nav_order: 4
 
 **Health Data and Analytics Seminar talk**:
 
-- I presented my research to an audience of healthcare workers (doctors, nurses, administrators etc.) as part of the Health Data and Analytics module at UCD. 
+- I presented my research to an audience of healthcare workers (doctors, nurses, administrators etc.) as part of the Health Data and Analytics module at UCD.
 
 {% include figure.liquid path="assets/img/health_data_seminar.jpeg" caption="Health Data Talk" width="60%" class="mx-auto d-block text-center" %}
 
