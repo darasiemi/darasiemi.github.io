@@ -12,9 +12,3 @@ Penny is a young woman who sometimes finds herself buying things she does not re
 Penny's story is hypothetical, but the experience is not uncommon. In fact, a study has shown that around 84% of shoppers have made impulse purchases at some point in their lives.
 
 [Read more](https://daraadedeji.substack.com/p/what-does-your-spending-say-about)
-
-<!-- ![ML Labs Summer School Group picture](../assets/img/ML_Labs_Summer_School_10th_June_2024_199.jpg) -->
-
-<!-- # Additional Details
-
-For more details on using the plugin visit: [jekyll-twitter-plugin](https://github.com/rob-murray/jekyll-twitter-plugin) -->
