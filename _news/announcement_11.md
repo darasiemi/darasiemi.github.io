@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Our paper _Following the Money: How Financial Data Can Transform Mental Health Research and Care_ has been accepted for publication in Pscyhiatric Services, published by American Psychiatric Association Publishing.
+Our paper _Following the Money: How Financial Data Can Transform Mental Health Research and Care_ has been accepted for publication in Psychiatric Services, published by American Psychiatric Association Publishing.
