@@ -6,7 +6,6 @@ on:
       - master
       - main
     paths:
-      - "_config.yml"
       - "assets/**"
       - "**.html"
       - "**.js"
@@ -33,7 +32,6 @@ on:
       - master
       - main
     paths:
-      - "_config.yml"
       - "assets/**"
       - "**.html"
       - "**.js"
