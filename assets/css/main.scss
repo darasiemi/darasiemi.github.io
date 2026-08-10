@@ -24,10 +24,18 @@ $max-content-width: {{ site.max_width }};
   "tabler-icons/tabler-icons-outline.scss"
 ;
 
-/* Substack icon only */
+/* Substack icon */
 .contact-icons .substack-icon {
-  width: 0.75em;
-  height: 0.75em;
+  width: 0.80em;
+  height: 0.80em;
   object-fit: contain;
   vertical-align: 0.02em;
+
+  /* Light mode: make entire SVG dark */
+  filter: grayscale(1) brightness(0);
+}
+
+/* Dark mode: make entire SVG light */
+html[data-theme="dark"] .contact-icons .substack-icon {
+  filter: grayscale(1) brightness(0) invert(1);
 }
