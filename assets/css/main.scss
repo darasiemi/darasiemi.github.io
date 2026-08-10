@@ -1,7 +1,6 @@
-// ---
-// # Only the main Sass file needs front matter (the dashes are enough)
-// ---
-
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
 @charset "utf-8";
 
 // Dimensions
@@ -25,16 +24,10 @@ $max-content-width: {{ site.max_width }};
   "tabler-icons/tabler-icons-outline.scss"
 ;
 
-/* Substack social icon */
-.substack-icon {
+/* Substack icon only */
+.contact-icons .substack-icon {
   width: 0.75em;
   height: 0.75em;
-  vertical-align: 0.03em;
   object-fit: contain;
-  filter: brightness(0);
-}
-
-html[data-theme="dark"] .substack-icon,
-body[data-theme="dark"] .substack-icon {
-  filter: brightness(0) invert(1);
+  vertical-align: 0.02em;
 }
