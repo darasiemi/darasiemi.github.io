@@ -51,6 +51,7 @@ jobs:
           args: >
             --user-agent "curl/7.54"
             --exclude-path README.md
+            --exclude-path CUSTOMIZE.md
             --exclude-path _pages/404.md
             --exclude-path _pages/blog.md
             --exclude-path _posts/2018-12-22-distill.md
