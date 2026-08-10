@@ -29,7 +29,7 @@ $max-content-width: {{ site.max_width }};
   width: 0.80em;
   height: 0.80em;
   object-fit: contain;
-  vertical-align: -0.03em;
+  vertical-align: -0.015em;
 
   /* Light mode: make entire SVG dark */
   filter: grayscale(1) brightness(0);
