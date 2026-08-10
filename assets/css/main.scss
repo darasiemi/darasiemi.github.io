@@ -27,9 +27,9 @@ $max-content-width: {{ site.max_width }};
 /* Substack icon */
 .contact-icons .substack-icon {
   width: 0.80em;
-  height: 0.80em;
+  height: 0.83em;
   object-fit: contain;
-  vertical-align: -0.005em;
+  vertical-align: -0.003em;
 
   /* Light mode: make entire SVG dark */
   filter: grayscale(1) brightness(0);
