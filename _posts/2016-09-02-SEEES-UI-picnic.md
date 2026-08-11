@@ -3,8 +3,8 @@ layout: post
 title: SEEES Picnic 2016 - Eating, Games and More Fun.
 date: 2016-09-02 00:00:00-0400
 description: SEEES UI Picnic 2016
-tags: SEEES news
-# categories: sample-posts external-services
+tags: news
+categories: lifestyle
 ---
 
 Aug 27th 2016 would remain a memorable day for many SEEESites. This day, students of Electrical/Electronic Engineering, University of Ibadan, under the aegis of Society of Electrical/Electronic Engineering organized a picnic; a fun filled one in all ramifications. After a hectic first semester, the picnic was necessary to revitalize the students and usher in the new semester. It also served as a means of attenuating the fears and anxiety of awaiting the results of the preceding semester. The event was open to students from other departments to attend.

@@ -3,8 +3,8 @@ layout: post
 title: What does your spending say about your mental health?
 date: 2026-08-04 00:00:00-0400
 description: Pervasive Health 2026
-tags: conference blogpost
-# categories: sample-posts external-services
+tags: mental health, news
+categories: research, publication, PhD 
 ---
 
 Penny is a young woman who sometimes finds herself buying things she does not really need, especially when she is feeling happy and upbeat. At first, these purchases seem harmless—a new outfit, a gadget, a treat for herself. But over time, the spending adds up. Bills become harder to pay, debts begin to grow, and the financial stress starts to affect how she sees herself and functions.

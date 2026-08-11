@@ -3,8 +3,8 @@ layout: post
 title: Ideate to Innovate
 date: 2017-03-31 00:00:00-0400
 description: Innovation blogpost
-tags: commentary
-# categories: sample-posts external-services
+tags: technology
+categories: commentary
 ---
 
 Who is the greatest inventor?
