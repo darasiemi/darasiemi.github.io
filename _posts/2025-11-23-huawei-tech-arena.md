@@ -3,8 +3,12 @@ layout: post
 title: My Team Won the 2025 Huawei Tech Arena on LLM Inference Optimization
 date: 2025-11-23 00:00:00-0400
 description: Huawei Tech Arena
-tags: AI, hackathon, news
-categories: personal
+tags:
+  - machine learning
+  - hackathon
+  - news
+categories:
+  - AI
 ---
 
 Dublin, Monday 24th November – Oluwadara Adedeji, a student at UCD School of Computer Science, has secured first place at the Huawei Tech Arena 2025, partnering with three students from Dublin City University to solve one of the most pressing challenges in artificial intelligence development.

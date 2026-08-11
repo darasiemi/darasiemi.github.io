@@ -3,7 +3,9 @@ layout: post
 title: SEEES UI organizes Automation and Control Training
 date: 2016-09-15 00:00:00-0400
 description: Automatoion training
-tags: news, technology
+tags:
+  - news
+  - technology
 categories: commentary
 ---
 
