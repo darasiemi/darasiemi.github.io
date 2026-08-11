@@ -8,7 +8,6 @@ tags:
 categories:
   - research
   - publication
-  - PhD
 ---
 
 While the link between financial stability and mental health is well-established, a new University College Dublin (UCD) study reveals a major blind spot in current research: an over-reliance on self-reported surveys rather than objective financial data.
