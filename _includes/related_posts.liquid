@@ -3,7 +3,6 @@
 
 {% for post in site.posts %}
   {% if post.url != page.url %}
-
     {% assign tag_match = false %}
     {% assign category_match = false %}
 
@@ -26,7 +25,6 @@
     {% endif %}
 
     {% if tag_match or category_match %}
-
       {% unless heading_shown %}
         {% assign heading_shown = true %}
 
@@ -55,7 +53,6 @@
       {% if related_count >= site.related_blog_posts.max_related %}
         {% break %}
       {% endif %}
-
     {% endif %}
   {% endif %}
 {% endfor %}
