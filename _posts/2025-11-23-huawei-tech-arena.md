@@ -6,7 +6,6 @@ description: Huawei Tech Arena
 tags:
   - machine learning
   - hackathon
-  - news
 categories:
   - AI
 ---

@@ -5,7 +5,6 @@ date: 2024-09-06 00:00:00-0400
 description: ML Labs Summer school
 tags:
   - machine learning
-  - news
 categories:
   - PhD
   - AI

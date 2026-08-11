@@ -5,7 +5,6 @@ date: 2026-08-04 00:00:00-0400
 description: Pervasive Health 2026
 tags:
   - mental health
-  - news
 categories:
   - research
   - publication
