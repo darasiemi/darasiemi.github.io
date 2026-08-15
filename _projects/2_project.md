@@ -3,8 +3,8 @@ layout: page
 title: Financial Fraud Analysis using Synthetic data via Data Engineering.
 # description: project with financial data
 img: assets/img/data_engineering_architecture.new.svg
-importance: 2
-category: work
+importance: 3
+category: personal
 # giscus_comments: true
 ---
 

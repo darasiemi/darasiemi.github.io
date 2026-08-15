@@ -3,8 +3,8 @@ layout: page
 title: Image Augmentation for Satellite Images
 # description: with background image
 img: assets/img/imagesatelliteproject.png
-importance: 3
-category: work
+importance: 4
+category: school
 # related_publications: true
 ---
 
