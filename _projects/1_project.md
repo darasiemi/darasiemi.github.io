@@ -19,4 +19,4 @@ In this project, I have implemented the end-to-end MLOps life cycle, including i
     MLOps project pipeline
 </div>
 
-[Project link](https://github.com/peter716/mental_health_mlops_project)
+[Project link](https://github.com/darasiemi/mental_health_mlops_project)

@@ -19,4 +19,4 @@ This study proposes the use of generative models (GANs) for augmenting the EuroS
     Satellite augmentation project pipeline
 </div>
 
-[Project link](https://github.com/peter716/11785-Project)
+[Project link](https://github.com/darasiemi/11785-Project)

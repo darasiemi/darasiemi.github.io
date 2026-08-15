@@ -19,4 +19,4 @@ In this project, I explored the end-to-end data engineering pipeline, showcasing
     data engineering project pipeline
 </div>
 
-[Project link](https://github.com/peter716/data_engineering_credit_fraud_project)
+[Project link](https://github.com/darasiemi/data_engineering_credit_fraud_project)
