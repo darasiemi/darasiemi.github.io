@@ -4,7 +4,7 @@ title: Financial Analysis AI
 # description: with background image
 img: assets/img/system-architecture.png
 importance: 1
-category: personal
+category: fun
 # related_publications: true
 ---
 

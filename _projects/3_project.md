@@ -4,7 +4,7 @@ title: Image Augmentation for Satellite Images
 # description: with background image
 img: assets/img/imagesatelliteproject.png
 importance: 4
-category: school
+category: work
 # related_publications: true
 ---
 

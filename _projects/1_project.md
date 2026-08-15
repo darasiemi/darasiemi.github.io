@@ -4,7 +4,7 @@ title: Mental Health MLOps Project - Stress Prediction Using Multimodal Inputs
 # description: with background image
 img: assets/img/mental_health_mlops_project.drawio.svg
 importance: 2
-category: personal
+category: fun
 # related_publications: true
 ---
 
