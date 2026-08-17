@@ -34,6 +34,8 @@ _Mentally Aware Nigeria Initiative (MANI)_: [website](https://mentallyaware.org/
 
 {% include figure.liquid path="assets/img/MANI_walk.jpeg" caption="After a mental health walk" width="60%" class="mx-auto d-block text-center" %}
 
+I also recently collaborated with **Aware** on a study exploring how mood changes are reflected in financial behaviours among people living with bipolar disorder. The study was recently featured on Aware's website; you can read about it [here](https://www.aware.ie/guest-blog-ucd-mood-and-money-lab/).
+
 <!-- ![MANI conversations](/assets/img/MANI_conversations.jpeg)
 At one of the conversation cafes
 
