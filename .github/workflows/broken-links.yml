@@ -63,6 +63,8 @@ jobs:
             --exclude "twitter.com"
             --exclude "ccmh.ucd.ie"
             --exclude "moodmoney.ucd.ie"
+            --exclude "dara-fin.streamlit.app"
+            --exclude "ml-labs.ie"
             './**/*.md'
             './**/*.html'
 
