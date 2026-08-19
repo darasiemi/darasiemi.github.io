@@ -46,20 +46,18 @@ If you are interested in what I do, and you want to connect, you can reach me vi
       <li
         data-target="#aboutCarousel"
         data-slide-to="{{ forloop.index0 }}"
-        {% if forloop.first %}class="active"{% endif %}>
-      </li>
+        {% if forloop.first %}class="active"{% endif %}
+      ></li>
     {% endfor %}
   </ol>
 
   <div class="carousel-inner rounded z-depth-1">
     {% for img in carousel_images %}
       <div class="carousel-item {% if forloop.first %}active{% endif %}">
-
         <div
           class="carousel-img-wrapper"
           style="background-image: url('{{ '/assets/img/' | append: img | relative_url }}');"
         >
-
           <img
             src="{{ '/assets/img/' | append: img | relative_url }}"
             alt="{{ carousel_captions[forloop.index0] }}"
@@ -69,42 +67,18 @@ If you are interested in what I do, and you want to connect, you can reach me vi
           <div class="carousel-caption">
             {{ carousel_captions[forloop.index0] }}
           </div>
-
         </div>
-
       </div>
     {% endfor %}
 
   </div>
 
-<a
-class="carousel-control-prev"
-href="#aboutCarousel"
-role="button"
-data-slide="prev"
-
->
-
-    <span
-      class="carousel-control-prev-icon"
-      aria-hidden="true">
-    </span>
-
+  <a class="carousel-control-prev" href="#aboutCarousel" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
   </a>
 
-<a
-class="carousel-control-next"
-href="#aboutCarousel"
-role="button"
-data-slide="next"
-
->
-
-    <span
-      class="carousel-control-next-icon"
-      aria-hidden="true">
-    </span>
-
+  <a class="carousel-control-next" href="#aboutCarousel" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
   </a>
 
 </div>
