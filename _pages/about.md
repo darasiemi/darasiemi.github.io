@@ -39,30 +39,8 @@ If you are interested in what I do, and you want to connect, you can reach me vi
 
 {% assign carousel_captions = "First PhD/MSc by Research Poster Presentation (2024)|MSc Graduation, Carnegie Mellon University (2023)|ML-Labs Summer School Social Activity (2023)|Dublin Tech Summit (2024)|President's Office, University College Cork (2024)|CMU Social Feature for the Highest-Ranked Rwandan Team at UmojaHack (2022)|Huawei Tech Arena Award Presentation (2025)|Huawei Tech Arena Award Plaque (2025)|ML-Labs Summer School (2026)|George Boole Statue, University College Cork (2024)|CMU-Africa Social Event (2022)|Visit to Zipline Rwanda (2022)|IBM Research AI Workshop (2024)|UCC AI Quest Award Presentation (2024)|Etisalat Merit Awards Presentation (2015)|Etisalat Merit Awards Presentation (2016)|Winner, Etisalat Innovation Moment for Etisalat Merit Awardees (2016)|RISE Initiative Leadership Bootcamp (2019)|Aware Volunteer Training Weekend (2026)" | split: "|" %}
 
-<div class="carousel-inner rounded z-depth-1">
-  {% for img in carousel_images %}
-    <div class="carousel-item {% if forloop.first %}active{% endif %}">
-      <div
-        class="carousel-img-wrapper"
-        style="background-image: url('{{ '/assets/img/' | append: img | relative_url }}');"
-      >
-        <img
-          src="{{ '/assets/img/' | append: img | relative_url }}"
-          alt="{{ carousel_captions[forloop.index0] }}"
-          loading="{% if forloop.first %}eager{% else %}lazy{% endif %}"
-        />
+<div id="aboutCarousel" class="carousel slide mb-4 mx-auto" data-ride="carousel">
 
-        <div class="carousel-caption">
-          {{ carousel_captions[forloop.index0] }}
-        </div>
-      </div>
-    </div>
-
-{% endfor %}
-
-</div>
-
-<!-- <div id="aboutCarousel" class="carousel slide mb-4 mx-auto" data-ride="carousel">
   <ol class="carousel-indicators">
     {% for img in carousel_images %}
       <li
@@ -76,23 +54,52 @@ If you are interested in what I do, and you want to connect, you can reach me vi
   <div class="carousel-inner rounded z-depth-1">
     {% for img in carousel_images %}
       <div class="carousel-item {% if forloop.first %}active{% endif %}">
-        <div class="carousel-img-wrapper" style="background-image: url('{{ '/assets/img/' | append: img | relative_url }}');">
+
+        <div
+          class="carousel-img-wrapper"
+          style="background-image: url('{{ '/assets/img/' | append: img | relative_url }}');"
+        >
+
           <img
             src="{{ '/assets/img/' | append: img | relative_url }}"
-            alt="About photo {{ forloop.index }}"
-            loading="{% if forloop.first %}eager{% else %}lazy{% endif %}">
+            alt="{{ carousel_captions[forloop.index0] }}"
+            loading="{% if forloop.first %}eager{% else %}lazy{% endif %}"
+          >
+
+          <div class="carousel-caption">
+            {{ carousel_captions[forloop.index0] }}
+          </div>
+
         </div>
+
       </div>
     {% endfor %}
-  </div> -->
+  </div>
 
-  <a class="carousel-control-prev" href="#aboutCarousel" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+  <a
+    class="carousel-control-prev"
+    href="#aboutCarousel"
+    role="button"
+    data-slide="prev"
+  >
+    <span
+      class="carousel-control-prev-icon"
+      aria-hidden="true">
+    </span>
   </a>
 
-  <a class="carousel-control-next" href="#aboutCarousel" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+  <a
+    class="carousel-control-next"
+    href="#aboutCarousel"
+    role="button"
+    data-slide="next"
+  >
+    <span
+      class="carousel-control-next-icon"
+      aria-hidden="true">
+    </span>
   </a>
+
 </div>
 
 <style>
