@@ -98,7 +98,6 @@ There is a strong emphasis on practical programming skills throughout this modul
 
 **Course Description:** This module is suitable for students interested in the fundamental and practical underpinnings of Information Visualisation. Information Visualisation is a research area that focuses on the use of graphical techniques to present data in an explicit form. Such static or dynamic presentations (pictures) help people formulate an understanding of data and an internal model of it for reasoning about. Such pictures of data are an external artifact supporting decision making. While sharing many of the same goals of Scientific Visualisation, Human Computer Interaction, User Interface Design and Computer Graphics, Information Visualisation focuses on the visual presentation of data without a physical or geometric form. As such it relies on research in mathematics, data mining, data structures, algorithms, graph drawing, human-computer interaction, cognitive psychology, semiotics, cartography, interactiave graphics, imaging and visual design. Tools: Vega Lite and Tableau
 
-
 ### Autumn 2024 - Introduction to Artificial Intelligence COMP30030
 
 [Course Website](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP30030)
