@@ -160,46 +160,60 @@
   ],
   "certificates": [
     {
+      "name": "LLM Zoomcamp",
+      "date": "2026-08-27",
+      "issuer": "Data Talks Club",
+      "url": "https://certificate.datatalks.club/llm-zoomcamp/2026/26ac2a44da3ba8791d608de702856cc49bda2b5d.pdf",
+      "icon": "fa-solid fa-robot"
+    },
+    {
+      "name": "Claude Code in Action",
+      "date": "2026-03-11",
+      "issuer": "Anthropic",
+      "url": "https://verify.skilljar.com/c/jsm7w7yov995",
+      "icon": "fa-solid fa-terminal"
+    },
+    {
       "name": "Machine Learning Engineering Zoomcamp",
       "date": "2026-02-04",
       "issuer": "Data Talks Club",
       "url": "https://certificate.datatalks.club/ml-zoomcamp/2025/26ac2a44da3ba8791d608de702856cc49bda2b5d.pdf",
-      "icon": "fa-solid fa-location-dot"
+      "icon": "fa-solid fa-brain"
     },
     {
       "name": "Data Engineering Zoomcamp",
       "date": "2024-04-19",
       "issuer": "Data Talks Club",
       "url": "https://certificate.datatalks.club/dezoomcamp/2024/26ac2a44da3ba8791d608de702856cc49bda2b5d.pdf",
-      "icon": "fa-solid fa-location-dot"
+      "icon": "fa-solid fa-database"
     },
     {
       "name": "MLOps Zoomcamp",
       "date": "2024-09-01",
       "issuer": "Data Talks Club",
       "url": "https://certificate.datatalks.club/mlops-zoomcamp/2024/26ac2a44da3ba8791d608de702856cc49bda2b5d.pdf",
-      "icon": "fa-solid fa-hashtag"
+      "icon": "fa-solid fa-gears"
     },
     {
       "name": "Microsoft Certified: Azure Fundamentals",
       "date": "2021-05-31",
       "issuer": "Microsoft",
       "url": "https://www.credly.com/badges/519aeb95-ee0c-481c-9e71-cc825106e267?source=linked_in_profile",
-      "icon": "fa-solid fa-tag"
+      "icon": "fa-solid fa-cloud"
     },
     {
       "name": "GitHub for Data Scientists",
       "date": "2023-08-18",
       "issuer": "LinkedIn Learning",
       "url": "https://www.linkedin.com/learning/certificates/6a1dde68d94753de8d7b9dd906d7961dfaeaf0eec97d3384cfc806e8bec6e56c",
-      "icon": "fa-solid fa-envelope"
+      "icon": "fa-brands fa-github"
     },
     {
       "name": "AWS Certified Machine Learning Specialty",
       "date": "2024-11-29",
       "issuer": "AWS",
       "url": "https://www.credly.com/badges/a51a8783-9cd6-4405-9311-df303840dca8",
-      "icon": "fa-solid fa-tag"
+      "icon": "fa-solid fa-cloud"
     }
   ],
   "interests": [
