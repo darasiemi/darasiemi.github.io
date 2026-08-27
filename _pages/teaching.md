@@ -7,6 +7,14 @@ nav: true
 nav_order: 6
 ---
 
+### Autumn 2026 - Multi-Agent Systems COMP41400
+
+[Course Website](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP41400)
+
+**Institution:** University College Dublin
+
+**Course Description:** This module aims to introduce students to the concept of multi-agent systems. The course commences with a eview of the fundamental concepts that underpin agent-based systems,.Thereafter a number of topics will be covered including inter alia: agent reasoning technologies, agent communication languages, agent programming languages, coordination protocols agent planning and negotiation strategies. Following this, the course explores how agent technologies have been successfully applied to a diverse range of application domains, such as mobile computing, virtual collaborative environments, and robotics. During the course, students are required to evaluate an agent programming, framework that delivers structured support for the development and deployment of agent-oriented applications.
+
 ### Spring 2026 - ML System Deployment COMP41860
 
 [Course Website](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP41860)
@@ -72,13 +80,23 @@ There is a strong emphasis on practical programming skills throughout this modul
 
 **Course Description:** This module is suitable for students interested in the fundamental and practical underpinnings of Information Visualisation. Information Visualisation is a research area that focuses on the use of graphical techniques to present data in an explicit form. Such static or dynamic presentations (pictures) help people formulate an understanding of data and an internal model of it for reasoning about. Such pictures of data are an external artefact supporting decision making. While sharing many of the same goals of Scientific Visualisation, Human Computer Interaction, User Interface Design and Computer Graphics, Information Visualisation focuses on the visual presentation of data without a physical or geometric form. As such it relies on research in mathematics, data mining, data structures, algorithms, graph drawing, human-computer interaction, cognitive psychology, semiotics, cartography, interactive graphics, imaging and visual design. Tools: Vega Lite and Tableau
 
-### Spring 2025 and 2026 - Information Visualisation - DS COMP30750
+### Spring 2025 and 2026, Autumn 2026 - Information Visualisation - DS COMP30750
 
 [Course Website](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP30750)
 
 **Institution:** University College Dublin
 
-**Course Description:** This module is suitable for students interested in the fundamental and practical underpinnings of Information Visualisation. Information Visualisation is a research area that focuses on the use of graphical techniques to present data in an explicit form. Such static or dynamic presentations (pictures) help people formulate an understanding of data and an internal model of it for reasoning about. Such pictures of data are an external artifact supporting decision making. While sharing many of the same goals of Scientific Visualisation, Human Computer Interaction, User Interface Design and Computer Graphics, Information Visualisation focuses on the visual presentation of data without a physical or geometric form. As such it relies on research in mathematics, data mining, data structures, algorithms, graph drawing, human-computer interaction, cognitive psychology, semiotics, cartography, interactive graphics, imaging and visual design. Tools: Vega Lite and Tableau
+**Course Description:** This module is suitable for students interested in the fundamental and practical underpinnings of Information Visualisation. Information Visualisation is a research area that focuses on the use of graphical techniques to present data in an explicit form. Such static or dynamic presentations (pictures) help people formulate an understanding of data and an internal model of it for reasoning about. Such pictures of data are an external artifact supporting decision making. While sharing many of the same goals of Scientific Visualisation, Human Computer Interaction, User Interface Design and Computer Graphics, Information Visualisation focuses on the visual presentation of data without a physical or geometric form. As such it relies on research in mathematics, data mining, data structures, algorithms, graph drawing, human-computer interaction, cognitive psychology, semiotics, cartography, interactiave graphics, imaging and visual design. Tools: Vega Lite and Tableau
+
+### Autumn 2026 - Information Visualisation - COMP40610
+
+[Course Website](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP40610a)
+
+**Institution:** University College Dublin
+
+**Course Description:** This module is suitable for students interested in the fundamental and practical underpinnings of Information Visualisation. Information Visualisation is a research area that focuses on the use of graphical techniques to present data in an explicit form. Such static or dynamic presentations (pictures) help people formulate an understanding of data and an internal model of it for reasoning about. Such pictures of data are an external artifact supporting decision making. While sharing many of the same goals of Scientific Visualisation, Human Computer Interaction, User Interface Design and Computer Graphics, Information Visualisation focuses on the visual presentation of data without a physical or geometric form. As such it relies on research in mathematics, data mining, data structures, algorithms, graph drawing, human-computer interaction, cognitive psychology, semiotics, cartography, interactive graphics, imaging and visual design.
+
+This module explores the most important topics in information visualsiation addressing both practical and theoretical concerns. Specific tools for creating data visualsiations are also explored.
 
 ### Autumn 2024 - Introduction to Artificial Intelligence COMP30030
 
