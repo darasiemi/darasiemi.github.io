@@ -14,4 +14,4 @@ The CMU-Africa Data Science Club competed in this year’s Umoja Hack. Umoja Hac
 
 The CMU-Africa teams that competed were:
 
-R2-D2: Oluwadara Adedeji (MS EAI '23), Olayiwola Arowolo (MS ECE '22), Aanuoluwapo Orioke (MS ECE '22), and Peter Owoade (MS EAI '22), the highest-ranked team from Rwanda in the intermediate challenge...[Read more](https://www.ece.cmu.edu/news-and-events/story/2022/12/umoja-hack.html)
+R2-D2: Oluwadara Adedeji (MS EAI '23), Olayiwola Arowolo (MS ECE '22), Aanuoluwapo Orioke (MS ECE '22), and Peter Owoade (MS EAI '22), the highest-ranked team from Rwanda in the intermediate challenge...[read more](https://www.ece.cmu.edu/news-and-events/story/2022/12/umoja-hack.html)

@@ -14,6 +14,4 @@ While the link between financial stability and mental health is well-established
 
 The joint review by UCD School of Computer Science and UCD School of Psychology evaluated 43 studies on financial habits and mental illness, uncovering significant gaps.
 
-Objective data is rarely used: Only 4 of the 43 studies reviewed analysed objective financial records such as bank transaction histories or gambling data.
-
-[Read more](https://www.ucd.ie/research/news/2026/ucdstudyfindsbankingappscouldhelpmanagementalhealth/)
+Objective data is rarely used: Only 4 of the 43 studies reviewed analysed objective financial records such as bank transaction histories or gambling data...[read more](https://www.ucd.ie/research/news/2026/ucdstudyfindsbankingappscouldhelpmanagementalhealth/)

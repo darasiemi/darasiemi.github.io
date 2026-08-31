@@ -12,6 +12,4 @@ categories:
 
 Penny is a young woman who sometimes finds herself buying things she does not really need, especially when she is feeling happy and upbeat. At first, these purchases seem harmless—a new outfit, a gadget, a treat for herself. But over time, the spending adds up. Bills become harder to pay, debts begin to grow, and the financial stress starts to affect how she sees herself and functions.
 
-Penny's story is hypothetical, but the experience is not uncommon. In fact, a study has shown that around 84% of shoppers have made impulse purchases at some point in their lives.
-
-[Read more](https://daraadedeji.substack.com/p/what-does-your-spending-say-about)
+Penny's story is hypothetical, but the experience is not uncommon. In fact, a study has shown that around 84% of shoppers have made impulse purchases at some point in their lives...[read more](https://daraadedeji.substack.com/p/what-does-your-spending-say-about)
