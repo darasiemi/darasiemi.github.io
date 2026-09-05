@@ -39,10 +39,6 @@ If you are interested in what I do, and you want to connect, you can reach me vi
 
 {% assign carousel_captions = "Computational Methods for Mental Health and Wellbeing Workshop Presentation at CIBB, Rome, Italy (2026)|My First PhD Poster at the UCD PhD/MSc by Research Poster Presentation (2024)|MSc Graduation, Carnegie Mellon University (2023)|ML-Labs Summer School Social Activity (2023)|Dublin Tech Summit (2024)|President's Office, University College Cork (2024)|CMU Social Feature for the Highest-Ranked Rwandan Team at Umoja Hack (2022)|Huawei Tech Arena Award Presentation (2025)|Huawei Tech Arena Award Plaque (2025)|ML-Labs Summer School (2026)|George Boole Statue, University College Cork (2024)|CMU-Africa Social Event (2022)|Visit to Zipline Rwanda (2022)|IBM Research AI Workshop (2024)|UCC AI Quest Award Presentation (2024)|Etisalat Merit Award Presentation (2015)|Etisalat Merit Award Presentation (2016)|Winner, Etisalat Innovation Moment for Etisalat Merit Awardees (2016)|RISE Initiative Leadership Bootcamp (2019)|Aware Volunteer Training Weekend (2026)|At the Colosseum, Rome, Italy (2026)" | split: "|" %}
 
-<!-- {% assign carousel_images = "about_x1.jpeg,about_1.jpeg,about_2.jpeg,about_3.jpeg,about_4.jpeg,about_5.jpeg,about_6.jpeg,about_7.jpeg,about_8.jpeg,about_9.jpeg,about_10.jpeg,about_11.jpeg,about_12.jpeg,about_13.jpeg,about_14.jpeg,about_101.jpg,about_102.jpg,about_103.jpg,about_104.jpg,aware_volunteering.JPG", about_105.jpg | split: "," %}
-
-{% assign carousel_captions = "Computational Methods for Mental Health and Wellbeing Workshop Presentation at CIBB, Rome, Italy (2026)|My First PhD poster at the UCD PhD/MSc by Research Poster Presentation (2024)|MSc Graduation, Carnegie Mellon University (2023)|ML-Labs Summer School Social Activity (2023)|Dublin Tech Summit (2024)|President's Office, University College Cork (2024)|CMU Social Feature for the Highest-Ranked Rwandan Team at Umoja Hack (2022)|Huawei Tech Arena Award Presentation (2025)|Huawei Tech Arena Award Plaque (2025)|ML-Labs Summer School (2026)|George Boole Statue, University College Cork (2024)|CMU-Africa Social Event (2022)|Visit to Zipline Rwanda (2022)|IBM Research AI Workshop (2024)|UCC AI Quest Award Presentation (2024)|Etisalat Merit Award Presentation (2015)|Etisalat Merit Award Presentation (2016)|Winner, Etisalat Innovation Moment for Etisalat Merit Awardees (2016)|RISE Initiative Leadership Bootcamp (2019)|Aware Volunteer Training Weekend (2026) | In front of the Colloseum, Italy " | split: "|" %} -->
-
 <div id="aboutCarousel" class="carousel slide mb-4 mx-auto" data-ride="carousel">
 
   <ol class="carousel-indicators">
@@ -89,7 +85,8 @@ If you are interested in what I do, and you want to connect, you can reach me vi
 
 <style>
 #aboutCarousel {
-  max-width: 850px;
+  max-width: 1100px;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -100,78 +97,106 @@ If you are interested in what I do, and you want to connect, you can reach me vi
 
 #aboutCarousel .carousel-img-wrapper {
   width: 100%;
-  height: 500px;
+  height: min(72vh, 680px);
+  min-height: 520px;
   position: relative;
   overflow: hidden;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   background-size: cover;
   background-position: center;
 }
 
+/* Blurred backdrop */
 #aboutCarousel .carousel-img-wrapper::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
+
   background-image: inherit;
   background-size: cover;
   background-position: center;
-  filter: blur(25px) brightness(0.55);
-  transform: scale(1.15);
+
+  filter: blur(28px) brightness(0.5);
+  transform: scale(1.12);
+
   z-index: 0;
 }
 
+/* Dark overlay for readability */
+#aboutCarousel .carousel-img-wrapper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.08);
+  z-index: 0;
+}
+
+/* Main image */
 #aboutCarousel .carousel-img-wrapper img {
   position: relative;
   z-index: 1;
-  max-width: 100%;
-  max-height: 100%;
+
   width: auto;
   height: auto;
+
+  max-width: 96%;
+  max-height: 92%;
+
   object-fit: contain;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
 }
 
+/* Previous / next controls */
 #aboutCarousel .carousel-control-prev,
 #aboutCarousel .carousel-control-next {
-  width: 70px;
+  width: 75px;
   opacity: 1;
-  z-index: 10;
+  z-index: 30;
 }
 
 #aboutCarousel .carousel-control-prev {
-  left: 10px;
+  left: 8px;
 }
 
 #aboutCarousel .carousel-control-next {
-  right: 10px;
+  right: 8px;
 }
 
 #aboutCarousel .carousel-control-prev-icon,
 #aboutCarousel .carousel-control-next-icon {
-  width: 2.5rem;
-  height: 2.5rem;
-  background-color: rgba(0, 0, 0, 0.45);
+  width: 2.4rem;
+  height: 2.4rem;
+
+  background-color: rgba(0, 0, 0, 0.5);
   border-radius: 50%;
-  padding: 1.4rem;
+
+  padding: 1.35rem;
+
   filter: invert(1) drop-shadow(0 0 4px rgba(0, 0, 0, 0.9));
 }
 
+/* Indicators */
 #aboutCarousel .carousel-indicators {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.55rem;
+  z-index: 40;
 }
 
 #aboutCarousel .carousel-indicators li {
   width: 10px;
   height: 10px;
+
   border-radius: 50%;
   margin: 0 4px;
-  background-color: rgba(255,255,255,0.6);
-  border: 1px solid rgba(255,255,255,0.8);
+
+  background-color: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+
   opacity: 1;
   text-indent: -999px;
 }
@@ -181,32 +206,71 @@ If you are interested in what I do, and you want to connect, you can reach me vi
   border-color: #ffffff;
 }
 
+/* Caption */
 #aboutCarousel .carousel-caption {
   display: block !important;
+
   position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 20;
-  padding: 30px 15px 35px;
+
+  z-index: 25;
+
+  padding: 60px 24px 42px;
+
   text-align: left;
   color: #fff;
-  font-size: 0.9rem;
-  font-weight: 500;
+
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.35;
+
   background: linear-gradient(
     to top,
-    rgba(0, 0, 0, 0.85),
-    rgba(0, 0, 0, 0)
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(0, 0, 0, 0.55) 45%,
+    rgba(0, 0, 0, 0) 100%
   );
 }
 
-@media (max-width: 768px) {
+/* Tablet */
+@media (max-width: 992px) {
   #aboutCarousel {
     max-width: 100%;
   }
 
   #aboutCarousel .carousel-img-wrapper {
-    height: 320px;
+    height: 600px;
+    min-height: 500px;
+  }
+
+  #aboutCarousel .carousel-img-wrapper img {
+    max-width: 97%;
+    max-height: 92%;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  #aboutCarousel .carousel-img-wrapper {
+    height: 430px;
+    min-height: 430px;
+  }
+
+  #aboutCarousel .carousel-img-wrapper img {
+    max-width: 98%;
+    max-height: 90%;
+  }
+
+  #aboutCarousel .carousel-caption {
+    padding: 50px 16px 34px;
+    font-size: 0.85rem;
+  }
+
+  #aboutCarousel .carousel-control-prev,
+  #aboutCarousel .carousel-control-next {
+    width: 55px;
   }
 
   #aboutCarousel .carousel-control-prev-icon,
@@ -214,6 +278,12 @@ If you are interested in what I do, and you want to connect, you can reach me vi
     width: 2rem;
     height: 2rem;
     padding: 1.1rem;
+  }
+
+  #aboutCarousel .carousel-indicators li {
+    width: 8px;
+    height: 8px;
+    margin: 0 3px;
   }
 }
 </style>
