@@ -44,12 +44,8 @@
   <a href="https://www.linkedin.com/in/{{ site.linkedin_username }}" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
 {% endif %}
 {% if site.substack_url %}
-  <a href="{{ site.substack_url }}" title="Substack">
-    <img
-      src="{{ '/assets/img/substack.svg' | relative_url }}"
-      alt="Substack"
-      class="substack-icon"
-    >
+  <a href="{{ site.substack_url }}" title="Substack" aria-label="Substack">
+    <span class="substack-icon" aria-hidden="true"></span>
   </a>
 {% endif %}
 {% if site.x_username %}

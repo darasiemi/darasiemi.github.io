@@ -26,16 +26,16 @@ $max-content-width: {{ site.max_width }};
 
 /* Substack icon */
 .contact-icons .substack-icon {
-  width: 0.80em;
+  display: inline-block;
+  width: 0.8em;
   height: 0.83em;
-  object-fit: contain;
   vertical-align: -0.005em;
-
-  /* Light mode: make entire SVG dark */
-  filter: grayscale(1) brightness(0);
+  background-color: var(--global-text-color);
+  -webkit-mask: url("{{ '/assets/img/substack.svg' | relative_url }}") center / contain no-repeat;
+  mask: url("{{ '/assets/img/substack.svg' | relative_url }}") center / contain no-repeat;
+  transition: background-color 0.2s ease-in-out;
 }
 
-/* Dark mode: make entire SVG light */
-html[data-theme="dark"] .contact-icons .substack-icon {
-  filter: grayscale(1) brightness(0) invert(1);
+.contact-icons a:hover .substack-icon {
+  background-color: var(--global-theme-color);
 }
