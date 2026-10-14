@@ -130,60 +130,6 @@
   }
 }
 
-.hero-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  opacity: 0;
-
-  @media (max-width: 900px) {
-    justify-content: center;
-  }
-}
-
-.hero-btn-primary {
-  display: inline-block;
-  padding: 0.72rem 1.75rem;
-  background-color: var(--global-theme-color);
-  color: #fff !important;
-  border-radius: 999px;
-  font-size: 0.875rem;
-  font-weight: 600;
-  text-decoration: none !important;
-  transition:
-    background-color 0.2s ease,
-    transform 0.15s ease;
-
-  &:hover {
-    background-color: var(--global-hover-color);
-    transform: translateY(-2px);
-    text-decoration: none !important;
-  }
-}
-
-.hero-btn-secondary {
-  display: inline-block;
-  padding: 0.72rem 1.75rem;
-  background-color: transparent;
-  color: var(--global-text-color) !important;
-  border: 1px solid var(--global-divider-color);
-  border-radius: 999px;
-  font-size: 0.875rem;
-  font-weight: 600;
-  text-decoration: none !important;
-  transition:
-    border-color 0.2s ease,
-    color 0.2s ease,
-    transform 0.15s ease;
-
-  &:hover {
-    border-color: var(--global-theme-color);
-    color: var(--global-theme-color) !important;
-    transform: translateY(-2px);
-    text-decoration: none !important;
-  }
-}
-
 // Photo column
 .hero-photo-col {
   flex-shrink: 0;
@@ -400,7 +346,7 @@
   width: max-content;
   padding: 0.5rem 0;
   // Moderate scroll — fast enough to feel alive, slow enough to read each logo
-  animation: logoScroll 40s linear infinite;
+  animation: logoScroll 34s linear infinite;
   // Each item uses margin-right instead of flex gap so the trailing margin
   // after the last item of copy A matches the gap between items — seamless loop.
 
@@ -413,7 +359,7 @@
   }
 
   @media (max-width: 576px) {
-    animation-duration: 32s;
+    animation-duration: 27s;
   }
 }
 
@@ -819,6 +765,10 @@ swiper-slide {
     line-height: 1.45;
     border-radius: 0 0 14px 14px;
   }
+}
+
+.swiper-photo-slide--lower-focus img {
+  object-position: center 70%;
 }
 
 // ── Pinboard — the three identities as pinned sticky notes ───────────────────

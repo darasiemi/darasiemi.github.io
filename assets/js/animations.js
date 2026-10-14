@@ -214,7 +214,6 @@
     .fromTo(".hero-first", { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.7 }, 0.25)
     .fromTo(".hero-last", { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.7 }, 0.38)
     .fromTo(".hero-tagline", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.55 }, 0.55)
-    .fromTo(".hero-links", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.5 }, 0.68)
     .fromTo(".hero-photo-col", { opacity: 0, x: 30, scale: 0.96 }, { opacity: 1, x: 0, scale: 1, duration: 0.8, ease: "power2.out" }, 0.2);
 
   /* ── Pinboard sticky notes ── */
@@ -294,8 +293,10 @@
 
   /* ── News list stagger — each news item rises in sequence ── */
   gsap.utils.toArray(".about-section").forEach(function (section) {
-    var isNews = section.querySelector(".about-section-heading")?.textContent?.trim().toLowerCase() === "news";
-    var isPubs = section.querySelector(".about-section-heading")?.textContent?.trim().toLowerCase() === "selected publications";
+    var heading = section.querySelector(".about-section-heading");
+    var headingText = heading ? heading.textContent.trim().toLowerCase() : "";
+    var isNews = headingText === "news";
+    var isPubs = headingText === "selected publications";
 
     if (isNews) {
       var newsItems = section.querySelectorAll("ol > li, ul > li");

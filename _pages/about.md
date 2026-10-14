@@ -122,7 +122,7 @@ If you are interested in what I do and want to connect, reach me via the contact
   >
     {% for img in carousel_images %}
       <swiper-slide>
-        <div class="swiper-photo-slide">
+        <div class="swiper-photo-slide{% if img == 'about_5.jpeg' or img == 'about_10.jpeg' or img == 'about_13.jpeg' %} swiper-photo-slide--lower-focus{% endif %}">
           <img
             src="{{ '/assets/img/' | append: img | relative_url }}"
             alt="{{ carousel_captions[forloop.index0] }}"
