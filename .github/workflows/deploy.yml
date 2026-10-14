@@ -8,6 +8,8 @@ on:
     paths:
       - "_bibliography/*"
       - "assets/**"
+      - "_plugins/**"
+      - "_sass/**"
       - "**.html"
       - "**.js"
       - "**.liquid"
@@ -35,6 +37,8 @@ on:
     paths:
       - "_bibliography/*"
       - "assets/**"
+      - "_plugins/**"
+      - "_sass/**"
       - "**.html"
       - "**.js"
       - "**.liquid"
