@@ -328,6 +328,27 @@ ul.task-list input[type="checkbox"] {
     color: var(--global-text-color);
   }
 
+  .signature-brand {
+    display: inline-flex;
+    align-items: center;
+    padding: 0;
+
+    img {
+      display: block;
+      width: 120px;
+      height: auto;
+      transition: opacity 0.2s ease;
+
+      html[data-theme="dark"] & {
+        filter: invert(1);
+      }
+    }
+
+    &:hover img {
+      opacity: 0.72;
+    }
+  }
+
   .navbar-nav .nav-item .nav-link {
     color: var(--global-text-color);
 
