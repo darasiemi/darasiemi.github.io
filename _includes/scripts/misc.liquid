@@ -32,6 +32,13 @@
   ></script>
 {% endif %}
 
+<!-- GSAP + ScrollTrigger (loaded on pages that opt in via page.gsap) -->
+{% if page.gsap %}
+  <script src="{{ site.third_party_libraries.gsap.url.js }}"></script>
+  <script src="{{ site.third_party_libraries.gsap.url.scroll_trigger }}"></script>
+  <script defer src="{{ '/assets/js/animations.js' | relative_url | bust_file_cache }}"></script>
+{% endif %}
+
 <!-- Load Common JS -->
 <script src="{{ '/assets/js/no_defer.js' | relative_url | bust_file_cache }}"></script>
 <script defer src="{{ '/assets/js/common.js' | relative_url | bust_file_cache }}"></script>

@@ -1,76 +1,180 @@
 ---
-layout: default
+layout: home
 ---
-<div class="post">
-  <header class="post-header">
-    <h1 class="post-title">
-      {% if site.title == 'blank' %}
-        <span class="font-weight-bold">{{ site.first_name }}</span> {{ site.middle_name }}
-        {{ site.last_name }}
-      {% else %}
-        {{ site.title }}
+<!-- ── Hero ──────────────────────────────────────────────────────────────── -->
+<section class="hero-section">
+  <div class="hero-inner">
+    <div class="hero-text-col">
+      <span class="hero-eyebrow">PhD Researcher &nbsp;·&nbsp; AI Engineer &nbsp;·&nbsp; Community Builder</span>
+      <h1 class="hero-name">
+        <span class="hero-first">{{ site.first_name }}</span>
+        <span class="hero-last">{{ site.last_name }}</span>
+      </h1>
+      <p class="hero-tagline">Solving aching problems. Impacting the next generation.</p>
+      <div class="hero-links">
+        <a href="{{ '/publications/' | relative_url }}" class="hero-btn-primary">Research</a>
+        <a href="{{ '/cv/' | relative_url }}" class="hero-btn-secondary">CV</a>
+        <a href="{{ '/blog/' | relative_url }}" class="hero-btn-secondary">Blog</a>
+        <a href="{{ '/outreaches/' | relative_url }}" class="hero-btn-secondary">Community</a>
+      </div>
+    </div>
+
+    <div class="hero-photo-col">
+      {% if page.profile and page.profile.image %}
+        {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
+        <div class="hero-photo-frame">
+          {% include figure.liquid loading="eager" path=profile_image_path alt="Oluwadara Adedeji" %}
+        </div>
       {% endif %}
-    </h1>
-    <p class="desc">{{ page.subtitle }}</p>
-  </header>
+      {% if page.profile and page.profile.more_info %}
+        <div class="hero-location">{{ page.profile.more_info }}</div>
+      {% endif %}
+    </div>
+  </div>
 
-  <article>
-    {% if page.profile %}
-      <div class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}">
-        {% if page.profile.image %}
-          {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
-          {% if page.profile.image_circular %}
-            {% assign profile_image_class = 'img-fluid z-depth-1 rounded-circle' %}
-          {% else %}
-            {% assign profile_image_class = 'img-fluid z-depth-1
-      rounded' %}
-          {% endif %}
-          {% capture sizes %}(min-width: {{site.max_width}}) {{ site.max_width | minus: 30 | times: 0.3}}px, (min-width: 576px)
-      30vw, 95vw"{% endcapture %}
-          {%
-            include figure.liquid loading="eager" path=profile_image_path class=profile_image_class sizes=sizes alt=page.profile.image
-            cache_bust=true
-          %}
-        {% endif %}
-        {% if page.profile.more_info %}
-          <div class="more-info">{{ page.profile.more_info }}</div>
-        {% endif %}
+  <div class="hero-status" role="status" aria-live="polite">
+    <span class="hero-status-dot" aria-hidden="true"></span>
+    <span class="hero-status-label">NOW</span>
+    <span class="hero-status-text">
+      4th-year PhD @ UCD
+      <span class="hero-status-sep" aria-hidden="true">·</span>
+      Open for research &amp; AI collaborations
+      <span class="hero-status-sep" aria-hidden="true">·</span>
+      <span class="hero-status-loc">Dublin, IE</span>
+    </span>
+  </div>
+</section>
+
+<!-- ── Affiliation marquee ───────────────────────────────────────────────── -->
+{% assign affil_logos = 'ucd.webp|University College Dublin|https://www.ucd.ie/,cmulogo.png|Carnegie Mellon University|https://www.cmu.edu/,ml_labs_logo.jpeg|ML-Labs|https://www.ml-labs.ie/,aware.jpeg|Aware Ireland|https://www.aware.ie/,mentallyawareng_logo.jpeg|Mentally Aware Nigeria Initiative|https://mentallyaware.org/'
+  | split: ','
+%}
+
+<section class="logo-strip" aria-label="Institutional affiliations">
+  <div class="logo-strip-inner">
+    <span class="affiliation-label">Affiliations &amp; collaborations</span>
+
+    <div class="logo-marquee">
+      <div class="logo-marquee-track">
+        {% for copy in (1..4) %}
+          {% for entry in affil_logos %}
+            {% assign parts = entry | split: '|' %}
+            {% if copy == 1 %}
+              <a class="logo-item" href="{{ parts[2] }}" target="_blank" rel="noopener" title="{{ parts[1] }}">
+                <img src="{{ '/assets/img/logos/' | append: parts[0] | relative_url }}" alt="{{ parts[1] }}" loading="lazy">
+              </a>
+            {% else %}
+              <a class="logo-item" href="{{ parts[2] }}" target="_blank" rel="noopener" title="{{ parts[1] }}" aria-hidden="true" tabindex="-1">
+                <img src="{{ '/assets/img/logos/' | append: parts[0] | relative_url }}" alt="" loading="lazy">
+              </a>
+            {% endif %}
+          {% endfor %}
+        {% endfor %}
       </div>
-    {% endif %}
+    </div>
+  </div>
+</section>
 
-    <div class="clearfix">{{ content }}</div>
+<!-- ── Bio + Gallery (from page content) ─────────────────────────────────── -->
+<div class="about-content-wrap">{{ content }}</div>
 
-    <!-- News -->
-    {% if page.news and site.announcements.enabled %}
-      <h2>
-        <a href="{{ '/news/' | relative_url }}" style="color: inherit">news</a>
-      </h2>
-      {% include news.liquid limit=true %}
-    {% endif %}
+<!-- ── Pinboard — the three identities as pinned sticky notes ────────────── -->
+<div class="page-section">
+  <div class="page-container">
+    <div class="pinboard">
+      <article class="sticky-note sticky-note--teal">
+        <span class="sticky-note-pin" aria-hidden="true"></span>
+        <div class="sticky-note-content">
+          <span class="sticky-note-icon"><i class="ti ti-brain"></i></span>
+          <h3 class="sticky-note-title">Researcher</h3>
+          <p class="sticky-note-desc">Mental health &amp; financial data ML at UCD</p>
+          <a href="{{ '/publications/' | relative_url }}" class="sticky-note-link">Publications &rarr;</a>
+        </div>
+      </article>
 
-    <!-- Latest posts -->
-    {% if site.latest_posts.enabled %}
-      <h2>
-        <a href="{{ '/blog/' | relative_url }}" style="color: inherit">latest posts</a>
-      </h2>
-      {% include latest_posts.liquid %}
-    {% endif %}
+      <article class="sticky-note sticky-note--cream">
+        <span class="sticky-note-pin" aria-hidden="true"></span>
+        <div class="sticky-note-content">
+          <span class="sticky-note-icon"><i class="ti ti-code"></i></span>
+          <h3 class="sticky-note-title">Engineer</h3>
+          <p class="sticky-note-desc">AWS &amp; Azure-certified ML practitioner, 5+ yrs</p>
+          <a href="{{ '/cv/' | relative_url }}" class="sticky-note-link">CV &rarr;</a>
+        </div>
+      </article>
 
-    <!-- Selected papers -->
-    {% if page.selected_papers %}
-      <h2>
-        <a href="{{ '/publications/' | relative_url }}" style="color: inherit">selected publications</a>
-      </h2>
-      {% include selected_papers.liquid %}
-    {% endif %}
-
-    <!-- Social -->
-    {% if page.social %}
-      <div class="social">
-        <div class="contact-icons">{% include social.liquid %}</div>
-
-        <div class="contact-note">{{ site.contact_note }}</div>
-      </div>
-    {% endif %}
-  </article>
+      <article class="sticky-note sticky-note--rose">
+        <span class="sticky-note-pin" aria-hidden="true"></span>
+        <div class="sticky-note-content">
+          <span class="sticky-note-icon"><i class="ti ti-users"></i></span>
+          <h3 class="sticky-note-title">Community</h3>
+          <p class="sticky-note-desc">Mental health volunteer &amp; youth mentor across 3 countries</p>
+          <a href="{{ '/outreaches/' | relative_url }}" class="sticky-note-link">Impact &rarr;</a>
+        </div>
+      </article>
+    </div>
+  </div>
 </div>
+
+<!-- ── Achievement Strip ─────────────────────────────────────────────────── -->
+<div class="achievement-strip">
+  <div class="achievement-strip-inner">
+    <div class="achievement-item">
+      <span class="achievement-icon" aria-hidden="true"><i class="ti ti-notebook"></i></span>
+      <span class="achievement-number" data-count-to="7" data-count-suffix="+">7+</span>
+      <span class="achievement-label">Publications</span>
+    </div>
+    <div class="achievement-item">
+      <span class="achievement-icon" aria-hidden="true"><i class="ti ti-school"></i></span>
+      <span class="achievement-number" data-count-to="15">15</span>
+      <span class="achievement-label">Modules Taught</span>
+    </div>
+    <div class="achievement-item">
+      <span class="achievement-icon" aria-hidden="true"><i class="ti ti-cloud"></i></span>
+      <span class="achievement-number achievement-number--text">AWS &amp; Azure</span>
+      <span class="achievement-label">Cloud Certified</span>
+    </div>
+    <div class="achievement-item">
+      <span class="achievement-icon" aria-hidden="true"><i class="ti ti-heart-handshake"></i></span>
+      <span class="achievement-number" data-count-to="1500" data-count-suffix="+" data-count-format="comma">1,500+</span>
+      <span class="achievement-label">Youth Impacted</span>
+    </div>
+  </div>
+</div>
+
+<!-- ── dara2 Photo Divider ───────────────────────────────────────────────── -->
+<div class="page-container">
+  <div class="photo-divider" style="background-image: url('{{ '/assets/img/dara2.jpeg' | relative_url }}');"></div>
+</div>
+
+<!-- ── News ──────────────────────────────────────────────────────────────── -->
+{% if page.news and site.announcements.enabled %}
+  <div class="page-section">
+    <div class="page-container">
+      <div class="about-section">
+        <h2 class="about-section-heading"><a href="{{ '/news/' | relative_url }}">news</a></h2>
+        {% include news.liquid limit=true %}
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+<!-- ── Selected Publications ─────────────────────────────────────────────── -->
+{% if page.selected_papers %}
+  <div class="page-section">
+    <div class="page-container">
+      <div class="about-section">
+        <h2 class="about-section-heading"><a href="{{ '/publications/' | relative_url }}">selected publications</a></h2>
+        {% include selected_papers.liquid %}
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+<!-- ── Social ────────────────────────────────────────────────────────────── -->
+{% if page.social %}
+  <div class="social-section page-container">
+    <h2 class="social-heading">get in touch</h2>
+    <div class="contact-icons">{% include social.liquid %}</div>
+    <div class="contact-note">{{ site.contact_note }}</div>
+  </div>
+{% endif %}

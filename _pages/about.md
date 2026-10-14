@@ -6,16 +6,58 @@ permalink: /
 profile:
   align: right
   image: dara.png
-  image_circular: false # crops the image to make it circular
+  image_circular: false
   more_info: >
-    <p>School of Computer Science, University College Dublin</p>
-    <p>Belfield</p>
+    <p>School of Computer Science</p>
+    <p>University College Dublin</p>
     <p>Dublin, Ireland</p>
 
-news: true # includes a list of news items
-selected_papers: true # includes a list of papers marked as "selected={true}"
-social: true # includes social icons at the bottom of the page
+news: true
+selected_papers: true
+social: true
+images:
+  slider: true
+gsap: true
 ---
+
+<div class="bio-container">
+  <!-- ── Terminal window ──────────────────────────────────────────────── -->
+  <div class="terminal" id="bioTerminal" role="region" aria-label="Interactive terminal introduction">
+    <div class="terminal-chrome">
+      <span class="terminal-dot terminal-dot--close"></span>
+      <span class="terminal-dot terminal-dot--min"></span>
+      <span class="terminal-dot terminal-dot--max"></span>
+      <span class="terminal-title">dara@darasi.me — zsh</span>
+    </div>
+
+    <div class="terminal-body" id="terminalBody">
+      <!-- Lines injected by JS. Script source lives in data attributes. -->
+    </div>
+
+    <button type="button" class="terminal-skip" id="terminalSkip" aria-label="Skip terminal animation">
+      skip ⏭
+    </button>
+
+  </div>
+
+  <!-- Script that drives the terminal, encoded in data attributes to keep JS dumb -->
+  <script type="application/json" id="terminalScript">
+    [
+      { "type": "prompt", "cmd": "whoami" },
+      { "type": "output", "text": "oluwadara adedeji — phd researcher, ai engineer, community builder" },
+      { "type": "prompt", "cmd": "cat ./role.yaml" },
+      { "type": "output-key", "key": "research:", "value": "mental health × ai × finance @ ucd" },
+      { "type": "output-key", "key": "engineering:", "value": "aws + azure certified · 5+ yrs ml" },
+      { "type": "output-key", "key": "community:", "value": "1,500+ youth impacted across 3 countries" },
+      { "type": "output-key", "key": "writing:", "value": "notes on ml, mental health, and the phd life" },
+      { "type": "prompt", "cmd": "ls ./pages" },
+      { "type": "output-ls", "items": ["research/", "cv/", "blog/", "community/", "teaching/"] },
+      { "type": "prompt-live", "cmd": "scroll ↓ for the full story" }
+    ]
+  </script>
+
+  <!-- ── Full bio (hidden until terminal finishes, then fades in) ────── -->
+  <div class="bio-full" id="bioFull" markdown="1">
 
 Hi, welcome to my profile page! You can call me Dara.
 
@@ -27,265 +69,68 @@ I am also an AWS- and Azure-certified data science and machine learning professi
 
 #### Education
 
-• Ph.D. in Machine Learning (2027), University College Dublin
+- Ph.D. in Machine Learning (2027), University College Dublin
+- Master of Science in Engineering Artificial Intelligence (2023), Carnegie Mellon University
+- Bachelor of Science in Electrical &amp; Electronic Engineering (2019), University of Ibadan, Nigeria
 
-• Master of Science in Engineering Artificial Intelligence (2023), Carnegie Mellon University
+If you are interested in what I do and want to connect, reach me via the contacts below.
 
-• Bachelor of Science in Electrical & Electronic Engineering (2019), University of Ibadan, Nigeria
+  </div>
+</div>
 
-If you are interested in what I do, and you want to connect, you can reach me via the contacts below.
+{% assign carousel_images = "about_x1.jpeg,dara5.jpeg,about_1.jpeg,about_2.jpeg,about_3.jpeg,about_4.jpeg,about_5.jpeg,about_6.jpeg,about_7.jpeg,about_8.jpeg,about_9.jpeg,about_10.jpeg,about_11.jpeg,about_12.jpeg,about_13.jpeg,about_14.jpeg,about_101.jpg,about_102.jpg,about_103.jpg,about_104.jpg,aware_volunteering.JPG,about_105.jpeg" | split: "," %}
 
-{% assign carousel_images = "about_x1.jpeg,about_1.jpeg,about_2.jpeg,about_3.jpeg,about_4.jpeg,about_5.jpeg,about_6.jpeg,about_7.jpeg,about_8.jpeg,about_9.jpeg,about_10.jpeg,about_11.jpeg,about_12.jpeg,about_13.jpeg,about_14.jpeg,about_101.jpg,about_102.jpg,about_103.jpg,about_104.jpg,aware_volunteering.JPG,about_105.jpeg" | split: "," %}
+{% assign carousel_captions = "Computational Methods for Mental Health and Wellbeing Workshop Presentation at CIBB, Rome, Italy (2026)|Participating at the Tech Ireland Hackathon (2026)|My First PhD Poster at the UCD PhD/MSc by Research Poster Presentation (2024)|MSc Graduation, Carnegie Mellon University (2023)|ML-Labs Summer School Social Activity (2023)|Dublin Tech Summit (2024)|President's Office, University College Cork (2024)|CMU Social Feature for the Highest-Ranked Rwandan Team at Umoja Hack (2022)|Huawei Tech Arena Award Presentation (2025)|Huawei Tech Arena Award Plaque (2025)|ML-Labs Summer School (2026)|George Boole Statue, University College Cork (2024)|CMU-Africa Social Event (2022)|Visit to Zipline Rwanda (2022)|IBM Research AI Workshop (2024)|UCC AI Quest Award Presentation (2024)|Etisalat Merit Award Presentation (2015)|Etisalat Merit Award Presentation (2016)|Winner, Etisalat Innovation Moment for Etisalat Merit Awardees (2016)|RISE Initiative Leadership Bootcamp (2019)|Aware Volunteer Training Weekend (2026)|At the Colosseum, Rome, Italy (2026)" | split: "|" %}
 
-{% assign carousel_captions = "Computational Methods for Mental Health and Wellbeing Workshop Presentation at CIBB, Rome, Italy (2026)|My First PhD Poster at the UCD PhD/MSc by Research Poster Presentation (2024)|MSc Graduation, Carnegie Mellon University (2023)|ML-Labs Summer School Social Activity (2023)|Dublin Tech Summit (2024)|President's Office, University College Cork (2024)|CMU Social Feature for the Highest-Ranked Rwandan Team at Umoja Hack (2022)|Huawei Tech Arena Award Presentation (2025)|Huawei Tech Arena Award Plaque (2025)|ML-Labs Summer School (2026)|George Boole Statue, University College Cork (2024)|CMU-Africa Social Event (2022)|Visit to Zipline Rwanda (2022)|IBM Research AI Workshop (2024)|UCC AI Quest Award Presentation (2024)|Etisalat Merit Award Presentation (2015)|Etisalat Merit Award Presentation (2016)|Winner, Etisalat Innovation Moment for Etisalat Merit Awardees (2016)|RISE Initiative Leadership Bootcamp (2019)|Aware Volunteer Training Weekend (2026)|At the Colosseum, Rome, Italy (2026)" | split: "|" %}
-
-<div id="aboutCarousel" class="carousel slide mb-4 mx-auto" data-ride="carousel">
-
-  <ol class="carousel-indicators">
+<div class="gallery-section">
+  <swiper-container
+    class="photo-swiper"
+    effect="coverflow"
+    grab-cursor="true"
+    centered-slides="true"
+    slides-per-view="auto"
+    slide-to-clicked-slide="true"
+    simulate-touch="true"
+    allow-touch-move="true"
+    short-swipes="true"
+    long-swipes="true"
+    long-swipes-ratio="0.3"
+    touch-ratio="1"
+    touch-angle="45"
+    threshold="3"
+    resistance="true"
+    resistance-ratio="0.65"
+    coverflow-effect-rotate="25"
+    coverflow-effect-stretch="0"
+    coverflow-effect-depth="120"
+    coverflow-effect-modifier="1"
+    coverflow-effect-slide-shadows="true"
+    pagination="true"
+    pagination-clickable="true"
+    loop="true"
+    loop-additional-slides="3"
+    loop-prevents-sliding="false"
+    rewind="false"
+    watch-slides-progress="true"
+    autoplay-delay="4000"
+    autoplay-disable-on-interaction="false"
+    autoplay-pause-on-mouse-enter="true"
+    speed="900"
+    keyboard-enabled="true"
+    a11y-prev-slide-message="Previous slide"
+    a11y-next-slide-message="Next slide"
+  >
     {% for img in carousel_images %}
-      <li
-        data-target="#aboutCarousel"
-        data-slide-to="{{ forloop.index0 }}"
-        {% if forloop.first %}class="active"{% endif %}
-      ></li>
-    {% endfor %}
-  </ol>
-
-  <div class="carousel-inner rounded z-depth-1">
-    {% for img in carousel_images %}
-      <div class="carousel-item {% if forloop.first %}active{% endif %}">
-        <div
-          class="carousel-img-wrapper"
-          style="background-image: url('{{ '/assets/img/' | append: img | relative_url }}');"
-        >
+      <swiper-slide>
+        <div class="swiper-photo-slide">
           <img
             src="{{ '/assets/img/' | append: img | relative_url }}"
             alt="{{ carousel_captions[forloop.index0] }}"
             loading="{% if forloop.first %}eager{% else %}lazy{% endif %}"
-          >
-
-          <div class="carousel-caption">
-            {{ carousel_captions[forloop.index0] }}
-          </div>
+          />
+          <div class="swiper-slide-caption">{{ carousel_captions[forloop.index0] }}</div>
         </div>
-      </div>
+      </swiper-slide>
     {% endfor %}
-
-  </div>
-
-  <a class="carousel-control-prev" href="#aboutCarousel" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-  </a>
-
-  <a class="carousel-control-next" href="#aboutCarousel" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-  </a>
-
+  </swiper-container>
 </div>
-
-<style>
-#aboutCarousel {
-  max-width: 1100px;
-  width: 100%;
-  margin: 0 auto;
-}
-
-#aboutCarousel .carousel-inner {
-  border-radius: 12px;
-  overflow: hidden;
-}
-
-#aboutCarousel .carousel-img-wrapper {
-  width: 100%;
-  height: min(72vh, 680px);
-  min-height: 520px;
-  position: relative;
-  overflow: hidden;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  background-size: cover;
-  background-position: center;
-}
-
-/* Blurred backdrop */
-#aboutCarousel .carousel-img-wrapper::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  background-image: inherit;
-  background-size: cover;
-  background-position: center;
-
-  filter: blur(28px) brightness(0.5);
-  transform: scale(1.12);
-
-  z-index: 0;
-}
-
-/* Dark overlay for readability */
-#aboutCarousel .carousel-img-wrapper::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  background: rgba(0, 0, 0, 0.08);
-  z-index: 0;
-}
-
-/* Main image */
-#aboutCarousel .carousel-img-wrapper img {
-  position: relative;
-  z-index: 1;
-
-  width: auto;
-  height: auto;
-
-  max-width: 96%;
-  max-height: 92%;
-
-  object-fit: contain;
-
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
-}
-
-/* Previous / next controls */
-#aboutCarousel .carousel-control-prev,
-#aboutCarousel .carousel-control-next {
-  width: 75px;
-  opacity: 1;
-  z-index: 30;
-}
-
-#aboutCarousel .carousel-control-prev {
-  left: 8px;
-}
-
-#aboutCarousel .carousel-control-next {
-  right: 8px;
-}
-
-#aboutCarousel .carousel-control-prev-icon,
-#aboutCarousel .carousel-control-next-icon {
-  width: 2.4rem;
-  height: 2.4rem;
-
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 50%;
-
-  padding: 1.35rem;
-
-  filter: invert(1) drop-shadow(0 0 4px rgba(0, 0, 0, 0.9));
-}
-
-/* Indicators */
-#aboutCarousel .carousel-indicators {
-  margin-bottom: 0.55rem;
-  z-index: 40;
-}
-
-#aboutCarousel .carousel-indicators li {
-  width: 10px;
-  height: 10px;
-
-  border-radius: 50%;
-  margin: 0 4px;
-
-  background-color: rgba(255, 255, 255, 0.55);
-  border: 1px solid rgba(255, 255, 255, 0.8);
-
-  opacity: 1;
-  text-indent: -999px;
-}
-
-#aboutCarousel .carousel-indicators li.active {
-  background-color: #ffffff;
-  border-color: #ffffff;
-}
-
-/* Caption */
-#aboutCarousel .carousel-caption {
-  display: block !important;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-
-  z-index: 25;
-
-  padding: 60px 24px 42px;
-
-  text-align: left;
-  color: #fff;
-
-  font-size: 1rem;
-  font-weight: 600;
-  line-height: 1.35;
-
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.9) 0%,
-    rgba(0, 0, 0, 0.55) 45%,
-    rgba(0, 0, 0, 0) 100%
-  );
-}
-
-/* Tablet */
-@media (max-width: 992px) {
-  #aboutCarousel {
-    max-width: 100%;
-  }
-
-  #aboutCarousel .carousel-img-wrapper {
-    height: 600px;
-    min-height: 500px;
-  }
-
-  #aboutCarousel .carousel-img-wrapper img {
-    max-width: 97%;
-    max-height: 92%;
-  }
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-  #aboutCarousel .carousel-img-wrapper {
-    height: 430px;
-    min-height: 430px;
-  }
-
-  #aboutCarousel .carousel-img-wrapper img {
-    max-width: 98%;
-    max-height: 90%;
-  }
-
-  #aboutCarousel .carousel-caption {
-    padding: 50px 16px 34px;
-    font-size: 0.85rem;
-  }
-
-  #aboutCarousel .carousel-control-prev,
-  #aboutCarousel .carousel-control-next {
-    width: 55px;
-  }
-
-  #aboutCarousel .carousel-control-prev-icon,
-  #aboutCarousel .carousel-control-next-icon {
-    width: 2rem;
-    height: 2rem;
-    padding: 1.1rem;
-  }
-
-  #aboutCarousel .carousel-indicators li {
-    width: 8px;
-    height: 8px;
-    margin: 0 3px;
-  }
-}
-</style>
-
-<script src="{{ '/assets/js/about-carousel.js' | relative_url }}"></script>
