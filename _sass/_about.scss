@@ -1129,7 +1129,7 @@ swiper-slide {
       justify-content: center;
       line-height: 1;
       padding: 0.2rem;
-      transition: transform 0.2s ease;
+      text-decoration: none !important;
 
       i,
       i::before {
@@ -1153,9 +1153,13 @@ swiper-slide {
         }
       }
 
-      &:hover {
-        transform: translateY(-2px);
+      &:hover,
+      &:focus-visible,
+      html[data-theme="dark"] &:hover,
+      html[data-theme="dark"] &:focus-visible {
+        text-decoration: none !important;
 
+        i,
         i::before {
           color: var(--global-theme-color);
         }
