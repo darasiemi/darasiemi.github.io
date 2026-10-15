@@ -1,0 +1,208 @@
+<!--
+  ── Preloader ─────────────────────────────────────────────────────────────
+  Terminal-style boot screen shown while the page's heavy assets warm up.
+  Inline CSS + inline JS so it paints before any external stylesheet or
+  script loads, which is what prevents the "artifacts scatter in" effect
+  on first visit. Skipped on repeat navigations in the same session.
+-->
+<style id="preloader-critical-css">
+  .site-preloader {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    background-color: #0a0a0b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition:
+      opacity 420ms ease-out,
+      visibility 420ms;
+  }
+  .site-preloader.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+  .site-preloader-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.4rem;
+    width: min(380px, 82vw);
+  }
+  .site-preloader-signature {
+    width: 180px;
+    height: 58px;
+    margin: 0 auto 0.4rem;
+    background-color: #f3f4f6;
+    -webkit-mask-image: url('/assets/img/darasimi-signature.png');
+    mask-image: url('/assets/img/darasimi-signature.png');
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+  }
+  .site-preloader-copy {
+    font-family: 'Geist Mono', 'SF Mono', 'Menlo', monospace;
+    font-size: 0.78rem;
+    color: #9ca3af;
+    letter-spacing: 0.04em;
+    text-align: center;
+  }
+  .site-preloader-cursor {
+    color: #10b981;
+    animation: site-preloader-blink 1s steps(2) infinite;
+    margin-left: 1px;
+  }
+  @keyframes site-preloader-blink {
+    50% {
+      opacity: 0;
+    }
+  }
+  .site-preloader-bar-wrap {
+    width: 100%;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+    border-radius: 1px;
+  }
+  .site-preloader-bar {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, #0a7065 0%, #10b981 60%, #34d399 100%);
+    transition: width 0.08s linear;
+  }
+  .site-preloader-meta {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Geist Mono', 'SF Mono', 'Menlo', monospace;
+    font-size: 0.68rem;
+    color: #6b7280;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  body.is-loading {
+    overflow: hidden;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .site-preloader-cursor {
+      animation: none;
+    }
+    .site-preloader {
+      transition-duration: 0ms;
+    }
+  }
+</style>
+
+<div id="site-preloader" class="site-preloader" role="status" aria-live="polite" aria-label="Loading darasi.me">
+  <div class="site-preloader-inner">
+    <div class="site-preloader-signature" aria-hidden="true"></div>
+    <div class="site-preloader-copy"><span>booting darasi.me</span><span class="site-preloader-cursor" aria-hidden="true">_</span></div>
+    <div class="site-preloader-bar-wrap" aria-hidden="true">
+      <div class="site-preloader-bar" id="site-preloader-bar"></div>
+    </div>
+    <div class="site-preloader-meta">
+      <span>init(hero, bio, gallery)</span>
+      <span id="site-preloader-percent">0%</span>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    var pre = document.getElementById('site-preloader');
+    if (!pre) return;
+
+    // Skip the full preloader on repeat loads in the same session so navigating
+    // between pages doesn't replay the boot screen each time.
+    var SESSION_KEY = 'preloader-shown';
+    var isRepeat = false;
+    try {
+      isRepeat = window.sessionStorage && sessionStorage.getItem(SESSION_KEY) === '1';
+    } catch (e) {
+      /* storage may be unavailable; fall through to full preloader */
+    }
+
+    if (isRepeat) {
+      pre.parentNode && pre.parentNode.removeChild(pre);
+      return;
+    }
+
+    var MIN_DURATION = 1100; // ms — minimum time the preloader is visible
+    var FADE_DURATION = 420;
+    var SAFETY_TIMEOUT = 6500; // force finish if load stalls
+    var bar = document.getElementById('site-preloader-bar');
+    var pct = document.getElementById('site-preloader-percent');
+
+    document.body.classList.add('is-loading');
+
+    var start = performance.now();
+    var minReached = false;
+    var pageReady = false;
+    var done = false;
+
+    function tick(now) {
+      if (done) return;
+      var elapsed = now - start;
+      var t = Math.min(elapsed / MIN_DURATION, 1);
+      // ease-out cubic — fills fast, settles smoothly
+      var eased = 1 - Math.pow(1 - t, 3);
+      var displayPct = Math.floor(eased * 100);
+      bar.style.width = displayPct + '%';
+      pct.textContent = displayPct + '%';
+      if (t >= 1) {
+        minReached = true;
+        maybeFinish();
+        return;
+      }
+      requestAnimationFrame(tick);
+    }
+
+    function maybeFinish() {
+      if (done || !minReached || !pageReady) return;
+      done = true;
+      try {
+        sessionStorage.setItem(SESSION_KEY, '1');
+      } catch (e) {
+        /* ignore */
+      }
+      setTimeout(function () {
+        pre.classList.add('is-hidden');
+        document.body.classList.remove('is-loading');
+        setTimeout(function () {
+          if (pre.parentNode) pre.parentNode.removeChild(pre);
+        }, FADE_DURATION + 50);
+      }, 120);
+    }
+
+    function onReady() {
+      // Wait for fonts too so text doesn't shift after fade-out
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(function () {
+          pageReady = true;
+          maybeFinish();
+        });
+      } else {
+        pageReady = true;
+        maybeFinish();
+      }
+    }
+
+    if (document.readyState === 'complete') {
+      onReady();
+    } else {
+      window.addEventListener('load', onReady, { once: true });
+    }
+
+    requestAnimationFrame(tick);
+
+    // Safety: never leave the preloader up forever
+    setTimeout(function () {
+      pageReady = true;
+      minReached = true;
+      maybeFinish();
+    }, SAFETY_TIMEOUT);
+  })();
+</script>
