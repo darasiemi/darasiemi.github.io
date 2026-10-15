@@ -540,9 +540,10 @@ footer.sticky-bottom {
 }
 
 .footer-signature {
-  display: block;
+  display: inline-block;
   width: 68px;
   aspect-ratio: 120 / 39;
+  vertical-align: middle;
   background-color: var(--global-footer-text-color);
   -webkit-mask-image: url("/assets/img/darasimi-signature.png");
   mask-image: url("/assets/img/darasimi-signature.png");
@@ -577,7 +578,8 @@ footer.sticky-bottom {
 @media (max-width: 576px) {
   .footer-credit {
     display: block;
-    margin-top: 0.15rem;
+    margin-top: 0.3rem;
+    line-height: 1.6;
   }
   .footer-sep {
     display: none;

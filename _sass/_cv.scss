@@ -213,3 +213,83 @@ ul.timeline li::before {
      color: var(--global-text-color);
 }
 */
+
+// ── Skills section — grouped pills with Devicon brand marks ──────────────
+.skills-groups {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.75rem;
+
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.75rem 2.25rem;
+  }
+}
+
+.skills-group-head {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-bottom: 0.75rem;
+}
+
+.skills-group-icon {
+  color: var(--global-theme-color);
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.skills-group-name {
+  font-family: "Bricolage Grotesque", "Instrument Sans", sans-serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--global-text-color);
+}
+
+.skills-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.skills-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  background-color: rgba(10, 112, 101, 0.07);
+  border: 1px solid rgba(10, 112, 101, 0.18);
+  font-size: 0.85rem;
+  color: var(--global-text-color);
+  line-height: 1.2;
+  transition:
+    background-color 0.18s ease,
+    border-color 0.18s ease,
+    transform 0.18s ease;
+
+  i {
+    font-size: 1rem;
+    line-height: 1;
+  }
+
+  &:hover {
+    background-color: rgba(10, 112, 101, 0.12);
+    border-color: rgba(10, 112, 101, 0.3);
+    transform: translateY(-1px);
+  }
+
+  html[data-theme="dark"] & {
+    background-color: rgba(60, 191, 173, 0.09);
+    border-color: rgba(60, 191, 173, 0.22);
+  }
+
+  html[data-theme="dark"] &:hover {
+    background-color: rgba(60, 191, 173, 0.16);
+    border-color: rgba(60, 191, 173, 0.36);
+  }
+}
