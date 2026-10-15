@@ -7,13 +7,13 @@
 -->
 <style id="preloader-critical-css">
   .site-preloader {
-    position: fixed;
-    inset: 0;
-    z-index: 10000;
-    background-color: #0a0a0b;
-    color: #f3f4f6;
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 10000 !important;
+    background-color: #0a0a0b !important;
+    color: #ffffff !important;
     color-scheme: dark;
-    display: flex;
+    display: flex !important;
     align-items: center;
     justify-content: center;
     transition:
@@ -24,6 +24,10 @@
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
+  }
+  /* Match body backdrop to preloader during load so no light flash leaks */
+  body.is-loading {
+    background-color: #0a0a0b !important;
   }
   .site-preloader-inner {
     display: flex;
@@ -36,7 +40,7 @@
     width: 180px;
     height: 58px;
     margin: 0 auto 0.4rem;
-    background-color: #ffffff;
+    background-color: #ffffff !important;
     -webkit-mask-image: url('/assets/img/darasimi-signature.png');
     mask-image: url('/assets/img/darasimi-signature.png');
     -webkit-mask-size: contain;
@@ -49,12 +53,12 @@
   .site-preloader-copy {
     font-family: 'Geist Mono', 'SF Mono', 'Menlo', monospace;
     font-size: 0.78rem;
-    color: #f3f4f6;
+    color: #ffffff !important;
     letter-spacing: 0.04em;
     text-align: center;
   }
   .site-preloader-cursor {
-    color: #10b981;
+    color: #10b981 !important;
     animation: site-preloader-blink 1s steps(2) infinite;
     margin-left: 1px;
   }
@@ -81,7 +85,7 @@
     justify-content: space-between;
     font-family: 'Geist Mono', 'SF Mono', 'Menlo', monospace;
     font-size: 0.68rem;
-    color: #6b7280;
+    color: #9ca3af !important;
     letter-spacing: 0.08em;
     text-transform: uppercase;
   }
