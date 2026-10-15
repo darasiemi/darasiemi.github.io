@@ -535,7 +535,7 @@ footer.sticky-bottom {
 .footer-signature-wrap {
   position: relative;
   display: inline-block;
-  vertical-align: -0.35em;
+  vertical-align: middle;
   margin: 0 0.1rem;
 }
 
@@ -572,17 +572,61 @@ footer.sticky-bottom {
   opacity: 0.6;
 }
 
-// Mobile: break "Designed by [Darasimi]" onto its own line and hide the
-// inline separator so the layout reads as two centered rows instead of
-// one wrapping line.
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  text-align: center;
+}
+
+.footer-copyright-line {
+  display: inline-block;
+  color: var(--global-footer-text-color);
+}
+
+.footer-credit-label {
+  display: inline-block;
+  margin-right: 0.2rem;
+  color: var(--global-footer-text-color);
+  white-space: nowrap;
+}
+
+// Keep the copyright and design credit on one centered row on mobile.
 @media (max-width: 576px) {
-  .footer-credit {
-    display: block;
-    margin-top: 0.3rem;
-    line-height: 1.6;
+  .footer-content {
+    justify-content: space-between;
+    gap: 0.25rem;
   }
+
   .footer-sep {
     display: none;
+  }
+
+  .footer-copyright-line {
+    display: inline-block;
+    flex-shrink: 1;
+    color: var(--global-footer-text-color);
+    font-size: 0.65rem;
+    white-space: nowrap;
+  }
+
+  .footer-credit {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    font-size: 0.65rem;
+    white-space: nowrap;
+  }
+
+  .footer-signature {
+    width: 52px;
+  }
+
+  .footer-credit-label {
+    margin-right: 0.2rem;
   }
 }
 
