@@ -82,7 +82,7 @@ I am also an AWS- and Azure-certified data science and machine learning professi
 
 {% assign carousel_captions = "Computational Methods for Mental Health and Wellbeing Workshop Presentation at CIBB, Rome, Italy (2026)|Participating at the Tech Ireland Hackathon (2026)|My First PhD Poster at the UCD PhD/MSc by Research Poster Presentation (2024)|MSc Graduation, Carnegie Mellon University (2023)|ML-Labs Summer School Social Activity (2023)|Dublin Tech Summit (2024)|President's Office, University College Cork (2024)|CMU Social Feature for the Highest-Ranked Rwandan Team at Umoja Hack (2022)|Huawei Tech Arena Award Presentation (2025)|Huawei Tech Arena Award Plaque (2025)|ML-Labs Summer School (2026)|George Boole Statue, University College Cork (2024)|CMU-Africa Social Event (2022)|Visit to Zipline Rwanda (2022)|IBM Research AI Workshop (2024)|UCC AI Quest Award Presentation (2024)|Etisalat Merit Award Presentation (2015)|Etisalat Merit Award Presentation (2016)|Winner, Etisalat Innovation Moment for Etisalat Merit Awardees (2016)|RISE Initiative Leadership Bootcamp (2019)|Aware Volunteer Training Weekend (2026)|At the Colosseum, Rome, Italy (2026)" | split: "|" %}
 
-<div class="gallery-section">
+<div class="gallery-section" id="gallery">
   <swiper-container
     class="photo-swiper"
     effect="coverflow"
@@ -121,7 +121,7 @@ I am also an AWS- and Azure-certified data science and machine learning professi
     a11y-next-slide-message="Next slide"
   >
     {% for img in carousel_images %}
-      <swiper-slide>
+      <swiper-slide data-photo="{{ img }}" data-photo-index="{{ forloop.index0 }}">
         <div class="swiper-photo-slide{% if img == 'about_5.jpeg' or img == 'about_10.jpeg' or img == 'about_13.jpeg' %} swiper-photo-slide--lower-focus{% endif %}">
           <img
             src="{{ '/assets/img/' | append: img | relative_url }}"
@@ -134,6 +134,11 @@ I am also an AWS- and Azure-certified data science and machine learning professi
       </swiper-slide>
     {% endfor %}
   </swiper-container>
+
+  <p class="gallery-journey-link">
+    See where these moments happened —
+    <a href="{{ '/journey/' | relative_url }}">on the map <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+  </p>
 </div>
 
 <script>
@@ -146,6 +151,7 @@ I am also an AWS- and Azure-certified data science and machine learning professi
   (function () {
     var el = document.querySelector("swiper-container.photo-swiper");
     if (!el) return;
+    var requestedPhoto = new URLSearchParams(window.location.search).get("photo");
     var tries = 0;
     function enableMouseDrag() {
       if (el.swiper) {
@@ -159,6 +165,13 @@ I am also an AWS- and Azure-certified data science and machine learning professi
           if (typeof el.swiper.detachEvents === "function" && typeof el.swiper.attachEvents === "function") {
             el.swiper.detachEvents();
             el.swiper.attachEvents();
+          }
+          if (requestedPhoto && typeof el.swiper.slideToLoop === "function") {
+            var target = el.querySelector('swiper-slide[data-photo="' + requestedPhoto.replace(/[^a-zA-Z0-9_.-]/g, "") + '"]');
+            if (target) {
+              el.swiper.slideToLoop(Number(target.getAttribute("data-photo-index")), 0);
+              document.getElementById("gallery").scrollIntoView({ block: "start" });
+            }
           }
         } catch (e) {
           /* no-op */

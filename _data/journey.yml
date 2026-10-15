@@ -1,0 +1,282 @@
+# ──────────────────────────────────────────────────────────────────────────────
+# Journey — the places that have shaped the work.
+#
+# Each entry is one map pin. Events live underneath a pin so a city can hold
+# multiple roles. The map renderer (_pages/journey.md) reads this file and
+# draws a pin per location, with a popup listing its events.
+#
+# event.type: one of research · talk · volunteering · education · visit · award
+# ──────────────────────────────────────────────────────────────────────────────
+locations:
+  - name: Dublin
+    country: Ireland
+    coords: [53.3498, -6.2603]
+    events:
+      - title: PhD Candidate, University College Dublin
+        type: research
+        sort_as_education: true
+        year: "2023—present"
+        photo: assets/img/about_1.jpeg
+        url: /cv/
+        note: Mental health & financial data ML research with ML-Labs
+
+      - title: IBM Research AI Workshop
+        type: education
+        year: "2024"
+        photo: assets/img/about_13.jpeg
+        url: "/?photo=about_13.jpeg#gallery"
+
+      - title: Huawei Tech Arena Award
+        type: award
+        year: "2025"
+        photo: assets/img/about_7.jpeg
+        url: /blog/2025/huawei-tech-arena/
+        note: Award presented at UCD Computer Science
+
+      - title: Dublin Tech Summit
+        type: talk
+        year: "2024"
+        photo: assets/img/about_4.jpeg
+        url: "/?photo=about_4.jpeg#gallery"
+
+      - title: ML-Labs Summer School
+        type: education
+        year: "2023 & 2026"
+        photo: assets/img/about_9.jpeg
+        url: /blog/2026/summer-school-2026/
+
+      - title: Tech Ireland Hackathon
+        type: visit
+        year: "2026"
+        photo: assets/img/dara5.jpeg
+        url: "/?photo=dara5.jpeg#gallery"
+
+      - title: Aware — Volunteer Training Weekend
+        type: volunteering
+        year: "2026"
+        photo: assets/img/aware_volunteering.JPG
+        url: /outreaches/#aware-training
+        note: Peer-support group facilitator training
+
+  - name: Cork
+    country: Ireland
+    coords: [51.8985, -8.4756]
+    events:
+      - title: UCC AI Quest Award
+        type: award
+        year: "2024"
+        photo: assets/img/about_14.jpeg
+        url: "/?photo=about_14.jpeg#gallery"
+
+      - title: President's Office, University College Cork
+        type: visit
+        year: "2024"
+        photo: assets/img/about_5.jpeg
+        url: "/?photo=about_5.jpeg#gallery"
+
+      - title: George Boole statue, UCC
+        type: visit
+        year: "2024"
+        photo: assets/img/about_10.jpeg
+        url: "/?photo=about_10.jpeg#gallery"
+
+  - name: Rome
+    country: Italy
+    coords: [41.9028, 12.4964]
+    events:
+      - title: CIBB — Computational Methods for Mental Health workshop
+        type: talk
+        year: "2026"
+        photo: assets/img/about_x1.jpeg
+        url: "/?photo=about_x1.jpeg#gallery"
+        note: Workshop presentation at the 21st International Conference on Computational Intelligence Methods for Bioinformatics and Biostatistics
+
+      - title: Colosseum
+        type: visit
+        year: "2026"
+        photo: assets/img/about_105.jpeg
+        url: "/?photo=about_105.jpeg#gallery"
+
+  - name: Kigali
+    country: Rwanda
+    coords: [-1.9579, 30.1127]
+    events:
+      - title: MSc, Carnegie Mellon University Africa
+        type: education
+        year: "2023"
+        photo: assets/img/about_2.jpeg
+        url: /cv/
+        note: Mastercard Foundation Scholar; graduation held at CMU-Africa
+
+      - title: Umoja Hack
+        type: award
+        year: "2022"
+        photo: assets/img/about_6.jpeg
+        url: /blog/2022/umoja-hack/
+        note: Highest-ranked Rwandan team, intermediate category
+
+      - title: CMU-Africa social event
+        type: education
+        year: "2022"
+        photo: assets/img/about_11.jpeg
+        url: "/?photo=about_11.jpeg#gallery"
+
+      - title: Mastercard Foundation — Mindfulness training
+        type: volunteering
+        year: "2022—2023"
+        photo: assets/img/mindfulness_studentgroup.jpg
+        url: /outreaches/#mindfulness-training
+        note: Mental-health workshop for ~120 secondary-school students
+
+  - name: Muhanga
+    country: Rwanda
+    coords: [-2.0847, 29.7558]
+    events:
+      - title: Visit to Zipline Rwanda
+        type: visit
+        year: "2022"
+        photo: assets/img/about_12.jpeg
+        url: "/?photo=about_12.jpeg#gallery"
+        note: Field visit to Zipline's medical-delivery drone hub
+
+  - name: Ibadan
+    country: Nigeria
+    coords: [7.3775, 3.9470]
+    events:
+      - title: BSc, University of Ibadan
+        type: education
+        year: "2015—2019"
+        photo: assets/img/logos/uilogo.png
+        url: /cv/
+        note: Electrical & Electronic Engineering
+
+      - title: Mentally Aware Nigeria Initiative — Conversation Cafés
+        type: volunteering
+        year: "2018—2021"
+        photo: assets/img/MANI_conversations.jpeg
+        url: /outreaches/#mani-conversation-cafes
+        note: Mental-health programmes impacting 300+ individuals
+
+      - title: Mentally Aware Nigeria Initiative — Mental-health walks
+        type: volunteering
+        year: "2018—2021"
+        photo: assets/img/MANI_walk.jpeg
+        url: /outreaches/#mani-mental-health-walks
+
+      - title: Etisalat Merit Award
+        type: award
+        year: "2015 & 2016"
+        photo: assets/img/about_101.jpg
+        url: "/?photo=about_101.jpg#gallery"
+        note: Including the Etisalat Innovation Moment Winner, 2016
+
+  - name: Oyo
+    country: Nigeria
+    coords: [7.8524, 3.9319]
+    events:
+      - title: NAOS — Career & Sex Education seminar
+        type: volunteering
+        year: "2019"
+        photo: assets/img/map/naos_career_sex_ed.jpg
+        url: /outreaches/#naos-seminar
+        note: ~80 public secondary-school students in Oyo town
+
+      - title: RISE Leadership Bootcamp — SPED International
+        type: volunteering
+        year: "2019"
+        photo: assets/img/rise_sped.jpeg
+        url: /outreaches/#rise-sped
+
+      - title: RISE Leadership Bootcamp — Best Legacy International (Awe)
+        type: volunteering
+        year: "2019"
+        photo: assets/img/rise_bliss1.jpeg
+        url: /outreaches/#rise-best-legacy
+
+  - name: Kano
+    country: Nigeria
+    coords: [12.0022, 8.5920]
+    events:
+      - title: Bayero University Kano — SDG training
+        type: volunteering
+        year: "2020"
+        photo: assets/img/sdgs_kano.jpeg
+        url: /outreaches/#sdg-kano
+        note: SDG session for ~50 secondary-school students at BUK Secondary School
+
+      - title: STEMi Makers Africa — Kano chapter
+        type: volunteering
+        year: "2020"
+        url: /outreaches/#stemi-makers
+        note: Online webinar + brainstorming contributions
+
+  # ── Tourism-only countries ──────────────────────────────────────────────────
+  - name: Manchester
+    country: United Kingdom
+    coords: [53.4808, -2.2426]
+    events:
+      - title: Tourism visit
+        type: visit
+
+  - name: Derby
+    country: United Kingdom
+    coords: [52.9225, -1.4746]
+    events:
+      - title: Tourism visit
+        type: visit
+
+  - name: Tirana
+    country: Albania
+    coords: [41.3275, 19.8187]
+    events:
+      - title: Tourism visit
+        type: visit
+
+  - name: Casablanca
+    country: Morocco
+    coords: [33.5731, -7.5898]
+    events:
+      - title: Tourism visit
+        type: visit
+
+  - name: Marrakech
+    country: Morocco
+    coords: [31.6295, -7.9811]
+    events:
+      - title: Tourism visit
+        type: visit
+
+  - name: Rabat
+    country: Morocco
+    coords: [34.0209, -6.8416]
+    events:
+      - title: Tourism visit
+        type: visit
+
+  - name: Tangier
+    country: Morocco
+    coords: [35.7595, -5.8340]
+    events:
+      - title: Tourism visit
+        type: visit
+
+  - name: Chefchaouen
+    country: Morocco
+    coords: [35.1688, -5.2636]
+    events:
+      - title: Tourism visit
+        type: visit
+
+  - name: Fez
+    country: Morocco
+    coords: [34.0645, -4.9730]
+    events:
+      - title: Tourism visit
+        type: visit
+
+  - name: Nairobi
+    country: Kenya
+    coords: [-1.2921, 36.8219]
+    events:
+      - title: Tourism visit
+        type: visit
