@@ -127,6 +127,7 @@ If you are interested in what I do and want to connect, reach me via the contact
             src="{{ '/assets/img/' | append: img | relative_url }}"
             alt="{{ carousel_captions[forloop.index0] }}"
             loading="{% if forloop.first %}eager{% else %}lazy{% endif %}"
+            draggable="false"
           />
           <div class="swiper-slide-caption">{{ carousel_captions[forloop.index0] }}</div>
         </div>

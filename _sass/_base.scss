@@ -529,6 +529,48 @@ footer.sticky-bottom {
   }
 }
 
+// Footer "Designed by [signature]♥" credit — reuses the navbar signature PNG
+// as a mask so its color matches the footer text, and tucks a hand-drawn
+// heart over the dot of the final "i" so it reads as part of the handwriting.
+.footer-signature-wrap {
+  position: relative;
+  display: inline-block;
+  vertical-align: -0.35em;
+  margin: 0 0.1rem;
+}
+
+.footer-signature {
+  display: block;
+  width: 68px;
+  aspect-ratio: 120 / 39;
+  background-color: var(--global-footer-text-color);
+  -webkit-mask-image: url("/assets/img/darasimi-signature.png");
+  mask-image: url("/assets/img/darasimi-signature.png");
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+}
+
+.footer-love {
+  position: absolute;
+  // Sits over the dot of the final "i" in the Darasimi signature.
+  top: -5px;
+  right: 4px;
+  width: 10px;
+  height: 10px;
+  color: #e63946; // warm red for the hand-drawn heart stroke
+  pointer-events: none;
+  transform: rotate(-8deg);
+}
+
+.footer-sep {
+  margin: 0 0.25rem;
+  opacity: 0.6;
+}
+
 // CV
 
 .cv {

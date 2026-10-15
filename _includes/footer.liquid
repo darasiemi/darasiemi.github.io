@@ -1,10 +1,9 @@
 {% if site.footer_fixed %}
   <footer class="fixed-bottom" role="contentinfo">
     <div class="container mt-0">
-      &copy; Copyright {{ site.time | date: '%Y' }}
-      {{ site.first_name }}
-      {{ site.middle_name }}
-      {{ site.last_name }}. {{ site.footer_text }}
+      &copy; Copyright {{ site.time | date: '%Y' }} {{ site.first_name }} {{ site.middle_name }} {{ site.last_name }}
+      <span class="footer-sep" aria-hidden="true">·</span>
+      Designed by <span class="footer-signature-wrap"><span class="footer-signature" role="img" aria-label="Darasimi"></span><svg class="footer-love" viewBox="0 0 24 20" fill="currentColor" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-label="with love" role="img"><path d="M12 18.5 C 9.5 16.5 2.3 10 3 6 C 3.4 3.5 7.3 2.6 9.5 4.6 C 10.5 5.4 11.3 6.6 12 7.8 C 12.7 6.6 13.7 5.3 15 4.5 C 17.3 3 20.8 3.4 21 6 C 21.5 10.3 14.5 16.5 12 18.5 Z"/></svg></span>
       {% if site.impressum_path %}
         <a href="{{ site.url }}{{ site.baseurl }}{{ site.impressum_path }}">Impressum</a>.
       {% endif %}
@@ -16,10 +15,9 @@
 {% else %}
   <footer class="sticky-bottom mt-5" role="contentinfo">
     <div class="container">
-      &copy; Copyright {{ site.time | date: '%Y' }}
-      {{ site.first_name }}
-      {{ site.middle_name }}
-      {{ site.last_name }}. {{ site.footer_text }}
+      &copy; Copyright {{ site.time | date: '%Y' }} {{ site.first_name }} {{ site.middle_name }} {{ site.last_name }}
+      <span class="footer-sep" aria-hidden="true">·</span>
+      Designed by <span class="footer-signature-wrap"><span class="footer-signature" role="img" aria-label="Darasimi"></span><svg class="footer-love" viewBox="0 0 24 20" fill="currentColor" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-label="with love" role="img"><path d="M12 18.5 C 9.5 16.5 2.3 10 3 6 C 3.4 3.5 7.3 2.6 9.5 4.6 C 10.5 5.4 11.3 6.6 12 7.8 C 12.7 6.6 13.7 5.3 15 4.5 C 17.3 3 20.8 3.4 21 6 C 21.5 10.3 14.5 16.5 12 18.5 Z"/></svg></span>
       {% if site.impressum_path %}
         <a href="{{ site.url }}{{ site.baseurl }}{{ site.impressum_path }}">Impressum</a>.
       {% endif %}

@@ -73,7 +73,7 @@ layout: home
 <div class="about-content-wrap">{{ content }}</div>
 
 <!-- ── Pinboard — the three identities as pinned sticky notes ────────────── -->
-<div class="page-section">
+<div class="page-section page-section--pinboard">
   <div class="page-container">
     <div class="pinboard">
       <article class="sticky-note sticky-note--teal">
@@ -154,7 +154,7 @@ layout: home
 
 <!-- ── Selected Publications ─────────────────────────────────────────────── -->
 {% if page.selected_papers %}
-  <div class="page-section">
+  <div class="page-section page-section--divided page-section--publications">
     <div class="page-container">
       <div class="about-section">
         <h2 class="about-section-heading"><a href="{{ '/publications/' | relative_url }}">selected publications</a></h2>

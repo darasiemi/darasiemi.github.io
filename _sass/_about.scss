@@ -18,6 +18,131 @@
   padding: 3rem 0;
 }
 
+// Hairline separator across the top of the section — same visual treatment
+// as the social-section divider, so sections (e.g. News vs Selected Publications)
+// read as distinct bands when they sit directly against each other.
+.page-section--divided {
+  border-top: 1px solid var(--global-divider-color);
+  margin-top: 1rem;
+}
+
+// Selected Publications gets a soft warm paper tint + a subtle central wash
+// so the section reads as a distinct subsection separate from News above.
+.page-section--publications {
+  background-color: #faf6ec;
+  background-image: radial-gradient(ellipse 70% 55% at 50% 45%, rgba(250, 237, 215, 0.55) 0%, transparent 72%);
+
+  html[data-theme="dark"] & {
+    background-color: #1d1d22;
+    background-image: radial-gradient(ellipse 70% 55% at 50% 45%, rgba(60, 191, 173, 0.04) 0%, transparent 72%);
+  }
+}
+
+// Pinboard section carries the hero's grid + green glow treatment through so
+// the sticky-note row doesn't float on bare white. Glows are softer here than
+// in the hero because the colored notes already carry visual weight.
+// Two watercolor ink washes bleed in from upper-left and lower-right corners
+// as a hand-made accent on top of the grid.
+.page-section--pinboard {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--global-bg-color);
+  background-image: radial-gradient(ellipse 55% 28% at 50% 8%, rgba(10, 112, 101, 0.11) 0%, rgba(10, 112, 101, 0.03) 45%, transparent 72%),
+    radial-gradient(ellipse 70% 52% at 50% 50%, rgba(10, 112, 101, 0.13) 0%, rgba(10, 112, 101, 0.04) 42%, transparent 72%),
+    radial-gradient(ellipse 60% 26% at 50% 94%, rgba(10, 112, 101, 0.10) 0%, rgba(10, 112, 101, 0.028) 48%, transparent 74%),
+    linear-gradient(to right, rgba(10, 112, 101, 0.055) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(10, 112, 101, 0.055) 1px, transparent 1px);
+  background-size:
+    100% 100%,
+    100% 100%,
+    100% 100%,
+    64px 64px,
+    64px 64px;
+
+  html[data-theme="dark"] & {
+    background-image: radial-gradient(ellipse 55% 28% at 50% 8%, rgba(60, 191, 173, 0.065) 0%, rgba(60, 191, 173, 0.02) 45%, transparent 72%),
+      radial-gradient(ellipse 70% 52% at 50% 50%, rgba(60, 191, 173, 0.08) 0%, rgba(60, 191, 173, 0.025) 42%, transparent 72%),
+      radial-gradient(ellipse 60% 26% at 50% 94%, rgba(60, 191, 173, 0.06) 0%, rgba(60, 191, 173, 0.018) 48%, transparent 74%),
+      linear-gradient(to right, rgba(60, 191, 173, 0.055) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(60, 191, 173, 0.055) 1px, transparent 1px);
+    background-size:
+      100% 100%,
+      100% 100%,
+      100% 100%,
+      64px 64px,
+      64px 64px;
+  }
+
+  // Mobile: notes stack vertically, so distribute three gentle glows down the column.
+  @media (max-width: 768px) {
+    background-image: radial-gradient(ellipse 85% 18% at 50% 14%, rgba(10, 112, 101, 0.12) 0%, rgba(10, 112, 101, 0.035) 45%, transparent 76%),
+      radial-gradient(ellipse 90% 18% at 50% 50%, rgba(10, 112, 101, 0.12) 0%, rgba(10, 112, 101, 0.035) 45%, transparent 76%),
+      radial-gradient(ellipse 85% 18% at 50% 86%, rgba(10, 112, 101, 0.11) 0%, rgba(10, 112, 101, 0.03) 48%, transparent 78%),
+      linear-gradient(to right, rgba(10, 112, 101, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(10, 112, 101, 0.05) 1px, transparent 1px);
+    background-size:
+      100% 100%,
+      100% 100%,
+      100% 100%,
+      48px 48px,
+      48px 48px;
+
+    html[data-theme="dark"] & {
+      background-image: radial-gradient(ellipse 85% 18% at 50% 14%, rgba(60, 191, 173, 0.07) 0%, rgba(60, 191, 173, 0.022) 45%, transparent 76%),
+        radial-gradient(ellipse 90% 18% at 50% 50%, rgba(60, 191, 173, 0.075) 0%, rgba(60, 191, 173, 0.023) 45%, transparent 76%),
+        radial-gradient(ellipse 85% 18% at 50% 86%, rgba(60, 191, 173, 0.065) 0%, rgba(60, 191, 173, 0.02) 48%, transparent 78%),
+        linear-gradient(to right, rgba(60, 191, 173, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(60, 191, 173, 0.05) 1px, transparent 1px);
+      background-size:
+        100% 100%,
+        100% 100%,
+        100% 100%,
+        48px 48px,
+        48px 48px;
+    }
+  }
+
+  // Spilled-ink effect — an SVG with turbulence-distorted shapes acts as a
+  // mask so the solid green comes from CSS and stays theme-aware. Shapes have
+  // ragged, irregular edges and satellite droplets like real ink on a wall.
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background-color: rgba(10, 112, 101, 0.38);
+    -webkit-mask-image: url("/assets/img/pinboard-ink.svg");
+    mask-image: url("/assets/img/pinboard-ink.svg");
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+  }
+
+  html[data-theme="dark"] &::before {
+    background-color: rgba(60, 191, 173, 0.28);
+  }
+
+  // Keep the pinboard content above the ink layer.
+  > .page-container {
+    position: relative;
+    z-index: 1;
+  }
+
+  // Mobile: dial the ink opacity down so stacked notes stay the focal point.
+  @media (max-width: 768px) {
+    &::before {
+      background-color: rgba(10, 112, 101, 0.28);
+    }
+    html[data-theme="dark"] &::before {
+      background-color: rgba(60, 191, 173, 0.2);
+    }
+  }
+}
+
 // ── Hero ──────────────────────────────────────────────────────────────────────
 
 .hero-section {
@@ -29,15 +154,20 @@
   overflow: hidden;
 
   // Layered backgrounds (top → bottom):
-  //   1-3. Radial teal glows for atmospheric depth (light sources on the surface)
-  //   4-5. Vertical + horizontal grid lines — subtle structure for whitespace
+  //   1. Primary glow behind the "Adedeji" name
+  //   2. Primary glow around the portrait photo
+  //   3. Top band glow filling upper whitespace
+  //   4. Bottom band glow filling lower whitespace
+  //   5-6. Vertical + horizontal grid lines
   background-color: var(--global-bg-color);
-  background-image: radial-gradient(ellipse at 18% 45%, rgba(10, 112, 101, 0.14) 0%, transparent 52%),
-    radial-gradient(ellipse at 75% 15%, rgba(13, 150, 136, 0.07) 0%, transparent 38%),
-    radial-gradient(ellipse at 90% 90%, rgba(8, 90, 82, 0.06) 0%, transparent 35%),
+  background-image: radial-gradient(ellipse 50% 48% at 26% 60%, rgba(10, 112, 101, 0.24) 0%, rgba(10, 112, 101, 0.07) 42%, transparent 72%),
+    radial-gradient(ellipse 42% 52% at 76% 48%, rgba(10, 112, 101, 0.22) 0%, rgba(10, 112, 101, 0.065) 42%, transparent 72%),
+    radial-gradient(ellipse 60% 28% at 50% 6%, rgba(10, 112, 101, 0.12) 0%, rgba(10, 112, 101, 0.035) 45%, transparent 72%),
+    radial-gradient(ellipse 65% 25% at 50% 96%, rgba(10, 112, 101, 0.11) 0%, rgba(10, 112, 101, 0.03) 48%, transparent 74%),
     linear-gradient(to right, rgba(10, 112, 101, 0.055) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(10, 112, 101, 0.055) 1px, transparent 1px);
   background-size:
+    100% 100%,
     100% 100%,
     100% 100%,
     100% 100%,
@@ -46,17 +176,50 @@
 
   // Dark mode uses the lighter teal variant for both the glows and the grid
   html[data-theme="dark"] & {
-    background-image: radial-gradient(ellipse at 18% 45%, rgba(60, 191, 173, 0.08) 0%, transparent 52%),
-      radial-gradient(ellipse at 75% 15%, rgba(60, 191, 173, 0.04) 0%, transparent 38%),
-      radial-gradient(ellipse at 90% 90%, rgba(60, 191, 173, 0.03) 0%, transparent 35%),
+    background-image: radial-gradient(ellipse 50% 48% at 26% 60%, rgba(60, 191, 173, 0.15) 0%, rgba(60, 191, 173, 0.045) 42%, transparent 72%),
+      radial-gradient(ellipse 42% 52% at 76% 48%, rgba(60, 191, 173, 0.13) 0%, rgba(60, 191, 173, 0.04) 42%, transparent 72%),
+      radial-gradient(ellipse 60% 28% at 50% 6%, rgba(60, 191, 173, 0.07) 0%, rgba(60, 191, 173, 0.022) 45%, transparent 72%),
+      radial-gradient(ellipse 65% 25% at 50% 96%, rgba(60, 191, 173, 0.065) 0%, rgba(60, 191, 173, 0.02) 48%, transparent 74%),
       linear-gradient(to right, rgba(60, 191, 173, 0.055) 1px, transparent 1px),
       linear-gradient(to bottom, rgba(60, 191, 173, 0.055) 1px, transparent 1px);
     background-size:
       100% 100%,
       100% 100%,
       100% 100%,
+      100% 100%,
       64px 64px,
       64px 64px;
+  }
+
+  // Mobile: layout stacks (photo on top, text below). Keep three vertical bands
+  // — top around the photo, middle around the name, soft bottom fill — tuned
+  // softer and with a tighter grid so the small canvas doesn't clutter.
+  @media (max-width: 900px) {
+    background-image: radial-gradient(ellipse 85% 28% at 50% 22%, rgba(10, 112, 101, 0.18) 0%, rgba(10, 112, 101, 0.05) 45%, transparent 76%),
+      radial-gradient(ellipse 90% 28% at 50% 60%, rgba(10, 112, 101, 0.18) 0%, rgba(10, 112, 101, 0.05) 45%, transparent 76%),
+      radial-gradient(ellipse 80% 20% at 50% 94%, rgba(10, 112, 101, 0.12) 0%, rgba(10, 112, 101, 0.03) 50%, transparent 78%),
+      linear-gradient(to right, rgba(10, 112, 101, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(10, 112, 101, 0.05) 1px, transparent 1px);
+    background-size:
+      100% 100%,
+      100% 100%,
+      100% 100%,
+      48px 48px,
+      48px 48px;
+
+    html[data-theme="dark"] & {
+      background-image: radial-gradient(ellipse 85% 28% at 50% 22%, rgba(60, 191, 173, 0.11) 0%, rgba(60, 191, 173, 0.035) 45%, transparent 76%),
+        radial-gradient(ellipse 90% 28% at 50% 60%, rgba(60, 191, 173, 0.12) 0%, rgba(60, 191, 173, 0.035) 45%, transparent 76%),
+        radial-gradient(ellipse 80% 20% at 50% 94%, rgba(60, 191, 173, 0.07) 0%, rgba(60, 191, 173, 0.02) 50%, transparent 78%),
+        linear-gradient(to right, rgba(60, 191, 173, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(60, 191, 173, 0.05) 1px, transparent 1px);
+      background-size:
+        100% 100%,
+        100% 100%,
+        100% 100%,
+        48px 48px,
+        48px 48px;
+    }
   }
 }
 
@@ -659,12 +822,19 @@ $term-success: #7ee787;
 // ── Bio full (revealed after terminal finishes) ───────────────────────────────
 
 .bio-full {
+  // Collapsed to zero space while the terminal plays — this closes the gap
+  // between the terminal and the coverflow below until the bio is ready.
+  display: none;
   margin-top: 2.5rem;
   opacity: 0;
   transform: translateY(16px);
   transition:
     opacity 0.6s ease,
     transform 0.6s ease;
+
+  &.is-visible {
+    display: block;
+  }
 
   &.is-revealed {
     opacity: 1;
@@ -737,11 +907,13 @@ swiper-slide {
     object-position: center 10%;
     display: block;
     border-radius: inherit;
-    // Stop the browser's native image-drag from stealing the swipe gesture
+    // Stop the browser's native image-drag from stealing the swipe gesture.
+    // Note: we deliberately leave pointer-events: auto so Swiper's mouse-drag
+    // simulation (simulate-touch) picks up pointerdown on desktop. The browser's
+    // native drag-ghost is suppressed via -webkit-user-drag and draggable="false".
     user-select: none;
     -webkit-user-drag: none;
     -webkit-touch-callout: none;
-    pointer-events: none;
 
     @media (max-width: 768px) {
       height: 360px;
@@ -1049,7 +1221,7 @@ swiper-slide {
 .photo-divider {
   width: 100%;
   height: 380px;
-  margin: 3rem 0;
+  margin: 3rem 0 0.5rem;
   background-size: cover;
   background-position: center 65%;
   border-radius: 12px;

@@ -165,10 +165,18 @@
     state.done = true;
     if (skipBtn) skipBtn.classList.add("is-hidden");
 
-    // Reveal the full bio below the terminal
+    // Reveal the full bio below the terminal.
+    // Two-stage: first put it back in the layout (`is-visible` flips display),
+    // then on the next frame trigger the fade/slide (`is-revealed`), so the
+    // opacity + transform transition actually plays instead of being skipped.
     if (full) {
       await sleep(300);
-      full.classList.add("is-revealed");
+      full.classList.add("is-visible");
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          full.classList.add("is-revealed");
+        });
+      });
     }
   }
 

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 800" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <filter id="ink-displace" x="-30%" y="-30%" width="160%" height="160%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.022 0.028" numOctaves="2" seed="7"/>
+      <feDisplacementMap in="SourceGraphic" scale="28"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#ink-displace)" fill="#000">
+    <!-- 1. Centre splatter — spills behind the row of sticky notes so ink peeks
+         through the right gap and above/below the cards. (Left-side satellites
+         were trimmed so nothing shows between the Researcher and Engineer cards.) -->
+    <g>
+      <ellipse cx="800" cy="400" rx="170" ry="90"/>
+      <ellipse cx="980" cy="420" rx="65"  ry="42"/>
+      <circle  cx="1100" cy="450" r="16"/>
+      <circle  cx="760" cy="520" r="22"/>
+      <circle  cx="840" cy="290" r="20"/>
+      <circle  cx="1170" cy="360" r="6"/>
+    </g>
+
+    <!-- 2. Upper-left mark -->
+    <g>
+      <ellipse cx="150" cy="140" rx="58" ry="38"/>
+      <circle  cx="220" cy="110" r="8"/>
+      <circle  cx="100" cy="200" r="6"/>
+      <circle  cx="260" cy="170" r="4"/>
+    </g>
+
+    <!-- 3. Upper-right mark -->
+    <g>
+      <ellipse cx="1470" cy="160" rx="62" ry="40"/>
+      <circle  cx="1400" cy="120" r="8"/>
+      <circle  cx="1540" cy="210" r="6"/>
+      <circle  cx="1360" cy="200" r="4"/>
+    </g>
+
+    <!-- 4. Lower-left mark -->
+    <g>
+      <ellipse cx="180" cy="670" rx="68" ry="42"/>
+      <circle  cx="260" cy="710" r="9"/>
+      <circle  cx="110" cy="610" r="7"/>
+      <circle  cx="320" cy="650" r="5"/>
+    </g>
+
+    <!-- 5. Lower-right mark -->
+    <g>
+      <ellipse cx="1440" cy="680" rx="70" ry="44"/>
+      <circle  cx="1360" cy="640" r="9"/>
+      <circle  cx="1520" cy="720" r="7"/>
+      <circle  cx="1300" cy="710" r="5"/>
+    </g>
+  </g>
+</svg>
