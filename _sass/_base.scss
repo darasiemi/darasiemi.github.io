@@ -571,6 +571,19 @@ footer.sticky-bottom {
   opacity: 0.6;
 }
 
+// Mobile: break "Designed by [Darasimi]" onto its own line and hide the
+// inline separator so the layout reads as two centered rows instead of
+// one wrapping line.
+@media (max-width: 576px) {
+  .footer-credit {
+    display: block;
+    margin-top: 0.15rem;
+  }
+  .footer-sep {
+    display: none;
+  }
+}
+
 // CV
 
 .cv {

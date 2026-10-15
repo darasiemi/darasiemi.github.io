@@ -16,13 +16,14 @@
     display: flex !important;
     align-items: center;
     justify-content: center;
-    transition:
-      opacity 420ms ease-out,
-      visibility 420ms;
+    transform: translateY(0);
+    will-change: transform;
+    transition: transform 520ms cubic-bezier(0.76, 0, 0.24, 1);
   }
+  /* Slide the whole boot screen up off-stage — no opacity cross-fade, so
+     text stays fully legible until the moment it leaves the viewport. */
   .site-preloader.is-hidden {
-    opacity: 0;
-    visibility: hidden;
+    transform: translateY(-100%);
     pointer-events: none;
   }
   /* Match body backdrop to preloader during load so no light flash leaks */
@@ -137,7 +138,7 @@
     }
 
     var MIN_DURATION = 1100; // ms — minimum time the preloader is visible
-    var FADE_DURATION = 420;
+    var FADE_DURATION = 540; // matches .site-preloader transform transition
     var SAFETY_TIMEOUT = 6500; // force finish if load stalls
     var bar = document.getElementById('site-preloader-bar');
     var pct = document.getElementById('site-preloader-percent');
