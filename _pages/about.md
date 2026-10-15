@@ -135,3 +135,38 @@ I am also an AWS- and Azure-certified data science and machine learning professi
     {% endfor %}
   </swiper-container>
 </div>
+
+<script>
+  /* ── Force mouse-drag on the photo coverflow (desktop) ──
+     Swiper's web-component reads simulate-touch="true" from attributes, but on
+     some builds the live Swiper instance ends up with mouse-drag disabled.
+     We wait for the instance to mount, then explicitly enable the three
+     touch-related params and call update() so Swiper rebinds its pointer
+     listeners. On mobile this is a no-op since touch already works. */
+  (function () {
+    var el = document.querySelector("swiper-container.photo-swiper");
+    if (!el) return;
+    var tries = 0;
+    function enableMouseDrag() {
+      if (el.swiper) {
+        try {
+          el.swiper.params.simulateTouch = true;
+          el.swiper.params.allowTouchMove = true;
+          el.swiper.params.grabCursor = true;
+          el.swiper.allowTouchMove = true;
+          el.swiper.update();
+          /* Re-detach + re-attach events so the new params take effect. */
+          if (typeof el.swiper.detachEvents === "function" && typeof el.swiper.attachEvents === "function") {
+            el.swiper.detachEvents();
+            el.swiper.attachEvents();
+          }
+        } catch (e) {
+          /* no-op */
+        }
+        return;
+      }
+      if (tries++ < 80) requestAnimationFrame(enableMouseDrag);
+    }
+    enableMouseDrag();
+  })();
+</script>
