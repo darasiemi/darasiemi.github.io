@@ -73,9 +73,9 @@ I am also an AWS- and Azure-certified data science and machine learning professi
 - Master of Science in Engineering Artificial Intelligence (2023), Carnegie Mellon University
 - Bachelor of Science in Electrical &amp; Electronic Engineering (2019), University of Ibadan, Nigeria
 
-If you are interested in what I do and want to connect, reach me via the contacts below.
+^
 
-  </div>
+</div>
 </div>
 
 {% assign carousel_images = "about_x1.jpeg,dara5.jpeg,about_1.jpeg,about_2.jpeg,about_3.jpeg,about_4.jpeg,about_5.jpeg,about_6.jpeg,about_7.jpeg,about_8.jpeg,about_9.jpeg,about_10.jpeg,about_11.jpeg,about_12.jpeg,about_13.jpeg,about_14.jpeg,about_101.jpg,about_102.jpg,about_103.jpg,about_104.jpg,aware_volunteering.JPG,about_105.jpeg" | split: "," %}
