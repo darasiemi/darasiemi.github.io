@@ -1,6 +1,6 @@
-# darasimi.github.io
+# darasiemi.github.io
 
-Oluwadara Adedeji's personal academic website — live at [darasimi.github.io](https://darasimi.github.io).
+Oluwadara Adedeji's personal academic website — live at [darasiemi.github.io](https://darasiemi.github.io).
 
 **Designed by Oluwadara Adedeji.** Built on top of the [al-folio](https://github.com/alshedivat/al-folio) Jekyll theme by Maruan Al-Shedivat et al., which provides the base layout system, publication rendering (via Jekyll Scholar), responsive image pipeline, and overall academic-site plumbing. The visual direction, custom sections, and interactive elements are my own.
 
@@ -36,7 +36,7 @@ A detailed guide for coding agents and future contributors is in [`AGENTS.md`](A
 
 ## Credits
 
-- **Design & customization** — [Oluwadara Adedeji](https://darasimi.github.io)
+- **Design & customization** — [Oluwadara Adedeji](https://darasiemi.github.io)
 - **Base theme** — [al-folio](https://github.com/alshedivat/al-folio) by [Maruan Al-Shedivat](https://maruan.alshedivat.com) and contributors
 - **Fonts** — Bricolage Grotesque, Geist Mono, Instrument Sans
 - **Icons** — Tabler Icons, Font Awesome

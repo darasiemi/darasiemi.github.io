@@ -53,6 +53,8 @@ jobs:
             --exclude-path README.md
             --exclude-path CUSTOMIZE.md
             --exclude-path _pages/404.md
+            --exclude-path _pages/about.md
+            --exclude-path _pages/about_einstein.md
             --exclude-path _pages/blog.md
             --exclude-path _posts/2018-12-22-distill.md
             --verbose
@@ -65,6 +67,10 @@ jobs:
             --exclude "moodmoney.ucd.ie"
             --exclude "dara-fin.streamlit.app"
             --exclude "ml-labs.ie"
+            --exclude "reddit.com"
+            --exclude "mentallyaware.org"
+            --exclude "www.ucd.ie"
+            --exclude "ubuntu.com"
             './**/*.md'
             './**/*.html'
 
