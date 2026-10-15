@@ -2,13 +2,13 @@
 
 ## What this repository is
 
-This is Oluwadara Adedeji's personal academic website, hosted as the root GitHub Pages site at `https://darasiemi.github.io`. It is a customized [al-folio](https://github.com/alshedivat/al-folio) Jekyll theme. Jekyll turns Markdown, Liquid templates, Sass, data files, bibliography data, and static assets into the generated `_site/` directory.
+This is Oluwadara Adedeji's personal academic website, publicly served at `https://darasi.me` through the root GitHub Pages repository `darasiemi.github.io`. It is a customized [al-folio](https://github.com/alshedivat/al-folio) Jekyll theme. Jekyll turns Markdown, Liquid templates, Sass, data files, bibliography data, and static assets into the generated `_site/` directory.
 
 The repository still contains upstream al-folio documentation and sample/fallback data. Treat `_config.yml` and the current content as the authority for this site rather than assuming every example in the upstream README is active.
 
 ## Architecture and important paths
 
-- `_config.yml` is the central site configuration. It controls identity, URLs, navigation/features, collections, archives, Jekyll Scholar, responsive image generation, analytics, and third-party library versions. The site is a user site: `url` is `https://darasiemi.github.io` and `baseurl` must remain blank.
+- `_config.yml` is the central site configuration. It controls identity, URLs, navigation/features, collections, archives, Jekyll Scholar, responsive image generation, analytics, and third-party library versions. The canonical URL is `https://darasi.me`; this is a root user site, so `baseurl` must remain blank. The GitHub Pages repository hostname is `darasiemi.github.io`.
 - `_pages/` contains standalone pages. The folder is explicitly included by Jekyll; navigation is driven by front matter such as `nav` and `nav_order`.
 - `_posts/` contains dated blog posts. Use Jekyll's `YYYY-MM-DD-slug.md` naming convention and `layout: post`; existing posts use `date`, `description`, `tags`, and `categories` front matter.
 - `_news/` and `_projects/` are configured Jekyll collections. News entries use dated front matter and appear on the home page. Projects use `layout: page`, `description`, `img`, `importance`, and `category`.
