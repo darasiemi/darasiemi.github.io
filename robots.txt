@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://darasiemi.github.io/sitemap.xml
+Sitemap: https://darasi.me/sitemap.xml
