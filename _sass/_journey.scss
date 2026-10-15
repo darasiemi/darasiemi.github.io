@@ -470,14 +470,21 @@ $journey-type-award: #f59e0b;
 
   .leaflet-popup-content {
     margin: 0 !important;
-    width: auto !important;
-    max-width: 340px;
+    width: 400px !important;
+    max-width: calc(100vw - 48px) !important;
     color: var(--global-text-color);
   }
 
   .leaflet-popup-tip {
     background-color: var(--global-bg-color) !important;
     box-shadow: none !important;
+  }
+
+  html[data-theme="dark"] & {
+    .leaflet-popup-content-wrapper,
+    .leaflet-popup-tip {
+      background-color: #1a1a1f !important;
+    }
   }
 
   .leaflet-popup-close-button {
@@ -497,6 +504,11 @@ $journey-type-award: #f59e0b;
   display: flex;
   flex-direction: column;
   max-height: 420px;
+  background-color: #ffffff;
+
+  html[data-theme="dark"] & {
+    background-color: #1a1a1f;
+  }
 
   @media (max-width: 576px) {
     max-height: 300px;
@@ -675,6 +687,11 @@ $journey-type-award: #f59e0b;
   &:focus-visible {
     outline: 2px solid var(--global-theme-color);
     outline-offset: -2px;
+  }
+
+  html[data-theme="dark"] &:hover,
+  html[data-theme="dark"] &:focus-visible {
+    background-color: rgba(60, 191, 173, 0.12);
   }
 }
 

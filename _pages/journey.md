@@ -190,11 +190,11 @@ map: true
           var ev = entry.event;
           var meta = EVENT_META[ev.type] || { icon: "fa-circle", label: ev.type || "Event" };
           var photo = ev.photo
-            ? '<img class="journey-popup-event-photo" src="' + escapeHtml(assetUrl(ev.photo)) + '" alt="" loading="lazy">'
+            ? '<img class="journey-popup-event-photo" data-journey-src="' + escapeHtml(assetUrl(ev.photo)) + '" alt="" loading="lazy">'
             : "";
           var note = ev.note ? '<p class="journey-popup-event-note">' + escapeHtml(ev.note) + "</p>" : "";
           var opening = ev.url
-            ? '<a class="journey-popup-event-link" href="' + escapeHtml(ev.url) + '">'
+            ? '<a class="journey-popup-event-link" data-journey-href="' + escapeHtml(ev.url) + '">'
             : '<div class="journey-popup-event-content">';
           var closing = ev.url ? "</a>" : "</div>";
           return (
@@ -221,7 +221,20 @@ map: true
         );
       }).join("");
 
-      return '<div class="journey-popup">' + header + summary + cityBlocks + "</div>";
+      var popup = document.createElement("div");
+      popup.className = "journey-popup";
+      popup.innerHTML = header + summary + cityBlocks;
+      // Set URL attributes on the DOM so the source link checker does not read
+      // JavaScript template expressions as literal file paths.
+      Array.prototype.forEach.call(popup.querySelectorAll("[data-journey-src]"), function (img) {
+        img.setAttribute("src", img.getAttribute("data-journey-src"));
+        img.removeAttribute("data-journey-src");
+      });
+      Array.prototype.forEach.call(popup.querySelectorAll("[data-journey-href]"), function (link) {
+        link.setAttribute("href", link.getAttribute("data-journey-href"));
+        link.removeAttribute("data-journey-href");
+      });
+      return popup;
     }
 
     // Flat map — no tiles. Country selection zooms in; the reset control
@@ -318,7 +331,7 @@ map: true
             if (!info) return;
             countryLayers[name] = layer;
             layer.bindPopup(buildCountryPopup(name, info), {
-              maxWidth: 360,
+              maxWidth: 420,
               minWidth: 280,
               className: "journey-popup-wrap"
             });
