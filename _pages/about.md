@@ -86,6 +86,8 @@ I am also an AWS- and Azure-certified data science and machine learning professi
   <swiper-container
     class="photo-swiper"
     effect="coverflow"
+    observer="true"
+    observe-parents="true"
     grab-cursor="true"
     centered-slides="true"
     slides-per-view="auto"
@@ -121,14 +123,25 @@ I am also an AWS- and Azure-certified data science and machine learning professi
     a11y-next-slide-message="Next slide"
   >
     {% for img in carousel_images %}
+      {% assign img_base = img | split: '.' | first %}
       <swiper-slide data-photo="{{ img }}" data-photo-index="{{ forloop.index0 }}">
         <div class="swiper-photo-slide{% if img == 'about_5.jpeg' or img == 'about_10.jpeg' or img == 'about_13.jpeg' %} swiper-photo-slide--lower-focus{% endif %}">
-          <img
-            src="{{ '/assets/img/' | append: img | relative_url }}"
-            alt="{{ carousel_captions[forloop.index0] }}"
-            loading="{% if forloop.first %}eager{% else %}lazy{% endif %}"
-            draggable="false"
-          />
+          <picture>
+            {% if site.imagemagick.enabled %}
+              <source
+                srcset="{{ '/assets/img/' | append: img_base | append: '-480.webp' | relative_url }} 480w, {{ '/assets/img/' | append: img_base | append: '-800.webp' | relative_url }} 800w, {{ '/assets/img/' | append: img_base | append: '-1400.webp' | relative_url }} 1400w"
+                sizes="(max-width: 480px) 94vw, (max-width: 768px) 88vw, min(820px, 70vw)"
+                type="image/webp"
+              >
+            {% endif %}
+            <img
+              src="{{ '/assets/img/' | append: img | relative_url }}"
+              alt="{{ carousel_captions[forloop.index0] }}"
+              loading="{% if forloop.index0 < 5 %}eager{% else %}lazy{% endif %}"
+              {% if forloop.index0 < 3 %}fetchpriority="high"{% endif %}
+              draggable="false"
+            />
+          </picture>
           <div class="swiper-slide-caption">{{ carousel_captions[forloop.index0] }}</div>
         </div>
       </swiper-slide>
@@ -142,44 +155,123 @@ I am also an AWS- and Azure-certified data science and machine learning professi
 </div>
 
 <script>
-  /* ── Force mouse-drag on the photo coverflow (desktop) ──
-     Swiper's web-component reads simulate-touch="true" from attributes, but on
-     some builds the live Swiper instance ends up with mouse-drag disabled.
-     We wait for the instance to mount, then explicitly enable the three
-     touch-related params and call update() so Swiper rebinds its pointer
-     listeners. On mobile this is a no-op since touch already works. */
+  /* ── Deferred coverflow init ──
+     The gallery stays hidden (opacity 0, Swiper not initialized) until the
+     bio terminal finishes typing. This is a hard gate — scrolling past the
+     terminal does NOT reveal the gallery early. The terminal is the suspense
+     anchor; the gallery is part of the reveal that follows.
+
+     Exceptions: a ?photo=… deep link bypasses the gate (so links from
+     /journey still jump to the right slide), and a safety timeout opens the
+     gate if the terminal:done event never fires.
+
+     Once triggered we also enable mouse-drag (Swiper web-component builds
+     occasionally mount with simulateTouch off) and pause autoplay when the
+     gallery leaves the viewport. */
   (function () {
     var el = document.querySelector("swiper-container.photo-swiper");
-    if (!el) return;
+    var section = document.getElementById("gallery");
+    if (!el || !section) return;
+
     var requestedPhoto = new URLSearchParams(window.location.search).get("photo");
-    var tries = 0;
-    function enableMouseDrag() {
+    var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var started = false;
+
+    function syncMouseDrag() {
+      /* Swiper's web-component reads simulate-touch="true" from attributes, but
+         on some builds the live instance ends up with mouse-drag disabled. We
+         explicitly enable the three touch-related params and rebind listeners. */
+      var tries = 0;
+      function tryEnable() {
+        if (el.swiper) {
+          try {
+            el.swiper.params.simulateTouch = true;
+            el.swiper.params.allowTouchMove = true;
+            el.swiper.params.grabCursor = true;
+            el.swiper.allowTouchMove = true;
+            el.swiper.update();
+            if (typeof el.swiper.detachEvents === "function" && typeof el.swiper.attachEvents === "function") {
+              el.swiper.detachEvents();
+              el.swiper.attachEvents();
+            }
+            if (requestedPhoto && typeof el.swiper.slideToLoop === "function") {
+              var target = el.querySelector('swiper-slide[data-photo="' + requestedPhoto.replace(/[^a-zA-Z0-9_.-]/g, "") + '"]');
+              if (target) {
+                el.swiper.slideToLoop(Number(target.getAttribute("data-photo-index")), 0);
+                section.scrollIntoView({ block: "start" });
+              }
+            }
+          } catch (e) {
+            /* no-op */
+          }
+          return;
+        }
+        if (tries++ < 80) requestAnimationFrame(tryEnable);
+      }
+      tryEnable();
+    }
+
+    function pauseWhenOffscreen() {
+      if (!("IntersectionObserver" in window)) return;
+      var vis = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (!el.swiper || !el.swiper.autoplay) return;
+            if (entry.isIntersecting) {
+              el.swiper.autoplay.start();
+            } else {
+              el.swiper.autoplay.stop();
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+      vis.observe(el);
+    }
+
+    function launch() {
+      if (started) return;
+      started = true;
+      section.classList.add("is-revealed");
+
+      /* Swiper auto-initialized on mount using the HTML attributes (coverflow
+         effect, autoplay, loop, etc.). The container may have mounted while
+         the terminal gate was still display:none → 0 dimensions. Nudge it to
+         re-measure now that it's visible, and jump back to slide 0 so the
+         gallery always opens from the start regardless of how long the
+         terminal took. */
       if (el.swiper) {
         try {
-          el.swiper.params.simulateTouch = true;
-          el.swiper.params.allowTouchMove = true;
-          el.swiper.params.grabCursor = true;
-          el.swiper.allowTouchMove = true;
-          el.swiper.update();
-          /* Re-detach + re-attach events so the new params take effect. */
-          if (typeof el.swiper.detachEvents === "function" && typeof el.swiper.attachEvents === "function") {
-            el.swiper.detachEvents();
-            el.swiper.attachEvents();
-          }
-          if (requestedPhoto && typeof el.swiper.slideToLoop === "function") {
-            var target = el.querySelector('swiper-slide[data-photo="' + requestedPhoto.replace(/[^a-zA-Z0-9_.-]/g, "") + '"]');
-            if (target) {
-              el.swiper.slideToLoop(Number(target.getAttribute("data-photo-index")), 0);
-              document.getElementById("gallery").scrollIntoView({ block: "start" });
-            }
+          if (typeof el.swiper.update === "function") el.swiper.update();
+          if (typeof el.swiper.slideToLoop === "function") el.swiper.slideToLoop(0, 0);
+          if (el.swiper.autoplay && typeof el.swiper.autoplay.start === "function") {
+            el.swiper.autoplay.start();
           }
         } catch (e) {
           /* no-op */
         }
-        return;
       }
-      if (tries++ < 80) requestAnimationFrame(enableMouseDrag);
+      syncMouseDrag();
+      pauseWhenOffscreen();
     }
-    enableMouseDrag();
+
+    /* Deep-link visitors: skip the gate entirely so the scrollIntoView works. */
+    if (requestedPhoto) {
+      launch();
+      return;
+    }
+
+    /* Only trigger: terminal finished typing. */
+    document.addEventListener("terminal:done", launch, { once: true });
+
+    /* Safety: ensure the gallery can never stay invisible forever. If the
+       terminal never dispatches `terminal:done` (bug, script error, etc.)
+       the gallery still opens after a generous wait. */
+    setTimeout(launch, 15000);
+
+    /* Reduced motion: still deferred, just no fade. CSS handles the no-
+       transition path; nothing extra needed here. The variable is referenced
+       to keep the intent visible to future readers. */
+    void reduceMotion;
   })();
 </script>

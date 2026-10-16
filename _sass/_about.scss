@@ -819,6 +819,37 @@ $term-success: #7ee787;
   }
 }
 
+// ── Terminal gate ────────────────────────────────────────────────────────────
+// On the About page, the bio terminal is the suspense anchor: nothing below it
+// is visible until it finishes typing. We tag the body with .has-terminal-gate
+// on load (JS in animations.js) and flip to .terminal-done when the terminal
+// dispatches `terminal:done`. CSS handles the fade/translate reveal of each
+// section container so there's no flash while GSAP waits for ScrollTrigger
+// refresh. The gallery-section has its own gate state (see below) because it
+// also controls Swiper initialization.
+
+body.has-terminal-gate {
+  // While the terminal is still typing, everything below it is REMOVED FROM
+  // LAYOUT. The page is only hero + terminal tall — there's no empty space to
+  // scroll into. Once the terminal dispatches `terminal:done`, animations.js
+  // (a) pre-hides these containers with gsap.set(opacity:0, y:60), then
+  // (b) adds .terminal-done to lift display:none, then (c) registers a
+  // ScrollTrigger.batch so each container fades up as the viewer scrolls to
+  // it (start "top 85%", stagger 0.2, ease sine.out) — the rashedatjinadu.com
+  // reveal pattern.
+  &:not(.terminal-done) {
+    .pinboard,
+    .achievement-strip,
+    .about-section,
+    .photo-divider,
+    .gallery-journey-link,
+    .social-section,
+    .gallery-section {
+      display: none !important;
+    }
+  }
+}
+
 // ── Bio full (revealed after terminal finishes) ───────────────────────────────
 
 .bio-full {
@@ -863,6 +894,13 @@ $term-success: #7ee787;
   width: 100%;
   padding: 2rem 0 4rem;
   overflow: hidden;
+
+  // Visibility is driven by the terminal gate: body.has-terminal-gate hides
+  // this with display:none until .terminal-done is added. From there, GSAP
+  // (ScrollTrigger.batch in animations.js) owns the fade — no CSS opacity /
+  // transition here, or it fights the per-frame tween. The .is-revealed
+  // class is still toggled by _pages/about.md as a signal for Swiper init
+  // but no longer carries visual state.
 }
 
 .photo-swiper {
