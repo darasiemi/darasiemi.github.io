@@ -1,0 +1,598 @@
+// ── Bookshelf ────────────────────────────────────────────────────────────────
+// /bookshelf/ — spines line up on a shelf; clicking one lifts it off and
+// reveals a detail card below with the cover + progress. The row scrolls
+// horizontally with momentum/snap so the shelf feels like a physical thing
+// rather than a grid.
+
+.bookshelf-page {
+  margin: 1rem 0 2rem;
+  padding: 0;
+}
+
+// ── WebGL stage ──────────────────────────────────────────────────────────────
+// The Three.js canvas lives in `.bookshelf-stage` and only renders once JS has
+// confirmed a WebGL context. Until then, the DOM fallback below carries the
+// shelf. When ready, we hide the stage's `aria-hidden` from assistive tech and
+// swap visibility.
+
+.bookshelf-stage {
+  display: none;
+  position: relative;
+  margin: 0 -1rem 2.5rem;
+  padding: 0;
+}
+
+.bookshelf-canvas {
+  display: block;
+  width: 100%;
+  height: clamp(360px, 56vw, 560px);
+  touch-action: none;
+  cursor: grab;
+  user-select: none;
+
+  &:active {
+    cursor: grabbing;
+  }
+}
+
+// Subtle instruction row beneath the canvas — appears only on the WebGL path.
+.bookshelf-stage-hint {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin: 0.5rem 1rem 0;
+  font-family: "Geist Mono", "SF Mono", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--global-text-color-light);
+}
+
+.bookshelf-stage-hint-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--global-divider-color);
+}
+
+.bookshelf-page.is-webgl-ready {
+  .bookshelf-stage {
+    display: block;
+  }
+
+  // Keyboard focus + screen readers still get the fallback buttons; sighted
+  // mouse/touch users see only the canvas. `clip` + `clip-path` + 1px size is
+  // the standard "visually hidden but accessible" pattern.
+  .bookshelf-fallback {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+  }
+}
+
+.bookshelf-section {
+  margin-bottom: 3rem;
+}
+
+.bookshelf-section-title {
+  font-family: "Geist Mono", "SF Mono", monospace;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--global-text-color-light);
+  margin: 0 0 1rem;
+  padding-left: 0.25rem;
+}
+
+// Shelf container holds the rail of books plus the horizontal plank beneath.
+// `overflow: hidden` clips the pulled-out lift on the Y axis if a book sits
+// near the top of the box — set a generous top padding on the rail instead
+// so the lifted book always has room.
+.bookshelf {
+  position: relative;
+  margin: 0 -1rem; // bleed to the container edge so the shelf feels wide
+  padding: 0 1rem;
+  border-radius: 6px;
+  background: repeating-linear-gradient(2deg, transparent 0 30px, rgba(255, 226, 187, 0.035) 31px, transparent 34px),
+    linear-gradient(145deg, #9b704e 0%, #805638 52%, #67452f 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.16),
+    inset 0 -1px 0 rgba(36, 20, 11, 0.35),
+    0 10px 22px rgba(31, 20, 12, 0.12);
+
+  // Soft edge gradients hint that the rail scrolls horizontally.
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 1rem;
+    width: 3rem;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  &::before {
+    left: 0;
+    background: linear-gradient(90deg, var(--global-bg-color) 0%, rgba(255, 255, 255, 0) 100%);
+  }
+
+  &::after {
+    right: 0;
+    background: linear-gradient(270deg, var(--global-bg-color) 0%, rgba(255, 255, 255, 0) 100%);
+  }
+}
+
+.bookshelf-rail {
+  display: flex;
+  gap: 0.4rem;
+  align-items: flex-end;
+  padding: 2.75rem 1.25rem 0.9rem;
+  background: transparent;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x proximity;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--global-divider-color) transparent;
+
+  &::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--global-divider-color);
+    border-radius: 3px;
+  }
+}
+
+// Plank the books stand on. Warm earth tone, with a thin highlight on top
+// and a drop shadow underneath to sell "shelf, not line".
+.bookshelf-plank {
+  position: absolute;
+  left: 1rem;
+  right: 1rem;
+  bottom: 0.5rem;
+  height: 8px;
+  background: linear-gradient(180deg, #8a5a3f 0%, #6b4330 55%, #4e2f20 100%);
+  border-radius: 2px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 6px 10px -4px rgba(0, 0, 0, 0.28);
+  z-index: 1;
+}
+
+html[data-theme="dark"] {
+  .bookshelf-plank {
+    background: linear-gradient(180deg, #52382a 0%, #3b271c 55%, #241610 100%);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.08),
+      0 6px 10px -4px rgba(0, 0, 0, 0.6);
+  }
+
+  .bookshelf::before {
+    background: linear-gradient(90deg, var(--global-bg-color) 0%, rgba(0, 0, 0, 0) 100%);
+  }
+
+  .bookshelf::after {
+    background: linear-gradient(270deg, var(--global-bg-color) 0%, rgba(0, 0, 0, 0) 100%);
+  }
+}
+
+// ── Book (spine button) ─────────────────────────────────────────────────────
+// Each book is a <button> whose visible child is the spine. Width varies
+// slightly book-to-book via the inline --spine-width custom property to
+// break up the rhythm — real shelves aren't perfectly uniform.
+
+.book {
+  flex: 0 0 auto;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  width: var(--spine-width, 48px);
+  height: 240px;
+  scroll-snap-align: center;
+  // `transform` is driven by the states below. `transform-origin: bottom`
+  // means hover-lift and pull-out pivot around the spot the book rests on
+  // the plank — same as tilting a real book out.
+  transform-origin: 50% 100%;
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.45s ease;
+  will-change: transform;
+
+  &:focus-visible {
+    outline: 2px solid var(--global-theme-color);
+    outline-offset: 4px;
+    border-radius: 2px;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    &:hover {
+      transform: translateY(-5px);
+    }
+  }
+
+  &.is-pulled {
+    transform: translateY(-26px) rotate(-3deg);
+    filter: drop-shadow(0 18px 24px rgba(0, 0, 0, 0.3));
+    z-index: 5;
+  }
+}
+
+// A horizontal nth-child rhythm so spines aren't all the same width even
+// when the data doesn't specify one explicitly. 44px → 56px variations.
+.bookshelf-rail .book:nth-child(3n) {
+  width: 54px;
+}
+.bookshelf-rail .book:nth-child(5n) {
+  width: 46px;
+}
+.bookshelf-rail .book:nth-child(7n + 2) {
+  width: 58px;
+}
+
+.book-spine {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 1rem 0.3rem;
+  background: var(--spine-color, #0a7065);
+  color: var(--spine-text, #f3f4f6);
+  border-radius: 1px 2px 2px 1px;
+  box-shadow:
+    inset 2px 0 0 rgba(255, 255, 255, 0.14),
+    inset -2px 0 0 rgba(0, 0, 0, 0.22),
+    inset 0 2px 0 rgba(255, 255, 255, 0.08),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.18);
+
+  // Vertical highlight band on the "front" edge, shadow on the back.
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 24%, rgba(255, 255, 255, 0) 70%, rgba(0, 0, 0, 0.18) 100%);
+    pointer-events: none;
+    border-radius: inherit;
+  }
+}
+
+.book-spine-title,
+.book-spine-author {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: calc(100% - 1rem);
+}
+
+.book-spine-title {
+  font-family: "Bricolage Grotesque", "Instrument Sans", sans-serif;
+  font-weight: 600;
+  font-size: clamp(0.5rem, calc(1rem - var(--title-length, 20) * 0.012rem), 0.82rem);
+  letter-spacing: 0.01em;
+  line-height: 1;
+  flex: 1 1 auto;
+}
+
+.book-spine-author {
+  font-family: "Geist Mono", "SF Mono", monospace;
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.72;
+  flex: 0 0 auto;
+  max-height: 50%;
+}
+
+// ── Detail card ─────────────────────────────────────────────────────────────
+// Mounts below the shelves. Houses a tall cover rectangle (either an <img>
+// cover or a fallback gradient derived from the spine color), the title +
+// author, and the progress bar.
+
+.bookshelf-detail {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin: 2.5rem auto 0;
+  padding: 1.75rem 1.75rem 1.75rem 1.5rem;
+  max-width: 540px;
+  background: var(--global-card-bg-color);
+  border: 1px solid var(--global-divider-color);
+  border-radius: 14px;
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.06),
+    0 20px 40px -16px rgba(0, 0, 0, 0.24);
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.42s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.42s cubic-bezier(0.16, 1, 0.3, 1);
+
+  &.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (max-width: 540px) {
+    gap: 1.25rem;
+    margin: 2rem 0 0;
+    padding: 1.25rem;
+  }
+}
+
+// Top row inside the detail card: OL preview cover + title/author/progress.
+.bookshelf-detail-top {
+  display: flex;
+  gap: 1.75rem;
+  align-items: flex-start;
+
+  @media (max-width: 540px) {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.25rem;
+  }
+}
+
+// "My copy" row — personal photo of the physical book, under the preview.
+.bookshelf-detail-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--global-divider-color);
+}
+
+.bookshelf-detail-copy-label {
+  font-family: "Geist Mono", "SF Mono", monospace;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--global-text-color-light);
+}
+
+.bookshelf-detail-copy-figure {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 10px;
+  background: var(--global-divider-color);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+
+  img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: min(70vh, 560px);
+    object-fit: contain;
+  }
+}
+
+.bookshelf-detail-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.6rem;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  font-size: 1.4rem;
+  line-height: 1;
+  color: var(--global-text-color-light);
+  border-radius: 50%;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+
+  &:hover,
+  &:focus-visible {
+    background: var(--global-divider-color);
+    color: var(--global-text-color);
+    outline: 0;
+  }
+}
+
+.bookshelf-detail-cover {
+  position: relative;
+  flex: 0 0 auto;
+  width: 128px;
+  height: 192px;
+  border-radius: 3px 8px 8px 3px;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--cover-color, #0a7065) 0%, color-mix(in oklab, var(--cover-color, #0a7065), black 28%) 100%);
+  box-shadow:
+    inset 2px 0 0 rgba(255, 255, 255, 0.18),
+    inset -1px 0 0 rgba(0, 0, 0, 0.2),
+    0 10px 24px -8px rgba(0, 0, 0, 0.3);
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  @media (max-width: 540px) {
+    width: 108px;
+    height: 162px;
+    align-self: center;
+  }
+}
+
+// The gradient card is always rendered; the <img> covers it when it loads
+// successfully. On image load failure, JS adds .is-fallback and the title
+// text is revealed over the gradient.
+.bookshelf-detail-cover-title {
+  position: absolute;
+  inset: 0.75rem;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  font-family: "Bricolage Grotesque", "Instrument Sans", sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.bookshelf-detail-cover.is-fallback {
+  .bookshelf-detail-cover-title {
+    display: flex;
+  }
+}
+
+.bookshelf-detail-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.bookshelf-detail-title {
+  font-family: "Bricolage Grotesque", "Instrument Sans", sans-serif;
+  font-weight: 600;
+  font-size: 1.2rem;
+  line-height: 1.25;
+  margin: 0 0 0.35rem;
+  color: var(--global-text-color);
+}
+
+.bookshelf-detail-author {
+  font-family: "Geist Mono", "SF Mono", monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--global-text-color-light);
+  margin: 0 0 1.25rem;
+}
+
+.bookshelf-detail-progress {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.bookshelf-detail-progress-bar {
+  position: relative;
+  height: 6px;
+  background: var(--global-divider-color);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.bookshelf-detail-progress-fill {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--global-theme-color) 0%, color-mix(in oklab, var(--global-theme-color), white 24%) 100%);
+  border-radius: inherit;
+  // The width is set inline by JS; animate it in so progress feels earned.
+  transition: width 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+
+  &.is-complete {
+    background: linear-gradient(90deg, #10b981 0%, #34d399 100%);
+  }
+}
+
+.bookshelf-detail-progress-label {
+  font-family: "Geist Mono", "SF Mono", monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--global-text-color-light);
+}
+
+// ── CV outro link ───────────────────────────────────────────────────────────
+// Sits at the end of /cv/. The same tucked-away pattern as the About
+// gallery → journey link.
+
+.cv-outro {
+  margin: 3.5rem 0 1rem;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  border-top: 1px solid var(--global-divider-color);
+}
+
+.cv-outro-text {
+  font-family: "Bricolage Grotesque", "Instrument Sans", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--global-text-color);
+  line-height: 1.45;
+  margin: 0 0 0.75rem;
+  letter-spacing: -0.01em;
+}
+
+.cv-outro-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: "Geist Mono", "SF Mono", monospace;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--global-theme-color);
+  text-decoration: none;
+  padding: 0.5rem 0;
+  transition:
+    gap 0.25s ease,
+    color 0.2s ease;
+
+  i {
+    font-size: 0.78rem;
+    transition: transform 0.25s ease;
+  }
+
+  &:hover,
+  &:focus-visible {
+    gap: 0.75rem;
+    color: var(--global-theme-color);
+    text-decoration: none;
+
+    i {
+      transform: translateX(4px);
+    }
+  }
+}
+
+// ── Reduced motion fallbacks ────────────────────────────────────────────────
+
+@media (prefers-reduced-motion: reduce) {
+  .book,
+  .bookshelf-detail,
+  .bookshelf-detail-progress-fill,
+  .cv-outro-link i {
+    transition: none !important;
+  }
+}
