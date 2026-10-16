@@ -21,7 +21,7 @@ locations:
         note: Mental health & financial data ML research with ML-Labs
 
       - title: IBM Research AI Workshop
-        type: education
+        type: visit
         year: "2024"
         photo: assets/img/about_13.jpeg
         url: "/?photo=about_13.jpeg#gallery"
@@ -34,7 +34,7 @@ locations:
         note: Award presented at UCD Computer Science
 
       - title: Dublin Tech Summit
-        type: talk
+        type: visit
         year: "2024"
         photo: assets/img/about_4.jpeg
         url: "/?photo=about_4.jpeg#gallery"

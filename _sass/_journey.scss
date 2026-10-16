@@ -511,7 +511,62 @@ $journey-type-award: #f59e0b;
   }
 
   @media (max-width: 576px) {
-    max-height: 300px;
+    // Give the popup more vertical room — 300px cut most entries off and the
+    // internal scroll wasn't obvious. Cap it so Leaflet can still auto-pan
+    // the popup fully into view instead of extending past the viewport.
+    max-height: min(70vh, 460px);
+  }
+}
+
+// ── Mobile popup tightening ──────────────────────────────────────────────────
+// On narrow screens the fixed 64px photo + heavy padding squeezed titles into
+// 2-3 lines and clipped event items. These overrides apply to the Leaflet
+// popup wrapper so the box can use more of the screen and each item is
+// legible without horizontal truncation.
+@media (max-width: 576px) {
+  .journey-popup-wrap .leaflet-popup-content {
+    width: 360px !important;
+    max-width: calc(100vw - 20px) !important;
+  }
+
+  .journey-popup-head {
+    padding: 0.75rem 0.85rem 0.5rem;
+  }
+
+  .journey-popup-title {
+    font-size: 1rem;
+  }
+
+  .journey-popup-summary {
+    padding: 0.5rem 0.85rem 0.25rem;
+  }
+
+  .journey-popup-summary-item {
+    font-size: 0.82rem;
+    gap: 0.4rem;
+  }
+
+  .journey-popup-city-name {
+    margin: 0.55rem 0.85rem 0.1rem;
+  }
+
+  .journey-popup-event-link,
+  .journey-popup-event-content {
+    padding: 0.55rem 0.85rem;
+    gap: 0.6rem;
+  }
+
+  .journey-popup-event-photo {
+    width: 48px;
+    height: 48px;
+  }
+
+  .journey-popup-event-title {
+    font-size: 0.88rem;
+  }
+
+  .journey-popup-event-note {
+    font-size: 0.74rem;
   }
 }
 

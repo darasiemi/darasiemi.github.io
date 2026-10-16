@@ -14,6 +14,7 @@ map: true
 </div>
 
 <div class="journey-legend" aria-label="Legend of event types">
+  <span class="journey-chip" data-type="research"><i class="fa-solid fa-microscope" aria-hidden="true"></i> Research</span>
   <span class="journey-chip" data-type="talk"><i class="fa-solid fa-microphone" aria-hidden="true"></i> Talks</span>
   <span class="journey-chip" data-type="volunteering"><i class="fa-solid fa-heart" aria-hidden="true"></i> Volunteering</span>
   <span class="journey-chip" data-type="education"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> Education</span>
