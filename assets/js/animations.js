@@ -222,6 +222,28 @@ function afterPreloader(eventName, callback) {
     });
   }
 
+  // Scroll-to-end auto-skip. While the stage gate hides every section below the
+  // terminal, hitting the bottom of what's visible is a clear "I want more"
+  // signal — treat it as a click on the skip button rather than forcing the
+  // viewer to wait out the typing.
+  var scrollSkip = function () {
+    if (state.done || state.skipped) return;
+    var atBottom = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 32;
+    if (atBottom) {
+      state.skipped = true;
+      if (skipBtn) skipBtn.classList.add("is-hidden");
+      window.removeEventListener("scroll", scrollSkip);
+    }
+  };
+  window.addEventListener("scroll", scrollSkip, { passive: true });
+  document.addEventListener(
+    "terminal:done",
+    function () {
+      window.removeEventListener("scroll", scrollSkip);
+    },
+    { once: true }
+  );
+
   // Let the hero entrance become visible before the terminal begins typing.
   afterPreloader("site:ready", run);
 })();

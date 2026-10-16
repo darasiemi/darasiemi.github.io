@@ -23,8 +23,11 @@ pagination:
 
 {% if blog_name_size > 0 or blog_description_size > 0 %}
 
-  <div class="header-bar">
-    <h1>{{ site.blog_name }}</h1>
+  <div class="header-bar blog-header">
+    <h1 class="blog-title">
+      <span class="blog-title-ink">{{ site.blog_name }}</span>
+      <span class="blog-title-pen" aria-hidden="true"><i class="fa-solid fa-pen-nib"></i></span>
+    </h1>
     <h2>{{ site.blog_description }}</h2>
   </div>
   {% endif %}

@@ -5,6 +5,13 @@ module.exports = {
   skippedContentGlobs: ["_site/assets/**/*.html"],
   // Keep JavaScript-added journey popups and About reveal states in deployed CSS.
   safelist: {
-    greedy: [/journey-popup/, /about-(intro|scroll)-reveal/, /about-staged/, /terminal-done/, /is-pulsing/],
+    greedy: [
+      /journey-popup/,
+      /about-(intro|scroll)-reveal/,
+      /about-staged/,
+      /terminal-done/,
+      /is-pulsing/,
+      /blog-(header|title|title-ink|title-pen)/,
+    ],
   },
 };

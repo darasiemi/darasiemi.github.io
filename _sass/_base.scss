@@ -59,9 +59,19 @@ h6 {
 }
 
 .post-title {
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: clamp(1.75rem, 3.2vw, 2.5rem);
   letter-spacing: -0.02em;
-  line-height: 1.1;
+  line-height: 1.2;
+}
+
+// Blog listing items use the same class on <a> inside an <h3>, which would
+// otherwise inherit the heading-sized `.post-title` above. Keep the listing
+// typography closer to the publications page so the two sections feel like
+// the same site, not two different ones.
+.post-list .post-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 1.3;
 }
 
 hr {
@@ -676,6 +686,96 @@ footer.sticky-bottom {
   h1 {
     color: var(--global-theme-color);
     font-size: 5rem;
+  }
+}
+
+// ── Blog header ─────────────────────────────────────────────────────────────
+// Scoped overrides for the blog landing page: the title uses a handwritten
+// script face reminiscent of Dara's signature, with a pen that glides across
+// as the ink reveals. Runs once per page load — no infinite loops.
+.blog-header {
+  h1.blog-title {
+    font-family: "Caveat", "Dancing Script", "Instrument Sans", cursive;
+    font-weight: 700;
+    font-size: clamp(3.25rem, 7vw, 5.5rem);
+    line-height: 1;
+    letter-spacing: 0;
+    color: var(--global-theme-color);
+    display: inline-block;
+    position: relative;
+    padding: 0 0.35em 0.1em;
+    margin-bottom: 0.5rem;
+  }
+
+  .blog-title-ink {
+    display: inline-block;
+    // Default (no-JS / reduced-motion / initial): fully revealed. The animated
+    // state overrides this below so the ink wipe only plays when motion is OK.
+  }
+
+  .blog-title-pen {
+    position: absolute;
+    bottom: -0.08em;
+    color: var(--global-theme-color);
+    font-size: 0.4em;
+    transform: rotate(-28deg);
+    opacity: 0;
+    pointer-events: none;
+    // No default `left` — the animation sets it. Hidden by default so static
+    // (no-motion) viewers don't see a stray pen glyph.
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .blog-title-ink {
+      clip-path: inset(0 100% -15% -8%);
+      animation: blogInkReveal 1.6s cubic-bezier(0.65, 0, 0.35, 1) 0.3s forwards;
+    }
+
+    .blog-title-pen {
+      left: 0.1em;
+      animation: blogPenGlide 1.6s cubic-bezier(0.65, 0, 0.35, 1) 0.3s forwards;
+    }
+  }
+
+  h2 {
+    font-family: "Instrument Sans", sans-serif;
+    font-size: clamp(0.95rem, 1.4vw, 1.15rem);
+    font-weight: 400;
+    color: var(--global-text-color-light);
+    line-height: 1.5;
+    max-width: 44rem;
+    margin: 0 auto;
+  }
+}
+
+@keyframes blogInkReveal {
+  from {
+    clip-path: inset(0 100% -15% -8%);
+  }
+
+  to {
+    clip-path: inset(0 -8% -15% -8%);
+  }
+}
+
+@keyframes blogPenGlide {
+  0% {
+    opacity: 0;
+    left: 0.1em;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+    left: calc(100% - 0.5em);
+  }
+
+  100% {
+    opacity: 0;
+    left: calc(100% - 0.5em);
   }
 }
 
