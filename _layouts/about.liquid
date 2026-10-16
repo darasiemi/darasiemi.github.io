@@ -17,7 +17,7 @@ layout: home
       {% if page.profile and page.profile.image %}
         {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
         <div class="hero-photo-frame">
-          {% include figure.liquid loading="eager" path=profile_image_path alt="Oluwadara Adedeji" %}
+          {% include figure.liquid loading="eager" fetchpriority="high" sizes="(max-width: 900px) 220px, 340px" path=profile_image_path alt="Oluwadara Adedeji" %}
         </div>
       {% endif %}
       {% if page.profile and page.profile.more_info %}
@@ -50,16 +50,30 @@ layout: home
 
     <div class="logo-marquee">
       <div class="logo-marquee-track">
-        {% for copy in (1..4) %}
+        {% for copy in (1..2) %}
           {% for entry in affil_logos %}
             {% assign parts = entry | split: '|' %}
             {% if copy == 1 %}
-              <a class="logo-item" href="{{ parts[2] }}" target="_blank" rel="noopener" title="{{ parts[1] }}">
-                <img src="{{ '/assets/img/logos/' | append: parts[0] | relative_url }}" alt="{{ parts[1] }}" loading="lazy">
+              <a
+                class="logo-item{% if parts[0] == 'rise-logo.svg' %} logo-item--rise{% endif %}"
+                href="{{ parts[2] }}"
+                target="_blank"
+                rel="noopener"
+                title="{{ parts[1] }}"
+              >
+                <img src="{{ '/assets/img/logos/' | append: parts[0] | relative_url }}" alt="{{ parts[1] }}" loading="eager" decoding="async">
               </a>
             {% else %}
-              <a class="logo-item" href="{{ parts[2] }}" target="_blank" rel="noopener" title="{{ parts[1] }}" aria-hidden="true" tabindex="-1">
-                <img src="{{ '/assets/img/logos/' | append: parts[0] | relative_url }}" alt="" loading="lazy">
+              <a
+                class="logo-item{% if parts[0] == 'rise-logo.svg' %} logo-item--rise{% endif %}"
+                href="{{ parts[2] }}"
+                target="_blank"
+                rel="noopener"
+                title="{{ parts[1] }}"
+                aria-hidden="true"
+                tabindex="-1"
+              >
+                <img src="{{ '/assets/img/logos/' | append: parts[0] | relative_url }}" alt="" loading="lazy" decoding="async">
               </a>
             {% endif %}
           {% endfor %}
@@ -136,13 +150,13 @@ layout: home
 </div>
 
 <!-- ── dara2 Photo Divider ───────────────────────────────────────────────── -->
-<div class="page-container">
+<div class="page-container page-container--photo-divider">
   <div class="photo-divider" style="background-image: url('{{ '/assets/img/dara2.jpeg' | relative_url }}');"></div>
 </div>
 
 <!-- ── News ──────────────────────────────────────────────────────────────── -->
 {% if page.news and site.announcements.enabled %}
-  <div class="page-section">
+  <div class="page-section page-section--news">
     <div class="page-container">
       <div class="about-section">
         <h2 class="about-section-heading"><a href="{{ '/news/' | relative_url }}">news</a></h2>

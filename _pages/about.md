@@ -85,6 +85,7 @@ I am also an AWS- and Azure-certified data science and machine learning professi
 <div class="gallery-section" id="gallery">
   <swiper-container
     class="photo-swiper"
+    init="false"
     effect="coverflow"
     observer="true"
     observe-parents="true"
@@ -137,8 +138,9 @@ I am also an AWS- and Azure-certified data science and machine learning professi
             <img
               src="{{ '/assets/img/' | append: img | relative_url }}"
               alt="{{ carousel_captions[forloop.index0] }}"
-              loading="{% if forloop.index0 < 5 %}eager{% else %}lazy{% endif %}"
-              {% if forloop.index0 < 3 %}fetchpriority="high"{% endif %}
+              loading="lazy"
+              fetchpriority="low"
+              decoding="async"
               draggable="false"
             />
           </picture>
@@ -156,25 +158,14 @@ I am also an AWS- and Azure-certified data science and machine learning professi
 
 <script>
   /* ── Deferred coverflow init ──
-     The gallery stays hidden (opacity 0, Swiper not initialized) until the
-     bio terminal finishes typing. This is a hard gate — scrolling past the
-     terminal does NOT reveal the gallery early. The terminal is the suspense
-     anchor; the gallery is part of the reveal that follows.
-
-     Exceptions: a ?photo=… deep link bypasses the gate (so links from
-     /journey still jump to the right slide), and a safety timeout opens the
-     gate if the terminal:done event never fires.
-
-     Once triggered we also enable mouse-drag (Swiper web-component builds
-     occasionally mount with simulateTouch off) and pause autoplay when the
-     gallery leaves the viewport. */
+     Initialize after DOM layout so looped slides are placed correctly from
+     the first frame. The gallery itself reveals when scrolled into view. */
   (function () {
     var el = document.querySelector("swiper-container.photo-swiper");
     var section = document.getElementById("gallery");
     if (!el || !section) return;
 
     var requestedPhoto = new URLSearchParams(window.location.search).get("photo");
-    var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     var started = false;
 
     function syncMouseDrag() {
@@ -234,44 +225,31 @@ I am also an AWS- and Azure-certified data science and machine learning professi
       started = true;
       section.classList.add("is-revealed");
 
-      /* Swiper auto-initialized on mount using the HTML attributes (coverflow
-         effect, autoplay, loop, etc.). The container may have mounted while
-         the terminal gate was still display:none → 0 dimensions. Nudge it to
-         re-measure now that it's visible, and jump back to slide 0 so the
-         gallery always opens from the start regardless of how long the
-         terminal took. */
-      if (el.swiper) {
-        try {
-          if (typeof el.swiper.update === "function") el.swiper.update();
-          if (typeof el.swiper.slideToLoop === "function") el.swiper.slideToLoop(0, 0);
-          if (el.swiper.autoplay && typeof el.swiper.autoplay.start === "function") {
-            el.swiper.autoplay.start();
+      /* Wait for the component and a visible layout frame before measuring
+         slide widths, including the slides looped to the left of the first. */
+      customElements.whenDefined("swiper-container").then(function () {
+        function mount() {
+          if (!section.getClientRects().length) {
+            requestAnimationFrame(mount);
+            return;
           }
-        } catch (e) {
-          /* no-op */
+          requestAnimationFrame(function () {
+            el.initialize();
+            if (el.swiper && typeof el.swiper.slideToLoop === "function") {
+              el.swiper.slideToLoop(0, 0);
+            }
+            syncMouseDrag();
+            pauseWhenOffscreen();
+          });
         }
-      }
-      syncMouseDrag();
-      pauseWhenOffscreen();
+        requestAnimationFrame(mount);
+      });
     }
 
-    /* Deep-link visitors: skip the gate entirely so the scrollIntoView works. */
-    if (requestedPhoto) {
+    if (document.documentElement.classList.contains("terminal-done")) {
       launch();
-      return;
+    } else {
+      document.addEventListener("terminal:done", launch, { once: true });
     }
-
-    /* Only trigger: terminal finished typing. */
-    document.addEventListener("terminal:done", launch, { once: true });
-
-    /* Safety: ensure the gallery can never stay invisible forever. If the
-       terminal never dispatches `terminal:done` (bug, script error, etc.)
-       the gallery still opens after a generous wait. */
-    setTimeout(launch, 15000);
-
-    /* Reduced motion: still deferred, just no fade. CSS handles the no-
-       transition path; nothing extra needed here. The variable is referenced
-       to keep the intent visible to future readers. */
-    void reduceMotion;
   })();
 </script>

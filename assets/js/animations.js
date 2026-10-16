@@ -1,34 +1,16 @@
 /* GSAP scroll animations + terminal driver for darasiemi.github.io */
 
-/* ── Terminal body-class gate ──
-   Runs regardless of reduced-motion / GSAP availability. Tags the body with
-   `has-terminal-gate` on pages that contain the bio terminal so CSS can hide
-   everything below it with `display: none`. The GSAP IIFE below handles the
-   `.terminal-done` flip (plus the on-scroll fade) when motion is allowed and
-   GSAP is loaded. On reduced-motion / no-GSAP, we fall back to just adding
-   the class so content still becomes visible. */
-(function () {
-  function arm() {
-    if (!document.getElementById("bioTerminal")) return;
-    document.body.classList.add("has-terminal-gate");
-    document.addEventListener(
-      "terminal:done",
-      function () {
-        var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-        var hasGsap = typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined";
-        if (!hasGsap || reduced) {
-          document.body.classList.add("terminal-done");
-        }
-      },
-      { once: true }
-    );
-  }
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", arm, { once: true });
+// The full-screen preloader can outlast DOMContentLoaded. Start visible
+// animations when it clears rather than letting them finish behind it.
+function afterPreloader(eventName, callback) {
+  if (document.getElementById("site-preloader")) {
+    document.addEventListener(eventName, callback, { once: true });
+  } else if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", callback, { once: true });
   } else {
-    arm();
+    callback();
   }
-})();
+}
 
 /* ── Terminal driver ── */
 (function () {
@@ -50,11 +32,11 @@
   }
 
   // Timing (ms per character / between steps). Faster is more "coder".
-  var TYPE_CMD = 55;
-  var TYPE_OUT = 14;
-  var AFTER_CMD = 240;
-  var AFTER_OUT = 160;
-  var START_PAUSE = 400;
+  var TYPE_CMD = 24;
+  var TYPE_OUT = 5;
+  var AFTER_CMD = 80;
+  var AFTER_OUT = 60;
+  var START_PAUSE = 150;
 
   var state = {
     started: false,
@@ -89,7 +71,7 @@
   }
 
   async function typeInto(target, text, charDelay) {
-    if (state.skipped) {
+    if (state.skipped || reduceMotion) {
       target.textContent += text;
       return;
     }
@@ -118,7 +100,7 @@
     line.appendChild(cursor);
     body.scrollTop = body.scrollHeight;
 
-    await sleep(reduceMotion || state.skipped ? 0 : 180);
+    await sleep(reduceMotion || state.skipped ? 0 : 60);
     await typeInto(cmdSpan, " " + cmd, reduceMotion ? 0 : TYPE_CMD);
 
     if (live) {
@@ -158,8 +140,8 @@
       var span = document.createElement("span");
       span.className = "term-dir";
       line.appendChild(span);
-      await typeInto(span, items[i], reduceMotion ? 0 : 25);
-      if (!state.skipped) await sleep(60);
+      await typeInto(span, items[i], reduceMotion ? 0 : 12);
+      if (!state.skipped && !reduceMotion) await sleep(20);
     }
     await sleep(reduceMotion || state.skipped ? 0 : AFTER_OUT);
   }
@@ -170,8 +152,7 @@
 
     // Skip the typing animation on repeat visits in the same session —
     // navigating away and back to About should not replay the whole intro.
-    // We still render the terminal content (so the frame is populated) and
-    // fire `terminal:done` immediately so the gate opens without delay.
+    // We still render the terminal content (so the frame is populated).
     var SESSION_KEY = "terminal-shown";
     try {
       if (window.sessionStorage && sessionStorage.getItem(SESSION_KEY) === "1") {
@@ -214,8 +195,8 @@
       /* ignore */
     }
 
-    // Signal to downstream components (coverflow gallery) that the terminal
-    // typing animation has finished — they can reveal/initialize now.
+    // Open the staged sections before notifying gallery/reveal listeners.
+    document.documentElement.classList.add("terminal-done");
     document.dispatchEvent(new CustomEvent("terminal:done"));
 
     // Reveal the full bio below the terminal.
@@ -241,20 +222,108 @@
     });
   }
 
-  // Autoplay as soon as the DOM is ready — the terminal is the suspense anchor
-  // that gates the rest of the page, so it must always run even if the viewer
-  // never scrolls past the hero.
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", run, { once: true });
-  } else {
-    run();
+  // Let the hero entrance become visible before the terminal begins typing.
+  afterPreloader("site:ready", run);
+})();
+
+/* ── About-page entrance and scroll reveals ──
+   Native CSS/IntersectionObserver keeps the experience independent of GSAP's
+   CDN. The terminal is visible first; later sections reveal once it finishes. */
+(function () {
+  if (!document.getElementById("bioTerminal")) return;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+  var intro = document.querySelectorAll(".hero-eyebrow, .hero-first, .hero-last, .hero-tagline, .hero-photo-col, .logo-strip-inner");
+  intro.forEach(function (element) {
+    element.classList.add("about-intro-reveal");
+  });
+
+  afterPreloader("site:ready", function () {
+    intro.forEach(function (element, index) {
+      setTimeout(
+        function () {
+          element.classList.add("is-visible");
+        },
+        element.classList.contains("logo-strip-inner") ? 120 : 60 + index * 65
+      );
+    });
+  });
+
+  var sections = document.querySelectorAll(
+    ".terminal, .gallery-section, .pinboard, .achievement-strip, .photo-divider, .about-section, .social-section"
+  );
+  if (!("IntersectionObserver" in window)) return;
+
+  function countAchievements(strip) {
+    strip.querySelectorAll(".achievement-number[data-count-to]").forEach(function (element) {
+      var target = Number(element.getAttribute("data-count-to"));
+      var suffix = element.getAttribute("data-count-suffix") || "";
+      var grouped = element.getAttribute("data-count-format") === "comma";
+      var start = performance.now();
+
+      function tick(now) {
+        var progress = Math.min((now - start) / 1400, 1);
+        var value = Math.round(target * (1 - Math.pow(1 - progress, 3)));
+        element.textContent = (grouped ? value.toLocaleString() : value) + suffix;
+        if (progress < 1) {
+          requestAnimationFrame(tick);
+        } else {
+          // Micro-bounce once the number lands.
+          element.classList.add("is-pulsing");
+          element.addEventListener(
+            "animationend",
+            function () {
+              element.classList.remove("is-pulsing");
+            },
+            { once: true }
+          );
+        }
+      }
+
+      requestAnimationFrame(tick);
+    });
   }
+
+  sections.forEach(function (section) {
+    section.classList.add("about-scroll-reveal");
+  });
+
+  var observer = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        if (entry.target.classList.contains("achievement-strip")) countAchievements(entry.target);
+        observer.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.08, rootMargin: "0px 0px -8% 0px" }
+  );
+
+  afterPreloader("site:ready", function () {
+    observer.observe(document.querySelector(".terminal"));
+    function observeRest() {
+      requestAnimationFrame(function () {
+        sections.forEach(function (section) {
+          if (!section.classList.contains("terminal")) observer.observe(section);
+        });
+      });
+    }
+    if (document.documentElement.classList.contains("terminal-done")) {
+      observeRest();
+    } else {
+      document.addEventListener("terminal:done", observeRest, { once: true });
+    }
+  });
 })();
 
 /* ── GSAP scroll animations ── */
 (function () {
-  if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined") return;
+  // About has its own dependency-free reveal above. Keep GSAP for other pages.
+  if (document.getElementById("bioTerminal")) return;
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+  if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined") return;
 
   gsap.registerPlugin(ScrollTrigger);
 
@@ -262,34 +331,39 @@
 
   /* ── Always-on: fires immediately on load ─────────────────────────────── */
 
-  /* Hero entrance — the first thing a visitor sees, never gated. */
-  if (document.querySelector(".hero-section")) {
-    const heroTl = gsap.timeline({ defaults: { ease: "power3.out" } });
-    heroTl
-      .fromTo(".hero-eyebrow", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.55 }, 0.1)
-      .fromTo(".hero-first", { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.7 }, 0.25)
-      .fromTo(".hero-last", { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.7 }, 0.38)
-      .fromTo(".hero-tagline", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.55 }, 0.55)
-      .fromTo(".hero-photo-col", { opacity: 0, x: 30, scale: 0.96 }, { opacity: 1, x: 0, scale: 1, duration: 0.8, ease: "power2.out" }, 0.2);
-  }
+  afterPreloader("site:ready", function () {
+    /* Start the entrance once the first-visit preloader is fully gone. */
+    if (document.querySelector(".hero-section")) {
+      const heroTl = gsap.timeline({ defaults: { ease: "power3.out" } });
+      heroTl
+        .fromTo(".hero-eyebrow", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.55 }, 0.1)
+        .fromTo(".hero-first", { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.7 }, 0.25)
+        .fromTo(".hero-last", { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.7 }, 0.38)
+        .fromTo(".hero-tagline", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.55 }, 0.55)
+        .fromTo(".hero-photo-col", { opacity: 0, x: 30, scale: 0.96 }, { opacity: 1, x: 0, scale: 1, duration: 0.8, ease: "power2.out" }, 0.2);
+    }
 
-  /* Terminal rise — the gate itself. Must appear on load so the user sees
-     the typing start even before scrolling. */
-  var terminal = document.querySelector(".terminal");
-  if (terminal) {
-    gsap.fromTo(
-      terminal,
-      { opacity: 0, y: 28, scale: 0.985 },
-      {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        duration: 0.75,
-        ease: "power2.out",
-        scrollTrigger: { trigger: terminal, start: "top 95%", once: true },
-      }
-    );
-  }
+    if (document.querySelector(".logo-strip-inner")) {
+      gsap.fromTo(".logo-strip-inner", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.8, delay: 0.35, ease: "power2.out" });
+    }
+
+    /* The terminal rises into view before its typing sequence starts. */
+    var terminal = document.querySelector(".terminal");
+    if (terminal) {
+      gsap.fromTo(
+        terminal,
+        { opacity: 0, y: 28, scale: 0.985 },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.75,
+          ease: "power2.out",
+          scrollTrigger: { trigger: terminal, start: "top 95%", once: true },
+        }
+      );
+    }
+  });
 
   /* Photo divider parallax — purely decorative, safe to run early. */
   var divider = document.querySelector(".photo-divider");

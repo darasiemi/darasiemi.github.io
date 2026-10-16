@@ -255,7 +255,7 @@
   text-transform: uppercase;
   color: var(--global-theme-color);
   margin-bottom: 1.25rem;
-  opacity: 0; // GSAP animates this in
+  opacity: 1;
 }
 
 .hero-name {
@@ -270,7 +270,7 @@
   .hero-first,
   .hero-last {
     display: block;
-    opacity: 0; // GSAP animates these in
+    opacity: 1;
   }
 
   .hero-last {
@@ -284,7 +284,7 @@
   color: var(--global-text-color-light);
   max-width: 46ch;
   margin-bottom: 2.25rem;
-  opacity: 0;
+  opacity: 1;
 
   @media (max-width: 900px) {
     max-width: 100%;
@@ -297,7 +297,7 @@
 .hero-photo-col {
   flex-shrink: 0;
   width: clamp(200px, 28vw, 340px);
-  opacity: 0; // GSAP animates in
+  opacity: 1;
 
   @media (max-width: 900px) {
     width: clamp(160px, 50vw, 220px);
@@ -510,6 +510,7 @@
   padding: 0.5rem 0;
   // Moderate scroll — fast enough to feel alive, slow enough to read each logo
   animation: logoScroll 34s linear infinite;
+  will-change: transform;
   // Each item uses margin-right instead of flex gap so the trailing margin
   // after the last item of copy A matches the gap between items — seamless loop.
 
@@ -519,6 +520,10 @@
     justify-content: center;
     width: 100%;
     padding: 0.5rem 1.5rem;
+
+    .logo-item[aria-hidden="true"] {
+      display: none;
+    }
   }
 
   @media (max-width: 576px) {
@@ -532,10 +537,8 @@
   }
 
   to {
-    // -25% because the track contains four copies of the logo set.
-    // After this translation, copy #2 occupies copy #1's starting position,
-    // creating a pixel-perfect seamless loop with no visible whitespace.
-    transform: translateX(-25%);
+    // One complete logo set: the second copy takes its place seamlessly.
+    transform: translateX(-50%);
   }
 }
 
@@ -592,6 +595,24 @@
       max-width: 140px;
       max-height: 54px;
     }
+  }
+}
+
+// The RISE SVG fills its canvas, unlike several logos with built-in whitespace.
+// Scale its visible mark down so it has similar visual weight in the marquee.
+.logo-item--rise img {
+  height: auto;
+  width: 108px;
+  max-height: 42px;
+
+  @media (max-width: 768px) {
+    width: 94px;
+    max-height: 38px;
+  }
+
+  @media (max-width: 576px) {
+    width: 82px;
+    max-height: 34px;
   }
 }
 
@@ -819,33 +840,183 @@ $term-success: #7ee787;
   }
 }
 
-// ── Terminal gate ────────────────────────────────────────────────────────────
-// On the About page, the bio terminal is the suspense anchor: nothing below it
-// is visible until it finishes typing. We tag the body with .has-terminal-gate
-// on load (JS in animations.js) and flip to .terminal-done when the terminal
-// dispatches `terminal:done`. CSS handles the fade/translate reveal of each
-// section container so there's no flash while GSAP waits for ScrollTrigger
-// refresh. The gallery-section has its own gate state (see below) because it
-// also controls Swiper initialization.
+// Show the hero, affiliations, and terminal first. The terminal driver opens
+// this gate when typing ends; pages without JavaScript never receive the class.
+html.about-staged:not(.terminal-done) {
+  .gallery-section,
+  .page-section--pinboard,
+  .achievement-strip,
+  .page-container--photo-divider,
+  .page-section--news,
+  .page-section--publications,
+  .social-section {
+    display: none;
+  }
+}
 
-body.has-terminal-gate {
-  // While the terminal is still typing, everything below it is REMOVED FROM
-  // LAYOUT. The page is only hero + terminal tall — there's no empty space to
-  // scroll into. Once the terminal dispatches `terminal:done`, animations.js
-  // (a) pre-hides these containers with gsap.set(opacity:0, y:60), then
-  // (b) adds .terminal-done to lift display:none, then (c) registers a
-  // ScrollTrigger.batch so each container fades up as the viewer scrolls to
-  // it (start "top 85%", stagger 0.2, ease sine.out) — the rashedatjinadu.com
-  // reveal pattern.
-  &:not(.terminal-done) {
-    .pinboard,
-    .achievement-strip,
-    .about-section,
-    .photo-divider,
-    .gallery-journey-link,
-    .social-section,
-    .gallery-section {
-      display: none !important;
+// ── About-page reveals ───────────────────────────────────────────────────────
+// Elements remain visible without JavaScript or when reduced motion is set.
+// animations.js adds these classes only after it can observe/reveal them.
+
+@media (prefers-reduced-motion: no-preference) {
+  // Shared motion grammar: a soft fade + rise + blur-to-sharp with an
+  // expo-out curve. Durations and distances match an Apple/Linear reveal.
+  $reveal-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  $reveal-duration: 0.78s;
+
+  .hero-section .about-intro-reveal,
+  .logo-strip .about-intro-reveal,
+  .about-scroll-reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    filter: blur(8px);
+    will-change: opacity, transform, filter;
+    transition:
+      opacity $reveal-duration $reveal-ease,
+      transform $reveal-duration $reveal-ease,
+      filter $reveal-duration $reveal-ease;
+  }
+
+  .hero-section .about-intro-reveal.is-visible,
+  .logo-strip .about-intro-reveal.is-visible,
+  .about-scroll-reveal.is-visible {
+    opacity: 1;
+    transform: none;
+    filter: blur(0);
+  }
+
+  // ── Pinboard micro-moment ─────────────────────────────────────────────────
+  // Each note starts tilted further than its rest angle and settles into place
+  // with a slight overshoot — like paper swinging on a push-pin. The container
+  // itself does not fade; only the notes animate.
+  .pinboard.about-scroll-reveal {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    will-change: auto;
+  }
+
+  .pinboard.about-scroll-reveal .sticky-note {
+    opacity: 0;
+    transition:
+      opacity 0.7s $reveal-ease,
+      transform 0.95s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    &:nth-child(1) {
+      transform: rotate(-11deg) translateY(32px);
+      transition-delay: 0.08s;
+    }
+
+    &:nth-child(2) {
+      transform: rotate(10deg) translateY(32px);
+      transition-delay: 0.22s;
+    }
+
+    &:nth-child(3) {
+      transform: rotate(-9deg) translateY(32px);
+      transition-delay: 0.36s;
+    }
+  }
+
+  .pinboard.about-scroll-reveal.is-visible .sticky-note {
+    opacity: 1;
+
+    &:nth-child(1) {
+      transform: rotate(-2.5deg);
+    }
+
+    &:nth-child(2) {
+      transform: rotate(1.75deg);
+    }
+
+    &:nth-child(3) {
+      transform: rotate(-1.5deg);
+    }
+  }
+
+  // ── Gallery cinematic reveal ──────────────────────────────────────────────
+  // Overrides translateY with a slight scale, so the coverflow feels like it
+  // "settles into focus" instead of sliding up like body copy.
+  .gallery-section.about-scroll-reveal {
+    transform: scale(0.96);
+    filter: blur(6px);
+    transition:
+      opacity 0.9s $reveal-ease,
+      transform 0.9s $reveal-ease,
+      filter 0.9s $reveal-ease;
+  }
+
+  .gallery-section.about-scroll-reveal.is-visible {
+    transform: none;
+    filter: blur(0);
+  }
+
+  // ── Achievement number micro-bounce ───────────────────────────────────────
+  // Triggered by animations.js when the count-up finishes — a tiny scale pulse
+  // that confirms the number has "landed".
+  .achievement-number.is-pulsing {
+    animation: achievementPulse 0.42s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  }
+
+  @keyframes achievementPulse {
+    0% {
+      transform: scale(1);
+    }
+
+    50% {
+      transform: scale(1.09);
+    }
+
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  // ── Mobile: trim distance, drop blur ──────────────────────────────────────
+  // Shorter durations and no blur on small screens — snappier and lower cost.
+  @media (max-width: 768px) {
+    .hero-section .about-intro-reveal,
+    .logo-strip .about-intro-reveal,
+    .about-scroll-reveal {
+      transform: translateY(18px);
+      filter: none;
+      transition:
+        opacity 0.58s $reveal-ease,
+        transform 0.58s $reveal-ease;
+    }
+
+    .gallery-section.about-scroll-reveal {
+      transform: scale(0.97);
+      filter: none;
+      transition:
+        opacity 0.68s $reveal-ease,
+        transform 0.68s $reveal-ease;
+    }
+
+    .pinboard.about-scroll-reveal .sticky-note {
+      transition:
+        opacity 0.6s $reveal-ease,
+        transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+      &:nth-child(1),
+      &:nth-child(2),
+      &:nth-child(3) {
+        transform: rotate(0deg) translateY(26px);
+      }
+    }
+
+    .pinboard.about-scroll-reveal.is-visible .sticky-note {
+      &:nth-child(1) {
+        transform: rotate(-2.5deg);
+      }
+
+      &:nth-child(2) {
+        transform: rotate(1.75deg);
+      }
+
+      &:nth-child(3) {
+        transform: rotate(-1.5deg);
+      }
     }
   }
 }
@@ -894,13 +1065,6 @@ body.has-terminal-gate {
   width: 100%;
   padding: 2rem 0 4rem;
   overflow: hidden;
-
-  // Visibility is driven by the terminal gate: body.has-terminal-gate hides
-  // this with display:none until .terminal-done is added. From there, GSAP
-  // (ScrollTrigger.batch in animations.js) owns the fade — no CSS opacity /
-  // transition here, or it fights the per-frame tween. The .is-revealed
-  // class is still toggled by _pages/about.md as a signal for Swiper init
-  // but no longer carries visual state.
 }
 
 .photo-swiper {
@@ -1009,7 +1173,7 @@ swiper-slide {
   transition:
     transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
     box-shadow 0.35s ease;
-  opacity: 0; // GSAP animates in
+  opacity: 1;
 
   // Each note sits at a slightly different angle for an organic pinboard feel
   &:nth-child(1) {

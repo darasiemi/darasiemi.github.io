@@ -24,6 +24,16 @@
 <!-- Metadata, OpenGraph and Schema.org -->
 {% include metadata.liquid %}
 
+{% if page.url == '/' and site.imagemagick.enabled %}
+  <link
+    rel="preload"
+    as="image"
+    imagesrcset="{{ '/assets/img/dara-480.webp' | relative_url }} 480w, {{ '/assets/img/dara-800.webp' | relative_url }} 800w, {{ '/assets/img/dara-1400.webp' | relative_url }} 1400w"
+    imagesizes="(max-width: 900px) 220px, 340px"
+    fetchpriority="high"
+  >
+{% endif %}
+
 <!-- Bootstrap & MDB -->
 <link rel="stylesheet" href="{{ '/assets/css/bootstrap.min.css' | relative_url | bust_file_cache }}">
 <link
@@ -159,40 +169,15 @@
   {% endif %}
   <!-- Image slider -->
   {% if page.images.slider %}
-    <link
-      defer
-      rel="stylesheet"
-      href="{{ site.third_party_libraries.swiper.url.css }}"
-      integrity="{{ site.third_party_libraries.swiper.integrity.css }}"
-      crossorigin="anonymous"
-    >
-    <!--
-      Warm the cache for the first slides during the preloader + terminal
-      so the coverflow is instant when the gate opens on the About page.
-    -->
-    {% if page.layout == 'about' and site.imagemagick.enabled %}
+    {% unless page.url == '/' %}
       <link
-        rel="preload"
-        as="image"
-        imagesrcset="{{ '/assets/img/about_x1-480.webp' | relative_url }} 480w, {{ '/assets/img/about_x1-800.webp' | relative_url }} 800w, {{ '/assets/img/about_x1-1400.webp' | relative_url }} 1400w"
-        imagesizes="(max-width: 480px) 94vw, (max-width: 768px) 88vw, min(820px, 70vw)"
-        fetchpriority="high"
+        defer
+        rel="stylesheet"
+        href="{{ site.third_party_libraries.swiper.url.css }}"
+        integrity="{{ site.third_party_libraries.swiper.integrity.css }}"
+        crossorigin="anonymous"
       >
-      <link
-        rel="preload"
-        as="image"
-        imagesrcset="{{ '/assets/img/dara5-480.webp' | relative_url }} 480w, {{ '/assets/img/dara5-800.webp' | relative_url }} 800w, {{ '/assets/img/dara5-1400.webp' | relative_url }} 1400w"
-        imagesizes="(max-width: 480px) 94vw, (max-width: 768px) 88vw, min(820px, 70vw)"
-        fetchpriority="high"
-      >
-      <link
-        rel="preload"
-        as="image"
-        imagesrcset="{{ '/assets/img/about_1-480.webp' | relative_url }} 480w, {{ '/assets/img/about_1-800.webp' | relative_url }} 800w, {{ '/assets/img/about_1-1400.webp' | relative_url }} 1400w"
-        imagesizes="(max-width: 480px) 94vw, (max-width: 768px) 88vw, min(820px, 70vw)"
-        fetchpriority="high"
-      >
-    {% endif %}
+    {% endunless %}
   {% endif %}
 {% endif %}
 

@@ -3,9 +3,8 @@ module.exports = {
   css: ["_site/assets/css/*.css"],
   output: "_site/assets/css/",
   skippedContentGlobs: ["_site/assets/**/*.html"],
-  // Leaflet adds the wrapper class from JavaScript. Keep all popup selectors,
-  // including dark-theme variants, when purging the generated stylesheet.
+  // Keep JavaScript-added journey popups and About reveal states in deployed CSS.
   safelist: {
-    greedy: [/journey-popup/],
+    greedy: [/journey-popup/, /about-(intro|scroll)-reveal/, /about-staged/, /terminal-done/, /is-pulsing/],
   },
 };

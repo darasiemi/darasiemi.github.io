@@ -18,7 +18,7 @@
     justify-content: center;
     transform: translateY(0);
     will-change: transform;
-    transition: transform 520ms cubic-bezier(0.76, 0, 0.24, 1);
+    transition: transform 340ms cubic-bezier(0.76, 0, 0.24, 1);
   }
   /* Slide the whole boot screen up off-stage — no opacity cross-fade, so
      text stays fully legible until the moment it leaves the viewport. */
@@ -122,6 +122,21 @@
     var pre = document.getElementById('site-preloader');
     if (!pre) return;
 
+    {% if page.url == '/' %}
+      // Stage only the About page; without JavaScript all content remains visible.
+      document.documentElement.classList.add('about-staged');
+      if (new URLSearchParams(window.location.search).has('photo')) {
+        document.documentElement.classList.add('terminal-done');
+      }
+      // Keep the page accessible if the terminal script cannot finish.
+      setTimeout(function () {
+        if (!document.documentElement.classList.contains('terminal-done')) {
+          document.documentElement.classList.add('terminal-done');
+          document.dispatchEvent(new CustomEvent('terminal:done'));
+        }
+      }, 15000);
+    {% endif %}
+
     // Skip the full preloader on repeat loads in the same session so navigating
     // between pages doesn't replay the boot screen each time.
     var SESSION_KEY = 'preloader-shown';
@@ -137,9 +152,9 @@
       return;
     }
 
-    var MIN_DURATION = 1100; // ms — minimum time the preloader is visible
-    var FADE_DURATION = 540; // matches .site-preloader transform transition
-    var SAFETY_TIMEOUT = 6500; // force finish if load stalls
+    var MIN_DURATION = 400; // brief branded transition without delaying content
+    var FADE_DURATION = 340; // matches .site-preloader transform transition
+    var SAFETY_TIMEOUT = 3000; // force finish if DOM parsing stalls
     var bar = document.getElementById('site-preloader-bar');
     var pct = document.getElementById('site-preloader-percent');
 
@@ -175,32 +190,24 @@
       } catch (e) {
         /* ignore */
       }
+      pre.classList.add('is-hidden');
+      document.body.classList.remove('is-loading');
+      document.dispatchEvent(new Event('site:revealing'));
       setTimeout(function () {
-        pre.classList.add('is-hidden');
-        document.body.classList.remove('is-loading');
-        setTimeout(function () {
-          if (pre.parentNode) pre.parentNode.removeChild(pre);
-        }, FADE_DURATION + 50);
-      }, 120);
+        if (pre.parentNode) pre.parentNode.removeChild(pre);
+        document.dispatchEvent(new Event('site:ready'));
+      }, FADE_DURATION + 50);
     }
 
     function onReady() {
-      // Wait for fonts too so text doesn't shift after fade-out
-      if (document.fonts && document.fonts.ready) {
-        document.fonts.ready.then(function () {
-          pageReady = true;
-          maybeFinish();
-        });
-      } else {
-        pageReady = true;
-        maybeFinish();
-      }
+      pageReady = true;
+      maybeFinish();
     }
 
-    if (document.readyState === 'complete') {
+    if (document.readyState !== 'loading') {
       onReady();
     } else {
-      window.addEventListener('load', onReady, { once: true });
+      document.addEventListener('DOMContentLoaded', onReady, { once: true });
     }
 
     requestAnimationFrame(tick);

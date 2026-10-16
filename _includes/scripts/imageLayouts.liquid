@@ -8,11 +8,42 @@
     ></script>
   {% endif %}
   {% if page.images.slider %}
-    <script
-      defer
-      src="{{ site.third_party_libraries.swiper.url.js }}"
-      integrity="{{ site.third_party_libraries.swiper.integrity.js }}"
-      crossorigin="anonymous"
-    ></script>
+    {% if page.url == '/' %}
+      <script>
+        (function () {
+          var loaded = false;
+          function loadGallery() {
+            if (loaded) return;
+            loaded = true;
+
+            var css = document.createElement('link');
+            css.rel = 'stylesheet';
+            css.href = '{{ site.third_party_libraries.swiper.url.css }}';
+            css.integrity = '{{ site.third_party_libraries.swiper.integrity.css }}';
+            css.crossOrigin = 'anonymous';
+            document.head.appendChild(css);
+
+            var js = document.createElement('script');
+            js.src = '{{ site.third_party_libraries.swiper.url.js }}';
+            js.integrity = '{{ site.third_party_libraries.swiper.integrity.js }}';
+            js.crossOrigin = 'anonymous';
+            document.body.appendChild(js);
+          }
+
+          if (document.documentElement.classList.contains('terminal-done')) {
+            loadGallery();
+          } else {
+            document.addEventListener('terminal:done', loadGallery, { once: true });
+          }
+        })();
+      </script>
+    {% else %}
+      <script
+        defer
+        src="{{ site.third_party_libraries.swiper.url.js }}"
+        integrity="{{ site.third_party_libraries.swiper.integrity.js }}"
+        crossorigin="anonymous"
+      ></script>
+    {% endif %}
   {% endif %}
 {% endif %}
