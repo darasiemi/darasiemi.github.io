@@ -189,7 +189,22 @@ I am also an AWS- and Azure-certified data science and machine learning professi
               var target = el.querySelector('swiper-slide[data-photo="' + requestedPhoto.replace(/[^a-zA-Z0-9_.-]/g, "") + '"]');
               if (target) {
                 el.swiper.slideToLoop(Number(target.getAttribute("data-photo-index")), 0);
-                section.scrollIntoView({ block: "start" });
+                var scrollToGallery = function () {
+                  section.scrollIntoView({ block: "start" });
+                };
+                scrollToGallery();
+                // Lazy-loaded images and reveal animations above the gallery can
+                // shift the layout AFTER our initial scroll, leaving the viewer
+                // on the text above. Re-scroll once everything has loaded.
+                if (document.readyState !== "complete") {
+                  window.addEventListener(
+                    "load",
+                    function () {
+                      requestAnimationFrame(scrollToGallery);
+                    },
+                    { once: true }
+                  );
+                }
               }
             }
           } catch (e) {

@@ -127,6 +127,12 @@
       document.documentElement.classList.add('about-staged');
       if (new URLSearchParams(window.location.search).has('photo')) {
         document.documentElement.classList.add('terminal-done');
+        // Strip the #gallery fragment so the browser's initial fragment-scroll
+        // doesn't race the JS scrollIntoView that fires after Swiper mounts.
+        // The ?photo= query is preserved so the gallery still picks the slide.
+        if (window.location.hash === '#gallery' && window.history && window.history.replaceState) {
+          window.history.replaceState(null, '', window.location.pathname + window.location.search);
+        }
       }
       // Keep the page accessible if the terminal script cannot finish.
       setTimeout(function () {

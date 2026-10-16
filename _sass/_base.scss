@@ -58,10 +58,38 @@ h6 {
   font-weight: 500;
 }
 
+// ── Page-title + article heading scale ──────────────────────────────────────
+// Hierarchy anchor: the page title is always the biggest heading on the page,
+// so a markdown ## or ### inside the body never outruns it. Bootstrap's
+// defaults (h2: 2rem, h3: 1.75rem) did exactly that on narrow screens where
+// `.post-title` clamped down to 1.75rem — "Featured Work" ended up matching
+// or beating "community impact". Override both ends.
+
 .post-title {
-  font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+  font-size: clamp(2.25rem, 3.6vw, 3rem);
   letter-spacing: -0.02em;
   line-height: 1.2;
+}
+
+.post article h2 {
+  font-size: clamp(1.5rem, 2.2vw, 1.85rem);
+  line-height: 1.3;
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.post article h3 {
+  font-size: clamp(1.2rem, 1.7vw, 1.4rem);
+  line-height: 1.35;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.post article h4 {
+  font-size: 1.1rem;
+  line-height: 1.4;
+  margin-top: 1.5rem;
+  margin-bottom: 0.4rem;
 }
 
 // Blog listing items use the same class on <a> inside an <h3>, which would
@@ -74,15 +102,12 @@ h6 {
   line-height: 1.3;
 }
 
-// Course list on /teaching/: each `### Course title` renders as an h3. Default
-// heading sizing felt oversized next to the compact blog listings, so match
-// the blog list-item scale for a consistent reading rhythm across the site.
+// Course list on /teaching/ — same scale as the generic article h3 above,
+// but with slightly heavier weight (600 vs 500) and a bit more top breathing
+// room because the course blocks read like separate cards.
 .post--teaching article h3 {
-  font-size: 1.4rem;
   font-weight: 600;
-  line-height: 1.35;
-  margin-top: 2.5rem;
-  margin-bottom: 0.5rem;
+  margin-top: 2.75rem;
 }
 
 hr {
