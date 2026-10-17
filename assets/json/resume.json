@@ -304,6 +304,13 @@
   ],
   "awards": [
     {
+      "title": "Best Paper Award, PervasiveHealth 2026",
+      "date": "2026-10-17",
+      "awarder": "20th EAI International Conference on Pervasive Computing Technologies for Healthcare",
+      "url": "https://pervasivehealth.eai-conferences.org/2026/",
+      "summary": "Awarded for “Manifestations of Mood in Money: Unravelling Financial Behaviours for Passive Assessment in Bipolar Disorder.”"
+    },
+    {
       "title": "Winner, 2025 Huawei Ireland Tech Arena",
       "date": "2025-11-25",
       "awarder": "Huawei Ireland",
