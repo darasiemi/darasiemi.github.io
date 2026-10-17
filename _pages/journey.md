@@ -268,6 +268,14 @@ map: true
       selectCountry(layer);
       resetButton.hidden = false;
 
+      // Scroll the map container into the viewport centre before the popup
+      // opens. Without this, clicking a country directly on the map when
+      // the map is sitting near the top/bottom of the window would push
+      // the popup past the browser edge. The country-cards path below
+      // used to call scrollIntoView itself; moving it here means both
+      // entry points (map click AND card click) share the same behaviour.
+      container.scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth", block: "center" });
+
       map.once("moveend", function () {
         if (request === focusRequest) {
           // Open the popup at the northern edge of the country's bounds
@@ -458,7 +466,7 @@ map: true
         var name = card.getAttribute("data-country");
         var layer = countryLayers[name];
         if (!layer) return;
-        container.scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth", block: "center" });
+        // scrollIntoView is handled inside focusCountry now.
         focusCountry(layer);
       });
     }
