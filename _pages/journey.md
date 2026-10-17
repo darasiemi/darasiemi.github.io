@@ -280,13 +280,18 @@ map: true
         }
       });
       // Asymmetric padding so the fit-bounds zoom reserves enough space above
-      // the country for the full popup to fit on screen. The reservation
-      // (380px) is popup max-height (340px) + the tip (16px) + a safety
-      // margin; without this the popup header (country name) would be
-      // clipped at the top edge of the map canvas.
+      // the country for the full popup to fit on screen. Desktop reserves
+      // ~380px (popup max-height 340 + tip + margin). Mobile reserves ~60%
+      // of the viewport so the popup can use the full vertical space it
+      // needs — the previous ~380px fixed value made the country sit low
+      // with wasted empty map below the popup.
+      var isMobile = window.innerWidth <= 576;
+      var topReserve = isMobile ? Math.max(360, Math.round(window.innerHeight * 0.6)) : 380;
+      var sidePad = isMobile ? 20 : 60;
+      var bottomPad = isMobile ? 40 : 60;
       var options = {
-        paddingTopLeft: [60, 380],
-        paddingBottomRight: [60, 60],
+        paddingTopLeft: [sidePad, topReserve],
+        paddingBottomRight: [sidePad, bottomPad],
         maxZoom: 6,
       };
       if (reducedMotion) {

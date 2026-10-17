@@ -514,10 +514,10 @@ $journey-type-award: #f59e0b;
   }
 
   @media (max-width: 576px) {
-    // Give the popup more vertical room — 300px cut most entries off and the
-    // internal scroll wasn't obvious. Cap it so Leaflet can still auto-pan
-    // the popup fully into view instead of extending past the viewport.
-    max-height: min(70vh, 460px);
+    // On mobile the shelf's horizontal real estate is tight, so lean into
+    // the vertical: let the popup use most of the viewport so several
+    // events sit above the scroll fold without the "empty map below" look.
+    max-height: calc(100vh - 180px);
   }
 }
 
