@@ -185,17 +185,19 @@ map: true
           '<span class="journey-popup-count">' + info.count + " event" + (info.count === 1 ? "" : "s") + "</span>" +
         "</header>";
       var summary = buildCountrySummary(info);
+      var eventPhotos = [];
+      var eventLinks = [];
 
       var cityBlocks = info.cities.map(function (loc) {
         var events = sortedCityEvents(loc).map(function (entry) {
           var ev = entry.event;
           var meta = EVENT_META[ev.type] || { icon: "fa-circle", label: ev.type || "Event" };
-          var photo = ev.photo
-            ? '<img class="journey-popup-event-photo" data-journey-src="' + escapeHtml(assetUrl(ev.photo)) + '" alt="" loading="lazy">'
-            : "";
+          if (ev.photo) eventPhotos.push(assetUrl(ev.photo));
+          if (ev.url) eventLinks.push(ev.url);
+          var photo = ev.photo ? '<img class="journey-popup-event-photo" data-journey-photo alt="" loading="lazy">' : "";
           var note = ev.note ? '<p class="journey-popup-event-note">' + escapeHtml(ev.note) + "</p>" : "";
           var opening = ev.url
-            ? '<a class="journey-popup-event-link" data-journey-href="' + escapeHtml(ev.url) + '">'
+            ? '<a class="journey-popup-event-link" data-journey-link>'
             : '<div class="journey-popup-event-content">';
           var closing = ev.url ? "</a>" : "</div>";
           return (
@@ -225,15 +227,15 @@ map: true
       var popup = document.createElement("div");
       popup.className = "journey-popup";
       popup.innerHTML = header + summary + cityBlocks;
-      // Set URL attributes on the DOM so the source link checker does not read
-      // JavaScript template expressions as literal file paths.
-      Array.prototype.forEach.call(popup.querySelectorAll("[data-journey-src]"), function (img) {
-        img.setAttribute("src", img.getAttribute("data-journey-src"));
-        img.removeAttribute("data-journey-src");
+      // Apply URLs after parsing so source link checkers do not read JS
+      // template expressions as literal file paths.
+      Array.prototype.forEach.call(popup.querySelectorAll("[data-journey-photo]"), function (img, index) {
+        img.setAttribute("src", eventPhotos[index]);
+        img.removeAttribute("data-journey-photo");
       });
-      Array.prototype.forEach.call(popup.querySelectorAll("[data-journey-href]"), function (link) {
-        link.setAttribute("href", link.getAttribute("data-journey-href"));
-        link.removeAttribute("data-journey-href");
+      Array.prototype.forEach.call(popup.querySelectorAll("[data-journey-link]"), function (link, index) {
+        link.setAttribute("href", eventLinks[index]);
+        link.removeAttribute("data-journey-link");
       });
       return popup;
     }
