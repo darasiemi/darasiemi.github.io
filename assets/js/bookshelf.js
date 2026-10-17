@@ -18,25 +18,40 @@ import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.m
   const detail = document.getElementById("bookshelfDetail");
   if (!dataNode || !canvas || !detail) return;
 
+  // The canvas is shown by default. Each branch below that bails flips the
+  // page to `.needs-fallback`, which hides the empty canvas and reveals the
+  // DOM spine shelf. In the happy path we just leave the default alone.
+  function useFallback() {
+    root.classList.add("needs-fallback");
+  }
+
   // Reduced-motion viewers get the DOM shelf — the lerp loop plus continuous
   // camera framing goes against the spirit of the preference.
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    useFallback();
+    return;
+  }
 
   let books;
   try {
     books = JSON.parse(dataNode.textContent);
   } catch (e) {
+    useFallback();
     return;
   }
-  if (!books || !books.length) return;
+  if (!books || !books.length) {
+    useFallback();
+    return;
+  }
 
   // Smoke-test WebGL before building the scene — some mobile browsers report
-  // the context lost immediately. On failure we leave the DOM fallback up.
+  // the context lost immediately. On failure we fall back to the DOM shelf.
   const probe = document.createElement("canvas");
   const gl = probe.getContext("webgl2") || probe.getContext("webgl");
-  if (!gl) return;
-
-  root.classList.add("is-webgl-ready");
+  if (!gl) {
+    useFallback();
+    return;
+  }
 
   // ── Scene, camera, renderer ────────────────────────────────────────────
   const scene = new THREE.Scene();
@@ -459,13 +474,26 @@ import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.m
       copyLabel.textContent = "My copy";
       copy.appendChild(copyLabel);
 
+      // Skeleton while the photo decodes. The prefetch hints in bookshelf.md
+      // mean the request is usually already in cache by the time a book is
+      // clicked, but keep the loading state for the slow-network edge case.
       const copyFigure = document.createElement("div");
-      copyFigure.className = "bookshelf-detail-copy-figure";
+      copyFigure.className = "bookshelf-detail-copy-figure is-loading";
+      copyFigure.style.setProperty("--cover-color", book.spine_color || "#0a7065");
       const copyImg = new Image();
       copyImg.alt = "";
       copyImg.decoding = "async";
-      copyImg.loading = "lazy";
-      copyImg.onerror = () => copyImg.remove();
+      copyImg.loading = "eager";
+      copyImg.fetchPriority = "high";
+      copyImg.onload = () => {
+        copyFigure.classList.remove("is-loading");
+        copyFigure.classList.add("is-loaded");
+      };
+      copyImg.onerror = () => {
+        copyFigure.classList.remove("is-loading");
+        copyFigure.classList.add("is-fallback");
+        copyImg.remove();
+      };
       copyImg.src = book.cover;
       copyFigure.appendChild(copyImg);
       copy.appendChild(copyFigure);

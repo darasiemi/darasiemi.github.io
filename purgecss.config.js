@@ -14,7 +14,8 @@ module.exports = {
       /blog-(header|title|title-ink|title-pen)/,
       /bookshelf-(detail|stage|canvas|fallback)/,
       /bookshelf-detail-(top|copy|copy-label|copy-figure)/,
-      /is-(pulled|visible|fallback|complete|webgl-ready)/,
+      /is-(pulled|visible|fallback|complete|loading|loaded)/,
+      /needs-fallback/,
     ],
   },
 };

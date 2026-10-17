@@ -8,12 +8,51 @@ description: A selection of books I’ve read and am currently reading.
 
 <div class="bookshelf-page" data-bookshelf>
   <!--
-    WebGL rail — mounted by assets/js/bookshelf.js on top of the fallback.
-    Visibility is driven by `.bookshelf-page.is-webgl-ready`, which the script
-    adds only after it successfully gets a WebGL context. Without it (or when
-    prefers-reduced-motion is set, or on older browsers) the DOM shelf below
-    stays visible.
+    WebGL rail — mounted by assets/js/bookshelf.js. The canvas is visible from
+    the first paint so no DOM fallback flashes before the WebGL takes over.
+    If the script detects WebGL is unavailable or `prefers-reduced-motion` is
+    set, it adds `.needs-fallback`, which swaps the canvas for the DOM shelf
+    below. The <noscript> block applies the same swap via CSS so the shelf
+    still works when JavaScript is disabled entirely.
   -->
+  <noscript>
+    <style>
+      .bookshelf-page .bookshelf-stage {
+        display: none;
+      }
+      .bookshelf-page .bookshelf-fallback {
+        position: static !important;
+        width: auto !important;
+        height: auto !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        overflow: visible !important;
+        clip: auto !important;
+        clip-path: none !important;
+        white-space: normal !important;
+      }
+    </style>
+  </noscript>
+
+  <!--
+    Idle-time prefetch of every personal "My copy" photo. The browser downloads
+    these during idle after the critical shelf has rendered, so clicking a
+    book opens the detail panel with the photo already in cache — no flash of
+    empty figure while the request round-trips.
+  -->
+
+{% for book in site.data.books.currently_reading %}
+{% if book.cover and book.cover != '' %}
+
+<link rel="prefetch" as="image" href="{{ book.cover | relative_url }}" />
+{% endif %}
+{% endfor %}
+{% for book in site.data.books.completed %}
+{% if book.cover and book.cover != '' %}
+<link rel="prefetch" as="image" href="{{ book.cover | relative_url }}" />
+{% endif %}
+{% endfor %}
+
   <div class="bookshelf-stage" aria-hidden="true">
     <canvas id="bookshelfCanvas" class="bookshelf-canvas"></canvas>
     <div class="bookshelf-stage-hint">
@@ -251,12 +290,20 @@ description: A selection of books I’ve read and am currently reading.
       if (cover) {
         var copyEl = makeEl("div", "bookshelf-detail-copy");
         copyEl.appendChild(makeEl("span", "bookshelf-detail-copy-label", "My copy"));
-        var figure = makeEl("div", "bookshelf-detail-copy-figure");
+        var figure = makeEl("div", "bookshelf-detail-copy-figure is-loading");
+        figure.style.setProperty("--cover-color", spineColor);
         var copyImg = new Image();
         copyImg.alt = "";
         copyImg.decoding = "async";
-        copyImg.loading = "lazy";
+        copyImg.loading = "eager";
+        copyImg.fetchPriority = "high";
+        copyImg.onload = function () {
+          figure.classList.remove("is-loading");
+          figure.classList.add("is-loaded");
+        };
         copyImg.onerror = function () {
+          figure.classList.remove("is-loading");
+          figure.classList.add("is-fallback");
           copyImg.remove();
         };
         copyImg.src = cover;

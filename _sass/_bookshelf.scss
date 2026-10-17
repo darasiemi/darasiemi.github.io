@@ -15,8 +15,12 @@
 // shelf. When ready, we hide the stage's `aria-hidden` from assistive tech and
 // swap visibility.
 
+// Visible by default so no DOM fallback flashes before the WebGL mounts.
+// If the script detects WebGL is unavailable (or prefers-reduced-motion is
+// set), it adds `.needs-fallback` on `.bookshelf-page` to swap in the
+// fallback shelf. See the `.needs-fallback` block below.
 .bookshelf-stage {
-  display: none;
+  display: block;
   position: relative;
   margin: 0 -1rem 2.5rem;
   padding: 0;
@@ -56,24 +60,41 @@
   background: var(--global-divider-color);
 }
 
-.bookshelf-page.is-webgl-ready {
+// Clip-hidden by default: screen readers and keyboard tabbing still reach the
+// fallback buttons (so the shelf is accessible), but sighted users see only
+// the canvas on top. This is the standard "visually hidden but accessible"
+// pattern.
+.bookshelf-fallback {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+// Applied by bookshelf.js when WebGL isn't available or the viewer has set
+// prefers-reduced-motion. Flips the two surfaces so the DOM fallback becomes
+// the primary visible shelf.
+.bookshelf-page.needs-fallback {
   .bookshelf-stage {
-    display: block;
+    display: none;
   }
 
-  // Keyboard focus + screen readers still get the fallback buttons; sighted
-  // mouse/touch users see only the canvas. `clip` + `clip-path` + 1px size is
-  // the standard "visually hidden but accessible" pattern.
   .bookshelf-fallback {
-    position: absolute;
-    width: 1px;
-    height: 1px;
+    position: static;
+    width: auto;
+    height: auto;
     padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    clip-path: inset(50%);
-    white-space: nowrap;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    clip-path: none;
+    white-space: normal;
     border: 0;
   }
 }
@@ -375,10 +396,12 @@ html[data-theme="dark"] {
 }
 
 .bookshelf-detail-copy-figure {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  min-height: 180px;
   border-radius: 10px;
   background: var(--global-divider-color);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
@@ -390,6 +413,39 @@ html[data-theme="dark"] {
     max-width: 100%;
     max-height: min(70vh, 560px);
     object-fit: contain;
+    opacity: 0;
+    transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  // While the photo is decoding, show a soft shimmer tinted toward the
+  // book's spine color. Prefetch means most clicks skip this state, but the
+  // very first visit (and slow networks) will see it briefly.
+  &.is-loading {
+    background: linear-gradient(
+      110deg,
+      color-mix(in oklab, var(--cover-color, #0a7065), var(--global-bg-color) 55%) 0%,
+      color-mix(in oklab, var(--cover-color, #0a7065), var(--global-bg-color) 40%) 45%,
+      color-mix(in oklab, var(--cover-color, #0a7065), var(--global-bg-color) 55%) 90%
+    );
+    background-size: 220% 100%;
+    animation: bookshelfCopyShimmer 1.4s linear infinite;
+  }
+
+  &.is-loaded img {
+    opacity: 1;
+  }
+
+  &.is-fallback {
+    background: color-mix(in oklab, var(--cover-color, #0a7065), var(--global-bg-color) 50%);
+  }
+}
+
+@keyframes bookshelfCopyShimmer {
+  0% {
+    background-position: 120% 50%;
+  }
+  100% {
+    background-position: -20% 50%;
   }
 }
 
