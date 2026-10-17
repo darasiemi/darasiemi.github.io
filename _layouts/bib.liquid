@@ -47,7 +47,23 @@
   <!-- Entry bib key -->
   <div id="{{entry.key}}" class="{% if site.enable_publication_thumbnails %}col-sm-8{% else %}col-sm-10{% endif %}">
     <!-- Title -->
-    <div class="title">{{ entry.title }}</div>
+    {% capture publication_url %}
+      {% if entry.doi %}
+        https://doi.org/{{ entry.doi }}
+      {% elsif entry.url %}
+        {{ entry.url }}
+      {% elsif entry.eprint %}
+        https://arxiv.org/abs/{{ entry.eprint }}
+      {% endif %}
+    {% endcapture %}
+    {% assign publication_url = publication_url | strip %}
+    <div class="title">
+      {% if publication_url != blank %}
+        <a href="{{ publication_url }}">{{ entry.title }}</a>
+      {% else %}
+        {{ entry.title }}
+      {% endif %}
+    </div>
     <!-- Author -->
     <div class="author">
       {% assign author_array_size = entry.author_array | size %}

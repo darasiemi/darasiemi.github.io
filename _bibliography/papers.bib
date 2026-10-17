@@ -24,6 +24,7 @@ abstract = {Ethical governance of AI-driven systems is often expressed through h
 keywords = { Computational ethics, digital phenotyping, financial data, financial technologies},
 conference = {CIBB 2026},
 venue = {International Conference on Computational Intelligence Methods for Bioinformatics and Biostatistics},
+eprint = {2607.24275},
 selected = {true}
 }
 
@@ -34,6 +35,7 @@ journal = {Frontiers in Public Health},
 year = {2026},
 abstract = {The relationship between financial circumstances and mental health is well-established. New financial data sources such as bank transactions and digital payments offer new opportunities to better characterise this relationship. However, the prior financial data sources and analytical approaches have not been systematically reviewed. Understanding these is essential to guide future research and inform integrated interventions that address both financial and mental health outcomes. This scoping review systematically maps the research on money and mental health, examining: (1) the  financial variables and data sources used, (2) modeling methods employed, and (3) methodological gaps that novel objective data might address. We systematically searched PubMed, PsycINFO, IEEE Xplore, ACM Digital Library, and Scopus. Papers were screened against predefined inclusion/exclusion criteria, and data extracted using a standardized spreadsheet. Analysis employed deductive coding guided by our research questions, refined iteratively through engagement with the data. PRISMA Extension for Scoping Reviews (PRISMA-ScR)  was followed for reporting. Of the 43 included studies, most (n =34, 79%) examined mental health in connection with financial factors such as financial difficulty or financial strain, while a small number focused on predictive modeling with financial behavioral data (n=5, 12%), macroeconomic indicators (n=2, 5%), or intergenerational support between parent and child (n=2, 5%). Depression was the most common outcome (n=24, 56%), followed by anxiety, psychological distress, and bipolar disorder. Statistical methods dominated (77%), with 19% employing machine learning or deep learning. Ground truths relied predominantly on self-reported questionnaires—only four studies used objective financial data (three gambling records, one bank transaction). This review reinforces the complex, bidirectional relationship between financial circumstances and mental health. Most studies examined how financial difficulty affects mental health, while only a few explored how mental illness influences financial behavior, indicating a clear research gap. There is substantial opportunity to use objective financial data and more diverse analytical methods, particularly machine learning, to deepen understanding of the relationship and interactions between money and mental health and inform targeted interventions.},
 keywords = {mental health, mental wellbeing, machine learning, statistical analysis, finance, money, finhealth},
+doi = {10.3389/fpubh.2026.1812845},
 selected = {true}
 
 }
@@ -53,7 +55,7 @@ selected = {true}
 @article{adedeji_money_nodate,
 	title = {Money and Mental Health: Spending as a Mental Health Indicator - Psychological, Behavioral, Economic Perspectives and Data Collection},
       author = {Adedeji, Oluwadara and Olusegun, John and Matthews, Mark},
-	url = {https://hci.money/assets/files/12-Adedeji_et_al.pdf},
+	url = {https://chi2025-money.github.io/assets/files/12-Adedeji_et_al.pdf},
 	abstract = {Symptomatic financial behavior in bipolar disorder can increase stress, worsen symptoms, and hinder recovery. While spending sprees signal high mood states, research on personal experiences remains limited. This study explores mood-spending dynamics through semi-structured interviews in Ireland and Nigeria (N=5, projected N=10), assessing geo-economic influences and data-sharing preferences for future research. Participants reported varied impulsive spending patterns and emphasized privacy, security, and transparency in financial data sharing. These findings highlight the need for protective financial technologies for vulnerable individuals.},
 	language = {en},
 	conference = {Future of Money Workshop, CHI 2025},
@@ -72,6 +74,16 @@ selected = {true}
       eprint={2207.14580},
       archivePrefix={arXiv},
       primaryClass={cs.CV}
+}
+
+@article{arowolo2026learning,
+  title = {Learning by Examples: Power Grid Steady State Analysis with a Tabular Foundation Model},
+  author = {Arowolo, Olayiwola and Adedeji, Oluwadara and Palensky, Peter and Cremer, Jochen L.},
+  year = {2026},
+  eprint = {2610.20462},
+  archivePrefix = {arXiv},
+  primaryClass = {cs.LG},
+  abstract = {Foundation models have shown strong generalization across scientific domains, but their use in power systems remains largely task-specific. We investigate whether a pretrained tabular foundation model (TFM), TabPFN, can serve as a general-purpose neural solver for power grid steady-state analysis. We evaluate the TFM on three tasks: power flow (PF) prediction, N-k contingency screening (NCS), and voltage stability margin (VSM) prediction. We performed experiments on 118- and 2000-bus systems, comparing the TFM against task-specific neural baselines. Without retraining or fine-tuning, the TFM matches or outperforms the best task-specific model in several settings across the three tasks. For 118-bus PF prediction, a variant of the TFM achieves errors of 1e-3 pu for voltage magnitudes and 0.30 degrees for voltage angles, outperforming all baselines. On unseen N-1 contingency and close-to-infeasible PF cases, the TFM is competitive with the DCPF approximation. For millions of unseen N-2 contingencies, the TFM achieves AUCs of 0.92 and 0.95 for branch and voltage violation screening, respectively. The TFM also attains accurate VSM prediction performance for the 2000-bus system with limited labelled data. The TFM attains strong results across the tested tasks despite pretraining without any power-system-specific dataset and requiring no fine-tuning step. These results offer a glimpse into the potential of pretrained TFMs as a neural solver for a range of power grid analysis tasks.}
 }
 
 @Article{s21051709,
