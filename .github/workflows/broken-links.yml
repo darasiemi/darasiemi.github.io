@@ -56,6 +56,7 @@ jobs:
             --exclude-path _pages/about.md
             --exclude-path _pages/about_einstein.md
             --exclude-path _pages/blog.md
+            --exclude-path _pages/bookshelf.md
             --exclude-path _posts/2018-12-22-distill.md
             --verbose
             --no-progress
