@@ -383,20 +383,28 @@ import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.m
     const cover = document.createElement("div");
     cover.className = "bookshelf-detail-cover";
     cover.style.setProperty("--cover-color", book.spine_color || "#0a7065");
-    const previewUrl = book.openlibrary_cover || (book.isbn ? `https://covers.openlibrary.org/b/isbn/${book.isbn}-L.jpg?default=false` : "");
+    const previewUrl = book.openlibrary_cover || (book.isbn ? `https://covers.openlibrary.org/b/isbn/${book.isbn}-M.jpg?default=false` : "");
     if (previewUrl) {
+      cover.classList.add("is-loading");
       const img = new Image();
       img.alt = "";
       img.decoding = "async";
-      img.loading = "lazy";
+      img.loading = "eager";
+      img.fetchPriority = "high";
       img.referrerPolicy = "no-referrer";
       const useCoverPlaceholder = () => {
+        cover.classList.remove("is-loading");
         cover.classList.add("is-fallback");
         img.remove();
       };
       img.onerror = useCoverPlaceholder;
       img.onload = () => {
-        if (img.naturalWidth <= 1 || img.naturalHeight <= 1) useCoverPlaceholder();
+        if (img.naturalWidth <= 1 || img.naturalHeight <= 1) {
+          useCoverPlaceholder();
+        } else {
+          cover.classList.remove("is-loading");
+          cover.classList.add("is-loaded");
+        }
       };
       img.src = previewUrl;
       cover.appendChild(img);

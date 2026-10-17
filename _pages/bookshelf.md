@@ -73,7 +73,7 @@ description: A selection of books I’ve read and am currently reading.
                 data-title="{{ book.title | escape }}"
                 data-author="{{ book.author | escape }}"
                 data-cover="{% if book.cover %}{{ book.cover | relative_url }}{% endif %}"
-                data-preview-cover="{% if book.isbn %}https://covers.openlibrary.org/b/isbn/{{ book.isbn }}-L.jpg?default=false{% endif %}"
+                data-preview-cover="{% if book.isbn %}https://covers.openlibrary.org/b/isbn/{{ book.isbn }}-M.jpg?default=false{% endif %}"
                 data-year="{{ book.year }}"
                 data-progress="{{ book.progress | default: 0 }}"
                 data-status="reading"
@@ -105,7 +105,7 @@ description: A selection of books I’ve read and am currently reading.
                 data-title="{{ book.title | escape }}"
                 data-author="{{ book.author | escape }}"
                 data-cover="{% if book.cover %}{{ book.cover | relative_url }}{% endif %}"
-                data-preview-cover="{% if book.isbn %}https://covers.openlibrary.org/b/isbn/{{ book.isbn }}-L.jpg?default=false{% endif %}"
+                data-preview-cover="{% if book.isbn %}https://covers.openlibrary.org/b/isbn/{{ book.isbn }}-M.jpg?default=false{% endif %}"
                 data-year="{{ book.year }}"
                 data-progress="100"
                 data-status="completed"
@@ -189,18 +189,26 @@ description: A selection of books I’ve read and am currently reading.
       var coverEl = makeEl("div", "bookshelf-detail-cover");
       coverEl.style.setProperty("--cover-color", spineColor);
       if (previewCover) {
+        coverEl.classList.add("is-loading");
         var img = new Image();
         img.alt = "";
-        img.loading = "lazy";
+        img.loading = "eager";
+        img.fetchPriority = "high";
         img.decoding = "async";
         img.referrerPolicy = "no-referrer";
         function useCoverPlaceholder() {
+          coverEl.classList.remove("is-loading");
           coverEl.classList.add("is-fallback");
           img.remove();
         }
         img.onerror = useCoverPlaceholder;
         img.onload = function () {
-          if (img.naturalWidth <= 1 || img.naturalHeight <= 1) useCoverPlaceholder();
+          if (img.naturalWidth <= 1 || img.naturalHeight <= 1) {
+            useCoverPlaceholder();
+          } else {
+            coverEl.classList.remove("is-loading");
+            coverEl.classList.add("is-loaded");
+          }
         };
         img.src = previewCover;
         coverEl.appendChild(img);
