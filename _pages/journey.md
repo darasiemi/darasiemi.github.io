@@ -269,9 +269,26 @@ map: true
       resetButton.hidden = false;
 
       map.once("moveend", function () {
-        if (request === focusRequest) layer.openPopup();
+        if (request === focusRequest) {
+          // Open the popup at the northern edge of the country's bounds
+          // (not its centroid) so the popup body sits ABOVE the country
+          // instead of covering it. Combined with the asymmetric padding
+          // below, this leaves the focused country clearly visible.
+          var bounds = layer.getBounds();
+          var popupAt = L.latLng(bounds.getNorth(), bounds.getCenter().lng);
+          layer.openPopup(popupAt);
+        }
       });
-      var options = { padding: [50, 50], maxZoom: 6 };
+      // Asymmetric padding so the fit-bounds zoom reserves enough space above
+      // the country for the full popup to fit on screen. The reservation
+      // (380px) is popup max-height (340px) + the tip (16px) + a safety
+      // margin; without this the popup header (country name) would be
+      // clipped at the top edge of the map canvas.
+      var options = {
+        paddingTopLeft: [60, 380],
+        paddingBottomRight: [60, 60],
+        maxZoom: 6,
+      };
       if (reducedMotion) {
         map.fitBounds(layer.getBounds(), options);
       } else {

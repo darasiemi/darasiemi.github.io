@@ -60,8 +60,9 @@ Group photo with students and organizers -->
 
 **Leadership, Carear Development and Sustainable Development Goals (SDGs)**
 
-_RISE Initative_: [website](https://www.risedevinitiative.org/)
+_RISE Initiative_: [website](https://www.risedevinitiative.org/)
 
+- Co-founded the initiative to equip young people in Oyo town with leadership, career, and SDG literacy.
 - Led leadership bootcamps impacting 600+ students in 3 secondary schools in my hometown, Oyo, Nigeria.
 - The students were lectured on career management, leadership lifestyle and introduction to the Sustainable Development Goals (SDGs).
 

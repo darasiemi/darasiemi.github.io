@@ -503,7 +503,10 @@ $journey-type-award: #f59e0b;
 .journey-popup {
   display: flex;
   flex-direction: column;
-  max-height: 420px;
+  // Lower cap so the popup never dominates the viewport. With the popup
+  // positioned above the country (see focusCountry in journey.md) and this
+  // tighter height, the focused country stays clearly in view.
+  max-height: 340px;
   background-color: #ffffff;
 
   html[data-theme="dark"] & {
