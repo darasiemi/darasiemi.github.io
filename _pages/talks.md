@@ -7,13 +7,13 @@ nav: true
 nav_order: 4
 ---
 
-**Health Data and Analytics Seminar talk**:
+### Health Data and Analytics Seminar
 
 - I presented my research to an audience of healthcare workers (doctors, nurses, administrators etc.) as part of the Health Data and Analytics module at UCD.
 
 {% include figure.liquid path="assets/img/health_data_seminar.jpeg" caption="Health Data Talk" width="60%" class="mx-auto d-block text-center" %}
 
-**Encode Africa, AI Safety Action Week**: [website](https://encodessa.org/)
+### [Encode Africa, AI Safety Action Week](https://encodessa.org/)
 
 - I presented my research as a keynote speaker at Encode Africa's AI Safety Action, on **"Human-Centered AI: Can Putting People First Make AI Safer?"**. [Recording](https://docs.google.com/videos/d/1dTasnLpSbrMZxVdxymH6ZbOcyoFIRP3QXeQLpWV2aLc/play)
 
@@ -21,7 +21,7 @@ nav_order: 4
 
 {% include figure.liquid path="assets/img/encode-africa-bio.jpeg" caption="Speaker profile, Encode Africa AI Safety Action Week" width="60%" class="mx-auto d-block text-center" %}
 
-**Young Surveyors Network (YSN), Lagos State Branch**
+### Young Surveyors Network (YSN), Lagos State Branch
 
 - I served as a panelist at the Scholarship Clinic 3.0, **"Funded. Prepared. Global."**, guiding ~60 prospective scholars on fully funded postgraduate applications and international academic mobility. [Recording](https://youtu.be/5dwcPsIS5v0?si=j0Xq2idoO-RXt01B)
 
@@ -29,7 +29,7 @@ nav_order: 4
 
 {% include figure.liquid path="assets/img/scholarship-clinic-bio.jpeg" caption="Speaker feature, YSN Lagos Scholarship Clinic 3.0" width="60%" class="mx-auto d-block text-center" %}
 
-**NSK AI Community**: [website](https://www.nskai.org/)
+### [NSK AI Community](https://www.nskai.org/)
 
 - I gave a seminar talk on **"AI in Healthcare: Opportunities and Requirements"** to ~60 attendees, covering applications, challenges, and ethical requirements for deploying AI in clinical and health settings. [Recording](https://drive.google.com/file/d/1GV7o5CyNwAXr-q366qMlYtG7ZjpWPyQe/view?usp=sharing)
 
