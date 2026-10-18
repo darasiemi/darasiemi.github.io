@@ -110,6 +110,23 @@ h6 {
   margin-top: 2.75rem;
 }
 
+// Organization/venue headings on /outreaches/ and /talks/: when an org
+// name carries a hyperlink, keep the heading in its normal text color and
+// only turn theme-green on hover (same convention as the blog list), so
+// the headings read as headings first and the links reveal themselves.
+.post--community-impact article h2 a,
+.post--community-impact article h3 a,
+.post--talks article h3 a {
+  color: var(--global-text-color);
+  text-decoration: none;
+
+  &:hover,
+  &:focus-visible {
+    color: var(--global-theme-color);
+    text-decoration: none;
+  }
+}
+
 hr {
   border-top: 1px solid var(--global-divider-color);
 }
