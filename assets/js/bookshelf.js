@@ -25,12 +25,13 @@ import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.m
     root.classList.add("needs-fallback");
   }
 
-  // Reduced-motion viewers get the DOM shelf — the lerp loop plus continuous
-  // camera framing goes against the spirit of the preference.
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    useFallback();
-    return;
-  }
+  // Respect prefers-reduced-motion by softening the animation rather than
+  // bailing out entirely — the autoplay cycle is a gentle focus shift, not
+  // the kind of continuous parallax the preference is designed to prevent.
+  // When the preference is set we still mount the WebGL but slow the cycle
+  // and snap the focus (no lerp), so each book change is a quiet step
+  // rather than a sweeping camera motion.
+  var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   let books;
   try {
@@ -234,8 +235,10 @@ import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.m
   // focused book comes forward and un-tilts; its neighbours step back with
   // progressively more yaw-tilt the further they sit from focus. This is
   // what gives the shelf its coverflow-style attention sweep.
-  const AUTO_CYCLE_PERIOD = 2500; // ms a book holds focus before stepping
-  const FOCUS_LERP = 0.085;
+  // Softer motion when reduced-motion is set: slower cycle, instant focus
+  // snap (no camera lerp), and instant pull-out (no spring).
+  const AUTO_CYCLE_PERIOD = reducedMotion ? 5000 : 2500; // ms per book
+  const FOCUS_LERP = reducedMotion ? 1 : 0.085; // 1 = snap, no interp
   const MAX_YAW = 0.3; // radians at the fully-tilted end
   const MAX_Z_BACK = 0.75;
   const MAX_Y_DROOP = 0;
@@ -249,7 +252,9 @@ import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.m
   let lastFrameTime = performance.now();
 
   function layoutBooks(delta) {
-    const pullLerp = 1 - Math.exp(-delta / 180);
+    // Pull-out animation lerp. On reduced-motion we snap instead of
+    // springing so the book just "appears" lifted.
+    const pullLerp = reducedMotion ? 1 : 1 - Math.exp(-delta / 180);
     for (let i = 0; i < bookMeshes.length; i++) {
       const mesh = bookMeshes[i];
       const x = -halfSpan + i * BOOK_SPACING;
