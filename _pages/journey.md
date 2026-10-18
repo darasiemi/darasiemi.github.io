@@ -293,10 +293,12 @@ map: true
 
       // Padding is relative to the MAP CONTAINER, not the viewport. Base
       // the top reservation on the live container height so Leaflet always
-      // has usable room left for the country — a window.innerHeight-based
-      // reserve was asking for more pixels than the container had.
+      // has usable room left for the country. On mobile, reserve ~70% of
+      // the container — comfortably more than the 360px popup cap, so the
+      // country-name header at the top of the popup fits above the country
+      // without being clipped by the container's `overflow: hidden`.
       var mapHeight = container.getBoundingClientRect().height || 440;
-      var topReserve = isMobile ? Math.min(Math.round(mapHeight * 0.6), 440) : 380;
+      var topReserve = isMobile ? Math.min(Math.round(mapHeight * 0.7), 420) : 380;
       var sidePad = isMobile ? 20 : 60;
       var bottomPad = isMobile ? 40 : 60;
       var options = {

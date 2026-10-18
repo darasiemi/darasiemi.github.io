@@ -516,10 +516,11 @@ $journey-type-award: #f59e0b;
   }
 
   @media (max-width: 576px) {
-    // Cap popup height so it fits within the map container above the
-    // focused country. Was `calc(100vh - 180px)` which overflowed the
-    // viewport whenever the popup extended above the map container.
-    max-height: 460px;
+    // Smaller cap so the full popup — including the country-name header at
+    // the top — fits inside the map container above the focused country,
+    // even on short mobile viewports (iPhone SE and similar). Scrolls
+    // internally for events beyond the fold.
+    max-height: 360px;
   }
 }
 
