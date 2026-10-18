@@ -128,25 +128,38 @@ import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.m
     ctx.textBaseline = "middle";
     ctx.fillStyle = book.text_color || "#f5f5f5";
 
-    // A single readable vertical title, with enough room for long titles.
+    // Reserve roughly 55% of the spine length for the title and ~32% for
+    // the author so the two never run into each other on long names.
+    const TITLE_AREA = H * 0.55;
+    const AUTHOR_AREA = H * 0.32;
+
+    // Title near the top of the spine. Shrink to fit the title budget.
     const titleText = book.title || "";
     let fontSize = 58;
     ctx.font = `700 ${fontSize}px 'Bricolage Grotesque', 'Instrument Sans', sans-serif`;
-    while (fontSize > 25 && ctx.measureText(titleText).width > H * 0.72) {
+    while (fontSize > 25 && ctx.measureText(titleText).width > TITLE_AREA) {
       fontSize -= 2;
       ctx.font = `700 ${fontSize}px 'Bricolage Grotesque', sans-serif`;
     }
     ctx.textAlign = "left";
     ctx.shadowColor = "rgba(0,0,0,0.28)";
     ctx.shadowBlur = 2;
-    ctx.fillText(titleText, H * 0.06, 0, H * 0.74);
+    ctx.fillText(titleText, H * 0.06, 0, TITLE_AREA);
     ctx.shadowBlur = 0;
 
-    // Author near the bottom of the spine
-    ctx.font = "600 21px 'Geist Mono', 'SF Mono', monospace";
+    // Author near the bottom of the spine. Shrink its font to fit the
+    // author budget so long multi-author names (e.g. "Grootendorst &
+    // Alammar") don't collide with a long title above.
+    const authorText = (book.author || "").toUpperCase();
+    let authorSize = 21;
+    ctx.font = `600 ${authorSize}px 'Geist Mono', 'SF Mono', monospace`;
+    while (authorSize > 13 && ctx.measureText(authorText).width > AUTHOR_AREA) {
+      authorSize -= 1;
+      ctx.font = `600 ${authorSize}px 'Geist Mono', monospace`;
+    }
     ctx.textAlign = "right";
     ctx.globalAlpha = 0.76;
-    ctx.fillText((book.author || "").toUpperCase(), H - H * 0.08, 0);
+    ctx.fillText(authorText, H - H * 0.06, 0, AUTHOR_AREA);
     ctx.globalAlpha = 1;
 
     ctx.restore();
