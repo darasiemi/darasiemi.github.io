@@ -121,6 +121,10 @@
           "icon": "devicon-azure-plain colored"
         },
         {
+          "name": "Google Cloud",
+          "icon": "devicon-googlecloud-plain colored"
+        },
+        {
           "name": "Docker",
           "icon": "devicon-docker-plain colored"
         },
