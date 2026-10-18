@@ -100,7 +100,9 @@ $journey-type-award: #f59e0b;
   max-width: 1100px;
 
   @media (max-width: 768px) {
-    height: 440px;
+    // Taller container on mobile so there's room for the popup above the
+    // focused country without being clipped by the browser viewport.
+    height: clamp(500px, 82vh, 720px);
   }
 }
 
@@ -514,10 +516,10 @@ $journey-type-award: #f59e0b;
   }
 
   @media (max-width: 576px) {
-    // On mobile the shelf's horizontal real estate is tight, so lean into
-    // the vertical: let the popup use most of the viewport so several
-    // events sit above the scroll fold without the "empty map below" look.
-    max-height: calc(100vh - 180px);
+    // Cap popup height so it fits within the map container above the
+    // focused country. Was `calc(100vh - 180px)` which overflowed the
+    // viewport whenever the popup extended above the map container.
+    max-height: 460px;
   }
 }
 

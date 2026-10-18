@@ -268,33 +268,35 @@ map: true
       selectCountry(layer);
       resetButton.hidden = false;
 
-      // Scroll the map container into the viewport centre before the popup
-      // opens. Without this, clicking a country directly on the map when
-      // the map is sitting near the top/bottom of the window would push
-      // the popup past the browser edge. The country-cards path below
-      // used to call scrollIntoView itself; moving it here means both
-      // entry points (map click AND card click) share the same behaviour.
-      container.scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth", block: "center" });
+      var isMobile = window.innerWidth <= 576;
+
+      // Scroll the map container into view before the popup opens. On
+      // desktop we centre the map in the viewport; on mobile we align the
+      // map's bottom with the viewport bottom so there's extra room ABOVE
+      // the map for the popup (which extends up out of the map container
+      // when it's taller than the country's north breathing room).
+      container.scrollIntoView({
+        behavior: reducedMotion ? "auto" : "smooth",
+        block: isMobile ? "end" : "center",
+      });
 
       map.once("moveend", function () {
         if (request === focusRequest) {
           // Open the popup at the northern edge of the country's bounds
           // (not its centroid) so the popup body sits ABOVE the country
-          // instead of covering it. Combined with the asymmetric padding
-          // below, this leaves the focused country clearly visible.
+          // instead of covering it.
           var bounds = layer.getBounds();
           var popupAt = L.latLng(bounds.getNorth(), bounds.getCenter().lng);
           layer.openPopup(popupAt);
         }
       });
-      // Asymmetric padding so the fit-bounds zoom reserves enough space above
-      // the country for the full popup to fit on screen. Desktop reserves
-      // ~380px (popup max-height 340 + tip + margin). Mobile reserves ~60%
-      // of the viewport so the popup can use the full vertical space it
-      // needs — the previous ~380px fixed value made the country sit low
-      // with wasted empty map below the popup.
-      var isMobile = window.innerWidth <= 576;
-      var topReserve = isMobile ? Math.max(360, Math.round(window.innerHeight * 0.6)) : 380;
+
+      // Padding is relative to the MAP CONTAINER, not the viewport. Base
+      // the top reservation on the live container height so Leaflet always
+      // has usable room left for the country — a window.innerHeight-based
+      // reserve was asking for more pixels than the container had.
+      var mapHeight = container.getBoundingClientRect().height || 440;
+      var topReserve = isMobile ? Math.min(Math.round(mapHeight * 0.6), 440) : 380;
       var sidePad = isMobile ? 20 : 60;
       var bottomPad = isMobile ? 40 : 60;
       var options = {
