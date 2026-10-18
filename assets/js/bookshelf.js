@@ -282,9 +282,14 @@ import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.m
       const yaw = -Math.sign(d) * Math.min(absD * 0.14, MAX_YAW);
       mesh.userData.pullAmount += (mesh.userData.pullTarget - mesh.userData.pullAmount) * pullLerp;
       const pullAmount = mesh.userData.pullAmount;
-      mesh.position.set(x, y + 0.32 * pullAmount, z + 0.65 * pullAmount);
-      mesh.rotation.set(0, yaw * (1 - pullAmount), -0.12 * pullAmount);
-      mesh.scale.setScalar(1 + 0.1 * pullAmount);
+      // Lift / forward / tilt / scale amounts tuned so the pulled book
+      // sits comfortably inside the camera frustum at every viewport —
+      // was lifting 0.32 up + 0.65 forward + 1.10× scale, which pushed
+      // the top of the spine beyond the top of the canvas (clipped the
+      // title at the top of the frame).
+      mesh.position.set(x, y + 0.14 * pullAmount, z + 0.5 * pullAmount);
+      mesh.rotation.set(0, yaw * (1 - pullAmount), -0.08 * pullAmount);
+      mesh.scale.setScalar(1 + 0.05 * pullAmount);
     }
   }
 
