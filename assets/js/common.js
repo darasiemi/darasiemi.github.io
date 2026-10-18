@@ -50,6 +50,17 @@ $(document).ready(function () {
       }
     }
 
+    // Document-relative Y of a target. getBoundingClientRect gives the
+    // viewport-relative top; adding scrollY converts to document space.
+    // Using this instead of `offsetTop` is critical because offsetTop is
+    // relative to the nearest positioned ancestor (a Bootstrap card in
+    // this case) and would therefore produce bogus scroll positions.
+    function docTop(el) {
+      if (!el) return 0;
+      var rect = el.getBoundingClientRect();
+      return rect.top + window.pageYOffset;
+    }
+
     function updateTocActive() {
       // At the very top of the page the user hasn't entered any section
       // yet — don't highlight anything so the sidebar reads as "orient
@@ -61,11 +72,8 @@ $(document).ready(function () {
       var y = window.scrollY + 120; // small offset so headings activate as they near the top
       var currentIdx = -1;
       for (var i = 0; i < tocTargets.length; i++) {
-        var el = tocTargets[i];
-        // Ignore sections whose offsetTop is 0 — those are either not laid
-        // out yet (first paint before images/fonts resolve) or genuinely
-        // at document origin, both of which produce wrong defaults.
-        if (el && el.offsetTop > 0 && el.offsetTop <= y) currentIdx = i;
+        var top = docTop(tocTargets[i]);
+        if (top > 0 && top <= y) currentIdx = i;
       }
       setActive(currentIdx);
     }
@@ -81,10 +89,18 @@ $(document).ready(function () {
         var target = tocTargets[i];
         if (!target) return;
         e.preventDefault();
-        window.scrollTo({
-          top: Math.max(0, target.offsetTop - 100),
-          behavior: "smooth",
-        });
+        // Use document-space Y via getBoundingClientRect — target.offsetTop
+        // is relative to the nearest positioned ancestor (the Bootstrap
+        // card wrapping each CV section), which caused clicks to scroll
+        // to near the top of the page instead of the actual heading.
+        var scrollTarget = Math.max(0, docTop(target) - 100);
+        try {
+          window.scrollTo({ top: scrollTarget, behavior: "smooth" });
+        } catch (err) {
+          // Older browsers / Safari fallbacks that don't accept the
+          // options-object form.
+          window.scrollTo(0, scrollTarget);
+        }
         try {
           var href = link.getAttribute("href");
           if (href) history.replaceState(null, "", href);
