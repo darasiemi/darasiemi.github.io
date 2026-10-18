@@ -26,9 +26,39 @@ $(document).ready(function () {
     var navSelector = "#toc-sidebar";
     var $myNav = $(navSelector);
     Toc.init($myNav);
-    $("body").scrollspy({
-      target: navSelector,
+
+    // Replace Bootstrap's $.scrollspy — which was leaving multiple
+    // sidebar links marked `.active` when scrolling between sections
+    // (reported on the CV page). Walk the generated links once, resolve
+    // each href to its target heading, then on scroll pick the single
+    // section whose top sits just above the current scroll line and
+    // mark only its link active.
+    var tocLinks = $myNav[0].querySelectorAll(".nav-link");
+    var tocTargets = Array.prototype.map.call(tocLinks, function (link) {
+      var href = link.getAttribute("href") || "";
+      if (!href || href.charAt(0) !== "#") return null;
+      try {
+        return document.querySelector(href);
+      } catch (e) {
+        return null;
+      }
     });
+
+    function updateTocActive() {
+      var y = window.scrollY + 120; // small offset so headings activate as they near the top
+      var currentIdx = -1;
+      for (var i = 0; i < tocTargets.length; i++) {
+        var el = tocTargets[i];
+        if (el && el.offsetTop <= y) currentIdx = i;
+      }
+      for (var j = 0; j < tocLinks.length; j++) {
+        tocLinks[j].classList.toggle("active", j === currentIdx);
+      }
+    }
+
+    window.addEventListener("scroll", updateTocActive, { passive: true });
+    window.addEventListener("resize", updateTocActive);
+    updateTocActive();
   }
 
   // add css to jupyter notebooks
