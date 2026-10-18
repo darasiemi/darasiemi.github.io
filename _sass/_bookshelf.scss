@@ -23,7 +23,40 @@
   display: block;
   position: relative;
   margin: 0 -1rem 2.5rem;
-  padding: 0;
+  // Top/bottom padding reserves space for the decorative African-textile
+  // bands that frame the shelf as if it were sitting against a patterned
+  // wall. Pseudo-elements render the pattern via inline SVG.
+  padding: 44px 0;
+
+  // Base inline-SVG textile pattern (triangle row + wavy accent). Mustard
+  // and terracotta on dark ground, mirroring the colour family of the
+  // physical shelf plank. Used by both ::before (top band) and ::after
+  // (bottom band, mirrored).
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 36px;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 36' preserveAspectRatio='xMidYMid slice'><rect width='80' height='36' fill='%231d1612'/><polygon points='0,0 20,0 10,18' fill='%23e2a92a'/><polygon points='20,0 40,0 30,18' fill='%23c25028'/><polygon points='40,0 60,0 50,18' fill='%23e2a92a'/><polygon points='60,0 80,0 70,18' fill='%23c25028'/><polygon points='10,18 20,36 30,18' fill='%238a4a2a' opacity='0.9'/><polygon points='30,18 40,36 50,18' fill='%238a4a2a' opacity='0.9'/><polygon points='50,18 60,36 70,18' fill='%238a4a2a' opacity='0.9'/><circle cx='10' cy='28' r='1.5' fill='%23f0d070'/><circle cx='30' cy='28' r='1.5' fill='%23f0d070'/><circle cx='50' cy='28' r='1.5' fill='%23f0d070'/><circle cx='70' cy='28' r='1.5' fill='%23f0d070'/></svg>");
+    background-repeat: repeat-x;
+    background-size: auto 36px;
+    opacity: 0.9;
+    border-radius: 2px;
+  }
+
+  &::before {
+    top: 0;
+  }
+
+  &::after {
+    bottom: 0;
+    // Flip the bottom band so the triangle base is against the shelf
+    // and the point faces outward — frames the shelf symmetrically.
+    transform: scaleY(-1);
+  }
 }
 
 .bookshelf-canvas {
