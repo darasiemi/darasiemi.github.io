@@ -73,8 +73,6 @@ I am an AWS- and Azure-certified data science and machine learning professional 
 - Master of Science in Engineering Artificial Intelligence (2023), Carnegie Mellon University
 - Bachelor of Science in Electrical &amp; Electronic Engineering (2019), University of Ibadan, Nigeria
 
-^
-
 </div>
 </div>
 
