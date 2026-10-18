@@ -312,7 +312,11 @@ import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.m
     pointerDownAt = performance.now();
   }
   function onPointerMove(e) {
-    if (e.pointerType === "touch") return;
+    // Allow touch moves to drive focus too — on mobile this gives the
+    // same "the book under my finger comes forward" tactile feel the
+    // desktop hover does. The click vs. drag distinction in
+    // onPointerUp still correctly separates a quick tap (open the
+    // detail panel) from a drag across spines (just change focus).
     const idx = pickBookIndex(e);
     if (idx !== null) {
       hoveredIndex = idx;
