@@ -73,6 +73,7 @@ jobs:
             --exclude "www.ucd.ie"
             --exclude "ubuntu.com"
             --exclude "nskai.org"
+            --exclude "drive.google.com"
             './**/*.md'
             './**/*.html'
 
