@@ -117,7 +117,12 @@ h6 {
 .post--community-impact article h2 a,
 .post--community-impact article h3 a,
 .post--talks article h3 a,
-.post--teaching article h3 a {
+.post--teaching article h3 a,
+// CV titles behave like structural headings: the role/degree/certificate
+// title and the organization/institution line both read as plain text
+// first and reveal themselves as links on hover.
+.cv .list-group-item h6 > a,
+.cv .list-group-category > a {
   color: var(--global-text-color);
   text-decoration: none;
 
