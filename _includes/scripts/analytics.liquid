@@ -1,13 +1,34 @@
 {% if site.enable_google_analytics %}
   <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      window.dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
-    gtag('config', '{{ site.google_analytics }}');
+    // Suppress GA on local dev hosts and private-network IPs so Docker
+    // previews and LAN testing don't pollute production metrics. Any
+    // real visit to darasi.me still loads the tracker normally.
+    (function () {
+      var h = window.location.hostname;
+      if (
+        h === 'localhost' ||
+        h === '127.0.0.1' ||
+        h === '0.0.0.0' ||
+        h === '::1' ||
+        /^192\.168\./.test(h) ||
+        /^10\./.test(h) ||
+        /^172\.(1[6-9]|2[0-9]|3[0-1])\./.test(h) ||
+        /\.local$/.test(h)
+      ) {
+        return;
+      }
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}';
+      document.head.appendChild(s);
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () {
+        window.dataLayer.push(arguments);
+      };
+      window.gtag('js', new Date());
+      window.gtag('config', '{{ site.google_analytics }}');
+    })();
   </script>
 {% endif %}
 {% if site.enable_cronitor_analytics %}
