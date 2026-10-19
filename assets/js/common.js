@@ -70,26 +70,37 @@ $(document).ready(function () {
         return;
       }
 
-      // When the viewport is parked at the bottom of the document, the
-      // last section's top can still sit below the activation line
-      // (scrollY + 120), so the normal rule would leave it un-activated
-      // forever. Force the last section active whenever we're within a
-      // few pixels of the maximum scroll position.
       var scrollMax = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
-      if (scrollMax > 0 && window.scrollY >= scrollMax - 4) {
-        for (var k = tocTargets.length - 1; k >= 0; k--) {
-          if (tocTargets[k]) {
-            setActive(k);
-            return;
-          }
-        }
-      }
 
-      var y = window.scrollY + 120; // small offset so headings activate as they near the top
-      var currentIdx = -1;
+      // Each section's natural activation threshold = (docTop - 120). It
+      // becomes active once the user has scrolled past that point. For
+      // sections near the page bottom this threshold can exceed scrollMax
+      // (the page simply isn't tall enough to put their heading at the
+      // top of the viewport). Without correction those sections either
+      // never activate, or activate for only a single pixel at the floor
+      // — which reads as the sidebar "skipping" over them.
+      //
+      // Walk the thresholds from the bottom up and clamp any unreachable
+      // value down to scrollMax, reserving an exclusive window of 40 px
+      // per trailing section so every section is guaranteed its own slice
+      // of the final scroll range.
+      var minWindow = 40;
+      var thresholds = new Array(tocTargets.length);
       for (var i = 0; i < tocTargets.length; i++) {
         var top = docTop(tocTargets[i]);
-        if (top > 0 && top <= y) currentIdx = i;
+        thresholds[i] = top > 0 ? top - 120 : -1;
+      }
+      var reservedBelow = 0;
+      for (var j = thresholds.length - 1; j >= 0; j--) {
+        if (thresholds[j] < 0) continue;
+        var cap = scrollMax - reservedBelow;
+        if (thresholds[j] > cap) thresholds[j] = cap;
+        reservedBelow += minWindow;
+      }
+
+      var currentIdx = -1;
+      for (var k = 0; k < thresholds.length; k++) {
+        if (thresholds[k] >= 0 && thresholds[k] <= window.scrollY) currentIdx = k;
       }
       setActive(currentIdx);
     }
