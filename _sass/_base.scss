@@ -994,6 +994,22 @@ footer.sticky-bottom {
   .card {
     img {
       width: 100%;
+      // Inline images (the browser default) sit on a baseline, which
+      // leaves a few pixels of descender space between the image and
+      // whatever follows. On a dark card that reads as an unwanted band.
+      display: block;
+    }
+
+    // Figure wraps the card image and ships with default top/bottom
+    // margins (and the figure include leaves no inline padding override),
+    // which stack on top of the card-body padding and produce a visibly
+    // wide gap between the thumbnail and the title. Collapse everything
+    // so the image reads as part of the card instead of a separate block.
+    figure,
+    figure picture {
+      margin: 0;
+      padding: 0;
+      line-height: 0;
     }
 
     // Match the blog listing / teaching course scale so project titles don't
@@ -1003,11 +1019,25 @@ footer.sticky-bottom {
       font-size: 1.4rem;
       font-weight: 600;
       line-height: 1.3;
+      margin-bottom: 0.5rem;
     }
 
     .card-text {
       font-size: 0.95rem;
       line-height: 1.55;
+    }
+
+    // Tighten the padding above the title at every breakpoint — the stock
+    // 1.25rem reads as a dead band on project cards specifically, where
+    // the thumbnail is the primary signal and should flow into the label.
+    .card-body {
+      padding-top: 0.9rem;
+    }
+
+    @media (max-width: 576px) {
+      .card-body {
+        padding-top: 0.65rem;
+      }
     }
   }
 
