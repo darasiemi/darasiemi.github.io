@@ -237,6 +237,33 @@
       "summary": "Deep Learning system for signature verification and animal biometrics"
     },
     {
+      "name": "University College Dublin",
+      "position": "Senior Post-Graduate Demonstrator (Part-time)",
+      "url": "https://www.ucd.ie/cs/",
+      "location": "Dublin, Ireland",
+      "startDate": "2026-09-01",
+      "endDate": "Present",
+      "summary": "Senior demonstrator role in the UCD School of Computer Science."
+    },
+    {
+      "name": "University College Dublin",
+      "position": "Teaching Assistant (Part-time)",
+      "url": "https://www.ucd.ie/cs/",
+      "location": "Dublin, Ireland",
+      "startDate": "2025-01-01",
+      "endDate": "Present",
+      "summary": "Teaching assistant for Information Visualisation (COMP47970, COMP30750), leading Vega-Lite / Tableau labs across classes of 70+ and coordinating a team of 4–5 demonstrators."
+    },
+    {
+      "name": "University College Dublin",
+      "position": "Post-Graduate Demonstrator (Part-time)",
+      "url": "https://www.ucd.ie/cs/",
+      "location": "Dublin, Ireland",
+      "startDate": "2024-01-01",
+      "endDate": "2026-08-31",
+      "summary": "Post-graduate demonstrator for ML System Deployment (COMP41860) — mentoring student teams on AI projects spanning RAG, LLMs and vector databases — and Data Structures & Algorithms (COMP20230)."
+    },
+    {
       "name": "Health Rhythms",
       "position": "Data Science Intern",
       "startDate": "2024-05-01",
