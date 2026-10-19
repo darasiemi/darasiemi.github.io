@@ -1127,6 +1127,22 @@ footer.sticky-bottom {
 
       .title {
         font-weight: bolder;
+
+        // Match the hover-reveal convention used on Outreaches / Talks /
+        // Teaching / CV: linked paper titles read as plain text first and
+        // only reveal theme green on hover. Papers with no URL render as
+        // plain text anyway (handled by _layouts/bib.liquid), so there's
+        // nothing extra to style for the non-clickable case.
+        a {
+          color: var(--global-text-color);
+          text-decoration: none;
+
+          &:hover,
+          &:focus-visible {
+            color: var(--global-theme-color);
+            text-decoration: none;
+          }
+        }
       }
 
       .author {
