@@ -116,7 +116,23 @@ h6 {
 // the headings read as headings first and the links reveal themselves.
 .post--community-impact article h2 a,
 .post--community-impact article h3 a,
-.post--talks article h3 a {
+.post--talks article h3 a,
+.post--teaching article h3 a {
+  color: var(--global-text-color);
+  text-decoration: none;
+
+  &:hover,
+  &:focus-visible {
+    color: var(--global-theme-color);
+    text-decoration: none;
+  }
+}
+
+// Institution links on /teaching/ live inside a bold paragraph
+// ("**Institution:** …"), not a heading. Give them the same reveal-on-hover
+// behaviour so the whole page shares one link convention.
+.post--teaching article p strong + a,
+.post--teaching article p a {
   color: var(--global-text-color);
   text-decoration: none;
 

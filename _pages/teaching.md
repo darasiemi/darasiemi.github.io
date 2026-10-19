@@ -7,55 +7,43 @@ nav: true
 nav_order: 6
 ---
 
-### Autumn 2026 - Multi-Agent Systems COMP41400
+### [Autumn 2026 - Multi-Agent Systems COMP41400](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP41400)
 
-[Course Website](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP41400)
-
-**Institution:** University College Dublin
+**Institution:** [University College Dublin](https://www.ucd.ie/)
 
 **Course Description:** This module aims to introduce students to the concept of multi-agent systems. The course commences with a eview of the fundamental concepts that underpin agent-based systems,.Thereafter a number of topics will be covered including inter alia: agent reasoning technologies, agent communication languages, agent programming languages, coordination protocols agent planning and negotiation strategies. Following this, the course explores how agent technologies have been successfully applied to a diverse range of application domains, such as mobile computing, virtual collaborative environments, and robotics. During the course, students are required to evaluate an agent programming, framework that delivers structured support for the development and deployment of agent-oriented applications.
 
-### Autumn 2026 - Information Visualisation COMP40610
+### [Autumn 2026 - Information Visualisation COMP40610](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP40610)
 
-[Course Website](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP40610)
-
-**Institution:** University College Dublin
+**Institution:** [University College Dublin](https://www.ucd.ie/)
 
 **Course Description:** This module is suitable for students interested in the fundamental and practical underpinnings of Information Visualisation. Information Visualisation is a research area that focuses on the use of graphical techniques to present data in an explicit form. Such static or dynamic presentations (pictures) help people formulate an understanding of data and an internal model of it for reasoning about. Such pictures of data are an external artifact supporting decision making. While sharing many of the same goals of Scientific Visualisation, Human Computer Interaction, User Interface Design and Computer Graphics, Information Visualisation focuses on the visual presentation of data without a physical or geometric form. As such it relies on research in mathematics, data mining, data structures, algorithms, graph drawing, human-computer interaction, cognitive psychology, semiotics, cartography, interactive graphics, imaging and visual design.
 
 This module explores the most important topics in information visualsiation addressing both practical and theoretical concerns. Specific tools for creating data visualsiations are also explored.
 
-### Spring 2026 - ML System Deployment COMP41860
+### [Spring 2026 - ML System Deployment COMP41860](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP41860)
 
-[Course Website](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP41860)
-
-**Institution:** University College Dublin
+**Institution:** [University College Dublin](https://www.ucd.ie/)
 
 **Course Description:** This module equips students with the principles and practices required to design, build, deploy, and continuously improve real-world AI systems. It shifts the focus from isolated model development to end-to-end AI system engineering. It addresses how modern machine learning, particularly foundation-model-based systems, are integrated into production environments where reliability, scalability, cost, latency, security, and user feedback are critical concerns.
 
-### Spring 2026 - AI for Time Series COMP41850
+### [Spring 2026 - AI for Time Series COMP41850](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP41850)
 
-[Course Website](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP41850)
-
-**Institution:** University College Dublin
+**Institution:** [University College Dublin](https://www.ucd.ie/)
 
 **Course Description:** This module delves into the application of Artificial Intelligence (AI) techniques for analyzing and modeling time series data, specifically focusing on classification and regression tasks. Students will learn about various time series types, transformations, similarity measures, and state-of-the-art AI models used for time series analysis. The course will emphasize practical applications and rigorous evaluation methodologies.
 
-### Autumn 2025 - Software Engineering COMP41670
+### [Autumn 2025 - Software Engineering COMP41670](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP41670)
 
-[Course Website](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP41670)
-
-**Institution:** University College Dublin
+**Institution:** [University College Dublin](https://www.ucd.ie/)
 
 **Course Description:** This module will cover the main principles of the most important software development processes, from ‘traditional’ plan-driven software engineering to agile methods. It will also cover principles and techniques of software requirements engineering, software design using UML, software testing and refactoring.
 
 **Language:** Java COMP30950
 
-### Autumn 2025 - Multi-paradigm Programming
+### [Autumn 2025 - Multi-paradigm Programming](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP30950)
 
-[Course Website](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP30950)
-
-**Institution:** University College Dublin
+**Institution:** [University College Dublin](https://www.ucd.ie/)
 
 **Course Description:** This is an advanced programming module that assumes a working knowledge of object-oriented programming and data structures & algorithms, and a familiarity with functional programming. This module covers object-oriented programming in detail and explores how functional programming integrates with object-oriented programming in current practice. There is a focus on producing software that is:
 (1) demonstrably correct, by using unit testing and
@@ -64,80 +52,62 @@ There is a strong emphasis on practical programming skills throughout this modul
 
 **Language:** Scala
 
-### Autumn 2025 - Cloud Computing COMP47780
+### [Autumn 2025 - Cloud Computing COMP47780](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP47780)
 
-[Course Website](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP47780)
-
-**Institution:** University College Dublin
+**Institution:** [University College Dublin](https://www.ucd.ie/)
 
 **Course Description:** This module starts by introducing the key concepts behind Cloud Computing (distributed and parallel computing). Next, it covers the cloud computing deployment and delivery models, large-scale systems architectures, with a specific focus on some existing data stores, distributed computing and Distributed file systems (e.g., Hadoop File System, Google File System, …). Then it focuses on techniques for processing big data (the Map/Reduce model), and all the necessary programming tools that simplify the generation of Map/Reduce implementation of applications, such as Apache Pig, Hive, … Other concepts, such as security and the economics of the Cloud, will also be covered. Finally, some existing clouds such as Hadoop, Google Cloud, Microsoft Azure, Amazon cloud (AWS) will be presented, compared.
 
-### Spring 2025 - Software Engineering COMP30830
+### [Spring 2025 - Software Engineering COMP30830](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP30830)
 
-[Course Website](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP30830)
-
-**Institution:** University College Dublin
+**Institution:** [University College Dublin](https://www.ucd.ie/)
 
 **Course Description:** This module prepares learners for professional software engineering with a focus on teamwork and developing complex systems. Learners will understand essential procedures, design software addressing functional and non-functional requirements, and implement systems considering architecture, component interaction, task allocation, and tools like version control. Core topics include software requirements, IDEs, Git, Agile methodologies (Scrum/Kanban), and database management. Practical skills in API requests, test-driven development (TDD), and Flask web architectures are emphasized. The module also explores software architecture, design patterns, and testing, providing a comprehensive foundation in modern practices for designing, developing, and testing software systems collaboratively.
 
 **Language:** Python
 
-### Spring 2025 and 2026 - Information Visualisation (Blended Delivery) COMP47970
+### [Spring 2025 and 2026 - Information Visualisation (Blended Delivery) COMP47970](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP47970)
 
-[Course Website](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP47970)
-
-**Institution:** University College Dublin
+**Institution:** [University College Dublin](https://www.ucd.ie/)
 
 **Course Description:** This module is suitable for students interested in the fundamental and practical underpinnings of Information Visualisation. Information Visualisation is a research area that focuses on the use of graphical techniques to present data in an explicit form. Such static or dynamic presentations (pictures) help people formulate an understanding of data and an internal model of it for reasoning about. Such pictures of data are an external artefact supporting decision making. While sharing many of the same goals of Scientific Visualisation, Human Computer Interaction, User Interface Design and Computer Graphics, Information Visualisation focuses on the visual presentation of data without a physical or geometric form. As such it relies on research in mathematics, data mining, data structures, algorithms, graph drawing, human-computer interaction, cognitive psychology, semiotics, cartography, interactive graphics, imaging and visual design. Tools: Vega Lite and Tableau
 
-### Spring 2025 and 2026, Autumn 2026 - Information Visualisation DS COMP30750
+### [Spring 2025 and 2026, Autumn 2026 - Information Visualisation DS COMP30750](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP30750)
 
-[Course Website](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP30750)
-
-**Institution:** University College Dublin
+**Institution:** [University College Dublin](https://www.ucd.ie/)
 
 **Course Description:** This module is suitable for students interested in the fundamental and practical underpinnings of Information Visualisation. Information Visualisation is a research area that focuses on the use of graphical techniques to present data in an explicit form. Such static or dynamic presentations (pictures) help people formulate an understanding of data and an internal model of it for reasoning about. Such pictures of data are an external artifact supporting decision making. While sharing many of the same goals of Scientific Visualisation, Human Computer Interaction, User Interface Design and Computer Graphics, Information Visualisation focuses on the visual presentation of data without a physical or geometric form. As such it relies on research in mathematics, data mining, data structures, algorithms, graph drawing, human-computer interaction, cognitive psychology, semiotics, cartography, interactiave graphics, imaging and visual design. Tools: Vega Lite and Tableau
 
-### Autumn 2024 - Introduction to Artificial Intelligence COMP30030
+### [Autumn 2024 - Introduction to Artificial Intelligence COMP30030](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP30030)
 
-[Course Website](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP30030)
-
-**Institution:** University College Dublin
+**Institution:** [University College Dublin](https://www.ucd.ie/)
 
 **Course Description:** By the end of this module, students will be able to explain key AI principles and evaluate their strengths and limitations. They will implement search algorithms, apply adversarial game-playing techniques, and compare optimization methods like Simulated Annealing and Genetic Algorithms. Students will also explore AI Planning, represent problems effectively, and apply planning algorithms. They will differentiate between supervised and unsupervised learning techniques such as Decision Trees, Naïve Bayes, kNN, and K-Means, and understand Neural Networks, especially in Computer Vision. Additionally, students are expected to demonstrate independent research beyond the lecture material.
 
-### Autumn 2024 - Python Object Oriented Programming COMP20270
+### [Autumn 2024 - Python Object Oriented Programming COMP20270](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP20270)
 
-[Course Website](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP20270)
-
-**Institution:** University College Dublin
+**Institution:** [University College Dublin](https://www.ucd.ie/)
 
 **Course Description:** Upon successful completion of this module, learners will have a solid understanding of core Object-Oriented Programming (OOP) concepts in Python, including classes, instances, inheritance, multiple inheritance, encapsulation, polymorphism, and methods. They will be capable of implementing software systems that incorporate these principles and will have developed proficiency in coding within a Python Notebook environment. Additionally, learners will be skilled in debugging Object-Oriented programs to identify and resolve errors effectively.
 
-### Autumn 2024 - Data Science in Python COMP47670
+### [Autumn 2024 - Data Science in Python COMP47670](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP47670)
 
-[Course Website](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP47670)
-
-**Institution:** University College Dublin
+**Institution:** [University College Dublin](https://www.ucd.ie/)
 
 This module aims to provide students with an intensive introduction to Python programming and familiarize them with key topics in Data Science. Students will learn methods for collecting, storing, filtering, and analyzing datasets, and will be introduced to numerical computing, statistics, and machine learning. Practical applications of these concepts will be demonstrated using popular open-source tools. The module also covers data visualization and working with textual data. With a strong emphasis on practical programming, students will complete two coursework assignments involving Python-based data analytics tasks.
 
 **Language:** Python
 
-### Spring 2024 - Data Structures and Algorithms COMP20230
+### [Spring 2024 - Data Structures and Algorithms COMP20230](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP20230)
 
-[Course Website](https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=MODULE&MODULE=COMP20230)
-
-**Institution:** University College Dublin
+**Institution:** [University College Dublin](https://www.ucd.ie/)
 
 **Course Description:** This course offers a comprehensive introduction to data structures and algorithms. Topics include data structures such as arrays, stacks, queues, and graphs, sorting and graph traversal algorithms etc.
 
 **Language:** Python
 
-### Fall 2022 - Programming and Problem Solving for Data Analytics 04-638
+### [Fall 2022 - Programming and Problem Solving for Data Analytics 04-638](https://www.africa.engineering.cmu.edu/academics/courses/04-638.html)
 
-[Course Website](https://www.africa.engineering.cmu.edu/academics/courses/04-638.html)
-
-**Institution:** Carnegie Mellon University Africa
+**Institution:** [Carnegie Mellon University Africa](https://www.africa.engineering.cmu.edu/)
 
 **Course Description:** This course offers a comprehensive introduction to programming and data analytics in Python. Topics include functions and modules, object oriented programming, file input and output, data exploration and analysis, model selection and evaluation etc.
