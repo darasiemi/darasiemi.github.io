@@ -242,6 +242,33 @@
       "startDate": "2024-05-01",
       "endDate": "2024-07-30",
       "summary": "Digital mental health"
+    },
+    {
+      "name": "Coca-Cola Hellenic Bottling Company",
+      "position": "Supply Chain Analyst (Intern)",
+      "url": "https://www.coca-colahellenic.com/",
+      "location": "Lagos, Nigeria",
+      "startDate": "2019-06-01",
+      "endDate": "2019-08-31",
+      "summary": "Coke Summership — a 3-month global internship rotating across Fleet, Transportation and Warehouse. Managed shipment orders and dockets in SAP, proposed a data-informed fix for warehouse congestion and product expiry, and closed ~1,200 product cases across 10 field engagements."
+    },
+    {
+      "name": "ipNX Nigeria Limited",
+      "position": "Network Operations Analyst (IT Intern)",
+      "url": "https://ipnxnigeria.net/",
+      "location": "Ibadan, Nigeria",
+      "startDate": "2017-09-01",
+      "endDate": "2018-02-28",
+      "summary": "Network Infrastructure team supporting field operations of the fixed-wireless network: installed and configured 5 GHz Ubiquiti radios, ran SOMA parameter checks, led fault diagnosis and network restoration for 100+ clients, and analysed coverage data in Excel to inform supervisor decisions."
+    },
+    {
+      "name": "Federal Airports Authority of Nigeria",
+      "position": "Engineering Intern",
+      "url": "https://faan.gov.ng/",
+      "location": "Ikeja, Lagos, Nigeria",
+      "startDate": "2017-01-01",
+      "endDate": "2017-03-31",
+      "summary": "Power-systems internship at Lagos Airport: monitored consumption and ran voltage-regulation tapping on the 8 MVA generators, performed thumper-based fault detection on underground cables, and supported installation of SF6 circuit breakers and 300 kVA transformers."
     }
   ],
   "volunteer": [
