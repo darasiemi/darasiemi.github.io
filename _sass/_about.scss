@@ -616,6 +616,30 @@
   }
 }
 
+// The MANI JPEG has heavy internal padding around the mark, so the default
+// 72px cap renders the brand too small to read. Explicit height overrides
+// the base `height: 100%` (which locks the img to the 78px row). The
+// surrounding white strip has enough padding to absorb the extra height
+// without any visible clipping.
+.logo-item--mani img {
+  height: 150px;
+  width: auto;
+  max-width: 380px;
+  max-height: 150px;
+
+  @media (max-width: 768px) {
+    height: 124px;
+    max-width: 300px;
+    max-height: 124px;
+  }
+
+  @media (max-width: 576px) {
+    height: 108px;
+    max-width: 250px;
+    max-height: 108px;
+  }
+}
+
 // ── Bio section ───────────────────────────────────────────────────────────────
 
 // Very subtle gradient transitions the hero into the bio — no hard seam.

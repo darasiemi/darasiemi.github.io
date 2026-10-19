@@ -53,9 +53,15 @@ layout: home
         {% for copy in (1..2) %}
           {% for entry in affil_logos %}
             {% assign parts = entry | split: '|' %}
+            {% assign item_modifier = '' %}
+            {% if parts[0] == 'rise-logo.svg' %}
+              {% assign item_modifier = ' logo-item--rise' %}
+            {% elsif parts[0] == 'mentallyawareng_logo.jpeg' %}
+              {% assign item_modifier = ' logo-item--mani' %}
+            {% endif %}
             {% if copy == 1 %}
               <a
-                class="logo-item{% if parts[0] == 'rise-logo.svg' %} logo-item--rise{% endif %}"
+                class="logo-item{{ item_modifier }}"
                 href="{{ parts[2] }}"
                 target="_blank"
                 rel="noopener"
@@ -65,7 +71,7 @@ layout: home
               </a>
             {% else %}
               <a
-                class="logo-item{% if parts[0] == 'rise-logo.svg' %} logo-item--rise{% endif %}"
+                class="logo-item{{ item_modifier }}"
                 href="{{ parts[2] }}"
                 target="_blank"
                 rel="noopener"
