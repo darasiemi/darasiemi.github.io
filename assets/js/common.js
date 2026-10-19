@@ -69,6 +69,22 @@ $(document).ready(function () {
         setActive(-1);
         return;
       }
+
+      // When the viewport is parked at the bottom of the document, the
+      // last section's top can still sit below the activation line
+      // (scrollY + 120), so the normal rule would leave it un-activated
+      // forever. Force the last section active whenever we're within a
+      // few pixels of the maximum scroll position.
+      var scrollMax = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+      if (scrollMax > 0 && window.scrollY >= scrollMax - 4) {
+        for (var k = tocTargets.length - 1; k >= 0; k--) {
+          if (tocTargets[k]) {
+            setActive(k);
+            return;
+          }
+        }
+      }
+
       var y = window.scrollY + 120; // small offset so headings activate as they near the top
       var currentIdx = -1;
       for (var i = 0; i < tocTargets.length; i++) {
