@@ -40,7 +40,10 @@
     right: 0;
     height: 36px;
     pointer-events: none;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 36' preserveAspectRatio='xMidYMid slice'><rect width='80' height='36' fill='%231d1612'/><polygon points='0,0 20,0 10,18' fill='%23e2a92a'/><polygon points='20,0 40,0 30,18' fill='%23c25028'/><polygon points='40,0 60,0 50,18' fill='%23e2a92a'/><polygon points='60,0 80,0 70,18' fill='%23c25028'/><polygon points='10,18 20,36 30,18' fill='%238a4a2a' opacity='0.9'/><polygon points='30,18 40,36 50,18' fill='%238a4a2a' opacity='0.9'/><polygon points='50,18 60,36 70,18' fill='%238a4a2a' opacity='0.9'/><circle cx='10' cy='28' r='1.5' fill='%23f0d070'/><circle cx='30' cy='28' r='1.5' fill='%23f0d070'/><circle cx='50' cy='28' r='1.5' fill='%23f0d070'/><circle cx='70' cy='28' r='1.5' fill='%23f0d070'/></svg>");
+    // Spaces are percent-encoded (%20) because Jekyll's compressed Sass
+    // output collapses raw whitespace inside the data URL, producing an
+    // invalid SVG on the deployed site.
+    background-image: url("data:image/svg+xml;utf8,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2080%2036'%20preserveAspectRatio='xMidYMid%20slice'><rect%20width='80'%20height='36'%20fill='%231d1612'/><polygon%20points='0,0%2020,0%2010,18'%20fill='%23e2a92a'/><polygon%20points='20,0%2040,0%2030,18'%20fill='%23c25028'/><polygon%20points='40,0%2060,0%2050,18'%20fill='%23e2a92a'/><polygon%20points='60,0%2080,0%2070,18'%20fill='%23c25028'/><polygon%20points='10,18%2020,36%2030,18'%20fill='%238a4a2a'%20opacity='0.9'/><polygon%20points='30,18%2040,36%2050,18'%20fill='%238a4a2a'%20opacity='0.9'/><polygon%20points='50,18%2060,36%2070,18'%20fill='%238a4a2a'%20opacity='0.9'/><circle%20cx='10'%20cy='28'%20r='1.5'%20fill='%23f0d070'/><circle%20cx='30'%20cy='28'%20r='1.5'%20fill='%23f0d070'/><circle%20cx='50'%20cy='28'%20r='1.5'%20fill='%23f0d070'/><circle%20cx='70'%20cy='28'%20r='1.5'%20fill='%23f0d070'/></svg>");
     background-repeat: repeat-x;
     background-size: auto 36px;
     opacity: 0.9;
