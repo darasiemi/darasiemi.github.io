@@ -1529,6 +1529,31 @@ swiper-slide {
   }
 }
 
+// "See all news" prompt beneath the capped news table on the About page.
+// Reads as a quiet nudge, not a shouty button — the user has already seen
+// six items, this is only there in case they want more.
+.news-see-all {
+  margin: 1.25rem 0 0;
+  font-family: "Geist Mono", "SF Mono", monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-align: right;
+  color: var(--global-text-color-light);
+
+  a {
+    color: var(--global-text-color);
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 1px;
+    transition: color 0.2s ease;
+
+    &:hover,
+    &:focus-visible {
+      color: var(--global-theme-color);
+    }
+  }
+}
+
 // ── Social section ────────────────────────────────────────────────────────────
 
 .social-section {

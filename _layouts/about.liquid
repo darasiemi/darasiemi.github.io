@@ -167,6 +167,9 @@ layout: home
       <div class="about-section">
         <h2 class="about-section-heading"><a href="{{ '/news/' | relative_url }}">news</a></h2>
         {% include news.liquid limit=true %}
+        <p class="news-see-all">
+          Want more? <a href="{{ '/news/' | relative_url }}">Read every news update →</a>
+        </p>
       </div>
     </div>
   </div>
@@ -179,8 +182,8 @@ layout: home
       <div class="about-section">
         <h2 class="about-section-heading"><a href="{{ '/publications/' | relative_url }}">selected publications</a></h2>
         {% include selected_papers.liquid %}
-        <p class="selected-publications-more">
-          <a href="{{ '/publications/' | relative_url }}">Browse the complete list of publications</a>
+        <p class="news-see-all">
+          Want more? <a href="{{ '/publications/' | relative_url }}">Browse the complete list of publications &rarr;</a>
         </p>
       </div>
     </div>
