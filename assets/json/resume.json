@@ -215,7 +215,7 @@
     {
       "name": "Research Ireland Centre for Research Training in Machine Learning",
       "position": "PhD Candidate",
-      "url": "https://www.ml-labs.ie/cohort5/oluwadara-adedeji/",
+      "url": "https://www.ml-labs.ie/cohort/oluwadara-adedeji/",
       "startDate": "2023-09-01",
       "endDate": "Present",
       "summary": "Research at the intersection of mental health, finance and machine learning"
@@ -223,7 +223,7 @@
     {
       "name": "CyLab/ Upanzi network",
       "position": "Research Associate",
-      "url": "https://www.africa.engineering.cmu.edu/research/cybersecurity/cylab/index.html",
+      "url": "https://www.africa.engineering.cmu.edu/research/upanzi/index.html",
       "startDate": "2023-06-01",
       "endDate": "2023-08-15",
       "summary": "Deep Learning system for signature verification and animal biometrics. Machine learning for smishing detection"
@@ -231,7 +231,7 @@
     {
       "name": "CyLab/ Upanzi network",
       "position": "Research Assistant",
-      "url": "https://www.africa.engineering.cmu.edu/research/cybersecurity/cylab/index.html",
+      "url": "https://www.africa.engineering.cmu.edu/research/upanzi/index.html",
       "startDate": "2023-01-01",
       "endDate": "2023-05-30",
       "summary": "Deep Learning system for signature verification and animal biometrics"
@@ -389,19 +389,22 @@
       "title": "1st Prize, 2025 Huawei Ireland Tech Arena",
       "date": "2025-11-25",
       "awarder": "Huawei Ireland",
-      "summary": "Hackathon on LLM (AI) inference optimization"
+      "summary": "Hackathon on LLM (AI) inference optimization",
+      "url": "/?photo=about_7.jpeg#gallery"
     },
     {
       "title": "Finalist, 2023 UCC AI Quest",
       "date": "2024-02-24",
       "awarder": "University College Cork, Ireland",
-      "summary": "Hackathon on vegetation patches image segmentation from drone images using deep learning"
+      "summary": "Hackathon on vegetation patches image segmentation from drone images using deep learning",
+      "url": "/?photo=about_14.jpeg#gallery"
     },
     {
       "title": "Mastercard Foundation Scholarship Award",
       "date": "2021-04-01",
       "awarder": "Mastercard Foundation",
-      "summary": "Full Masters scholarship to study Engineering Artificial Intelligence at Carnegie Mellon University Africa"
+      "summary": "Full Masters scholarship to study Engineering Artificial Intelligence at Carnegie Mellon University Africa",
+      "url": "https://www.africa.engineering.cmu.edu/impact/mastercard-foundation-scholars.html"
     },
     {
       "title": "Dean’s Award for First Class students in the Faculty of Technology",
@@ -413,13 +416,15 @@
       "title": "Etisalat Merit Award for Academic Excellence, 2015 and 2016",
       "date": "2016-09-01",
       "awarder": "Etisalat Nigeria",
-      "summary": "Two-time awardee of this academic award to outstanding students in Electrical & Electronic Engineering, Computer Science and Economics in selected universities in Nigeria."
+      "summary": "Two-time awardee of this academic award to outstanding students in Electrical & Electronic Engineering, Computer Science and Economics in selected universities in Nigeria.",
+      "url": "/?photo=about_101.jpg#gallery"
     },
     {
       "title": "Winner, 2016 Etisalat Innovation Moment Challenge",
       "date": "2016-09-01",
       "awarder": "Etisalat Nigeria",
-      "summary": "I led a team of 10 from the University of Ibadan that won Best Innovative Idea at the Etisalat Merit Award presentation, where recipients from selected tertiary institutions in Nigeria presented their innovative ideas to solve societal problems."
+      "summary": "I led a team of 10 from the University of Ibadan that won Best Innovative Idea at the Etisalat Merit Award presentation, where recipients from selected tertiary institutions in Nigeria presented their innovative ideas to solve societal problems.",
+      "url": "/?photo=about_103.jpg#gallery"
     },
     {
       "title": "2015/2016 NNPC/Total Undergraduate National Merit Award",
