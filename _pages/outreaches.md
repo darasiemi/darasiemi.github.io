@@ -16,7 +16,7 @@ My goal is to impact 10,000 young persons in the next 10 years.
 
 ## Mental Health Volunteering
 
-### [Aware](https://www.aware.ie/)
+### [Aware](https://www.aware.ie/) · 2026 — Present
 
 - Facilitating peer support groups for individuals experiencing depression, bipolar disorder, and related mood disorders.
 - Fostering a safe, supportive, and inclusive environment where participants could share experiences, develop self-care strategies, and provide mutual support in line with Aware Ireland's guidelines.
@@ -26,7 +26,7 @@ My goal is to impact 10,000 young persons in the next 10 years.
 
 I also recently collaborated with **Aware** on a study exploring how mood changes are reflected in financial behaviours among people living with bipolar disorder. The study was recently featured on Aware's website; you can read about it [here](https://www.aware.ie/guest-blog-ucd-mood-and-money-lab/).
 
-### [Mentally Aware Nigeria Initiative (MANI)](https://mentallyaware.org/)
+### [Mentally Aware Nigeria Initiative (MANI)](https://mentallyaware.org/) · 2018 — 2021
 
 - Led mental health programmes impacting 300+ individuals, including conversation cafés, mental health walks, and awareness initiatives in Ibadan, Oyo state, Nigeria.
 
@@ -44,7 +44,7 @@ After a mental health walk -->
 
 ## Mindfulness and Youth Development
 
-### [Mastercard Foundation Scholarship](https://www.africa.engineering.cmu.edu/impact/mastercard-foundation-scholars.html)
+### [Mastercard Foundation Scholarship](https://www.africa.engineering.cmu.edu/impact/mastercard-foundation-scholars.html) · 2021 — 2023
 
 - Facilitated a mindfulness and self-awareness training session on mental health for ~120 secondary school students in Kigali, Rwanda.
 - Organised and led an online community development project to teach ~40 African university students the Python programming language.
@@ -57,7 +57,7 @@ Group photo with students and organizers -->
 
 ## Leadership, Career Development and Sustainable Development Goals (SDGs)
 
-### [RISE Initiative](https://www.risedevinitiative.org/)
+### [RISE Initiative](https://www.risedevinitiative.org/) · 2017 — Present
 
 - Co-founded the initiative to equip young people in Oyo town with leadership, career, and SDG literacy.
 - Led leadership bootcamps impacting 600+ students in 3 secondary schools in my hometown, Oyo, Nigeria.
@@ -69,7 +69,7 @@ Group photo with students and organizers -->
 <span id="rise-best-legacy"></span>
 {% include figure.liquid path="assets/img/rise_bliss1.jpeg" caption="Leadership bootcamp at Best Legacy International Secondary School, Awe, Oyo" width="60%" class="mx-auto d-block text-center"  %}
 
-### National Youth Service SDG Advocacy
+### National Youth Service SDG Advocacy · 2020
 
 - Facilitated an SDG-focused educational session for ~50 students at the Bayero University Kano (BUK) Secondary School, Kano, Nigeria, enhancing awareness and understanding of global sustainability goals.
 - Led and coordinated meetings and Sustainable Development Goals (SDG) initiatives in Kano State, Nigeria, driving community engagement and awareness.
@@ -82,7 +82,7 @@ SDGs training in Bayero University Kano (BUK) Secondary School, Kano, Nigeria --
 
 ## Career and Sex Education
 
-### National Association of Oyo Students (NAOS), University of Ibadan
+### National Association of Oyo Students (NAOS), University of Ibadan · 2019
 
 - Organized and facilitated a career and sex education seminar for ~80 public secondary school students in Oyo town.
 
@@ -93,7 +93,7 @@ SDGs training in Bayero University Kano (BUK) Secondary School, Kano, Nigeria --
 
 <span id="stemi-makers"></span>
 
-### [STEMi Makers Africa](https://stemimakersafrica.org/)
+### [STEMi Makers Africa](https://stemimakersafrica.org/) · 2020
 
 - Participated in an online webinar to discuss the effects of the COVID-19 pandemic and ways to ameliorate them.
 - Contributed novel ideas in group discussions and brain storming sessions of the organization in the Kano state chapter, Nigeria.
