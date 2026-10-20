@@ -218,9 +218,15 @@ I am an AWS- and Azure-certified data science and machine learning professional 
         el.swiper.autoplay.stop();
       }
 
-      // Pin across three successive frames: initial jump, then re-assert after
-      // loop placement settles and once more after `load` so late image/font
-      // reflows can't nudge the active slide off.
+      // Pin until the swiper's realIndex actually matches the target. On
+      // first init swiper may not have placed its loop duplicates yet, so
+      // the first few slideToLoop() calls can silently land on the wrong
+      // slide — especially for high indices near the end of the carousel.
+      // Verify after every attempt and retry on a 50 ms backoff until it
+      // sticks (bounded to ~1.5 s so a broken swiper build can't loop
+      // forever).
+      var pinAttempts = 0;
+      var pinInterval = null;
       var pinTo = function () {
         try {
           el.swiper.slideToLoop(targetIdx, 0);
@@ -228,11 +234,24 @@ I am an AWS- and Azure-certified data science and machine learning professional 
           /* no-op */
         }
       };
-      pinTo();
-      requestAnimationFrame(function () {
+      var tryPin = function () {
         pinTo();
-        requestAnimationFrame(pinTo);
-      });
+        if (el.swiper && el.swiper.realIndex === targetIdx) {
+          if (pinInterval) {
+            clearInterval(pinInterval);
+            pinInterval = null;
+          }
+          return true;
+        }
+        if (++pinAttempts >= 30 && pinInterval) {
+          clearInterval(pinInterval);
+          pinInterval = null;
+        }
+        return false;
+      };
+      if (!tryPin()) {
+        pinInterval = setInterval(tryPin, 50);
+      }
 
       var scrollToGallery = function () {
         section.scrollIntoView({ block: "start" });
@@ -243,7 +262,8 @@ I am an AWS- and Azure-certified data science and machine learning professional 
           "load",
           function () {
             requestAnimationFrame(function () {
-              pinTo();
+              // One more enforcement pass after late layout shifts.
+              tryPin();
               scrollToGallery();
             });
           },
