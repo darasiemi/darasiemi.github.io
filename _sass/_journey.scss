@@ -26,6 +26,66 @@ $journey-type-award: #f59e0b;
   color: var(--global-text-color);
 }
 
+// Secondary CTA pointing to /talks/ since Talks no longer lives in the
+// top nav. Lives below the map + countries list so it reads as a
+// "next step" after the user has explored the where, with copy that
+// hands them off to the what. Styled like a quiet aside: monospace,
+// small, theme-tinted so it reads as navigation help rather than a
+// shouty banner.
+.journey-intro-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin: 1rem auto 0;
+  padding: 0.6rem 1rem;
+  border-radius: 999px;
+  background-color: rgba(10, 112, 101, 0.07);
+  border: 1px solid rgba(10, 112, 101, 0.18);
+  font-family: "Geist Mono", "SF Mono", monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+  color: var(--global-text-color-light);
+  text-align: center;
+  width: max-content;
+  max-width: 100%;
+
+  em {
+    font-style: italic;
+    color: var(--global-text-color);
+  }
+
+  i {
+    color: var(--global-theme-color);
+  }
+
+  a {
+    color: var(--global-text-color);
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 1px;
+    transition: color 0.2s ease;
+
+    &:hover,
+    &:focus-visible {
+      color: var(--global-theme-color);
+    }
+  }
+
+  html[data-theme="dark"] & {
+    background-color: rgba(60, 191, 173, 0.08);
+    border-color: rgba(60, 191, 173, 0.22);
+  }
+}
+
+// Footer-position variant: extra top margin so it sits apart from the
+// countries grid rather than crowding its last row.
+.journey-intro-cta--footer {
+  margin-top: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
 .journey-legend {
   display: flex;
   flex-wrap: wrap;
