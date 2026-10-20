@@ -185,26 +185,7 @@ I am an AWS- and Azure-certified data science and machine learning professional 
               el.swiper.attachEvents();
             }
             if (requestedPhoto && typeof el.swiper.slideToLoop === "function") {
-              var target = el.querySelector('swiper-slide[data-photo="' + requestedPhoto.replace(/[^a-zA-Z0-9_.-]/g, "") + '"]');
-              if (target) {
-                el.swiper.slideToLoop(Number(target.getAttribute("data-photo-index")), 0);
-                var scrollToGallery = function () {
-                  section.scrollIntoView({ block: "start" });
-                };
-                scrollToGallery();
-                // Lazy-loaded images and reveal animations above the gallery can
-                // shift the layout AFTER our initial scroll, leaving the viewer
-                // on the text above. Re-scroll once everything has loaded.
-                if (document.readyState !== "complete") {
-                  window.addEventListener(
-                    "load",
-                    function () {
-                      requestAnimationFrame(scrollToGallery);
-                    },
-                    { once: true }
-                  );
-                }
-              }
+              navigateToRequestedPhoto();
             }
           } catch (e) {
             /* no-op */
@@ -214,6 +195,58 @@ I am an AWS- and Azure-certified data science and machine learning professional 
         if (tries++ < 80) requestAnimationFrame(tryEnable);
       }
       tryEnable();
+    }
+
+    /* Deep-link navigation to a specific coverflow slide.
+       Reliability notes:
+       - Autoplay (4 s timer) starts the moment swiper initializes, so a race
+         can cancel a plain slideToLoop(target) call for anything but a few
+         indices by chance. Pause autoplay up front, pin the slide across a
+         few animation frames so loop duplicates are definitely placed, then
+         leave autoplay paused — a user who landed on a specific photo didn't
+         ask the carousel to drift away. Hover / interaction will resume it. */
+    function navigateToRequestedPhoto() {
+      var sanitized = requestedPhoto.replace(/[^a-zA-Z0-9_.-]/g, "");
+      var target = el.querySelector('swiper-slide[data-photo="' + sanitized + '"]');
+      if (!target) return;
+      var targetIdx = Number(target.getAttribute("data-photo-index"));
+
+      if (el.swiper.autoplay && typeof el.swiper.autoplay.stop === "function") {
+        el.swiper.autoplay.stop();
+      }
+
+      // Pin across three successive frames: initial jump, then re-assert after
+      // loop placement settles and once more after `load` so late image/font
+      // reflows can't nudge the active slide off.
+      var pinTo = function () {
+        try {
+          el.swiper.slideToLoop(targetIdx, 0);
+        } catch (e) {
+          /* no-op */
+        }
+      };
+      pinTo();
+      requestAnimationFrame(function () {
+        pinTo();
+        requestAnimationFrame(pinTo);
+      });
+
+      var scrollToGallery = function () {
+        section.scrollIntoView({ block: "start" });
+      };
+      scrollToGallery();
+      if (document.readyState !== "complete") {
+        window.addEventListener(
+          "load",
+          function () {
+            requestAnimationFrame(function () {
+              pinTo();
+              scrollToGallery();
+            });
+          },
+          { once: true }
+        );
+      }
     }
 
     function pauseWhenOffscreen() {
