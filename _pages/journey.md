@@ -439,6 +439,14 @@ map: true
 
       // Group visited countries by continent, keeping stable continent order.
       var CONTINENT_ORDER = ["Europe", "Africa", "North America", "South America", "Asia", "Oceania", "Other"];
+
+      // Within each continent, order the country cards by the sequence in
+      // which the places were first visited rather than alphabetically.
+      // Any country missing from this list falls to the end in alpha order.
+      var COUNTRY_ORDER = {
+        Europe: ["Ireland", "United Kingdom", "Italy", "Albania"],
+        Africa: ["Nigeria", "Rwanda", "Kenya", "Morocco"],
+      };
       var grouped = {};
       Object.keys(byCountry).forEach(function (c) {
         var cont = (COUNTRY_META[c] || {}).continent || "Other";
@@ -456,7 +464,15 @@ map: true
       CONTINENT_ORDER.forEach(function (cont) {
         var countries = grouped[cont];
         if (!countries || !countries.length) return;
-        countries.sort();
+        var order = COUNTRY_ORDER[cont] || [];
+        countries.sort(function (a, b) {
+          var ai = order.indexOf(a);
+          var bi = order.indexOf(b);
+          if (ai === -1 && bi === -1) return a.localeCompare(b);
+          if (ai === -1) return 1;
+          if (bi === -1) return -1;
+          return ai - bi;
+        });
         html +=
           '<div class="journey-countries-group">' +
             '<h3 class="journey-countries-group-title">' + escapeHtml(cont) + ' <span>' + countries.length + "</span></h3>" +
