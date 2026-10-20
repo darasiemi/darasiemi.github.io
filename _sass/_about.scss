@@ -1239,12 +1239,7 @@ swiper-slide {
     content: "";
     position: absolute;
     inset: 0;
-    background: radial-gradient(
-      ellipse at center,
-      rgba(0, 0, 0, 0.45) 0%,
-      rgba(0, 0, 0, 0.65) 60%,
-      rgba(0, 0, 0, 0.8) 100%
-    );
+    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.65) 60%, rgba(0, 0, 0, 0.8) 100%);
     z-index: 1;
     pointer-events: none;
   }

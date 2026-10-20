@@ -34,7 +34,7 @@ map: true
 <p class="journey-intro-cta journey-intro-cta--footer">
   <i class="fa-solid fa-microphone" aria-hidden="true"></i>
   The map shows the <em>where</em>. For the <em>what</em> —
-  <a href="{{ '/talks/' | relative_url }}">browse the full talks catalogue &rarr;</a>
+  <a href="/talks/">browse the full talks catalogue &rarr;</a>
 </p>
 
 {% comment %} Pin data lives in \_data/journey.yml, serialized here for the map JS. {% endcomment %}
