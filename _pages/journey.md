@@ -9,7 +9,7 @@ map: true
 
 <div class="journey-intro">
   <p>
-    This map shows places where a piece of my work happened — a workshop presented, a paper written, students taught, or a visit that changed how I think. Select a country on the map or below it to see the events there.
+    This map shows places where a piece of my work happened — schooling, conference talks, volunteering, or a visit that changed how I think. Select a country on the map or below it to see the events there.
   </p>
 </div>
 
