@@ -58,6 +58,13 @@ locations:
         url: /outreaches/#aware-training
         note: Peer-support group facilitator training
 
+      - title: MIUA — Conference Volunteer
+        type: volunteering
+        year: "2026"
+        photo: assets/img/miua_volunteer.jpeg
+        url: "/?photo=miua_volunteer.jpeg#gallery"
+        note: Volunteered at the Conference on Medical Image Understanding and Analysis
+
   - name: Cork
     country: Ireland
     coords: [51.8985, -8.4756]
