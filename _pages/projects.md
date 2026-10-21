@@ -2,7 +2,7 @@
 layout: page
 title: projects
 permalink: /projects/
-# description: A growing collection of my cool projects.
+description: The builds I take on to stay sharp — chasing problems that nag at me, picking up new frameworks hands-on, and getting ML systems from notebook to production.
 nav: true
 nav_order: 3
 display_categories: [work, fun]
