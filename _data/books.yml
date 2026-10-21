@@ -1,20 +1,20 @@
 # ──────────────────────────────────────────────────────────────────────────────
 # Bookshelf — the books that shape how I think.
 #
-# Each entry becomes a plane in the WebGL shelf on /bookshelf/. The shelf uses
-# the canonical cover (fetched from Open Library via `isbn`) so the row looks
-# polished and uniform. Clicking a book opens a detail panel that shows the
-# `cover` field — my own photo of the physical copy on my desk.
+# Each entry becomes a book in the WebGL shelf on /bookshelf/. The detail panel
+# shows a local digital cover from `preview_cover` or Open Library via `isbn`, plus
+# the `cover` field — my own photo of the physical copy on my desk.
 #
 # Fields:
 #   title        — book title
 #   author       — single author or "Co-Author A & Co-Author B"
-#   isbn         — ISBN-13 for the Open Library front-cover preview in the
-#                  detail card. The visible shelf spines are drawn separately.
+#   isbn         — ISBN-13 for the Open Library preview when no local digital
+#                  cover is set. The visible shelf spines are drawn separately.
+#   preview_cover — local digital cover for fast, reliable previews.
 #   cover        — path to my personal photo of the book
 #                  (assets/img/books/…). Used only in the “My copy” section.
-#   spine_color  — hex, drives the gradient card shown while a texture is
-#                  loading or when both sources fail.
+#   spine_color  — hex, drives the gradient card shown while a preview is
+#                  loading or when no preview is available.
 #   text_color   — hex for the title/author text on the gradient card.
 #   progress     — int 0–100. Only read for `currently_reading`.
 #   year         — publication year, shown on the detail card.
@@ -23,6 +23,8 @@ currently_reading:
   - title: AI Engineering
     author: Chip Huyen
     isbn: "9781098166304"
+    # Publisher cover: https://www.oreilly.com/covers/urn%3Aorm%3Abook%3A9781098166298/296w/
+    preview_cover: assets/img/books/ai-engineering-cover.webp
     cover: assets/img/books/ai-engineering.jpeg
     spine_color: "#8a5a3e"
     text_color: "#f5f5f5"
@@ -32,6 +34,7 @@ currently_reading:
   - title: An Illustrated Guide to AI Agents
     author: Maarten Grootendorst & Jay Alammar
     isbn: "9798341662698"
+    preview_cover: assets/img/books/an-illustrated-guide-to-ai-agents-cover.webp
     cover: assets/img/books/an-illustrated-guide-to-ai-agents.jpeg
     spine_color: "#4a6b8f"
     text_color: "#f5f5f5"
@@ -42,6 +45,7 @@ completed:
   - title: The Psychology of Money
     author: Morgan Housel
     isbn: "9780857197689"
+    preview_cover: assets/img/books/the-psychology-of-money-cover.webp
     cover: assets/img/books/the-psychology-of-money.jpeg
     spine_color: "#4a6b4e"
     text_color: "#f5f5f5"
@@ -49,6 +53,7 @@ completed:
 
   - title: Making It Big
     author: Femi Otedola
+    preview_cover: assets/img/books/making-it-big-cover.webp
     cover: assets/img/books/making-it-big.jpeg
     spine_color: "#2d2a28"
     text_color: "#f5f5f5"
@@ -57,6 +62,7 @@ completed:
   - title: Burn Rate
     author: Andy Dunn
     isbn: "9780593296332"
+    preview_cover: assets/img/books/burn-rate-cover.webp
     cover: assets/img/books/burn-rate.jpeg
     spine_color: "#d9a93a"
     text_color: "#1c1917"
@@ -65,6 +71,7 @@ completed:
   - title: The Hypomanic Edge
     author: John D. Gartner
     isbn: "9780743243445"
+    preview_cover: assets/img/books/the-hypomanic-edge-cover.webp
     cover: assets/img/books/the-hypomanic-edge.jpeg
     spine_color: "#a1281e"
     text_color: "#f5f5f5"
@@ -73,6 +80,7 @@ completed:
   - title: Designing Machine Learning Systems
     author: Chip Huyen
     isbn: "9781098107963"
+    preview_cover: assets/img/books/designing-machine-learning-systems-cover.webp
     cover: assets/img/books/designing-machine-learning-systems.jpeg
     spine_color: "#c88c3f"
     text_color: "#f5f5f5"
@@ -81,6 +89,7 @@ completed:
   - title: Machine Learning Design Patterns
     author: Lakshmanan, Robinson & Munn
     isbn: "9781098115784"
+    preview_cover: assets/img/books/machine-learning-design-patterns-cover.webp
     cover: assets/img/books/machine-learning-design-patterns.jpeg
     spine_color: "#b85c3a"
     text_color: "#f5f5f5"

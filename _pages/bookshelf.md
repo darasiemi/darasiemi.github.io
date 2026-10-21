@@ -35,19 +35,27 @@ description: A selection of books I’ve read and am currently reading.
   </noscript>
 
   <!--
-    Idle-time prefetch of every personal "My copy" photo. The browser downloads
-    these during idle after the critical shelf has rendered, so clicking a
-    book opens the detail panel with the photo already in cache — no flash of
-    empty figure while the request round-trips.
+    Load current-reading digital covers early and prefetch the completed
+    digital covers and personal "My copy" photos during idle, so the detail
+    panel can show them from cache.
   -->
 
 {% for book in site.data.books.currently_reading %}
+{% if book.preview_cover and book.preview_cover != '' %}
+
+<link rel="preload" as="image" href="{{ book.preview_cover | relative_url }}" />
+{% elsif book.isbn and book.isbn != '' %}
+<link rel="preload" as="image" href="https://covers.openlibrary.org/b/isbn/{{ book.isbn }}-M.jpg?default=false" referrerpolicy="no-referrer" />
+{% endif %}
 {% if book.cover and book.cover != '' %}
 
 <link rel="prefetch" as="image" href="{{ book.cover | relative_url }}" />
 {% endif %}
 {% endfor %}
 {% for book in site.data.books.completed %}
+{% if book.preview_cover and book.preview_cover != '' %}
+<link rel="prefetch" as="image" href="{{ book.preview_cover | relative_url }}" />
+{% endif %}
 {% if book.cover and book.cover != '' %}
 <link rel="prefetch" as="image" href="{{ book.cover | relative_url }}" />
 {% endif %}
@@ -72,6 +80,7 @@ description: A selection of books I’ve read and am currently reading.
 "title": {{ book.title | jsonify }},
 "author": {{ book.author | jsonify }},
 "isbn": {{ book.isbn | default: '' | jsonify }},
+"preview_cover": {% if book.preview_cover and book.preview_cover != '' %}{{ book.preview_cover | relative_url | jsonify }}{% else %}""{% endif %},
 "cover": {% if book.cover and book.cover != '' %}{{ book.cover | relative_url | jsonify }}{% else %}""{% endif %},
 "spine_color": {{ book.spine_color | default: '#0a7065' | jsonify }},
 "text_color": {{ book.text_color | default: '#f3f4f6' | jsonify }},
@@ -85,6 +94,7 @@ description: A selection of books I’ve read and am currently reading.
 "title": {{ book.title | jsonify }},
 "author": {{ book.author | jsonify }},
 "isbn": {{ book.isbn | default: '' | jsonify }},
+"preview_cover": {% if book.preview_cover and book.preview_cover != '' %}{{ book.preview_cover | relative_url | jsonify }}{% else %}""{% endif %},
 "cover": {% if book.cover and book.cover != '' %}{{ book.cover | relative_url | jsonify }}{% else %}""{% endif %},
 "spine_color": {{ book.spine_color | default: '#0a7065' | jsonify }},
 "text_color": {{ book.text_color | default: '#f3f4f6' | jsonify }},
@@ -113,6 +123,7 @@ description: A selection of books I’ve read and am currently reading.
                 data-author="{{ book.author | escape }}"
                 data-cover="{% if book.cover %}{{ book.cover | relative_url }}{% endif %}"
                 data-isbn="{{ book.isbn | escape }}"
+                data-preview-cover="{% if book.preview_cover %}{{ book.preview_cover | relative_url }}{% endif %}"
                 data-year="{{ book.year }}"
                 data-progress="{{ book.progress | default: 0 }}"
                 data-status="reading"
@@ -145,6 +156,7 @@ description: A selection of books I’ve read and am currently reading.
                 data-author="{{ book.author | escape }}"
                 data-cover="{% if book.cover %}{{ book.cover | relative_url }}{% endif %}"
                 data-isbn="{{ book.isbn | escape }}"
+                data-preview-cover="{% if book.preview_cover %}{{ book.preview_cover | relative_url }}{% endif %}"
                 data-year="{{ book.year }}"
                 data-progress="100"
                 data-status="completed"
@@ -215,7 +227,7 @@ description: A selection of books I’ve read and am currently reading.
       var title = book.getAttribute("data-title") || "";
       var author = book.getAttribute("data-author") || "";
       var cover = book.getAttribute("data-cover") || "";
-      var previewCover = openLibraryCoverUrl(book.getAttribute("data-isbn") || "");
+      var previewCover = book.getAttribute("data-preview-cover") || openLibraryCoverUrl(book.getAttribute("data-isbn") || "");
       var year = book.getAttribute("data-year") || "";
       var progress = Math.max(0, Math.min(100, Number(book.getAttribute("data-progress") || 0)));
       var status = book.getAttribute("data-status") || "reading";

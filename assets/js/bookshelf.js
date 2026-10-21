@@ -418,14 +418,14 @@ import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.m
     });
     detail.appendChild(close);
 
-    // Top row: canonical Open Library cover (preview) + title/author/progress.
+    // Top row: local digital cover, with Open Library as a fallback for future entries.
     const top = document.createElement("div");
     top.className = "bookshelf-detail-top";
 
     const cover = document.createElement("div");
     cover.className = "bookshelf-detail-cover";
     cover.style.setProperty("--cover-color", book.spine_color || "#0a7065");
-    const previewUrl = book.openlibrary_cover || (book.isbn ? `https://covers.openlibrary.org/b/isbn/${book.isbn}-M.jpg?default=false` : "");
+    const previewUrl = book.preview_cover || (book.isbn ? `https://covers.openlibrary.org/b/isbn/${book.isbn}-M.jpg?default=false` : "");
     if (previewUrl) {
       cover.classList.add("is-loading");
       const img = new Image();
