@@ -400,6 +400,12 @@
       "url": "/?photo=about_14.jpeg#gallery"
     },
     {
+      "title": "Research Ireland PhD Full Scholarship",
+      "date": "2023-05",
+      "awarder": "Research Ireland Centre for Research Training in Machine Learning",
+      "summary": "Top 3-5% of applications all over the world."
+    },
+    {
       "title": "Mastercard Foundation Scholarship Award",
       "date": "2021-04-01",
       "awarder": "Mastercard Foundation",
@@ -436,13 +442,19 @@
       "title": "2015/2016 NNPC/Total Undergraduate National Merit Award",
       "date": "2016-03-01",
       "awarder": "NNPC/Total",
-      "summary": "Academic award to outstanding students in Nigerian tertiary institutions."
+      "summary": "National merit scholarship award to outstanding students in Nigerian tertiary institutions based on performance in academics and a competitive aptitude test."
     },
     {
       "title": "MTN Foundation Science and Technology Scholarship Phase 6",
       "date": "2015-12-01",
       "awarder": "MTN Nigeria",
-      "summary": "Academic award to outstanding students in science and technology in tertiary institutions in Nigeria."
+      "summary": "National merit scholarship award to outstanding students in Nigerian tertiary institutions based on performance in academics and a competitive aptitude test."
+    },
+    {
+      "title": "Agbami Medical and Engineering Scholarship",
+      "date": "2015-10",
+      "awarder": "Chevron Corporation",
+      "summary": "National merit scholarship award to outstanding medical and engineering students in Nigeria based on performance in academics and a competitive aptitude test."
     }
   ],
   "certificates": [
