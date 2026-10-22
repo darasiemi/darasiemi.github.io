@@ -76,9 +76,9 @@ I am an AWS- and Azure-certified data science and machine learning professional 
 </div>
 </div>
 
-{% assign carousel_images = "about_x1.jpeg,dara5.jpeg,about_1.jpeg,about_2.jpeg,about_3.jpeg,about_4.jpeg,about_5.jpeg,about_6.jpeg,about_7.jpeg,about_8.jpeg,about_9.jpeg,about_10.jpeg,about_11.jpeg,about_12.jpeg,about_13.jpeg,about_14.jpeg,about_101.jpg,about_102.jpg,about_103.jpg,about_104.jpg,aware_volunteering.JPG,about_105.jpeg,miua_volunteer.jpeg" | split: "," %}
+{% assign carousel_images = "about_x1.jpeg,dara5.jpeg,about_1.jpeg,about_7.jpeg,about_2.jpeg,about_3.jpeg,about_14.jpeg,about_4.jpeg,about_101.jpg,about_5.jpeg,about_6.jpeg,about_8.jpeg,about_9.jpeg,about_10.jpeg,about_103.jpg,about_102.jpg,aware_volunteering.JPG,about_104.jpg,about_11.jpeg,about_12.jpeg,about_13.jpeg,about_105.jpeg,miua_volunteer.jpeg" | split: "," %}
 
-{% assign carousel_captions = "Computational Methods for Mental Health and Wellbeing Workshop Presentation at CIBB, Rome, Italy (2026)|Participating at the Tech Ireland Hackathon (2026)|My First PhD Poster at the UCD PhD/MSc by Research Poster Presentation (2024)|MSc Graduation, Carnegie Mellon University (2023)|ML-Labs Summer School Social Activity (2023)|Dublin Tech Summit (2024)|President's Office, University College Cork (2024)|CMU Social Feature for the Highest-Ranked Rwandan Team at Umoja Hack (2022)|Huawei Tech Arena Award Presentation (2025)|Huawei Tech Arena Award Plaque (2025)|ML-Labs Summer School (2026)|George Boole Statue, University College Cork (2024)|CMU-Africa Social Event (2022)|Visit to Zipline Rwanda (2022)|IBM Research AI Workshop (2024)|UCC AI Quest Award Presentation (2024)|Etisalat Merit Award Presentation (2015)|Etisalat Merit Award Presentation (2016)|Winner, Etisalat Innovation Moment for Etisalat Merit Awardees (2016)|RISE Initiative Leadership Bootcamp (2019)|Aware Volunteer Training Weekend (2026)|At the Colosseum, Rome, Italy (2026)|Volunteering at the Conference on Medical Image Understanding and Analysis (2026)" | split: "|" %}
+{% assign carousel_captions = "Computational Methods for Mental Health and Wellbeing Workshop Presentation at CIBB, Rome, Italy (2026)|Participating at the Tech Ireland Hackathon (2026)|My First PhD Poster at the UCD PhD/MSc by Research Poster Presentation (2024)|Huawei Tech Arena Award Presentation (2025)|MSc Graduation, Carnegie Mellon University (2023)|ML-Labs Summer School Social Activity (2023)|UCC AI Quest Award Presentation (2024)|Dublin Tech Summit (2024)|Etisalat Merit Award Presentation (2015)|President's Office, University College Cork (2024)|CMU Social Feature for the Highest-Ranked Rwandan Team at Umoja Hack (2022)|Huawei Tech Arena Award Plaque (2025)|ML-Labs Summer School (2026)|George Boole Statue, University College Cork (2024)|Winner, Etisalat Innovation Moment for Etisalat Merit Awardees (2016)|Etisalat Merit Award Presentation (2016)|Aware Ireland Volunteer Training Weekend (2026)|RISE Initiative Leadership Bootcamp (2019)|CMU-Africa Social Event (2022)|Visit to Zipline Rwanda (2022)|IBM Research AI Workshop (2024)|At the Colosseum, Rome, Italy (2026)|Volunteering at the Conference on Medical Image Understanding and Analysis (2026)" | split: "|" %}
 
 <div class="gallery-section" id="gallery">
   <p class="gallery-nudge">👉 Walk with me — swipe, drag, or nudge through my journey.</p>
@@ -279,7 +279,7 @@ I am an AWS- and Azure-certified data science and machine learning professional 
           entries.forEach(function (entry) {
             if (!el.swiper || !el.swiper.autoplay) return;
             if (entry.isIntersecting) {
-              el.swiper.autoplay.start();
+              if (!requestedPhoto) el.swiper.autoplay.start();
             } else {
               el.swiper.autoplay.stop();
             }
