@@ -182,6 +182,12 @@
     <div class="periodical">
       {{ periodical | strip }}
     </div>
+    {% if entry.award_tagline %}
+      <div class="publication-award">
+        <i class="fa-solid fa-star" aria-hidden="true"></i>
+        <span>{{ entry.award_tagline }}</span>
+      </div>
+    {% endif %}
     <div class="periodical">
       {{ entry.note | strip }}
     </div>
