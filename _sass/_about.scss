@@ -1074,6 +1074,54 @@ html.about-staged:not(.terminal-done) {
     color: var(--global-text-color);
   }
 
+  &.has-scroll-highlight .bio-scroll-word {
+    opacity: 0.62;
+    -webkit-text-stroke: 0 currentColor;
+    transition:
+      opacity 120ms linear,
+      color 120ms linear;
+  }
+
+  a {
+    color: var(--global-theme-color);
+
+    &:hover,
+    &:focus-visible {
+      color: var(--global-hover-color);
+    }
+  }
+
+  &.has-scroll-highlight a .bio-scroll-word {
+    color: var(--global-text-color);
+  }
+
+  &.has-scroll-highlight a .bio-scroll-word.is-lit {
+    color: var(--global-theme-color);
+  }
+
+  &.has-scroll-highlight a:hover .bio-scroll-word.is-lit,
+  &.has-scroll-highlight a:focus-visible .bio-scroll-word.is-lit {
+    color: var(--global-hover-color);
+  }
+
+  @media (prefers-reduced-motion: reduce), print, (forced-colors: active) {
+    &.has-scroll-highlight .bio-scroll-word {
+      opacity: 1 !important;
+      -webkit-text-stroke-width: 0 !important;
+      transition: none;
+    }
+
+    &.has-scroll-highlight a .bio-scroll-word {
+      color: var(--global-theme-color) !important;
+    }
+  }
+
+  @media (forced-colors: active) {
+    &.has-scroll-highlight a .bio-scroll-word {
+      color: LinkText !important;
+    }
+  }
+
   h4 {
     font-family: "Bricolage Grotesque", "Instrument Sans", sans-serif;
     font-weight: 600;

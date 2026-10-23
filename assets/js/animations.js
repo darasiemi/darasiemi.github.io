@@ -44,6 +44,71 @@ function afterPreloader(eventName, callback) {
     done: false,
   };
 
+  function setupBioScrollHighlight(container) {
+    if (reduceMotion) return;
+
+    var words = [];
+    container.querySelectorAll("p, li, h4").forEach(function (element) {
+      var walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT);
+      var textNodes = [];
+      while (walker.nextNode()) textNodes.push(walker.currentNode);
+
+      textNodes.forEach(function (node) {
+        var parts = node.textContent.split(/(\s+)/);
+        var fragment = document.createDocumentFragment();
+        parts.forEach(function (part) {
+          if (!part) return;
+          if (/^\s+$/.test(part)) {
+            fragment.appendChild(document.createTextNode(part));
+          } else {
+            var word = document.createElement("span");
+            word.className = "bio-scroll-word";
+            word.textContent = part;
+            fragment.appendChild(word);
+            words.push(word);
+          }
+        });
+        node.parentNode.replaceChild(fragment, node);
+      });
+    });
+    if (!words.length) return;
+
+    container.classList.add("has-scroll-highlight");
+    var pending = false;
+    var lastProgress = -1;
+
+    function update() {
+      pending = false;
+      var viewportHeight = window.innerHeight;
+      var rect = container.getBoundingClientRect();
+      var lastWordBottom = words[words.length - 1].getBoundingClientRect().bottom;
+      var progress = Math.max(0, Math.min(1, (viewportHeight * 0.9 - rect.top) / (lastWordBottom - rect.top + viewportHeight * 0.1)));
+      if (progress === lastProgress) return;
+      lastProgress = progress;
+
+      var count = words.length;
+      var fadeWidth = 3;
+      words.forEach(function (word, index) {
+        var start = index / count;
+        var end = Math.min(1, (index + fadeWidth) / count);
+        var reveal = Math.max(0, Math.min(1, (progress - start) / (end - start)));
+        word.style.opacity = (0.62 + reveal * 0.38).toFixed(3);
+        word.style.webkitTextStrokeWidth = (reveal * 0.45).toFixed(2) + "px";
+        word.classList.toggle("is-lit", reveal >= 0.98);
+      });
+    }
+
+    function requestUpdate() {
+      if (pending) return;
+      pending = true;
+      requestAnimationFrame(update);
+    }
+
+    window.addEventListener("scroll", requestUpdate, { passive: true });
+    window.addEventListener("resize", requestUpdate);
+    requestUpdate();
+  }
+
   function sleep(ms) {
     return new Promise(function (resolve) {
       setTimeout(resolve, ms);
@@ -206,6 +271,7 @@ function afterPreloader(eventName, callback) {
     if (full) {
       await sleep(state.skipped ? 0 : 300);
       full.classList.add("is-visible");
+      setupBioScrollHighlight(full);
       requestAnimationFrame(function () {
         requestAnimationFrame(function () {
           full.classList.add("is-revealed");
