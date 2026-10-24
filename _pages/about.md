@@ -125,13 +125,14 @@ I am an AWS- and Azure-certified data science and machine learning professional 
   >
     {% for img in carousel_images %}
       {% assign img_base = img | split: '.' | first %}
+      {% assign img_extension = img | split: '.' | last | prepend: '.' %}
       <swiper-slide data-photo="{{ img }}" data-photo-index="{{ forloop.index0 }}">
         <div
           class="swiper-photo-slide{% if img == 'about_5.jpeg' or img == 'about_10.jpeg' or img == 'about_13.jpeg' %} swiper-photo-slide--lower-focus{% elsif img == 'miua_volunteer.jpeg' %} swiper-photo-slide--contain{% endif %}"
           {% if img == 'miua_volunteer.jpeg' %}style="--photo-url: url('{{ '/assets/img/' | append: img | relative_url }}');"{% endif %}
         >
           <picture>
-            {% if site.imagemagick.enabled %}
+            {% if site.imagemagick.enabled and site.imagemagick.input_formats contains img_extension %}
               <source
                 srcset="{{ '/assets/img/' | append: img_base | append: '-480.webp' | relative_url }} 480w, {{ '/assets/img/' | append: img_base | append: '-800.webp' | relative_url }} 800w, {{ '/assets/img/' | append: img_base | append: '-1400.webp' | relative_url }} 1400w"
                 sizes="(max-width: 480px) 94vw, (max-width: 768px) 88vw, min(820px, 70vw)"

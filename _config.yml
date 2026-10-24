@@ -296,7 +296,7 @@ jekyll-archives:
     category: "/blog/category/:name/"
 
 display_tags: ["machine learning", "mental health", "hackathon", "certifications", "news", "technology", "summer schools"] # these tags will be displayed on the front page of your blog
-display_categories: ["personal", "AI", "research", "publication", "PhD", "commentary", "lifestyle"] # these categories will be displayed on the front page of your blog
+display_categories: ["AI", "research", "publication", "PhD", "commentary", "lifestyle"] # these categories will be displayed on the front page of your blog
 
 # -----------------------------------------------------------------------------
 # Jekyll Scholar
