@@ -986,6 +986,27 @@ footer.sticky-bottom {
 // Projects
 
 .projects {
+  .projects-github-cta {
+    margin: 0 0 1.5rem;
+
+    a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.6rem 0.9rem;
+      border: 1px solid var(--global-theme-color);
+      border-radius: 999px;
+      color: var(--global-theme-color);
+      font-weight: 600;
+
+      &:hover,
+      &:focus-visible {
+        background-color: var(--global-theme-color);
+        color: var(--global-bg-color);
+      }
+    }
+  }
+
   a {
     text-decoration: none;
 

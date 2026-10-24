@@ -11,6 +11,15 @@ horizontal: false
 
 <!-- pages/projects.md -->
 <div class="projects">
+{% if site.github_username %}
+  <p class="projects-github-cta">
+    <a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener noreferrer">
+      <i class="fa-brands fa-github" aria-hidden="true"></i>
+      <span>Explore more projects on GitHub</span>
+      <span aria-hidden="true">↗</span>
+    </a>
+  </p>
+{% endif %}
 {% if site.enable_project_categories and page.display_categories %}
   <!-- Display categorized projects -->
   {% for category in page.display_categories %}

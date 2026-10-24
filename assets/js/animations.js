@@ -12,6 +12,53 @@ function afterPreloader(eventName, callback) {
   }
 }
 
+/* ── Hero glow follows the cursor ── */
+(function () {
+  var hero = document.querySelector(".hero-section");
+  if (!hero || !window.matchMedia("(hover: hover) and (pointer: fine)").matches || window.matchMedia("(prefers-reduced-motion: reduce)").matches)
+    return;
+
+  var x = 50;
+  var y = 50;
+  var targetX = 50;
+  var targetY = 50;
+  var frame = 0;
+
+  function update() {
+    var dx = targetX - x;
+    var dy = targetY - y;
+    if (Math.abs(dx) + Math.abs(dy) < 0.2) {
+      x = targetX;
+      y = targetY;
+      frame = 0;
+    } else {
+      x += dx * 0.16;
+      y += dy * 0.16;
+      frame = window.requestAnimationFrame(update);
+    }
+    hero.style.setProperty("--hero-glow-x", x.toFixed(2) + "%");
+    hero.style.setProperty("--hero-glow-y", y.toFixed(2) + "%");
+  }
+
+  function moveTo(nextX, nextY) {
+    targetX = nextX;
+    targetY = nextY;
+    if (!frame) frame = window.requestAnimationFrame(update);
+  }
+
+  hero.addEventListener(
+    "pointermove",
+    function (event) {
+      var rect = hero.getBoundingClientRect();
+      moveTo(((event.clientX - rect.left) / rect.width) * 100, ((event.clientY - rect.top) / rect.height) * 100);
+    },
+    { passive: true }
+  );
+  hero.addEventListener("pointerleave", function () {
+    moveTo(50, 50);
+  });
+})();
+
 /* ── Terminal driver ── */
 (function () {
   var term = document.getElementById("bioTerminal");
