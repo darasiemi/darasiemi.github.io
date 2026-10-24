@@ -15,8 +15,7 @@ function afterPreloader(eventName, callback) {
 /* ── Hero glow follows the cursor ── */
 (function () {
   var hero = document.querySelector(".hero-section");
-  if (!hero || !window.matchMedia("(hover: hover) and (pointer: fine)").matches || window.matchMedia("(prefers-reduced-motion: reduce)").matches)
-    return;
+  if (!hero || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
   var x = 50;
   var y = 50;
