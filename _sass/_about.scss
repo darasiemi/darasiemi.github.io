@@ -873,6 +873,7 @@ html.about-staged:not(.terminal-done) {
   .page-container--photo-divider,
   .page-section--news,
   .page-section--publications,
+  .page-section--writing,
   .social-section {
     display: none;
   }
@@ -1651,6 +1652,63 @@ swiper-slide {
     &:focus-visible {
       color: var(--global-theme-color);
     }
+  }
+}
+
+// Selected blog posts on the home page.
+.selected-writing {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.selected-writing-item {
+  padding: 1.5rem;
+  border: 1px solid var(--global-divider-color);
+  border-radius: 0.75rem;
+  background: var(--global-bg-color);
+
+  .selected-writing-date {
+    display: block;
+    margin-bottom: 0.75rem;
+    color: var(--global-text-color-light);
+    font-family: "Geist Mono", "SF Mono", monospace;
+    font-size: 0.75rem;
+  }
+
+  h3 {
+    margin-bottom: 0.75rem;
+    font-family: "Bricolage Grotesque", "Instrument Sans", sans-serif;
+    font-size: 1.15rem;
+    line-height: 1.35;
+  }
+
+  h3 a {
+    color: var(--global-text-color);
+    text-decoration: none;
+
+    &:hover,
+    &:focus-visible {
+      color: var(--global-theme-color);
+      text-decoration: underline;
+    }
+  }
+
+  p {
+    margin: 0;
+    color: var(--global-text-color-light);
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+}
+
+.page-section--writing .news-see-all {
+  @media (max-width: 576px) {
+    margin-right: 3.5rem;
   }
 }
 

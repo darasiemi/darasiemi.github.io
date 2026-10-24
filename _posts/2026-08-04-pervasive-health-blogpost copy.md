@@ -3,6 +3,8 @@ layout: post
 title: What does your spending say about your mental health?
 date: 2026-08-04 00:00:00-0400
 description: Pervasive Health 2026
+featured_on_about: true
+about_excerpt: How spending patterns could offer insights into mental health.
 tags:
   - mental health
 categories:

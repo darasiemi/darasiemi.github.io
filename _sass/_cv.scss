@@ -293,3 +293,25 @@ ul.timeline li::before {
     border-color: rgba(60, 191, 173, 0.36);
   }
 }
+
+.skills-projects-link {
+  margin: 1.5rem 0 0;
+  padding-top: 1rem;
+  border-top: 1px solid var(--global-divider-color);
+  text-align: right;
+
+  @media (max-width: 767px) {
+    text-align: left;
+  }
+
+  a {
+    color: var(--global-theme-color);
+    font-weight: 600;
+    text-decoration: none;
+
+    &:hover,
+    &:focus-visible {
+      text-decoration: underline;
+    }
+  }
+}

@@ -3,6 +3,8 @@ layout: post
 title: Navigating the Wilds of Money, Mind, and a PhD
 date: 2026-08-31 00:00:00-0400
 description: PhD Research Spotlight
+featured_on_about: true
+about_excerpt: A look at the connections between money, mental health, and my PhD research.
 tags:
   - mental health
 categories:

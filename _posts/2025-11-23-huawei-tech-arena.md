@@ -3,6 +3,8 @@ layout: post
 title: My Team Won the 2025 Huawei Tech Arena on LLM Inference Optimization
 date: 2025-11-23 00:00:00-0400
 description: Huawei Tech Arena
+featured_on_about: true
+about_excerpt: How our team won first place in a challenge to optimize LLM inference.
 tags:
   - machine learning
   - hackathon

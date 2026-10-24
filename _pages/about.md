@@ -14,6 +14,7 @@ profile:
 
 news: true
 selected_papers: true
+selected_posts: true
 social: true
 images:
   slider: true

@@ -186,6 +186,32 @@ layout: home
   </div>
 {% endif %}
 
+<!-- ── Selected Writing ──────────────────────────────────────────────────── -->
+{% if page.selected_posts %}
+  {% assign selected_posts = site.posts | where: 'featured_on_about', true %}
+  {% if selected_posts.size > 0 %}
+    <div class="page-section page-section--divided page-section--writing" id="selected-writing">
+      <div class="page-container">
+        <div class="about-section">
+          <h2 class="about-section-heading"><a href="{{ '/blog/' | relative_url }}">selected writing</a></h2>
+          <div class="selected-writing">
+            {% for post in selected_posts %}
+              <article class="selected-writing-item">
+                <time class="selected-writing-date" datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: '%b %Y' }}</time>
+                <h3>
+                  <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                </h3>
+                <p>{{ post.about_excerpt | default: post.description }}</p>
+              </article>
+            {% endfor %}
+          </div>
+          <p class="news-see-all">Want more? <a href="{{ '/blog/' | relative_url }}">Read the blog &rarr;</a></p>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+{% endif %}
+
 <!-- ── Social ────────────────────────────────────────────────────────────── -->
 {% if page.social %}
   <div class="social-section page-container">
