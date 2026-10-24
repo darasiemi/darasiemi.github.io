@@ -1,7 +1,7 @@
 ---
 layout: page
 permalink: /outreaches/
-title: community impact
+title: community
 # description: Materials for courses you taught. Replace this text with your description.
 nav: true
 nav_order: 5
