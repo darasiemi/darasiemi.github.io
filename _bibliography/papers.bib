@@ -68,12 +68,25 @@ selected = {true}
 
 
 @string{aps = {American Physical Society,}}
+@misc{kimani2023cattle,
+      title={Cattle Identification Using Muzzle Images and Deep Learning Techniques},
+      author={Kimani, G. N. and Adedeji, Oluwadara and Fashingabo, Patrick and Busogi, Moise and Luhanga, Edith and Sowon, Karen and Chacha, Lenah},
+      year={2023},
+      abstract={Traditional animal identification methods such as ear-tagging, ear notching, and branding have been effective but pose risks to the animal and have scalability issues. Electrical methods offer better tracking and monitoring but require specialized equipment and are susceptible to attacks. Biometric identification using time-immutable dermatoglyphic features such as muzzle prints and iris patterns is a promising solution. This project explores cattle identification using 4923 muzzle images collected from 268 beef cattle. Two deep learning classification models are implemented - wide ResNet50 and VGG16\_BN and image compression is done to lower the image quality and adapt the models to work for the African context. From the experiments run, a maximum accuracy of 99.5\% is achieved while using the wide ResNet50 model with a compression retaining 25\% of the original image. From the study, it is noted that the time required by the models to train and converge as well as recognition time are dependent on the machine used to run the model.},
+      eprint={2311.08148},
+      archivePrefix={arXiv},
+      preprint={arXiv},
+      primaryClass={cs.CV}
+}
+
 @misc{adedeji2022image,
       title={Image Augmentation for Satellite Images}, 
       author={Oluwadara Adedeji and Peter Owoade and Opeyemi Ajayi and Olayiwola Arowolo},
       year={2022},
+      abstract={This study proposes the use of generative models (GANs) for augmenting the EuroSAT dataset for the Land Use and Land Cover (LULC) Classification task. We used DCGAN and WGAN-GP to generate images for each class in the dataset. We then explored the effect of augmenting the original dataset by about 10\% in each case on model performance. The choice of GAN architecture seems to have no apparent effect on the model performance. However, a combination of geometric augmentation and GAN-generated images improved baseline results. Our study shows that GANs augmentation can improve the generalizability of deep classification models on satellite images.},
       eprint={2207.14580},
       archivePrefix={arXiv},
+      preprint={arXiv},
       primaryClass={cs.CV}
 }
 
@@ -83,6 +96,7 @@ selected = {true}
   year = {2026},
   eprint = {2610.20462},
   archivePrefix = {arXiv},
+  preprint = {arXiv},
   primaryClass = {cs.LG},
   abstract = {Foundation models have shown strong generalization across scientific domains, but their use in power systems remains largely task-specific. We investigate whether a pretrained tabular foundation model (TFM), TabPFN, can serve as a general-purpose neural solver for power grid steady-state analysis. We evaluate the TFM on three tasks: power flow (PF) prediction, N-k contingency screening (NCS), and voltage stability margin (VSM) prediction. We performed experiments on 118- and 2000-bus systems, comparing the TFM against task-specific neural baselines. Without retraining or fine-tuning, the TFM matches or outperforms the best task-specific model in several settings across the three tasks. For 118-bus PF prediction, a variant of the TFM achieves errors of 1e-3 pu for voltage magnitudes and 0.30 degrees for voltage angles, outperforming all baselines. On unseen N-1 contingency and close-to-infeasible PF cases, the TFM is competitive with the DCPF approximation. For millions of unseen N-2 contingencies, the TFM achieves AUCs of 0.92 and 0.95 for branch and voltage violation screening, respectively. The TFM also attains accurate VSM prediction performance for the 2000-bus system with limited labelled data. The TFM attains strong results across the tested tasks despite pretraining without any power-system-specific dataset and requiring no fine-tuning step. These results offer a glimpse into the potential of pretrained TFMs as a neural solver for a range of power grid analysis tasks.}
 }
