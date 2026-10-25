@@ -180,6 +180,10 @@
       {% include hook/bib.liquid %}
     {% endif %}
     {% assign entrytype_text = entrytype | strip_html | strip %}
+    {% assign entryyear_trimmed = entryyear | strip %}
+    {% if entryyear_trimmed != '' and entrytype_text contains entryyear_trimmed %}
+      {% assign entryyear = '' %}
+    {% endif %}
     {% capture periodical %}{{ entrytype }}{% if entrytype_text != "" and entryyear != "" %}, {% endif %}{{ entrymonth }}{{ entryyear }}{% endcapture %}
     <div class="periodical">
       {{ periodical | strip }}
