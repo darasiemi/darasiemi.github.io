@@ -255,10 +255,51 @@ I am an AWS- and Azure-certified data science and machine learning professional 
         pinInterval = setInterval(tryPin, 50);
       }
 
+      /* Keep snapping back to the gallery until the layout settles or the
+         user interacts. The terminal keeps typing text above the gallery
+         for several seconds on first load, late font loads shift metrics,
+         and lazy-loaded images reflow — all of which push the gallery down
+         after our initial scroll. On tight mobile viewports that leaves
+         the requested photo well below the fold. We anchor on a timed
+         ladder, resize-observe the body to catch anything in between, and
+         honour any user scroll/touch/key as an immediate opt-out. */
+      var userTookOver = false;
+      var markTakeover = function () {
+        userTookOver = true;
+      };
+      ["wheel", "touchstart", "keydown"].forEach(function (ev) {
+        window.addEventListener(ev, markTakeover, { once: true, passive: true });
+      });
+
       var scrollToGallery = function () {
+        if (userTookOver) return;
         section.scrollIntoView({ block: "start" });
       };
       scrollToGallery();
+      [100, 300, 700, 1400, 2500, 4000, 6000, 9000, 12000].forEach(function (delay) {
+        setTimeout(scrollToGallery, delay);
+      });
+
+      if (window.ResizeObserver) {
+        var ro = new ResizeObserver(function () {
+          if (userTookOver) return;
+          var rect = section.getBoundingClientRect();
+          if (Math.abs(rect.top) > 8) scrollToGallery();
+        });
+        ro.observe(document.body);
+        var stopRo = function () {
+          try {
+            ro.disconnect();
+          } catch (e) {
+            /* no-op */
+          }
+        };
+        setTimeout(stopRo, 15000);
+        ["wheel", "touchstart", "keydown"].forEach(function (ev) {
+          window.addEventListener(ev, stopRo, { once: true, passive: true });
+        });
+      }
+
       if (document.readyState !== "complete") {
         window.addEventListener(
           "load",
