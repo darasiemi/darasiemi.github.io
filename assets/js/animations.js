@@ -45,17 +45,49 @@ function afterPreloader(eventName, callback) {
     if (!frame) frame = window.requestAnimationFrame(update);
   }
 
+  // Touch pointers get cancelled as soon as Chromium decides a drag is a scroll
+  // gesture, so pointer events alone leave the glow stuck. We drive it from the
+  // native touch stream too — those events keep firing through a scroll — and
+  // suppress the pointerleave reset while a finger is still down.
+  var touchActive = false;
+
+  function moveFrom(clientX, clientY) {
+    var rect = hero.getBoundingClientRect();
+    moveTo(((clientX - rect.left) / rect.width) * 100, ((clientY - rect.top) / rect.height) * 100);
+  }
+
   hero.addEventListener(
     "pointermove",
     function (event) {
-      var rect = hero.getBoundingClientRect();
-      moveTo(((event.clientX - rect.left) / rect.width) * 100, ((event.clientY - rect.top) / rect.height) * 100);
+      moveFrom(event.clientX, event.clientY);
     },
     { passive: true }
   );
   hero.addEventListener("pointerleave", function () {
-    moveTo(50, 50);
+    if (!touchActive) moveTo(50, 50);
   });
+
+  hero.addEventListener(
+    "touchstart",
+    function (event) {
+      touchActive = true;
+      if (event.touches.length) moveFrom(event.touches[0].clientX, event.touches[0].clientY);
+    },
+    { passive: true }
+  );
+  hero.addEventListener(
+    "touchmove",
+    function (event) {
+      if (event.touches.length) moveFrom(event.touches[0].clientX, event.touches[0].clientY);
+    },
+    { passive: true }
+  );
+  function endTouch() {
+    touchActive = false;
+    moveTo(50, 50);
+  }
+  hero.addEventListener("touchend", endTouch);
+  hero.addEventListener("touchcancel", endTouch);
 })();
 
 /* ── Terminal driver ── */
