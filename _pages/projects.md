@@ -13,7 +13,7 @@ horizontal: false
 <div class="projects">
 {% if site.github_username %}
   <p class="profile-link">
-    <a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener">
+    <a href="https://github.com/darasiemi" target="_blank" rel="noopener">
       <i class="fa-brands fa-github" aria-hidden="true"></i> View my full profile on GitHub
     </a>
   </p>

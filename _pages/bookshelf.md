@@ -62,6 +62,7 @@ description: A selection of books I’ve read and am currently reading.
 {% endfor %}
 
 {% if site.data.books.last_updated %}
+
 <p class="bookshelf-updated">
 <span>Shelf updated</span>
 <time datetime="{{ site.data.books.last_updated | date: '%Y-%m-%d' }}">
