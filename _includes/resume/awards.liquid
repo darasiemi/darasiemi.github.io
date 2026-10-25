@@ -11,7 +11,8 @@
             {% if content.url %}
               {% assign award_target = '_blank' %}
               {% assign award_rel = 'noopener' %}
-              {% if content.url contains '?photo=' %}
+              {% assign award_url_first = content.url | slice: 0, 1 %}
+              {% if award_url_first == '/' or award_url_first == '#' %}
                 {% assign award_target = '_self' %}
                 {% assign award_rel = '' %}
               {% endif %}
