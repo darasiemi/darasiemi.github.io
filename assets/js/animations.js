@@ -84,7 +84,6 @@ function afterPreloader(eventName, callback) {
   );
   function endTouch() {
     touchActive = false;
-    moveTo(50, 50);
   }
   hero.addEventListener("touchend", endTouch);
   hero.addEventListener("touchcancel", endTouch);
