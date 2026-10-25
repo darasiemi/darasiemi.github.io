@@ -61,6 +61,15 @@ description: A selection of books I’ve read and am currently reading.
 {% endif %}
 {% endfor %}
 
+{% if site.data.books.last_updated %}
+<p class="bookshelf-updated">
+<span>Shelf updated</span>
+<time datetime="{{ site.data.books.last_updated | date: '%Y-%m-%d' }}">
+{{ site.data.books.last_updated | date: '%B %-d, %Y' }}
+</time>
+</p>
+{% endif %}
+
   <div class="bookshelf-stage" aria-hidden="true">
     <canvas id="bookshelfCanvas" class="bookshelf-canvas"></canvas>
     <div class="bookshelf-stage-hint">

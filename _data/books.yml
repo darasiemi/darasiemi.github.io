@@ -18,7 +18,12 @@
 #   text_color   — hex for the title/author text on the gradient card.
 #   progress     — int 0–100. Only read for `currently_reading`.
 #   year         — publication year, shown on the detail card.
+#
+# `last_updated` is shown on /bookshelf/. Bump it whenever the shelf changes
+# (new book, progress update, cover swap). Format: YYYY-MM-DD.
 # ──────────────────────────────────────────────────────────────────────────────
+last_updated: 2026-10-25
+
 currently_reading:
   - title: AI Engineering
     author: Chip Huyen
