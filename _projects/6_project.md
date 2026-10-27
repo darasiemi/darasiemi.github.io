@@ -11,8 +11,8 @@ The TechIreland National AI Challenge 2026 ran under the theme **"AI & Agents: S
 **Tus-Aite** is our entry on the **healthcare** track. It targets the problem of outpatient waiting list prioritisation in the Irish health system: an AI agent that sits between a national waiting list and the clinician who signs each referral — ranking patients within their urgency category using objective clinical signals and ward-level capacity, and explaining every position in plain language.
 
 <div class="row justify-content-sm-center">
-    <div class="col-sm-10 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/tus-aite-techireland-schematic.svg" title="Tus-Aite agent architecture — waiting list to clinician" class="img-fluid rounded z-depth-1" %}
+    <div class="col-sm-10 mt-3 mt-md-0 schematic-scroll">
+        {% include figure.liquid path="assets/img/tus-aite-techireland-schematic.svg" title="Tus-Aite agent architecture — waiting list to clinician" class="img-fluid rounded z-depth-1" zoomable=true %}
     </div>
 </div>
 

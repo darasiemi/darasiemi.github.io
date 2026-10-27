@@ -1586,3 +1586,23 @@ ninja-keys {
 ninja-keys::part(ninja-input-wrapper) {
   background: var(--global-bg-color);
 }
+
+// Landscape architecture schematics on the hackathon project pages have a
+// 1400-wide viewBox; scaled to a phone column, their labels become unreadable.
+// On narrow viewports, the column turns into a horizontal pan surface and the
+// figure keeps a minimum width so text stays legible — tap-to-zoom is the
+// secondary way to inspect the whole diagram.
+.schematic-scroll {
+  @media (max-width: 768px) {
+    overflow-x: auto;
+    overflow-y: visible;
+    -webkit-overflow-scrolling: touch;
+
+    figure,
+    figure picture,
+    figure img {
+      min-width: 820px;
+      max-width: none;
+    }
+  }
+}

@@ -9,8 +9,8 @@ category: hackathons
 The inaugural **UCC AI Quest 2023** challenged teams to build AI for climate action: specifically, **semantic segmentation of vegetation patches from high-resolution drone images of Irish landscapes**, scored on intersection-over-union (IoU). Our team placed as finalists in the vegetation patches image segmentation task.
 
 <div class="row justify-content-sm-center">
-    <div class="col-sm-11 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/ucc-ai-quest-schematic.svg" title="UCC AI Quest segmentation pipeline and model" class="img-fluid rounded z-depth-1" %}
+    <div class="col-sm-11 mt-3 mt-md-0 schematic-scroll">
+        {% include figure.liquid path="assets/img/ucc-ai-quest-schematic.svg" title="UCC AI Quest segmentation pipeline and model" class="img-fluid rounded z-depth-1" zoomable=true %}
     </div>
 </div>
 

@@ -9,8 +9,8 @@ category: hackathons
 Team Dynamo A (Oluwadara Adedeji — UCD; Chinonso Osuji, Jidenna Okwarah, Christopher Mc Aleer — DCU) won **1st Prize at the 2025 Huawei Ireland Tech Arena** for an end-to-end LLM inference system tuned on two axes at once: **latency** and **accuracy**. The schematic below is the mental model we worked from: a prompt enters, the model answers, and every design choice around it is deliberately classified under whichever axis it moves.
 
 <div class="row justify-content-sm-center">
-    <div class="col-sm-10 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/huawei-tech-arena-schematic.svg" title="Huawei Tech Arena system design — latency and accuracy levers around the model" class="img-fluid rounded z-depth-1" %}
+    <div class="col-sm-10 mt-3 mt-md-0 schematic-scroll">
+        {% include figure.liquid path="assets/img/huawei-tech-arena-schematic.svg" title="Huawei Tech Arena system design — latency and accuracy levers around the model" class="img-fluid rounded z-depth-1" zoomable=true %}
     </div>
 </div>
 
