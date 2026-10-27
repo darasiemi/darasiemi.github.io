@@ -102,7 +102,6 @@ function afterPreloader(eventName, callback) {
   if (!marquee || !track) return;
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-  var strip = marquee.closest(".logo-strip");
   var copyWidth = 0;
   var offset = 0;
   var auto = true;
@@ -118,10 +117,6 @@ function afterPreloader(eventName, callback) {
   var samples = [];
   var coastVelocity = 0; // px / second
   var coasting = false;
-
-  function markTouched() {
-    if (strip) strip.classList.add("is-marquee-touched");
-  }
 
   function sampleVelocity(clientX) {
     var now = performance.now();
@@ -193,10 +188,7 @@ function afterPreloader(eventName, callback) {
   }
 
   marquee.addEventListener("pointerenter", function (event) {
-    if (event.pointerType === "mouse") {
-      hoverPaused = true;
-      markTouched();
-    }
+    if (event.pointerType === "mouse") hoverPaused = true;
   });
   marquee.addEventListener("pointerleave", function (event) {
     if (event.pointerType === "mouse") hoverPaused = false;
@@ -237,7 +229,6 @@ function afterPreloader(eventName, callback) {
     clearTimeout(resumeTimer);
     auto = false;
     marquee.classList.add("is-dragging");
-    markTouched();
     // Follow the pointer at the document level so a drag that strays above or
     // below the strip still updates and ends cleanly.
     document.addEventListener("pointermove", onPointerMove);
