@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Huawei Tech Arena 2025 — LLM Inference Optimization
+title: Huawei Ireland Tech Arena 2025 — LLM Inference Optimization
 img: assets/img/huawei-tech-arena-schematic.svg
 importance: 1
 category: hackathons
