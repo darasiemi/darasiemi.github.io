@@ -478,7 +478,31 @@
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: #6b7280;
-  margin-bottom: 1.75rem;
+  margin-bottom: 0.4rem;
+}
+
+// Short interactivity cue — fades out once the viewer touches or hovers the
+// marquee so it reads as a hint, not a permanent control.
+.affiliation-hint {
+  display: block;
+  font-family: "Geist Mono", "SF Mono", monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #9ca3af;
+  margin-bottom: 1.25rem;
+  transition: opacity 0.4s ease;
+}
+
+.logo-strip.is-marquee-touched .affiliation-hint {
+  opacity: 0;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .affiliation-hint {
+    display: none;
+  }
 }
 
 // Marquee container — masks the overflow and fades the edges. The scroll

@@ -102,6 +102,7 @@ function afterPreloader(eventName, callback) {
   if (!marquee || !track) return;
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
+  var strip = marquee.closest(".logo-strip");
   var copyWidth = 0;
   var offset = 0;
   var auto = true;
@@ -113,6 +114,36 @@ function afterPreloader(eventName, callback) {
   var dragDistance = 0;
   var resumeTimer = 0;
   var lastTs = 0;
+  // Velocity sampling for flick momentum.
+  var samples = [];
+  var coastVelocity = 0; // px / second
+  var coasting = false;
+
+  function markTouched() {
+    if (strip) strip.classList.add("is-marquee-touched");
+  }
+
+  function sampleVelocity(clientX) {
+    var now = performance.now();
+    samples.push({ t: now, x: clientX });
+    var cutoff = now - 90;
+    while (samples.length > 2 && samples[0].t < cutoff) samples.shift();
+  }
+
+  function flingVelocity() {
+    if (samples.length < 2) return 0;
+    var first = samples[0];
+    var last = samples[samples.length - 1];
+    var dt = (last.t - first.t) / 1000;
+    if (dt <= 0) return 0;
+    return (last.x - first.x) / dt;
+  }
+
+  function startCoast() {
+    coastVelocity = flingVelocity();
+    samples.length = 0;
+    coasting = Math.abs(coastVelocity) > 60; // ignore tiny unintentional nudges
+  }
 
   function durationSeconds() {
     var raw = getComputedStyle(track).getPropertyValue("--marquee-duration").trim();
@@ -142,7 +173,18 @@ function afterPreloader(eventName, callback) {
     if (!lastTs) lastTs = ts;
     var dt = Math.min(ts - lastTs, 50) / 1000;
     lastTs = ts;
-    if (auto && !hoverPaused && !dragging && copyWidth > 0) {
+    if (coasting && !dragging) {
+      offset += coastVelocity * dt;
+      offset = normalize(offset);
+      apply();
+      // Friction: velocity halves ~every 400ms, so a brisk flick coasts for a
+      // second or two before settling.
+      coastVelocity *= Math.pow(0.18, dt);
+      if (Math.abs(coastVelocity) < 15) {
+        coasting = false;
+        coastVelocity = 0;
+      }
+    } else if (auto && !hoverPaused && !dragging && !coasting && copyWidth > 0) {
       offset -= (copyWidth / durationSeconds()) * dt;
       offset = normalize(offset);
       apply();
@@ -151,7 +193,10 @@ function afterPreloader(eventName, callback) {
   }
 
   marquee.addEventListener("pointerenter", function (event) {
-    if (event.pointerType === "mouse") hoverPaused = true;
+    if (event.pointerType === "mouse") {
+      hoverPaused = true;
+      markTouched();
+    }
   });
   marquee.addEventListener("pointerleave", function (event) {
     if (event.pointerType === "mouse") hoverPaused = false;
@@ -163,6 +208,7 @@ function afterPreloader(eventName, callback) {
     dragDistance = Math.abs(delta);
     offset = normalize(dragStartOffset + delta);
     apply();
+    sampleVelocity(event.clientX);
   }
 
   function endDrag() {
@@ -172,6 +218,7 @@ function afterPreloader(eventName, callback) {
     document.removeEventListener("pointermove", onPointerMove);
     document.removeEventListener("pointerup", endDrag);
     document.removeEventListener("pointercancel", endDrag);
+    startCoast();
     resumeTimer = setTimeout(function () {
       auto = true;
     }, 1800);
@@ -183,9 +230,14 @@ function afterPreloader(eventName, callback) {
     dragStartX = event.clientX;
     dragStartOffset = offset;
     dragDistance = 0;
+    coasting = false;
+    coastVelocity = 0;
+    samples.length = 0;
+    sampleVelocity(event.clientX);
     clearTimeout(resumeTimer);
     auto = false;
     marquee.classList.add("is-dragging");
+    markTouched();
     // Follow the pointer at the document level so a drag that strays above or
     // below the strip still updates and ends cleanly.
     document.addEventListener("pointermove", onPointerMove);
@@ -193,6 +245,55 @@ function afterPreloader(eventName, callback) {
     document.addEventListener("pointercancel", endDrag);
     event.preventDefault();
   });
+
+  // Touch fallback. On mobile Chromium cancels the pointer stream the moment
+  // it decides the gesture looks like a scroll, which leaves the strip stuck
+  // after a brief jump. Native touchmove events keep firing through the same
+  // gesture, so we mirror the drag off touch as well.
+  marquee.addEventListener(
+    "touchstart",
+    function (event) {
+      if (!event.touches.length) return;
+      dragging = true;
+      dragPointerId = null;
+      dragStartX = event.touches[0].clientX;
+      dragStartOffset = offset;
+      dragDistance = 0;
+      coasting = false;
+      coastVelocity = 0;
+      samples.length = 0;
+      sampleVelocity(event.touches[0].clientX);
+      clearTimeout(resumeTimer);
+      auto = false;
+      marquee.classList.add("is-dragging");
+      markTouched();
+    },
+    { passive: true }
+  );
+  marquee.addEventListener(
+    "touchmove",
+    function (event) {
+      if (!dragging || !event.touches.length) return;
+      var tx = event.touches[0].clientX;
+      var delta = tx - dragStartX;
+      dragDistance = Math.abs(delta);
+      offset = normalize(dragStartOffset + delta);
+      apply();
+      sampleVelocity(tx);
+    },
+    { passive: true }
+  );
+  function endTouchDrag() {
+    if (!dragging) return;
+    dragging = false;
+    marquee.classList.remove("is-dragging");
+    startCoast();
+    resumeTimer = setTimeout(function () {
+      auto = true;
+    }, 1800);
+  }
+  marquee.addEventListener("touchend", endTouchDrag);
+  marquee.addEventListener("touchcancel", endTouchDrag);
 
   // Suppress link activation when a drag ended on a logo.
   marquee.addEventListener(
