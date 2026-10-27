@@ -52,7 +52,7 @@ gsap: true
       { "type": "output-key", "key": "community:", "value": "1,500+ youth impacted across 3 countries" },
       { "type": "output-key", "key": "writing:", "value": "notes on ml, mental health, and the phd life" },
       { "type": "prompt", "cmd": "ls ./pages" },
-      { "type": "output-ls", "items": ["research/", "cv/", "blog/", "community/", "teaching/"] },
+      { "type": "output-ls", "items": ["cv/", "publications/", "projects/", "community/", "teaching/", "blog/"] },
       { "type": "prompt-live", "cmd": "scroll ↓ for the full story" }
     ]
   </script>

@@ -89,6 +89,135 @@ function afterPreloader(eventName, callback) {
   hero.addEventListener("touchcancel", endTouch);
 })();
 
+/* ── Draggable affiliation marquee ──
+   Replaces the CSS keyframe animation with a rAF-driven transform so the
+   viewer can touch-drag or click-drag the strip in either direction to catch
+   a logo that moved past. Auto-scroll leftward resumes a short beat after
+   release. Hover pauses on desktop. The CSS still owns layout, duration via
+   --marquee-duration, and the prefers-reduced-motion fallback (which falls
+   back to a static wrap and no JS). */
+(function () {
+  var marquee = document.querySelector(".logo-marquee");
+  var track = marquee && marquee.querySelector(".logo-marquee-track");
+  if (!marquee || !track) return;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+  var copyWidth = 0;
+  var offset = 0;
+  var auto = true;
+  var hoverPaused = false;
+  var dragging = false;
+  var dragPointerId = null;
+  var dragStartX = 0;
+  var dragStartOffset = 0;
+  var dragDistance = 0;
+  var resumeTimer = 0;
+  var lastTs = 0;
+
+  function durationSeconds() {
+    var raw = getComputedStyle(track).getPropertyValue("--marquee-duration").trim();
+    var seconds = parseFloat(raw);
+    return isFinite(seconds) && seconds > 0 ? seconds : 34;
+  }
+
+  function normalize(x) {
+    if (copyWidth <= 0) return x;
+    while (x <= -copyWidth) x += copyWidth;
+    while (x > 0) x -= copyWidth;
+    return x;
+  }
+
+  function apply() {
+    track.style.transform = "translateX(" + offset.toFixed(2) + "px)";
+  }
+
+  function measure() {
+    // Track contains two identical copies for a seamless loop; one copy = half.
+    copyWidth = track.scrollWidth / 2;
+    offset = normalize(offset);
+    apply();
+  }
+
+  function step(ts) {
+    if (!lastTs) lastTs = ts;
+    var dt = Math.min(ts - lastTs, 50) / 1000;
+    lastTs = ts;
+    if (auto && !hoverPaused && !dragging && copyWidth > 0) {
+      offset -= (copyWidth / durationSeconds()) * dt;
+      offset = normalize(offset);
+      apply();
+    }
+    window.requestAnimationFrame(step);
+  }
+
+  marquee.addEventListener("pointerenter", function (event) {
+    if (event.pointerType === "mouse") hoverPaused = true;
+  });
+  marquee.addEventListener("pointerleave", function (event) {
+    if (event.pointerType === "mouse") hoverPaused = false;
+  });
+
+  function onPointerMove(event) {
+    if (!dragging || event.pointerId !== dragPointerId) return;
+    var delta = event.clientX - dragStartX;
+    dragDistance = Math.abs(delta);
+    offset = normalize(dragStartOffset + delta);
+    apply();
+  }
+
+  function endDrag() {
+    if (!dragging) return;
+    dragging = false;
+    marquee.classList.remove("is-dragging");
+    document.removeEventListener("pointermove", onPointerMove);
+    document.removeEventListener("pointerup", endDrag);
+    document.removeEventListener("pointercancel", endDrag);
+    resumeTimer = setTimeout(function () {
+      auto = true;
+    }, 1800);
+  }
+
+  marquee.addEventListener("pointerdown", function (event) {
+    dragging = true;
+    dragPointerId = event.pointerId;
+    dragStartX = event.clientX;
+    dragStartOffset = offset;
+    dragDistance = 0;
+    clearTimeout(resumeTimer);
+    auto = false;
+    marquee.classList.add("is-dragging");
+    // Follow the pointer at the document level so a drag that strays above or
+    // below the strip still updates and ends cleanly.
+    document.addEventListener("pointermove", onPointerMove);
+    document.addEventListener("pointerup", endDrag);
+    document.addEventListener("pointercancel", endDrag);
+    event.preventDefault();
+  });
+
+  // Suppress link activation when a drag ended on a logo.
+  marquee.addEventListener(
+    "click",
+    function (event) {
+      if (dragDistance > 5) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+    },
+    true
+  );
+
+  measure();
+  // Match the previous CSS animation-delay: start the loop with RISE (7th / last
+  // logo) at the left edge so UCD enters fresh from the right.
+  offset = normalize(-copyWidth * (6 / 7));
+  apply();
+
+  window.addEventListener("load", measure);
+  window.addEventListener("resize", measure);
+
+  window.requestAnimationFrame(step);
+})();
+
 /* ── Terminal driver ── */
 (function () {
   var term = document.getElementById("bioTerminal");

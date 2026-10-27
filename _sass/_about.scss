@@ -481,43 +481,44 @@
   margin-bottom: 1.75rem;
 }
 
-// Marquee container — masks the overflow and fades the edges
+// Marquee container — masks the overflow and fades the edges. The scroll
+// behaviour (auto-leftward drift + draggable pan + hover pause) is driven by
+// JS in animations.js so a viewer can swipe/drag in either direction to catch
+// a logo that moved past.
 .logo-marquee {
   width: 100%;
   overflow: hidden;
   position: relative;
+  cursor: grab;
+  // Allow the browser's vertical page scroll; JS captures horizontal gestures.
+  touch-action: pan-y;
+
+  &.is-dragging {
+    cursor: grabbing;
+  }
 
   // Edge fade so logos appear to enter / exit smoothly
   mask-image: linear-gradient(to right, transparent 0%, #000 7%, #000 93%, transparent 100%);
   -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 7%, #000 93%, transparent 100%);
-
-  &:hover .logo-marquee-track {
-    animation-play-state: paused;
-  }
 }
 
 .logo-marquee-track {
+  // Duration in seconds — read by the JS driver to size the auto-scroll speed.
   --marquee-duration: 34s;
   display: flex;
   align-items: center;
   width: max-content;
   padding: 0.5rem 0;
-  // Moderate scroll — fast enough to feel alive, slow enough to read each logo
-  animation: logoScroll var(--marquee-duration) linear infinite;
-  // Negative delay jumps the loop to the frame where RISE (7th / last item) sits
-  // at the left edge, so UCD enters fresh from the right instead of being half
-  // off-screen at page load.
-  animation-delay: calc(var(--marquee-duration) * -6 / 7);
   will-change: transform;
   // Each item uses margin-right instead of flex gap so the trailing margin
   // after the last item of copy A matches the gap between items — seamless loop.
 
   @media (prefers-reduced-motion: reduce) {
-    animation: none;
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
     padding: 0.5rem 1.5rem;
+    transform: none !important;
 
     .logo-item[aria-hidden="true"] {
       display: none;
@@ -526,17 +527,6 @@
 
   @media (max-width: 576px) {
     --marquee-duration: 27s;
-  }
-}
-
-@keyframes logoScroll {
-  from {
-    transform: translateX(0);
-  }
-
-  to {
-    // One complete logo set: the second copy takes its place seamlessly.
-    transform: translateX(-50%);
   }
 }
 
