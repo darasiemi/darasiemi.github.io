@@ -571,6 +571,10 @@
     opacity 0.3s ease,
     transform 0.3s ease;
   opacity: 0.95;
+  // Prevent the browser's native image/link drag from stealing the pointer
+  // stream mid-swipe — the marquee driver needs the full gesture.
+  user-select: none;
+  -webkit-user-drag: none;
 
   &:hover {
     opacity: 1;
@@ -585,6 +589,8 @@
     max-height: 72px;
     object-fit: contain;
     display: block;
+    pointer-events: none;
+    -webkit-user-drag: none;
   }
 
   @media (max-width: 768px) {
