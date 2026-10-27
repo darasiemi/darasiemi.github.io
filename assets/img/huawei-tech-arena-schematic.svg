@@ -14,8 +14,8 @@
   <rect width="1400" height="760" fill="#f8f9fc" />
 
   <!-- Latency -->
-  <g filter="url(#hta-shadow)">
-    <rect x="485" y="40" width="520" height="200" rx="14" fill="#ffffff" stroke="#a94466" stroke-width="2.5" />
+  <g>
+    <rect filter="url(#hta-shadow)" x="485" y="40" width="520" height="200" rx="14" fill="#ffffff" stroke="#a94466" stroke-width="2.5" />
     <text x="515" y="80" font-size="26" font-weight="700" fill="#111827">Latency</text>
     <line x1="515" y1="92" x2="607" y2="92" stroke="#e8a92a" stroke-width="4" stroke-linecap="round" />
     <g font-size="17" fill="#374151">
@@ -28,8 +28,8 @@
   </g>
 
   <!-- Model (center column reference x=490..1000, center x=745) -->
-  <g filter="url(#hta-shadow)">
-    <rect x="490" y="290" width="510" height="200" rx="14" fill="#ffffff" stroke="#3b8c6f" stroke-width="2.5" />
+  <g>
+    <rect filter="url(#hta-shadow)" x="490" y="290" width="510" height="200" rx="14" fill="#ffffff" stroke="#3b8c6f" stroke-width="2.5" />
     <text x="520" y="330" font-size="26" font-weight="700" fill="#111827">Model</text>
     <line x1="520" y1="342" x2="596" y2="342" stroke="#4877e5" stroke-width="4" stroke-linecap="round" />
     <g font-size="17" fill="#374151">
@@ -41,8 +41,8 @@
   </g>
 
   <!-- Accuracy -->
-  <g filter="url(#hta-shadow)">
-    <rect x="485" y="540" width="520" height="190" rx="14" fill="#ffffff" stroke="#d99632" stroke-width="2.5" />
+  <g>
+    <rect filter="url(#hta-shadow)" x="485" y="540" width="520" height="190" rx="14" fill="#ffffff" stroke="#d99632" stroke-width="2.5" />
     <text x="515" y="580" font-size="26" font-weight="700" fill="#111827">Accuracy</text>
     <line x1="515" y1="592" x2="611" y2="592" stroke="#9fc93a" stroke-width="4" stroke-linecap="round" />
     <g font-size="17" fill="#374151">
@@ -53,15 +53,15 @@
   </g>
 
   <!-- Prompt + Questions -->
-  <g filter="url(#hta-shadow)">
-    <rect x="1060" y="330" width="260" height="120" rx="14" fill="#ffffff" stroke="#4877e5" stroke-width="2.5" />
+  <g>
+    <rect filter="url(#hta-shadow)" x="1060" y="330" width="260" height="120" rx="14" fill="#ffffff" stroke="#4877e5" stroke-width="2.5" />
     <text x="1190" y="380" text-anchor="middle" font-size="22" font-weight="700" fill="#111827">Prompt +</text>
     <text x="1190" y="410" text-anchor="middle" font-size="22" font-weight="700" fill="#111827">Questions</text>
   </g>
 
   <!-- Decoding -->
-  <g filter="url(#hta-shadow)">
-    <rect x="200" y="305" width="230" height="170" rx="14" fill="#ffffff" stroke="#43869b" stroke-width="2.5" />
+  <g>
+    <rect filter="url(#hta-shadow)" x="200" y="305" width="230" height="170" rx="14" fill="#ffffff" stroke="#43869b" stroke-width="2.5" />
     <g font-size="17" fill="#374151">
       <text x="222" y="348">• Deterministic Decoding</text>
       <text x="222" y="378">• Max_Tokens</text>
@@ -70,8 +70,8 @@
   </g>
 
   <!-- Output Answers -->
-  <g filter="url(#hta-shadow)">
-    <rect x="20" y="325" width="130" height="130" rx="14" fill="#ffffff" stroke="#86c37e" stroke-width="2.5" />
+  <g>
+    <rect filter="url(#hta-shadow)" x="20" y="325" width="130" height="130" rx="14" fill="#ffffff" stroke="#86c37e" stroke-width="2.5" />
     <text x="85" y="385" text-anchor="middle" font-size="20" font-weight="700" fill="#111827">Output</text>
     <text x="85" y="413" text-anchor="middle" font-size="20" font-weight="700" fill="#111827">Answers</text>
   </g>
