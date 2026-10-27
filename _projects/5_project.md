@@ -16,4 +16,4 @@ Team Dynamo A (Oluwadara Adedeji — UCD; Chinonso Osuji, Jidenna Okwarah, Chris
 
 **Latency levers** sat around hardware and serving: GPU over CPU for the biggest jump, request batching, speculative decoding, model compression via quantization, and paged attention for a virtualized LLM runtime. **Accuracy levers** sat around the prompt and the decoding step: subject-specific prompts, chain-of-thought, applying the Qwen3 chat template, deterministic decoding, bounded `max_tokens`, and lightweight post-processing. The model slot itself was swept across Qwen3 (0.6B → 1.7B → 4B), Llama 2.2 3B, Gemma (1B → 4B), and Gemma-3-270m-it so we could pick the point on the frontier where the two axes paid off together rather than one at the other's expense.
 
-Full writeup and press coverage: [blog post]({{ '/blog/2025/huawei-tech-arena/' | relative_url }}).
+Press coverage: [blog post]({{ '/blog/2025/huawei-tech-arena/' | relative_url }}).
