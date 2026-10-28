@@ -733,6 +733,19 @@ footer.sticky-bottom {
       }
     }
   }
+
+  // Bullet rows under each CV entry (courses, work highlights, volunteer
+  // highlights). The spans inherit the 1rem body size, which reads larger
+  // than the 0.95rem labels above them and inverts the visual hierarchy.
+  // Pull them down a notch so the role/institution line stays dominant.
+  .items {
+    font-size: 0.92rem;
+    line-height: 1.5;
+
+    li {
+      margin-bottom: 0.15rem;
+    }
+  }
 }
 
 .table-cv-map {
