@@ -89,7 +89,7 @@ GitHub Actions additionally runs Lychee against repository links and, after depl
 
 ## CI and deployment notes
 
-Pushes and pull requests to `master`/`main` trigger Prettier and relevant build/link workflows. `.github/workflows/deploy.yml` uses the latest Ruby 3.2 patch release, installs ImageMagick and Jupyter, performs a production Jekyll build, purges unused CSS, and publishes `_site/` to the GitHub Pages deployment branch. Documentation-only paths are excluded from deployment triggers.
+Pushes and pull requests to `master`/`main` trigger Prettier and relevant build/link workflows. `.github/workflows/deploy.yml` runs on Ubuntu 24.04 with the latest Ruby 3.2 patch release, installs ImageMagick and Jupyter, performs a production Jekyll build, purges unused CSS, and publishes `_site/` to the GitHub Pages deployment branch. Documentation-only paths are excluded from deployment triggers.
 
 Do not run `bin/deploy` casually. It is a legacy, destructive branch-deployment script: it requires a clean worktree, creates/replaces `gh-pages`, deletes source files on that branch, and can force-push. Normal deployment is handled by GitHub Actions. Likewise, leave generated `gh-pages` content alone.
 
