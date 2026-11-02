@@ -34,7 +34,7 @@ Open `http://localhost:8080`. The repository is mounted into the container, and 
 
 VS Code Development Containers are also supported by `.devcontainer/devcontainer.json`; attaching starts `bin/entry_point.sh` automatically.
 
-For a native setup, use Ruby 3.2.2 to match GitHub Actions and Bundler 2.5.10 to match `Gemfile.lock`. Do not rewrite the lockfile merely to support macOS's old system Ruby. Install ImageMagick plus Python/Jupyter dependencies, then install the locked Ruby and Node dependencies:
+For a native setup, use the latest Ruby 3.2 patch release to match GitHub Actions and Bundler 2.5.10 to match `Gemfile.lock`. Do not rewrite the lockfile merely to support macOS's old system Ruby. Install ImageMagick plus Python/Jupyter dependencies, then install the locked Ruby and Node dependencies:
 
 ```bash
 bundle install
@@ -89,7 +89,7 @@ GitHub Actions additionally runs Lychee against repository links and, after depl
 
 ## CI and deployment notes
 
-Pushes and pull requests to `master`/`main` trigger Prettier and relevant build/link workflows. `.github/workflows/deploy.yml` uses Ruby 3.2.2, installs ImageMagick and Jupyter, performs a production Jekyll build, purges unused CSS, and publishes `_site/` to the GitHub Pages deployment branch. Documentation-only paths are excluded from deployment triggers.
+Pushes and pull requests to `master`/`main` trigger Prettier and relevant build/link workflows. `.github/workflows/deploy.yml` uses the latest Ruby 3.2 patch release, installs ImageMagick and Jupyter, performs a production Jekyll build, purges unused CSS, and publishes `_site/` to the GitHub Pages deployment branch. Documentation-only paths are excluded from deployment triggers.
 
 Do not run `bin/deploy` casually. It is a legacy, destructive branch-deployment script: it requires a clean worktree, creates/replaces `gh-pages`, deletes source files on that branch, and can force-push. Normal deployment is handled by GitHub Actions. Likewise, leave generated `gh-pages` content alone.
 
