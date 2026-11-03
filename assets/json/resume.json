@@ -213,55 +213,21 @@
   ],
   "work": [
     {
-      "name": "Research Ireland Centre for Research Training in Machine Learning",
-      "position": "PhD Candidate",
-      "url": "https://www.ml-labs.ie/cohort/oluwadara-adedeji/",
-      "startDate": "2023-09-01",
-      "endDate": "Present",
-      "summary": "Research at the intersection of mental health, finance and machine learning"
-    },
-    {
       "name": "CyLab/ Upanzi network",
-      "position": "Research Associate",
-      "url": "https://www.africa.engineering.cmu.edu/research/upanzi/index.html",
-      "startDate": "2023-06-01",
-      "endDate": "2023-08-15",
-      "summary": "Deep Learning system for signature verification and animal biometrics. Machine learning for smishing detection"
-    },
-    {
-      "name": "CyLab/ Upanzi network",
-      "position": "Research Assistant",
+      "position": "Research Assistant → Research Associate",
       "url": "https://www.africa.engineering.cmu.edu/research/upanzi/index.html",
       "startDate": "2023-01-01",
-      "endDate": "2023-05-30",
-      "summary": "Deep Learning system for signature verification and animal biometrics"
+      "endDate": "2023-08-15",
+      "summary": "Developed deep-learning systems for signature verification and animal biometrics, and researched smishing detection."
     },
     {
       "name": "University College Dublin",
-      "position": "Senior Post-Graduate Demonstrator",
-      "url": "https://www.ucd.ie/cs/",
-      "location": "Dublin, Ireland",
-      "startDate": "2026-09-01",
-      "endDate": "Present",
-      "summary": "Senior demonstrator role in the UCD School of Computer Science."
-    },
-    {
-      "name": "University College Dublin",
-      "position": "Teaching Assistant",
-      "url": "https://www.ucd.ie/cs/",
-      "location": "Dublin, Ireland",
-      "startDate": "2025-01-01",
-      "endDate": "Present",
-      "summary": "Teaching assistant for Information Visualisation (COMP47970, COMP30750), leading Vega-Lite / Tableau labs across classes of 70+ and coordinating a team of 4–5 demonstrators."
-    },
-    {
-      "name": "University College Dublin",
-      "position": "Post-Graduate Demonstrator",
+      "position": "Teaching Assistant & Demonstrator",
       "url": "https://www.ucd.ie/cs/",
       "location": "Dublin, Ireland",
       "startDate": "2024-01-01",
-      "endDate": "2026-08-31",
-      "summary": "Demonstrator across 14 modules in the UCD School of Computer Science, spanning AI & ML (4), software engineering (3), programming & algorithms (3), information visualisation (3), and data science (1) — including mentoring student teams on AI projects (RAG, LLMs, vector databases)."
+      "endDate": "Present",
+      "summary": "Demonstrated across 14 modules before progressing to Senior Post-Graduate Demonstrator; led Information Visualisation labs for 70+ students and coordinated 4–5 demonstrators."
     },
     {
       "name": "Carnegie Mellon University Africa",
@@ -270,14 +236,14 @@
       "location": "Kigali, Rwanda",
       "startDate": "2022-08-01",
       "endDate": "2022-12-31",
-      "summary": "Graduate TA for Programming and Problem-Solving for Data Analytics (04-638): ran recitation sessions and office hours, graded coursework, and validated student solutions against edge cases."
+      "summary": "Led data analytics recitations and office hours, graded coursework, and checked student solutions against edge cases."
     },
     {
       "name": "Health Rhythms",
       "position": "Data Science Intern",
       "startDate": "2024-05-01",
       "endDate": "2024-07-30",
-      "summary": "Digital mental health: used Databricks for mental-health inferencing, screened and onboarded 300+ users onto the company's digital solution, and surfaced lessons on participant recruitment and messy-data handling across the data-science lifecycle — gaining first-hand experience with the role of validation studies in ensuring healthcare-ML reliability and clinical relevance."
+      "summary": "Used Databricks for mental-health inference, screened and onboarded 300+ users, and addressed recruitment and messy-data challenges in digital health."
     },
     {
       "name": "Coca-Cola Hellenic Bottling Company",
@@ -286,7 +252,7 @@
       "location": "Lagos, Nigeria",
       "startDate": "2019-06-01",
       "endDate": "2019-08-31",
-      "summary": "Coke Summership — a 3-month global internship rotating across Fleet, Transportation and Warehouse. Managed shipment orders and dockets in SAP, proposed a data-informed fix for warehouse congestion and product expiry, and closed ~1,200 product cases across 10 field engagements."
+      "summary": "Rotated across fleet, transport and warehouse operations; managed SAP shipment orders, proposed a fix for congestion and product expiry, and closed ~1,200 product cases."
     },
     {
       "name": "ipNX Nigeria Limited",
@@ -295,7 +261,7 @@
       "location": "Ibadan, Nigeria",
       "startDate": "2017-09-01",
       "endDate": "2018-02-28",
-      "summary": "Network Infrastructure team supporting field operations of the fixed-wireless network: installed and configured 5 GHz Ubiquiti radios, ran SOMA parameter checks, led fault diagnosis and network restoration for 100+ clients, and analysed coverage data in Excel to inform supervisor decisions."
+      "summary": "Installed 5 GHz Ubiquiti radios, diagnosed and restored fixed-wireless service for 100+ clients, and analysed coverage data in Excel."
     },
     {
       "name": "Federal Airports Authority of Nigeria",
@@ -304,7 +270,7 @@
       "location": "Ikeja, Lagos, Nigeria",
       "startDate": "2017-01-01",
       "endDate": "2017-03-31",
-      "summary": "Power-systems internship at Lagos Airport: monitored consumption and ran voltage-regulation tapping on the 8 MVA generators, performed thumper-based fault detection on underground cables, and supported installation of SF6 circuit breakers and 300 kVA transformers."
+      "summary": "Monitored consumption and performed voltage-regulation tapping on 8 MVA generators; traced underground cable faults with a thumper and helped install SF6 circuit breakers and 300 kVA transformers."
     }
   ],
   "volunteer": [
