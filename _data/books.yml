@@ -47,15 +47,6 @@ currently_reading:
     year: 2026
 
 completed:
-  - title: There Is a God
-    author: Antony Flew with Roy Abraham Varghese
-    isbn: "9780061335303"
-    preview_cover: assets/img/books/there-is-a-god-cover.webp
-    cover: assets/img/books/there-is-a-god.jpeg
-    spine_color: "#a6193d"
-    text_color: "#f5f5f5"
-    year: 2007
-
   - title: The Psychology of Money
     author: Morgan Housel
     isbn: "9780857197689"
@@ -108,3 +99,12 @@ completed:
     spine_color: "#b85c3a"
     text_color: "#f5f5f5"
     year: 2020
+
+  - title: There Is a God
+    author: Antony Flew with Roy Abraham Varghese
+    isbn: "9780061335303"
+    preview_cover: assets/img/books/there-is-a-god-cover.webp
+    cover: assets/img/books/there-is-a-god.jpeg
+    spine_color: "#a6193d"
+    text_color: "#f5f5f5"
+    year: 2007
