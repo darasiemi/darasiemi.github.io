@@ -3,7 +3,7 @@ layout: page
 title: bookshelf
 permalink: /bookshelf/
 nav: false
-description: A selection of books I’ve read and am currently reading.
+description: Books I’ve read and engaged with across different viewpoints.
 ---
 
 <div class="bookshelf-page" data-bookshelf>
