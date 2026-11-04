@@ -27,7 +27,7 @@ gsap: true
 
 Hi, welcome to my profile page! You can call me Dara.
 
-I am a fourth-year Ph.D. Candidate at the University College Dublin, in the School of Computer Science under the [ML-Labs](https://www.ml-labs.ie/) and the [Mood and Money Lab](https://moodmoney.ucd.ie/). My Ph.D. is also jointly sponsored by [Health Rhythms](https://www.linkedin.com/company/healthrhythms/), a data science and mental health company. I am being supervised by [Assistant Professor Mark Matthews](https://people.ucd.ie/mark.matthews).
+I am a fourth-year Ph.D. Candidate at the University College Dublin, in the School of Computer Science under the [ML-Labs](https://www.ml-labs.ie/) and the [Mood and Money Lab](https://moodmoney.ucd.ie/). My Ph.D. is also jointly sponsored by [Health Rhythms](https://www.linkedin.com/company/healthrhythms/), a data science and mental health company. I am being supervised by [Associate Professor Mark Matthews](https://people.ucd.ie/mark.matthews).
 
 My research focuses on assessing the mental health of individuals with bipolar disorder using objective financial data, statistical analysis, privacy-preserving machine learning and public engaging participatory studies. My work spans data collection and engineering to support efficient machine learning modelling, as well as human-computer interaction.
 
