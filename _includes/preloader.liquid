@@ -123,10 +123,7 @@
     if (!pre) return;
 
     {% if page.url == '/' %}
-      // Stage only the About page; without JavaScript all content remains visible.
-      document.documentElement.classList.add('about-staged');
       if (new URLSearchParams(window.location.search).has('photo')) {
-        document.documentElement.classList.add('terminal-done');
         // Strip the #gallery fragment so the browser's initial fragment-scroll
         // doesn't race the JS scrollIntoView that fires after Swiper mounts.
         // The ?photo= query is preserved so the gallery still picks the slide.
@@ -134,13 +131,6 @@
           window.history.replaceState(null, '', window.location.pathname + window.location.search);
         }
       }
-      // Keep the page accessible if the terminal script cannot finish.
-      setTimeout(function () {
-        if (!document.documentElement.classList.contains('terminal-done')) {
-          document.documentElement.classList.add('terminal-done');
-          document.dispatchEvent(new CustomEvent('terminal:done'));
-        }
-      }, 15000);
     {% endif %}
 
     // Skip the full preloader on repeat loads in the same session so navigating

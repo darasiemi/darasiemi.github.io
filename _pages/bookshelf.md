@@ -3,7 +3,7 @@ layout: page
 title: bookshelf
 permalink: /bookshelf/
 nav: false
-description: Books I’ve read and engaged with across different viewpoints.
+description: I read to follow my curiosity, explore different viewpoints, and sharpen my technical skills.
 ---
 
 <div class="bookshelf-page" data-bookshelf>

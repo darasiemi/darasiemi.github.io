@@ -22,42 +22,7 @@ gsap: true
 ---
 
 <div class="bio-container">
-  <!-- ── Terminal window ──────────────────────────────────────────────── -->
-  <div class="terminal" id="bioTerminal" role="region" aria-label="Interactive terminal introduction">
-    <div class="terminal-chrome">
-      <span class="terminal-dot terminal-dot--close"></span>
-      <span class="terminal-dot terminal-dot--min"></span>
-      <span class="terminal-dot terminal-dot--max"></span>
-      <span class="terminal-title">dara@darasi.me — zsh</span>
-    </div>
-
-    <div class="terminal-body" id="terminalBody">
-      <!-- Lines injected by JS. Script source lives in data attributes. -->
-    </div>
-
-    <button type="button" class="terminal-skip" id="terminalSkip" aria-label="Skip terminal animation">
-      skip ⏭
-    </button>
-
-  </div>
-
-  <!-- Script that drives the terminal, encoded in data attributes to keep JS dumb -->
-  <script type="application/json" id="terminalScript">
-    [
-      { "type": "prompt", "cmd": "whoami" },
-      { "type": "output", "text": "oluwadara adedeji — phd researcher, ai engineer, community builder" },
-      { "type": "prompt", "cmd": "cat ./role.yaml" },
-      { "type": "output-key", "key": "research:", "value": "mental health × ai × finance @ ucd" },
-      { "type": "output-key", "key": "engineering:", "value": "aws + azure certified · 5+ yrs ml" },
-      { "type": "output-key", "key": "community:", "value": "1,500+ youth impacted across 3 countries" },
-      { "type": "output-key", "key": "writing:", "value": "notes on ml, mental health, and the phd life" },
-      { "type": "prompt", "cmd": "ls ./pages" },
-      { "type": "output-ls", "items": ["cv/", "publications/", "projects/", "community/", "teaching/", "blog/"] },
-      { "type": "prompt-live", "cmd": "scroll ↓ for the full story" }
-    ]
-  </script>
-
-  <!-- ── Full bio (hidden until terminal finishes, then fades in) ────── -->
+  <!-- ── Bio ──────────────────────────────────────────────────────────── -->
   <div class="bio-full" id="bioFull" markdown="1">
 
 Hi, welcome to my profile page! You can call me Dara.
@@ -256,10 +221,9 @@ I am an AWS- and Azure-certified data science and machine learning professional 
       }
 
       /* Keep snapping back to the gallery until the layout settles or the
-         user interacts. The terminal keeps typing text above the gallery
-         for several seconds on first load, late font loads shift metrics,
-         and lazy-loaded images reflow — all of which push the gallery down
-         after our initial scroll. On tight mobile viewports that leaves
+         user interacts. Late font loads and lazy-loaded images can reflow
+         the page and push the gallery down after our initial scroll. On
+         tight mobile viewports that leaves
          the requested photo well below the fold. We anchor on a timed
          ladder, resize-observe the body to catch anything in between, and
          honour any user scroll/touch/key as an immediate opt-out. */
@@ -359,10 +323,6 @@ I am an AWS- and Azure-certified data science and machine learning professional 
       });
     }
 
-    if (document.documentElement.classList.contains("terminal-done")) {
-      launch();
-    } else {
-      document.addEventListener("terminal:done", launch, { once: true });
-    }
+    launch();
   })();
 </script>
