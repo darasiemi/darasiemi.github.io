@@ -22,9 +22,19 @@
 # `last_updated` is shown on /bookshelf/. Bump it whenever the shelf changes
 # (new book, progress update, cover swap). Format: YYYY-MM-DD.
 # ──────────────────────────────────────────────────────────────────────────────
-last_updated: 2026-11-03
+last_updated: 2026-11-05
 
 currently_reading:
+  - title: An Illustrated Guide to AI Agents
+    author: Maarten Grootendorst & Jay Alammar
+    isbn: "9798341662698"
+    preview_cover: assets/img/books/an-illustrated-guide-to-ai-agents-cover.webp
+    cover: assets/img/books/an-illustrated-guide-to-ai-agents.jpeg
+    spine_color: "#4a6b8f"
+    text_color: "#f5f5f5"
+    progress: 25
+    year: 2026
+
   - title: AI Engineering
     author: Chip Huyen
     isbn: "9781098166304"
@@ -36,16 +46,6 @@ currently_reading:
     progress: 75
     year: 2024
 
-  - title: An Illustrated Guide to AI Agents
-    author: Maarten Grootendorst & Jay Alammar
-    isbn: "9798341662698"
-    preview_cover: assets/img/books/an-illustrated-guide-to-ai-agents-cover.webp
-    cover: assets/img/books/an-illustrated-guide-to-ai-agents.jpeg
-    spine_color: "#4a6b8f"
-    text_color: "#f5f5f5"
-    progress: 25
-    year: 2026
-
 completed:
   - title: The Psychology of Money
     author: Morgan Housel
@@ -55,6 +55,15 @@ completed:
     spine_color: "#4a6b4e"
     text_color: "#f5f5f5"
     year: 2020
+
+  - title: The Hypomanic Edge
+    author: John D. Gartner
+    isbn: "9780743243445"
+    preview_cover: assets/img/books/the-hypomanic-edge-cover.webp
+    cover: assets/img/books/the-hypomanic-edge.jpeg
+    spine_color: "#a1281e"
+    text_color: "#f5f5f5"
+    year: 2005
 
   - title: Making It Big
     author: Femi Otedola
@@ -72,15 +81,6 @@ completed:
     spine_color: "#d9a93a"
     text_color: "#1c1917"
     year: 2022
-
-  - title: The Hypomanic Edge
-    author: John D. Gartner
-    isbn: "9780743243445"
-    preview_cover: assets/img/books/the-hypomanic-edge-cover.webp
-    cover: assets/img/books/the-hypomanic-edge.jpeg
-    spine_color: "#a1281e"
-    text_color: "#f5f5f5"
-    year: 2005
 
   - title: Designing Machine Learning Systems
     author: Chip Huyen
