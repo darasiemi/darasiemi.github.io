@@ -487,14 +487,7 @@
     {
       "name": "Artificial Intelligence",
       "icon": "fa-solid fa-tag",
-      "keywords": [
-        "Human-Centered AI",
-        "Applied Machine Learning",
-        "Participatory and Public Involved Technology",
-        "Statistical Analysis",
-        "Privacy-Preserving Machine Learning",
-        "Data Engineering"
-      ]
+      "keywords": ["Human-Centered AI", "Applied Machine Learning", "AI Engineering", "MLOps", "Data Engineering", "Statistical Analysis"]
     }
   ]
 }
