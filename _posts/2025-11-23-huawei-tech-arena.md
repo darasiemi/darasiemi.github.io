@@ -1,8 +1,8 @@
 ---
 layout: post
-title: My Team Won the 2025 Huawei Tech Arena on LLM Inference Optimization
+title: My Team Won the 2025 Huawei Tech Arena Ireland on LLM Inference Optimization
 date: 2025-11-23 00:00:00-0400
-description: Huawei Tech Arena
+description: Huawei Tech Arena Ireland
 featured_on_about: true
 about_excerpt: How our team won first place in a challenge to optimize LLM inference.
 tags:
@@ -12,6 +12,6 @@ categories:
   - AI
 ---
 
-Dublin, Monday 24th November – Oluwadara Adedeji, a student at UCD School of Computer Science, has secured first place at the Huawei Tech Arena 2025, partnering with three students from Dublin City University to solve one of the most pressing challenges in artificial intelligence development.
+Dublin, Monday 24th November – Oluwadara Adedeji, a student at UCD School of Computer Science, has secured first place at the 2025 Huawei Tech Arena Ireland, partnering with three students from Dublin City University to solve one of the most pressing challenges in artificial intelligence development.
 
 Team Dynamo A - composed of Adedeji (UCD), Chinonso Osuji (DCU), Jidenna Okwarah (DCU), and Christopher Mc Aleer (DCU)—competed against over 300 enrolled students from universities across Ireland in the hackathon's ninth edition, ultimately claiming the top prize of €5,000....[read more](https://www.ucd.ie/cs/news/ucdcomputersciencestudentwinshuaweitecharena2025/)
