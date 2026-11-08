@@ -82,6 +82,13 @@ SDGs training in Bayero University Kano (BUK) Secondary School, Kano, Nigeria --
 
 ## Career and Sex Education
 
+### Keturah Movement — Pad Bank May Project · 2021
+
+- Reached ~100 teenage girls from secondary schools in Oyo town, Nigeria, through sanitary kit donations and discussions on menstrual health, body changes during puberty, and physical and mental wellbeing.
+- Served as the Master of Ceremonies (MC) for the session, facilitating the programme and coordinating its activities.
+
+{% include figure.liquid path="assets/img/the_keturah_project.jpg" caption="Facilitating the Keturah Movement Pad Bank May Project in Oyo, 2021" width="60%" class="mx-auto d-block text-center" %}
+
 ### National Association of Oyo Students (NAOS), University of Ibadan · 2019
 
 - Organized and facilitated a career and sex education seminar for ~80 public secondary school students in Oyo town.
