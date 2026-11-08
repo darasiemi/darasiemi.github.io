@@ -14,7 +14,7 @@ I am committed to translating research into real-world impact, particularly in m
 
 My goal is to impact 10,000 young persons in the next 10 years.
 
-## Mental Health Volunteering
+## Mental Health and Mindfulness Volunteering
 
 ### [Aware](https://www.aware.ie/) · 2026 — Present
 
@@ -42,12 +42,9 @@ At one of the conversation cafes
 ![Mental health walks](/ssets/img/MANI_walk.jpeg)
 After a mental health walk -->
 
-## Mindfulness and Youth Development
-
 ### [Mastercard Foundation Scholarship](https://www.africa.engineering.cmu.edu/impact/mastercard-foundation-scholars.html) · 2021 — 2023
 
 - Facilitated a mindfulness and self-awareness training session on mental health for ~120 secondary school students in Kigali, Rwanda.
-- Organised and led an online community development project to teach ~40 African university students the Python programming language.
 
 <!-- ![Mindfulness training](/assets/img/mindfulness_studentgroup.jpg)
 Group photo with students and organizers -->
@@ -82,12 +79,12 @@ SDGs training in Bayero University Kano (BUK) Secondary School, Kano, Nigeria --
 
 ## Career and Sex Education
 
-### Keturah Movement — Pad Bank May Project · 2021
+### Keturah Movement — Pad Bank May Project · May, 2021
 
 - Reached ~100 teenage girls from secondary schools in Oyo town, Nigeria, through sanitary kit donations and discussions on menstrual health, body changes during puberty, and physical and mental wellbeing.
 - Served as the Master of Ceremonies (MC) for the session, facilitating the programme and coordinating its activities.
 
-{% include figure.liquid path="assets/img/the_keturah_project.jpg" caption="Facilitating the Keturah Movement Pad Bank May Project in Oyo, 2021" width="60%" class="mx-auto d-block text-center" %}
+{% include figure.liquid path="assets/img/the_keturah_project.jpg" caption="Facilitating the Keturah Movement Pad Bank May Project in Oyo (May, 2021)" width="60%" class="mx-auto d-block text-center" %}
 
 ### National Association of Oyo Students (NAOS), University of Ibadan · 2019
 
@@ -97,6 +94,10 @@ SDGs training in Bayero University Kano (BUK) Secondary School, Kano, Nigeria --
 {% include figure.liquid path="assets/img/map/naos_career_sex_ed.jpg" caption="NAOS career and sex education seminar for secondary school students in Oyo town" width="38%" class="mx-auto d-block text-center" %}
 
 ## Science, Technology, Engineering, Mathematics (STEM) Education
+
+### [Mastercard Foundation Scholarship](https://www.africa.engineering.cmu.edu/impact/mastercard-foundation-scholars.html) · 2021 — 2023
+
+- Organised and led an online community development project to teach ~40 African university students the Python programming language.
 
 <span id="stemi-makers"></span>
 
