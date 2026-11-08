@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 760" role="img" aria-labelledby="hta-title hta-desc" font-family="'Inter', 'Helvetica Neue', Arial, sans-serif">
-  <title id="hta-title">Huawei Tech Arena — LLM inference architecture</title>
+  <title id="hta-title">Huawei Tech Arena Ireland — LLM inference architecture</title>
   <desc id="hta-desc">Model box in the center with Latency levers above, Accuracy levers below, Prompt and Questions on the right, Decoding on the left, and Output Answers on the far left.</desc>
 
   <defs>
