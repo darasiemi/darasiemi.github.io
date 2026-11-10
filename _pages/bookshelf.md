@@ -6,6 +6,10 @@ nav: false
 description: I read to follow my curiosity, explore different viewpoints, and sharpen my technical skills.
 ---
 
+{% assign technical_books = site.data.books.currently_reading | where: 'category', 'technical' | sort: 'progress' | reverse %}
+{% assign other_books = site.data.books.currently_reading | where_exp: 'book', "book.category != 'technical'" | sort: 'progress' | reverse %}
+{% assign ordered_currently_reading = technical_books | concat: other_books %}
+
 <div class="bookshelf-page" data-bookshelf>
   <!--
     WebGL rail — mounted by assets/js/bookshelf.js. The canvas is visible from
@@ -40,7 +44,7 @@ description: I read to follow my curiosity, explore different viewpoints, and sh
     panel can show them from cache.
   -->
 
-{% for book in site.data.books.currently_reading %}
+{% for book in ordered_currently_reading %}
 {% if book.preview_cover and book.preview_cover != '' %}
 
 <link rel="preload" as="image" href="{{ book.preview_cover | relative_url }}" />
@@ -83,7 +87,7 @@ description: I read to follow my curiosity, explore different viewpoints, and sh
   <!-- Book data serialized for the WebGL module. -->
 
 {% capture books_json %}[
-{% assign currently_reading = site.data.books.currently_reading | default: empty %}
+{% assign currently_reading = ordered_currently_reading | default: empty %}
 {% assign completed = site.data.books.completed | default: empty %}
 {% for book in currently_reading %}
 {
@@ -119,12 +123,12 @@ description: I read to follow my curiosity, explore different viewpoints, and sh
 
   <!-- ─────────────── DOM fallback (visible until .is-webgl-ready) ─────────────── -->
   <div class="bookshelf-fallback">
-    {% if site.data.books.currently_reading and site.data.books.currently_reading.size > 0 %}
+    {% if ordered_currently_reading and ordered_currently_reading.size > 0 %}
       <section class="bookshelf-section">
         <h2 class="bookshelf-section-title">Currently reading</h2>
         <div class="bookshelf">
           <div class="bookshelf-rail" role="list">
-            {% for book in site.data.books.currently_reading %}
+            {% for book in ordered_currently_reading %}
               <button
                 type="button"
                 class="book"
