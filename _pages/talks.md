@@ -12,7 +12,7 @@ nav: false
 
 {% include figure.liquid path="assets/img/health_data_seminar.jpeg" caption="Health Data Talk" width="60%" class="mx-auto d-block text-center" %}
 
-### [Encode Africa, AI Safety Action Week](https://encodessa.org/)
+### Encode Africa, AI Safety Action Week
 
 - I presented my research as a keynote speaker at Encode Africa's AI Safety Action, on **"Human-Centered AI: Can Putting People First Make AI Safer?"**. [Recording](https://docs.google.com/videos/d/1dTasnLpSbrMZxVdxymH6ZbOcyoFIRP3QXeQLpWV2aLc/play)
 
