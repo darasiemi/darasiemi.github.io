@@ -18,20 +18,26 @@ pagination:
 
 <script>
   (function () {
+    var root = document.documentElement;
     try {
       if (sessionStorage.getItem('blog-intro-shown') === '1') {
-        document.documentElement.classList.add('blog-intro-seen');
+        root.classList.add('blog-intro-seen');
+        return;
       }
     } catch (error) {
-      return;
+      // The first-visit sequence still works when session storage is unavailable.
     }
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    root.classList.add('blog-intro-running');
 
     document.addEventListener('animationend', function (event) {
       if (event.animationName === 'blogInkReveal' && event.target.classList.contains('blog-title-ink')) {
+        root.classList.replace('blog-intro-running', 'blog-intro-complete');
         try {
           sessionStorage.setItem('blog-intro-shown', '1');
         } catch (error) {
-          // The animation still works when session storage is unavailable.
+          // Keep the current page visible without session storage.
         }
       }
     });

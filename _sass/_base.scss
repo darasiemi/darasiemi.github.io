@@ -812,18 +812,6 @@ footer.sticky-bottom {
     // (no-motion) viewers don't see a stray pen glyph.
   }
 
-  @media (prefers-reduced-motion: no-preference) {
-    .blog-title-ink {
-      clip-path: inset(0 100% -15% -8%);
-      animation: blogInkReveal 1.6s cubic-bezier(0.65, 0, 0.35, 1) 0.3s forwards;
-    }
-
-    .blog-title-pen {
-      left: 0.1em;
-      animation: blogPenGlide 1.6s cubic-bezier(0.65, 0, 0.35, 1) 0.3s forwards;
-    }
-  }
-
   h2 {
     font-family: "Instrument Sans", sans-serif;
     font-size: clamp(0.95rem, 1.4vw, 1.15rem);
@@ -867,26 +855,33 @@ footer.sticky-bottom {
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  // The title finishes writing after its 0.3s delay and 1.6s animation.
-  .blog-header ~ .post-list > li {
-    animation: blogPostReveal 0.65s ease-out 1.9s both;
+  html.blog-intro-running .blog-title-ink {
+    clip-path: inset(0 100% -15% -8%);
+    animation: blogInkReveal 1.6s cubic-bezier(0.65, 0, 0.35, 1) 0.3s forwards;
+  }
+
+  html.blog-intro-running .blog-title-pen {
+    left: 0.1em;
+    animation: blogPenGlide 1.6s cubic-bezier(0.65, 0, 0.35, 1) 0.3s forwards;
   }
 
   // Keep the sequence visible when the first-visit loading screen takes longer.
   body.is-loading .blog-title-ink,
-  body.is-loading .blog-title-pen,
-  body.is-loading .blog-header ~ .post-list > li {
+  body.is-loading .blog-title-pen {
     animation-play-state: paused;
   }
 
-  html.blog-intro-seen .blog-title-ink {
-    clip-path: none;
-    animation: none;
+  html.blog-intro-running .blog-header ~ .tag-category-list,
+  html.blog-intro-running .blog-header ~ .featured-posts,
+  html.blog-intro-running .blog-header ~ .post-list > li {
+    opacity: 0;
+    transform: translateY(20px);
   }
 
-  html.blog-intro-seen .blog-title-pen,
-  html.blog-intro-seen .blog-header ~ .post-list > li {
-    animation: none;
+  html.blog-intro-complete .blog-header ~ .tag-category-list,
+  html.blog-intro-complete .blog-header ~ .featured-posts,
+  html.blog-intro-complete .blog-header ~ .post-list > li {
+    animation: blogPostReveal 0.65s ease-out both;
   }
 }
 
@@ -952,6 +947,24 @@ footer.sticky-bottom {
           background-color: transparent;
           text-decoration: none;
         }
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .blog-header ~ .tag-category-list {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+
+    ul {
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      width: max-content;
+      min-width: 100%;
+
+      li {
+        flex: none;
       }
     }
   }
