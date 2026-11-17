@@ -188,6 +188,7 @@ layout: home
 <!-- ── Selected Writing ──────────────────────────────────────────────────── -->
 {% if page.selected_posts %}
   {% assign selected_posts = site.posts | where: 'featured_on_about', true %}
+  {% assign selected_posts = selected_posts | sort: 'date' | reverse %}
   {% if selected_posts.size > 0 %}
     <div class="page-section page-section--divided page-section--writing" id="selected-writing">
       <div class="page-container">
