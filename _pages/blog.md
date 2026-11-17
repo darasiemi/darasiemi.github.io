@@ -16,6 +16,28 @@ pagination:
     after: 3 # The number of links after the current page
 ---
 
+<script>
+  (function () {
+    try {
+      if (sessionStorage.getItem('blog-intro-shown') === '1') {
+        document.documentElement.classList.add('blog-intro-seen');
+      }
+    } catch (error) {
+      return;
+    }
+
+    document.addEventListener('animationend', function (event) {
+      if (event.animationName === 'blogInkReveal' && event.target.classList.contains('blog-title-ink')) {
+        try {
+          sessionStorage.setItem('blog-intro-shown', '1');
+        } catch (error) {
+          // The animation still works when session storage is unavailable.
+        }
+      }
+    });
+  })();
+</script>
+
 <div class="post">
 
 {% assign blog_name_size = site.blog_name | size %}

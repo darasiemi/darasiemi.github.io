@@ -4,7 +4,8 @@ title: "How Financial Data May Provide Signal for Mental Health Assessment: Best
 date: 2026-11-13 00:00:00-0400
 description: EAI PervasiveHealth 2026 Best Paper Award
 featured_on_about: true
-about_excerpt: How our research earned the Best Paper Award for exploring financial data and mental health in bipolar disorder.
+about_excerpt: >-
+  Research from the Mood and Money Lab, University College Dublin was recognised with the Best Paper Award at EAI Pervasive Health 2026 for their innovative research exploring the relationship between financial behaviour and mental health in bipolar disorder.
 tags:
   - mental health
 categories:
@@ -12,6 +13,6 @@ categories:
   - publication
 ---
 
-Our research at UCD's Mood and Money Lab received the Best Paper Award at EAI PervasiveHealth 2026. We interviewed 19 people living with bipolar disorder to understand how changes in mood affect financial behaviour and what they would want from a system using transaction data to support mental health assessment.
+Research from the [Mood and Money Lab](https://moodmoney.ucd.ie/), University College Dublin was recognised with the Best Paper Award at [EAI Pervasive Health 2026](https://pervasivehealth.eai-conferences.org/2026/) for their innovative research exploring the relationship between financial behaviour and mental health in bipolar disorder. In this article, Oluwadara Adedeji shares insights from the research and key findings from the award-winning work presented at the conference.
 
-Their experiences point to spending patterns that could inform future, personalised models, while making clear that privacy, trust, and control over data sharing must shape how those models are built...[read more](https://eai.eu/blog/financial-data-mental-health-assessment-bipolar-disorder/)
+[Read more on EAI website](https://eai.eu/blog/financial-data-mental-health-assessment-bipolar-disorder/).

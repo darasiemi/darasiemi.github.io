@@ -779,7 +779,7 @@ footer.sticky-bottom {
 // ── Blog header ─────────────────────────────────────────────────────────────
 // Scoped overrides for the blog landing page: the title uses a handwritten
 // script face reminiscent of Dara's signature, with a pen that glides across
-// as the ink reveals. Runs once per page load — no infinite loops.
+// as the ink reveals. Runs once per browser session — no infinite loops.
 .blog-header {
   h1.blog-title {
     font-family: "Caveat", "Dancing Script", "Instrument Sans", cursive;
@@ -863,6 +863,42 @@ footer.sticky-bottom {
   100% {
     opacity: 0;
     left: calc(100% - 0.5em);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  // The title finishes writing after its 0.3s delay and 1.6s animation.
+  .blog-header ~ .post-list > li {
+    animation: blogPostReveal 0.65s ease-out 1.9s both;
+  }
+
+  // Keep the sequence visible when the first-visit loading screen takes longer.
+  body.is-loading .blog-title-ink,
+  body.is-loading .blog-title-pen,
+  body.is-loading .blog-header ~ .post-list > li {
+    animation-play-state: paused;
+  }
+
+  html.blog-intro-seen .blog-title-ink {
+    clip-path: none;
+    animation: none;
+  }
+
+  html.blog-intro-seen .blog-title-pen,
+  html.blog-intro-seen .blog-header ~ .post-list > li {
+    animation: none;
+  }
+}
+
+@keyframes blogPostReveal {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
   }
 }
 
