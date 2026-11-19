@@ -21,8 +21,11 @@ My goal is to impact 10,000 young persons in the next 10 years.
 - Facilitating peer support groups for individuals experiencing depression, bipolar disorder, and related mood disorders.
 - Fostering a safe, supportive, and inclusive environment where participants could share experiences, develop self-care strategies, and provide mutual support in line with Aware Ireland's guidelines.
 
+<span id="aware-volunteer-education-day"></span>
+{% include figure.liquid path="assets/img/aware_volunteer_education_day_2026.jpeg" caption="Aware Volunteer Education Day (November 2026)" width="75%" class="mx-auto d-block text-center" %}
+
 <span id="aware-training"></span>
-{% include figure.liquid path="assets/img/aware_volunteering.JPG" caption="Volunteer onboarding training weekend" width="75%" class="mx-auto d-block text-center" %}
+{% include figure.liquid path="assets/img/aware_volunteering.JPG" caption="Volunteer onboarding training weekend (June 2026)" width="75%" class="mx-auto d-block text-center" %}
 
 I also recently collaborated with **Aware** on a study exploring how mood changes are reflected in financial behaviours among people living with bipolar disorder. The study was recently featured on Aware's website; you can read about it [here](https://www.aware.ie/guest-blog-ucd-mood-and-money-lab/).
 
