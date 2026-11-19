@@ -22,10 +22,10 @@ My goal is to impact 10,000 young persons in the next 10 years.
 - Fostering a safe, supportive, and inclusive environment where participants could share experiences, develop self-care strategies, and provide mutual support in line with Aware Ireland's guidelines.
 
 <span id="aware-volunteer-education-day"></span>
-{% include figure.liquid path="assets/img/aware_volunteer_education_day_2026.jpeg" caption="Aware Volunteer Education Day (November 2026)" width="75%" class="mx-auto d-block text-center" %}
+{% include figure.liquid path="assets/img/aware_volunteer_education_day_2026.jpeg" caption="Volunteer Education Day (November 2026)" width="75%" class="mx-auto d-block text-center" %}
 
 <span id="aware-training"></span>
-{% include figure.liquid path="assets/img/aware_volunteering.JPG" caption="Volunteer onboarding training weekend (June 2026)" width="75%" class="mx-auto d-block text-center" %}
+{% include figure.liquid path="assets/img/aware_volunteering.JPG" caption="Volunteer Onboarding Training Weekend (June 2026)" width="75%" class="mx-auto d-block text-center" %}
 
 I also recently collaborated with **Aware** on a study exploring how mood changes are reflected in financial behaviours among people living with bipolar disorder. The study was recently featured on Aware's website; you can read about it [here](https://www.aware.ie/guest-blog-ucd-mood-and-money-lab/).
 
@@ -34,10 +34,10 @@ I also recently collaborated with **Aware** on a study exploring how mood change
 - Led mental health programmes impacting 300+ individuals, including conversation cafés, mental health walks, and awareness initiatives in Ibadan, Oyo state, Nigeria.
 
 <span id="mani-conversation-cafes"></span>
-{% include figure.liquid path="assets/img/MANI_conversations.jpeg" caption="At one of the conversation cafes" width="60%" class="mx-auto d-block text-center" %}
+{% include figure.liquid path="assets/img/MANI_conversations.jpeg" caption="At One of the Conversation Cafes" width="60%" class="mx-auto d-block text-center" %}
 
 <span id="mani-mental-health-walks"></span>
-{% include figure.liquid path="assets/img/MANI_walk.jpeg" caption="After a mental health walk" width="60%" class="mx-auto d-block text-center" %}
+{% include figure.liquid path="assets/img/MANI_walk.jpeg" caption="After a Mental Health Walk" width="60%" class="mx-auto d-block text-center" %}
 
 <!-- ![MANI conversations](/assets/img/MANI_conversations.jpeg)
 At one of the conversation cafes
@@ -53,7 +53,7 @@ After a mental health walk -->
 Group photo with students and organizers -->
 
 <span id="mindfulness-training"></span>
-{% include figure.liquid path="assets/img/mindfulness_studentgroup.jpg" caption="Group photo with students and organizers" width="60%" class="mx-auto d-block text-center" %}
+{% include figure.liquid path="assets/img/mindfulness_studentgroup.jpg" caption="Group Photo with Students and Organizers" width="60%" class="mx-auto d-block text-center" %}
 
 ## Leadership, Career Development and Sustainable Development Goals (SDGs)
 
@@ -64,10 +64,10 @@ Group photo with students and organizers -->
 - The students were lectured on career management, leadership lifestyle and introduction to the Sustainable Development Goals (SDGs).
 
 <span id="rise-sped"></span>
-{% include figure.liquid path="assets/img/rise_sped.jpeg" caption="Leadership bootcamp at SPED International Secondary School, Oyo" width="60%" class="mx-auto d-block text-center" %}
+{% include figure.liquid path="assets/img/rise_sped.jpeg" caption="Leadership Bootcamp at SPED International Secondary School, Oyo" width="60%" class="mx-auto d-block text-center" %}
 
 <span id="rise-best-legacy"></span>
-{% include figure.liquid path="assets/img/rise_bliss1.jpeg" caption="Leadership bootcamp at Best Legacy International Secondary School, Awe, Oyo" width="60%" class="mx-auto d-block text-center"  %}
+{% include figure.liquid path="assets/img/rise_bliss1.jpeg" caption="Leadership Bootcamp at Best Legacy International Secondary School, Awe, Oyo" width="60%" class="mx-auto d-block text-center"  %}
 
 ### National Youth Service SDG Advocacy · 2020
 
@@ -78,7 +78,7 @@ Group photo with students and organizers -->
 SDGs training in Bayero University Kano (BUK) Secondary School, Kano, Nigeria -->
 
 <span id="sdg-kano"></span>
-{% include figure.liquid path="assets/img/sdgs_kano.jpeg" caption="SDGs training in Bayero University Kano (BUK) Secondary School, Kano, Nigeria" width="60%" class="mx-auto d-block text-center"  %}
+{% include figure.liquid path="assets/img/sdgs_kano.jpeg" caption="SDGs Training in Bayero University Kano (BUK) Secondary School, Kano, Nigeria" width="60%" class="mx-auto d-block text-center"  %}
 
 ## Career and Sex Education
 
@@ -94,7 +94,7 @@ SDGs training in Bayero University Kano (BUK) Secondary School, Kano, Nigeria --
 - Organized and facilitated a career and sex education seminar for ~80 public secondary school students in Oyo town.
 
 <span id="naos-seminar"></span>
-{% include figure.liquid path="assets/img/map/naos_career_sex_ed.jpg" caption="NAOS career and sex education seminar for secondary school students in Oyo town" width="38%" class="mx-auto d-block text-center" %}
+{% include figure.liquid path="assets/img/map/naos_career_sex_ed.jpg" caption="NAOS Career and Sex Education Seminar for Secondary School Students in Oyo Town" width="38%" class="mx-auto d-block text-center" %}
 
 ## Science, Technology, Engineering, Mathematics (STEM) Education
 
