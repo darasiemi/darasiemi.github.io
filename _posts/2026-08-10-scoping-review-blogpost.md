@@ -2,7 +2,7 @@
 layout: post
 title: Banking apps could help manage mental health, UCD study finds
 date: 2026-08-10 00:00:00-0400
-description: Mental and Money Scoping Review
+description: Scoping Review in Frontiers in Public Health
 tags:
   - mental health
 categories:

@@ -2,7 +2,7 @@
 layout: post
 title: What does your spending say about your mental health?
 date: 2026-08-04 00:00:00-0400
-description: Pervasive Health 2026
+description: EAI PervasiveHealth 2026 blog post
 tags:
   - mental health
 categories:
