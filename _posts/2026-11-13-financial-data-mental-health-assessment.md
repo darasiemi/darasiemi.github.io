@@ -11,6 +11,7 @@ tags:
 categories:
   - research
   - publication
+  - PhD
 ---
 
 Research from the [Mood and Money Lab](https://moodmoney.ucd.ie/), University College Dublin was recognised with the Best Paper Award at [EAI Pervasive Health 2026](https://pervasivehealth.eai-conferences.org/2026/) for their innovative research exploring the relationship between financial behaviour and mental health in bipolar disorder. In this article, Oluwadara Adedeji shares insights from the research and key findings from the award-winning work presented at the conference.
