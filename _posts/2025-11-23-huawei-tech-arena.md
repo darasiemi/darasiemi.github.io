@@ -6,7 +6,6 @@ description: Huawei Tech Arena Ireland
 featured_on_about: true
 about_excerpt: How our team won first place in a challenge to optimize LLM inference.
 tags:
-  - machine learning
   - hackathon
 categories:
   - AI

@@ -4,7 +4,6 @@ title: Data Science Club Competes in Hack-a-Thon
 date: 2022-12-06 00:00:00-0400
 description: Umoja Hack
 tags:
-  - machine learning
   - hackathon
 categories:
   - AI
