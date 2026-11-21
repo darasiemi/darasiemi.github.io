@@ -12,81 +12,89 @@ function afterPreloader(eventName, callback) {
   }
 }
 
-/* ── Hero glow follows the cursor ── */
+/* ── Hero and desktop bio glows follow the cursor ── */
 (function () {
-  var hero = document.querySelector(".hero-section");
-  if (!hero || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-  var x = 50;
-  var y = 50;
-  var targetX = 50;
-  var targetY = 50;
-  var frame = 0;
+  function attachGlow(section, resetX, resetY) {
+    var x = resetX;
+    var y = resetY;
+    var targetX = resetX;
+    var targetY = resetY;
+    var frame = 0;
 
-  function update() {
-    var dx = targetX - x;
-    var dy = targetY - y;
-    if (Math.abs(dx) + Math.abs(dy) < 0.2) {
-      x = targetX;
-      y = targetY;
-      frame = 0;
-    } else {
-      x += dx * 0.16;
-      y += dy * 0.16;
-      frame = window.requestAnimationFrame(update);
+    function update() {
+      var dx = targetX - x;
+      var dy = targetY - y;
+      if (Math.abs(dx) + Math.abs(dy) < 0.2) {
+        x = targetX;
+        y = targetY;
+        frame = 0;
+      } else {
+        x += dx * 0.16;
+        y += dy * 0.16;
+        frame = window.requestAnimationFrame(update);
+      }
+      section.style.setProperty("--hero-glow-x", x.toFixed(2) + "%");
+      section.style.setProperty("--hero-glow-y", y.toFixed(2) + "%");
     }
-    hero.style.setProperty("--hero-glow-x", x.toFixed(2) + "%");
-    hero.style.setProperty("--hero-glow-y", y.toFixed(2) + "%");
+
+    function moveTo(nextX, nextY) {
+      targetX = nextX;
+      targetY = nextY;
+      if (!frame) frame = window.requestAnimationFrame(update);
+    }
+
+    // Touch pointers get cancelled as soon as Chromium decides a drag is a scroll
+    // gesture, so pointer events alone leave the glow stuck. We drive it from the
+    // native touch stream too — those events keep firing through a scroll — and
+    // suppress the pointerleave reset while a finger is still down.
+    var touchActive = false;
+
+    function moveFrom(clientX, clientY) {
+      var rect = section.getBoundingClientRect();
+      moveTo(((clientX - rect.left) / rect.width) * 100, ((clientY - rect.top) / rect.height) * 100);
+    }
+
+    section.addEventListener(
+      "pointermove",
+      function (event) {
+        if (section.classList.contains("bio-container") && event.target.closest(".bio-full")) return;
+        moveFrom(event.clientX, event.clientY);
+      },
+      { passive: true }
+    );
+    section.addEventListener("pointerleave", function () {
+      if (!touchActive) moveTo(resetX, resetY);
+    });
+
+    section.addEventListener(
+      "touchstart",
+      function (event) {
+        touchActive = true;
+        if (event.touches.length) moveFrom(event.touches[0].clientX, event.touches[0].clientY);
+      },
+      { passive: true }
+    );
+    section.addEventListener(
+      "touchmove",
+      function (event) {
+        if (event.touches.length) moveFrom(event.touches[0].clientX, event.touches[0].clientY);
+      },
+      { passive: true }
+    );
+    function endTouch() {
+      touchActive = false;
+    }
+    section.addEventListener("touchend", endTouch);
+    section.addEventListener("touchcancel", endTouch);
   }
 
-  function moveTo(nextX, nextY) {
-    targetX = nextX;
-    targetY = nextY;
-    if (!frame) frame = window.requestAnimationFrame(update);
-  }
+  var hero = document.querySelector(".hero-section");
+  if (hero) attachGlow(hero, 50, 50);
 
-  // Touch pointers get cancelled as soon as Chromium decides a drag is a scroll
-  // gesture, so pointer events alone leave the glow stuck. We drive it from the
-  // native touch stream too — those events keep firing through a scroll — and
-  // suppress the pointerleave reset while a finger is still down.
-  var touchActive = false;
-
-  function moveFrom(clientX, clientY) {
-    var rect = hero.getBoundingClientRect();
-    moveTo(((clientX - rect.left) / rect.width) * 100, ((clientY - rect.top) / rect.height) * 100);
-  }
-
-  hero.addEventListener(
-    "pointermove",
-    function (event) {
-      moveFrom(event.clientX, event.clientY);
-    },
-    { passive: true }
-  );
-  hero.addEventListener("pointerleave", function () {
-    if (!touchActive) moveTo(50, 50);
-  });
-
-  hero.addEventListener(
-    "touchstart",
-    function (event) {
-      touchActive = true;
-      if (event.touches.length) moveFrom(event.touches[0].clientX, event.touches[0].clientY);
-    },
-    { passive: true }
-  );
-  hero.addEventListener(
-    "touchmove",
-    function (event) {
-      if (event.touches.length) moveFrom(event.touches[0].clientX, event.touches[0].clientY);
-    },
-    { passive: true }
-  );
-  function endTouch() {
-    touchActive = false;
-  }
-  hero.addEventListener("touchend", endTouch);
-  hero.addEventListener("touchcancel", endTouch);
+  var bio = document.querySelector(".bio-container");
+  if (bio && window.matchMedia("(min-width: 901px) and (hover: hover) and (pointer: fine)").matches) attachGlow(bio, 18, 50);
 })();
 
 /* ── Draggable affiliation marquee ──

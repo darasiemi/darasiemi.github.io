@@ -661,9 +661,50 @@
 }
 
 .bio-container {
-  max-width: 760px;
-  margin: 0 auto;
+  width: 100%;
   padding: 4rem 2rem 1.5rem;
+  position: relative;
+
+  // Show the spotlight only in the desktop gutters. The transparent middle
+  // keeps the reading column clear even when the pointer crosses the bio.
+  @media (min-width: 901px) and (hover: hover) and (pointer: fine) {
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image: radial-gradient(
+        circle 430px at var(--hero-glow-x, 18%) var(--hero-glow-y, 50%),
+        rgba(10, 112, 101, 0.25) 0%,
+        rgba(10, 112, 101, 0.08) 43%,
+        transparent 75%
+      );
+      mask-image: linear-gradient(
+        to right,
+        #000 0%,
+        #000 calc(50% - 420px),
+        transparent calc(50% - 360px),
+        transparent calc(50% + 360px),
+        #000 calc(50% + 420px),
+        #000 100%
+      );
+
+      html[data-theme="dark"] & {
+        background-image: radial-gradient(
+          circle 430px at var(--hero-glow-x, 18%) var(--hero-glow-y, 50%),
+          rgba(60, 191, 173, 0.15) 0%,
+          rgba(60, 191, 173, 0.045) 43%,
+          transparent 75%
+        );
+      }
+    }
+  }
+
+  .bio-full {
+    max-width: 696px;
+    margin: 0 auto;
+    position: relative;
+  }
 
   p,
   li {
