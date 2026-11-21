@@ -23,7 +23,7 @@
 # `last_updated` is shown on /bookshelf/. Bump it whenever the shelf changes
 # (new book, progress update, cover swap). Format: YYYY-MM-DD.
 # ──────────────────────────────────────────────────────────────────────────────
-last_updated: 2026-11-10
+last_updated: 2026-11-21
 
 currently_reading:
   # Technical books first, then non-technical; highest progress first within each group.
@@ -47,7 +47,7 @@ currently_reading:
     spine_color: "#4a6b8f"
     text_color: "#f5f5f5"
     category: technical
-    progress: 50
+    progress: 75
     year: 2026
 
   - title: Madness Explained
@@ -58,7 +58,7 @@ currently_reading:
     spine_color: "#263b48"
     text_color: "#f5f5f5"
     category: nontechnical
-    progress: 17
+    progress: 25
     year: 2004
 
 completed:
