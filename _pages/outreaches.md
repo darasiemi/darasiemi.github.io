@@ -21,6 +21,9 @@ My goal is to impact 10,000 young persons in the next 10 years.
 - Facilitating peer support groups for individuals experiencing depression, bipolar disorder, and related mood disorders.
 - Fostering a safe, supportive, and inclusive environment where participants could share experiences, develop self-care strategies, and provide mutual support in line with Aware Ireland's guidelines.
 
+<span id="aware-busyhead-project"></span>
+{% include figure.liquid path="assets/img/aware_busyhead_noah_kahan_2026.jpg" alt="Two Aware volunteers at The Busyhead Project information table at Noah Kahan's concert" caption="Volunteering at The Busyhead Project During Noah Kahan's 3Arena Dublin Concert (November 2026)" width="75%" max-width="640px" class="mx-auto d-block text-center" %}
+
 <span id="aware-volunteer-education-day"></span>
 {% include figure.liquid path="assets/img/aware_volunteer_education_day_2026.jpeg" caption="Volunteer Education Day (November 2026)" width="75%" class="mx-auto d-block text-center" %}
 
