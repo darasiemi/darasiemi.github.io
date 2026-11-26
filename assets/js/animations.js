@@ -59,7 +59,6 @@ function afterPreloader(eventName, callback) {
     section.addEventListener(
       "pointermove",
       function (event) {
-        if (section.classList.contains("bio-container") && event.target.closest(".bio-full")) return;
         moveFrom(event.clientX, event.clientY);
       },
       { passive: true }
